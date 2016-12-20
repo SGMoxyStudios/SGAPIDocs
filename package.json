@@ -1,0 +1,24 @@
+{
+  "name": "SGTool",
+  "version": "0.6.1",
+  "main": "app.js",
+  "framework": "mvc",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "crypto-js": "^3.1.8",
+    "ejs": "^2.5.2",
+    "express": "^3.4.7",
+    "express-partials": "^0.3.0",
+    "i18n-express": "^1.0.4",
+    "mkdirp": "^0.5.1",
+    "mongodb": "^2.2.11",
+    "multer": "^1.2.0",
+    "multiparty": "^4.1.2",
+    "nodemailer": "^0.7.1",
+    "randomstring": "^1.1.5",
+    "rimraf": "^2.5.4"
+  }
+}
