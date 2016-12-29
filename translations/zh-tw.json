@@ -3,6 +3,10 @@
   "Quick": "快速體驗",
   "APIOpen": "API服務開通",
   "MustRead": "接入必讀",
-  "GameCenterDel": "刪除遊戲項目",
-  "GameCenterEdit": "修改遊戲資訊"
+  "Tutorial": "接入指南",
+  "ClientWebAPI": "客戶端(Web API)",
+  "ClientWebAPIQuick": "快速集成指南",
+  "ClientWebAPIUser": "用戶系統",
+  "ClientWebAPIPay": "支付系統",
+  "ClientWebAPIAnalysis": "統計系統"
 }
