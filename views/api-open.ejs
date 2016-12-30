@@ -1,44 +1,40 @@
 <nav class="col-sm-3" id="myScrollspy">
-    <ul class="nav nav-pills nav-stacked well" data-spy="affix" data-offset-top="500" style="background-color: white">
-        <li><a href="#section1">《API服务开通》</a></li>
-        <li><a href="#section2">注册账号</a></li>
-        <li><a href="#section3">激活 AnySDK 服务</a></li>
-        <li><a href="#section3">账号申请审核</a></li>
-        <li><a href="#section3">新建游戏</a></li>
+    <ul class="nav nav-pills nav-stacked well" data-spy="affix" data-offset-top="600" style="background-color: white">
+        <li><a href="#section1"><h4> <%=texts.p1s1%> </h4></a></li>
+        <li><a href="#section2"><h4> <%=texts.p1s2%> </h4></a></li>
+        <li><a href="#section3"><h4> <%=texts.p1s3%> </h4></a></li>
+        <li><a href="#section4"><h4> <%=texts.p1s4%> </h4></a></li>
+        <li><a href="#section5"><h4> <%=texts.p1s5%> </h4></a></li>
     </ul>
 </nav>
 
 <div class="col-sm-9">
     <div id="section1">
-        <h1>《API服务开通》</h1>
+        <h1> <%=texts.p1s1%> </h1>
         <hr>
     </div>
     <div id="section2">
-        <h1>注册账号</h1>
+        <h1> <%=texts.p1s2%> </h1>
         <hr>
-        <p>AnySDK 使用 Cocos 开发者账号进行登录的，所以使用前需要注册 Cocos 开发者账号，可以到 http://dev.anysdk.com/reg 上注册账号，注册完邮箱会收到一封激活邮件，点击邮件里的地址来激活 Cocos 开发者账号，如果你只是使用 AnySDK 可以不用认证开发者信息。</p>
+        <h4> <%=texts.p1h21%> <a target="_blank" href="http://sgdashboard.nicemarket.com.tw/signup">http://sgdashboard.nicemarket.com.tw/signup</a> <%=texts.p1h22%> </h4>
+        <img src=<%= "assets/img/" + lang + "/pic01.png"%> class="img-responsive"/>
     </div>
     <div id="section3">
-        <h1>激活 AnySDK 服务</h1>
+        <h1> <%=texts.p1s3%> </h1>
         <hr>
-        <p>登陆成功后需要 加入已有公司 或 创建新的公司 来激活账号，因为游戏列表是存在于公司下而不是账号下，所以要求账号必须得有所属的公司。</p>
+        <h4> <%=texts.p1h3%> </h4>
     </div>
-    <div id="section41">
-        <h1>账号申请审核</h1>
+    <div id="section4">
+        <h1> <%=texts.p1s4%> </h1>
         <hr>
-        <p>公司后台管理员账号可在后台审核用户的加入公司申请。</p>
+        <h4> <%=texts.p1h41%> <a target="_blank" href="http://sgdashboard.nicemarket.com.tw/my-game">http://sgdashboard.nicemarket.com.tw/my-game</a> <%=texts.p1h42%> </h4>
+        <div class="well well-sm" style="width: 545px;">
+            <img src=<%= "assets/img/" + lang + "/pic02.png"%> class="img-responsive"/>
+        </div>
     </div>
-    <div id="section42">
-        <h1>新建游戏</h1>
+    <div id="section5">
+        <h1> <%=texts.p1s5%> </h1>
         <hr>
-        <p>新建游戏需要在客户端里新建，打开客户端，输入账号和密码进行登陆。</p>
-        <ol>
-            <li>游戏名称（必填字段）：顾名思义，就是您的游戏名称，该名称也将会在后续打包过程中对 APK 进行改名时使用到。</li>
-            <li>游戏类型（必填字段）：主要分为单机或者网游。</li>
-            <li>游戏图标（必填字段）：这边我们要求选择的游戏 icon 大小必须为 512*512，这样我们才能在不同渠道下生成带有渠道角标的 icon，且在不同分辨率的资源目录下放入不同大小的 icon。</li>
-            <li>Keystore 文件、Keystore 密码、Alias 名称、Alias 密码：这四个字段是关于 APK 的签名信息，在打包完成时我们需要对打出来的包进行签名，才能够正常安装（若是您后面有配置渠道签名，则打包以渠道签名为主，若是没有则以游戏签名为主，若是此处您不填写则将使用 AnySDK 自带默认签名，建议填写您的签名信息，优先级为：渠道签名 > 游戏签名 > AnySDK 自带签名），若是你对签名仍有疑问，可点击此处了解更多签名相关。</li>
-            <li>联系人电话、QQ、微信：建议填写真实数据，以便在接入过程中出现问题，AnySDK 可主动联系您来提供技术支持。</li>
-            <li>使用 CocosPlay：CocosPlay 是帮助开发者将现有 APK 游戏快速移植为点开即玩的微端游戏的一种解决方案，若是您有使用该方案建议将其勾选上，若是没有可不选。</li>
-        </ol>
+        <h4> <%=texts.p1h5%> </h4>
     </div>
 </div>
