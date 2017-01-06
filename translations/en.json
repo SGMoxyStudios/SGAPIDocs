@@ -20,7 +20,7 @@
   "p1h3": "Waiting for administrators to send a Confirm Email after registration. Click the link to launch your developer account after receiving the mail.",
   "p1h41": "After the developer account being launched, you can go ",
   "p1h42": " add new game to SG Studios Game API Platform.",
-  "p1h5": "Waiting for the administrators to open your game. You can get the Game ID and Private Key after receiving the Open Email. Then you can use SG Studios Game API Platform."
+  "p1h5": "Waiting for the administrators to open your game. You can get the Game ID and Private Key after receiving the Open Email. Then you can use SG Studios Game API Platform.",
   "Page-webapi-init": "==============================",
   "ApiName": "Interface Name:",
   "ApiExplain": "Interface description:",
