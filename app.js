@@ -35,6 +35,8 @@ app.get('/api-open', function(req, res){res.render('api-open')});
 app.get('/must-read', function(req, res){res.render('must-read')});
 app.get('/webapi-init', function(req, res){res.render('webapi-init')});
 app.get('/webapi-user', function(req, res){res.render('webapi-user')});
+app.get('/webapi-pay', function(req, res){res.render('webapi-pay')});
+app.get('/webapi-analytics', function(req, res){res.render('webapi-analytics')});
 
 app.listen(port);
 console.log('Express server listening on port ' + port);
