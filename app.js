@@ -32,6 +32,7 @@ if ('development' === app.get('env')) {
 
 app.get('/', function(req, res){res.render('index')});
 app.get('/api-open', function(req, res){res.render('api-open')});
+app.get('/api-verification', function(req, res){res.render('api-verification')});
 app.get('/must-read', function(req, res){res.render('must-read')});
 app.get('/webapi-init', function(req, res){res.render('webapi-init')});
 app.get('/webapi-user', function(req, res){res.render('webapi-user')});
