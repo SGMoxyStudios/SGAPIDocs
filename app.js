@@ -34,10 +34,21 @@ app.get('/', function(req, res){res.render('index')});
 app.get('/api-open', function(req, res){res.render('api-open')});
 app.get('/api-verification', function(req, res){res.render('api-verification')});
 app.get('/must-read', function(req, res){res.render('must-read')});
+//web api
 app.get('/webapi-init', function(req, res){res.render('webapi-init')});
 app.get('/webapi-user', function(req, res){res.render('webapi-user')});
 app.get('/webapi-pay', function(req, res){res.render('webapi-pay')});
 app.get('/webapi-analytics', function(req, res){res.render('webapi-analytics')});
+//java
+app.get('/java-init', function(req, res){res.render('java-init')});
+app.get('/java-user', function(req, res){res.render('java-user')});
+app.get('/java-pay', function(req, res){res.render('java-pay')});
+app.get('/java-analytics', function(req, res){res.render('java-analytics')});
+//swift
+app.get('/swift-init', function(req, res){res.render('swift-init')});
+app.get('/swift-user', function(req, res){res.render('swift-user')});
+app.get('/swift-pay', function(req, res){res.render('swift-pay')});
+app.get('/swift-analytics', function(req, res){res.render('swift-analytics')});
 
 app.listen(port);
 console.log('Express server listening on port ' + port);

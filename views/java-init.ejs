@@ -1,0 +1,35 @@
+<nav class="col-sm-3" id="myScrollspy">
+    <ul class="nav nav-pills nav-stacked well" data-spy="affix" data-offset-top="600" style="background-color: white">
+        <li><a href="#section1"><h4> <%=texts.jp2s1%> </h4></a></li>
+        <li><a href="#section2"><h4> <%=texts.jp2s2%> </h4></a></li>
+    </ul>
+</nav>
+
+<div class="col-sm-9">
+    <div id="section1">
+        <h1><%=texts.jp2s1%></h1>
+        <hr>
+        <h4><%=texts.p2h1%></h4>
+    </div>
+    <br>
+    <div id="section2">
+        <h1><%=texts.jp2s2%></h1>
+        <hr>
+        <h3>1.minSdkVersion : </h3>
+        <h4><%=texts.jp2h21%></h4>
+        <img src=<%= "assets/img/" + lang + "/pic05.png"%> class="img-responsive"/>
+        <h3>2.uses-permission : </h3>
+        <p><pre><code class="js"><uses-permission android:name="android.permission.INTERNET" /> <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+            </code></pre></p>
+    </div>
+    <br>
+    <div id="section3">
+        <h1><%=texts.p2s3%></h1>
+        <p><%=texts.ApiName%>init<br/>
+            <%=texts.ApiExplain%><%=texts.p2h31%><code>init</code><%=texts.p2h32%><br/>
+            <%=texts.Parameter%>gamekey，appsecret，privatekey<br/>
+            <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/init?gamekey=d7e73390-d7fd-11e6-9074-21c247f06802&appsecret=d7d7c810-d7ee-11e6-9e86-db4f79aeee86&privatekey=azlxEUasGMOf1VoygA9Jvta76pG8QnoC</code></pre>
+            <%=texts.ReturnCode + texts.Result%><br/>
+        </p>
+    </div>
+</div>

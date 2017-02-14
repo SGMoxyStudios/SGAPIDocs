@@ -1,0 +1,103 @@
+<nav class="col-sm-3" id="myScrollspy">
+    <ul class="nav nav-pills nav-stacked well" data-spy="affix" data-offset-top="600" style="background-color: white">
+        <li><a href="#section1"><h4> <%=texts.p3s1%> </h4></a></li>
+        <li><a href="#section2"><h4> <%=texts.p3s2%> </h4></a></li>
+        <li><a href="#section3"><h4> <%=texts.p3s3%> </h4></a></li>
+        <li><a href="#section4"><h4> <%=texts.p3s4%> </h4></a></li>
+        <li><a href="#section5"><h4> <%=texts.p3s5%> </h4></a></li>
+        <li><a href="#section6"><h4> <%=texts.p3s6%> </h4></a></li>
+        <li><a href="#section7"><h4> <%=texts.p3s7%> </h4></a></li>
+        <li><a href="#section8"><h4> <%=texts.p3s8%> </h4></a></li>
+        <li><a href="#section9"><h4> <%=texts.p3s9%> </h4></a></li>
+        <li><a href="#section10"><h4> <%=texts.p3s10%> </h4></a></li>
+    </ul>
+</nav>
+
+<div class="col-sm-9">
+    <div id="section1">
+        <h1><%=texts.p3s1%></h1>
+        <hr>
+        <h4><%=texts.p3h1%></h4>
+    </div>
+    <div id="section2">
+        <h1><%=texts.p3s2%></h1>
+        <p><%=texts.ApiName%>signup<br/>
+            <%=texts.ApiExplain%><%=texts.p3h21%><code>signup</code><%=texts.p3h22%><br/>
+            <%=texts.Parameter%>account，password，confirm<br/>
+            <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/signup?account=test@smartgamesltd.com&password=123456&confirm=123456</code></pre>
+            <%=texts.ReturnCode + texts.Result%><br/>
+        </p>
+    </div>
+    <div id="section3">
+        <h1><%=texts.p3s3%></h1>
+        <p><%=texts.ApiName%>login<br/>
+            <%=texts.ApiExplain%><%=texts.p3h31%><code>login</code><%=texts.p3h32%><br/>
+            <%=texts.Parameter%>account，password<br/>
+            <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/login?account=test@smartgamesltd.com&password=123456</code></pre>
+            <%=texts.ReturnCode + texts.Result%><br/>
+        </p>
+    </div>
+    <div id="section4">
+        <h1><%=texts.p3s4%></h1>
+        <p><%=texts.ApiName%>forgot-password<br/>
+            <%=texts.ApiExplain%><%=texts.p3h41%><code>forgot-password</code><%=texts.p3h42%><br/>
+            <%=texts.Parameter%>account<br/>
+            <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/forgot-password?account=test@smartgamesltd.com</code></pre>
+            <%=texts.ReturnCode + texts.Result%><br/>
+        </p>
+    </div>
+    <div id="section5">
+        <h1><%=texts.p3s5%></h1>
+        <p><%=texts.ApiName%>change-password<br/>
+            <%=texts.ApiExplain%><%=texts.p3h5%><code>change-password</code><br/>
+            <%=texts.Parameter%>originalpassword，newpassword，confirm<br/>
+            <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/change-password?originalpassword=123456&newpassword=111111&confirm=111111</code></pre>
+            <%=texts.ReturnCode + texts.Result%><br/>
+        </p>
+    </div>
+    <div id="section6">
+        <h1><%=texts.p3s6%></h1>
+        <p><%=texts.ApiName%>ask-code<br/>
+            <%=texts.ApiExplain%><%=texts.p3h6%><code>ask-code</code><br/>
+            <%=texts.Parameter%><%=texts.Empty%><br/>
+            <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/ask-code</code></pre>
+            <%=texts.ReturnCode + texts.Empty%><br/>
+        </p>
+    </div>
+    <div id="section7">
+        <h1><%=texts.p3s7%></h1>
+        <p><%=texts.ApiName%>child-data<br/>
+            <%=texts.ApiExplain%><%=texts.p3h7%><code>child-data</code><br/>
+            <%=texts.Parameter%>face，name，sex，birthday<br/>
+            <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/child-data?face=1&name=sg&sex=1&birthday=2017-1-1</code></pre>
+            <%=texts.ReturnCode + texts.Result%><br/>
+        </p>
+    </div>
+    <div id="section8">
+        <h1><%=texts.p3s8%></h1>
+        <p><%=texts.ApiName%>my-account<br/>
+            <%=texts.ApiExplain%><%=texts.p3h8%><code>my-account</code><br/>
+            <%=texts.Parameter%><%=texts.Empty%><br/>
+            <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/my-account</code></pre>
+            <%=texts.ReturnCode + texts.Empty%><br/>
+        </p>
+    </div>
+    <div id="section9">
+        <h1><%=texts.p3s9%></h1>
+        <p><%=texts.ApiName%>openid<br/>
+            <%=texts.ApiExplain%><%=texts.p3h9%><code>openid</code><br/>
+            <%=texts.Parameter%><%=texts.Empty%><br/>
+        <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/openid</code></pre>
+        <%=texts.ReturnCode + texts.p3s9%><br/>
+        </p>
+    </div>
+    <div id="section10">
+        <h1><%=texts.p3s10%></h1>
+        <p><%=texts.ApiName%>logout<br/>
+            <%=texts.ApiExplain%><%=texts.p3h10%><code>logout</code><br/>
+            <%=texts.Parameter%><%=texts.Empty%><br/>
+            <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/logout</code></pre>
+            <%=texts.ReturnCode + texts.Empty%><br/>
+        </p>
+    </div>
+</div>

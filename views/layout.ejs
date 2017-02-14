@@ -8,10 +8,9 @@
     <meta name="author" content="neoxu@smartgamesltd.com">
 
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/simple-sidebar.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">
     <script type="text/javascript" src="assets/js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
-
     <style type="text/css">
       .well {
         background: white;
@@ -21,6 +20,47 @@
           max-width:90%; /* limit width */
           word-break:break-all; /* wrap extended text*/
           border:1px solid red /* demo */
+      }
+      .dropdown-submenu {
+          position:relative;
+      }
+      .dropdown-submenu>.dropdown-menu {
+          top:0;
+          left:100%;
+          margin-top:-6px;
+          margin-left:-1px;
+          -webkit-border-radius:0 6px 6px 6px;
+          -moz-border-radius:0 6px 6px 6px;
+          border-radius:0 6px 6px 6px;
+      }
+      .dropdown-submenu:hover>.dropdown-menu {
+          display:block;
+      }
+      .dropdown-submenu>a:after {
+          display:block;
+          content:" ";
+          float:right;
+          width:0;
+          height:0;
+          border-color:transparent;
+          border-style:solid;
+          border-width:5px 0 5px 5px;
+          border-left-color:#cccccc;
+          margin-top:5px;
+          margin-right:-10px;
+      }
+      .dropdown-submenu:hover>a:after {
+          border-left-color:#ffffff;
+      }
+      .dropdown-submenu.pull-left {
+          float:none;
+      }
+      .dropdown-submenu.pull-left>.dropdown-menu {
+          left:-100%;
+          margin-left:10px;
+          -webkit-border-radius:6px 0 6px 6px;
+          -moz-border-radius:6px 0 6px 6px;
+          border-radius:6px 0 6px 6px;
       }
     </style>
   </head>
@@ -39,7 +79,7 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown"><%=texts.Quick%><span class="caret"></span></a>
+                        <a class="dropdown-toggle" data-toggle="dropdown"><%=texts.Quick%> <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="/api-open"><%=texts.APIOpen%></a></li>
                             <li><a href="/api-verification"><%=texts.APIVerification%></a></li>
@@ -47,17 +87,45 @@
                     </li>
 
                     <li class="dropdown">
-                        <a class="dropdown-submenu" data-toggle="dropdown"><%=texts.Tutorial%><span class="caret"></span></a>
+                        <a class="dropdown-toggle" data-toggle="dropdown"><%=texts.Tutorial%> <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/webapi-init"><%=texts.ClientWebAPIQuick%></a></li>
-                            <li><a href="/webapi-user"><%=texts.ClientWebAPIUser%></a></li>
-                            <li><a href="/webapi-pay"><%=texts.ClientWebAPIPay%></a></li>
-                            <li><a href="/webapi-analytics"><%=texts.ClientWebAPIAnalysis%></a></li>
+                            <!--  =========  Web API  =========  -->
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-toggle" data-toggle="dropdown"><%=texts.Client%>(Web API)</a>
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li><a href="/webapi-init"><%=texts.ClientWebAPIQuick%></a></li>
+                                    <li><a href="/webapi-user"><%=texts.ClientWebAPIUser%></a></li>
+                                    <li><a href="/webapi-pay"><%=texts.ClientWebAPIPay%></a></li>
+                                    <li><a href="/webapi-analytics"><%=texts.ClientWebAPIAnalysis%></a></li>
+                                </ul>
+                            </li>
+
+                            <!--  =========  Java  =========  -->
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-toggle" data-toggle="dropdown"><%=texts.Client%>(Java)</a>
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li><a href="/java-init"><%=texts.ClientWebAPIQuick%></a></li>
+                                    <li><a href="/java-user"><%=texts.ClientWebAPIUser%></a></li>
+                                    <li><a href="/java-pay"><%=texts.ClientWebAPIPay%></a></li>
+                                    <li><a href="/java-analytics"><%=texts.ClientWebAPIAnalysis%></a></li>
+                                </ul>
+                            </li>
+
+                            <!--  =========  Swift 3  =========  -->
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-toggle" data-toggle="dropdown"><%=texts.Client%>(Swift 3)</a>
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li><a href="/swift-init"><%=texts.ClientWebAPIQuick%></a></li>
+                                    <li><a href="/swift-user"><%=texts.ClientWebAPIUser%></a></li>
+                                    <li><a href="/swift-pay"><%=texts.ClientWebAPIPay%></a></li>
+                                    <li><a href="/swift-analytics"><%=texts.ClientWebAPIAnalysis%></a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
 
                     <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown"><%=texts.Language%><span class="caret"></span></a>
+                        <a class="dropdown-toggle" data-toggle="dropdown"><%=texts.Language%> <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a class="<%=(lang=="zh-tw"?"active":"")%>" href="/?clang=zh-tw">繁體中文(台灣)</a></li>
                             <li><a class="<%=(lang=="zh-hk"?"active":"")%>" href="/?clang=zh-hk">繁體中文(香港)</a></li>
