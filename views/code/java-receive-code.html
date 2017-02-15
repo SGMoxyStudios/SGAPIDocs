@@ -1,0 +1,21 @@
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></td><td><pre style="margin: 0; line-height: 125%">WebViewClient mWebViewClient <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> WebViewClient<span style="color: #666666">()</span> <span style="color: #666666">{</span>
+    <span style="color: #AA22FF">@Override</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onPageFinished</span><span style="color: #666666">(</span>WebView view<span style="color: #666666">,</span> String url<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        view<span style="color: #666666">.</span><span style="color: #7D9029">evaluateJavascript</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;ResultCode()&quot;</span><span style="color: #666666">,</span> <span style="color: #008000; font-weight: bold">new</span> ValueCallback<span style="color: #666666">&lt;</span>String<span style="color: #666666">&gt;()</span> <span style="color: #666666">{</span>
+            <span style="color: #AA22FF">@Override</span>
+            <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onReceiveValue</span><span style="color: #666666">(</span>String value<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            <span style="color: #666666">}</span>
+        <span style="color: #666666">}</span>
+    <span style="color: #666666">}</span>
+<span style="color: #666666">}</span>
+</pre></td></tr></table></div>
+

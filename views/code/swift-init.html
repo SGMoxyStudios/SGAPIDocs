@@ -1,0 +1,87 @@
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43</pre></td><td><pre style="margin: 0; line-height: 125%">import UIKit
+
+<span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">ViewController</span><span style="color: #666666">:</span> UIViewController, UIWebViewDelegate {
+    let GameKey<span style="color: #666666">:</span> String <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;d7e73390-d7fd-11e6-9074-21c247f06802&quot;</span>
+    let AppSecret<span style="color: #666666">:</span> String <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;d7d7c810-d7ee-11e6-9e86-db4f79aeee86&quot;</span>
+    let PrivateKey<span style="color: #666666">:</span> String <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;azlxEUasGMOf1VoygA9Jvta76pG8QnoC&quot;</span>
+
+    var myWebView <span style="color: #666666">:</span>UIWebView<span style="color: #666666">!</span>
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        <span style="color: #408080; font-style: italic">// Do any additional setup after loading the view, typically from a nib.</span>
+        let fullScreenSize <span style="color: #666666">=</span> UIScreen.main.bounds.size
+
+        let goWidth <span style="color: #666666">=</span> <span style="color: #666666">100.0</span>
+        let actionWidth <span style="color: #666666">=</span> ( Double(fullScreenSize.width) <span style="color: #666666">-</span> goWidth ) <span style="color: #666666">/</span> <span style="color: #666666">2</span>
+
+        myWebView <span style="color: #666666">=</span> UIWebView(frame<span style="color: #666666">:</span> CGRect(
+            <span style="color: #A0A000">x:</span> <span style="color: #666666">0</span>, y<span style="color: #666666">:</span> <span style="color: #666666">0</span> <span style="color: #666666">+</span> CGFloat(actionWidth),
+            <span style="color: #A0A000">width:</span> fullScreenSize.width,
+            <span style="color: #A0A000">height:</span> fullScreenSize.height))
+
+        myWebView.delegate <span style="color: #666666">=</span> self
+
+        <span style="color: #408080; font-style: italic">// 加入到畫面中</span>
+        self.view.addSubview(myWebView)
+
+        Init()
+    }
+
+    func Init() {
+        let aStr <span style="color: #666666">=</span> String(format<span style="color: #666666">:</span> <span style="color: #BA2121">&quot;http://gameapi.smartgamesltd.com/init?gamekey=%@&amp;appsecret=%@&amp;privatekey=%@&quot;</span>, GameKey, AppSecret, PrivateKey)
+        let url <span style="color: #666666">=</span> NSURL(string<span style="color: #666666">:</span> aStr)
+        let urlRequest <span style="color: #666666">=</span> NSURLRequest(url<span style="color: #666666">:</span> url<span style="color: #666666">!</span> as URL)
+        myWebView.loadRequest(urlRequest as URLRequest)
+    }
+
+    func webViewDidFinishLoad(_ webView<span style="color: #666666">:</span> UIWebView) {
+        <span style="color: #008000; font-weight: bold">if</span> let code <span style="color: #666666">=</span> webView.stringByEvaluatingJavaScript(from<span style="color: #666666">:</span> <span style="color: #BA2121">&quot;ResultCode()&quot;</span>) {
+            print(<span style="color: #BA2121">&quot;the result is \(code)&quot;</span>)
+        }
+    }
+}
+</pre></td></tr></table></div>
+

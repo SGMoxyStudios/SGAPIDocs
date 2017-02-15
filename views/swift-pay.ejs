@@ -13,8 +13,8 @@
     <div id="section3">
         <h1><%=texts.p4s3%></h1>
         <hr>
-        <p><%=texts.ApiName%>pay<br/>
-            <%=texts.ApiExplain%> <%=texts.p4h3%> <code>pay</code> <br/>
+        <p><%=texts.ApiName%><code>pay</code><br/>
+            <%=texts.ApiExplain%><%=texts.p4h3%><br/>
         </p>
 
         <table class="table"> <!--Gem Start-->
@@ -32,46 +32,47 @@
             </tr>
             </thead>
             <tbody>
-                <tr class="active">
-                    <td>
-                        product_id
-                    </td>
-                    <td>
-                        Y
-                    </td>
-                    <td>
-                        <%=texts.p4d1%> <br> <%=texts.p4p1%>
-                    </td>
-                </tr>
+            <tr class="active">
+                <td>
+                    product_id
+                </td>
+                <td>
+                    Y
+                </td>
+                <td>
+                    <%=texts.p4d1%> <br> <%=texts.p4p1%>
+                </td>
+            </tr>
 
-                <tr>
-                    <td>
-                        product_name
-                    </td>
-                    <td>
-                        Y
-                    </td>
-                    <td>
-                        <%=texts.p4d2%> <br> <%=texts.p4p1%>
-                    </td>
-                </tr>
+            <tr>
+                <td>
+                    product_name
+                </td>
+                <td>
+                    Y
+                </td>
+                <td>
+                    <%=texts.p4d2%> <br> <%=texts.p4p1%>
+                </td>
+            </tr>
 
-                <tr class="active">
-                    <td>
-                        product_price
-                    </td>
-                    <td>
-                        Y
-                    </td>
-                    <td>
-                        <%=texts.p4d3%> <br> <%=texts.p4p1%>
-                    </td>
-                </tr>
+            <tr class="active">
+                <td>
+                    product_price
+                </td>
+                <td>
+                    Y
+                </td>
+                <td>
+                    <%=texts.p4d3%> <br> <%=texts.p4p1%>
+                </td>
+            </tr>
             </tbody>
         </table>
 
         <p>
-            <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/pay?product_id=com.smartgamesltd.diamond1&product_name=diamond&product_price=1.99</code></pre>
+            <%=texts.ReturnName%><code>ResultCode()</code><br/>
+            <%=texts.Example%><pre>myWebView.loadRequest(NSURLRequest(url: NSURL(string: "http://gameapi.smartgamesltd.com/pay?product_id=com.smartgamesltd.diamond1&product_name=diamond&product_price=1.99")! as URL) as URLRequest)</pre>
             <%=texts.ReturnCode + texts.Result%><br/>
         </p>
     </div>

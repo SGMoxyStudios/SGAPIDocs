@@ -2,6 +2,7 @@
     <ul class="nav nav-pills nav-stacked well" data-spy="affix" data-offset-top="600" style="background-color: white">
         <li><a href="#section1"><h4> <%=texts.jp2s1%> </h4></a></li>
         <li><a href="#section2"><h4> <%=texts.jp2s2%> </h4></a></li>
+        <li><a href="#section3"><h4> <%=texts.jp2s3%> </h4></a></li>
     </ul>
 </nav>
 
@@ -19,17 +20,29 @@
         <h4><%=texts.jp2h21%></h4>
         <img src=<%= "assets/img/" + lang + "/pic05.png"%> class="img-responsive"/>
         <h3>2.uses-permission : </h3>
-        <p><pre><code class="js"><uses-permission android:name="android.permission.INTERNET" /> <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-            </code></pre></p>
+        <h4><%=texts.jp2h22%></h4>
+
+        <%- include code/java-user-permission.html -%>
     </div>
     <br>
     <div id="section3">
-        <h1><%=texts.p2s3%></h1>
-        <p><%=texts.ApiName%>init<br/>
-            <%=texts.ApiExplain%><%=texts.p2h31%><code>init</code><%=texts.p2h32%><br/>
+        <h1><%=texts.jp2s3%></h1>
+        <hr>
+        <h4></h4>
+        <h4><%=texts.ApiName%><code>init</code><br/>
+            <%=texts.ApiExplain%><%=texts.jp2h31%><%=texts.p2h32%><br/>
             <%=texts.Parameter%>gamekey，appsecret，privatekey<br/>
-            <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/init?gamekey=d7e73390-d7fd-11e6-9074-21c247f06802&appsecret=d7d7c810-d7ee-11e6-9e86-db4f79aeee86&privatekey=azlxEUasGMOf1VoygA9Jvta76pG8QnoC</code></pre>
-            <%=texts.ReturnCode + texts.Result%><br/>
-        </p>
+            <%=texts.Example%><%=texts.jp2h33%>
+        </h4>
+
+        <%- include code/java-init.html -%>
+        <br>
+        <h4>
+        <%=texts.Example%><%=texts.jp2h34%>
+        <br>
+        <br>
+        <%- include code/java-receive-code.html -%>
+        <%=texts.ReturnCode + texts.Result%><br/>
+        </h4>
     </div>
 </div>

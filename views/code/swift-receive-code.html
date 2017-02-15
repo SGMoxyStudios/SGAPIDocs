@@ -1,0 +1,19 @@
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8
+9</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">ViewController</span><span style="color: #333333">:</span> UIViewController, UIWebViewDelegate {
+    var myWebView <span style="color: #333333">:</span>UIWebView<span style="color: #333333">!</span>
+
+    func webViewDidFinishLoad(_ webView<span style="color: #333333">:</span> UIWebView) {
+        <span style="color: #008800; font-weight: bold">if</span> let code <span style="color: #333333">=</span> webView.stringByEvaluatingJavaScript(from<span style="color: #333333">:</span> <span style="background-color: #fff0f0">&quot;ResultCode()&quot;</span>) {
+            print(<span style="background-color: #fff0f0">&quot;the result is \(code)&quot;</span>)
+        }
+    }
+}
+</pre></td></tr></table></div>
+

@@ -1,0 +1,98 @@
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">android.util.Log</span><span style="color: #333333">;</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">android.webkit.WebView</span><span style="color: #333333">;</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">android.webkit.WebViewClient</span><span style="color: #333333">;</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">android.webkit.WebResourceRequest</span><span style="color: #333333">;</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">android.webkit.ValueCallback</span><span style="color: #333333">;</span>
+
+<span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">MainActivity</span> <span style="color: #008800; font-weight: bold">extends</span> AppCompatActivity <span style="color: #333333">{</span>
+    String URL_Init <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;http://gameapi.smartgamesltd.com/init&quot;</span><span style="color: #333333">;</span>
+    String GameKey <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;d7e73390-d7fd-11e6-9074-21c247f06802&quot;</span><span style="color: #333333">;</span>
+    String AppSecret <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;d7d7c810-d7ee-11e6-9e86-db4f79aeee86&quot;</span><span style="color: #333333">;</span>
+    String PrivateKey <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;azlxEUasGMOf1VoygA9Jvta76pG8QnoC&quot;</span><span style="color: #333333">;</span>
+
+    WebView mWebView <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">;</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">boolean</span> IsInit <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">false</span><span style="color: #333333">;</span>
+
+    <span style="color: #555555; font-weight: bold">@Override</span>
+    <span style="color: #008800; font-weight: bold">protected</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">onCreate</span><span style="color: #333333">(</span>Bundle savedInstanceState<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+        <span style="color: #008800; font-weight: bold">super</span><span style="color: #333333">.</span><span style="color: #0000CC">onCreate</span><span style="color: #333333">(</span>savedInstanceState<span style="color: #333333">);</span>
+
+        setContentView<span style="color: #333333">(</span>R<span style="color: #333333">.</span><span style="color: #0000CC">layout</span><span style="color: #333333">.</span><span style="color: #0000CC">activity_main</span><span style="color: #333333">);</span>
+
+        mWebView <span style="color: #333333">=</span> <span style="color: #333333">(</span>WebView<span style="color: #333333">)</span>findViewById<span style="color: #333333">(</span>R<span style="color: #333333">.</span><span style="color: #0000CC">id</span><span style="color: #333333">.</span><span style="color: #0000CC">webView</span><span style="color: #333333">);</span>
+        mWebView<span style="color: #333333">.</span><span style="color: #0000CC">setWebViewClient</span><span style="color: #333333">(</span>mWebViewClient<span style="color: #333333">);</span>
+        mWebView<span style="color: #333333">.</span><span style="color: #0000CC">setInitialScale</span><span style="color: #333333">(</span><span style="color: #0000DD; font-weight: bold">1</span><span style="color: #333333">);</span>
+        mWebView<span style="color: #333333">.</span><span style="color: #0000CC">getSettings</span><span style="color: #333333">().</span><span style="color: #0000CC">setLoadWithOverviewMode</span><span style="color: #333333">(</span><span style="color: #008800; font-weight: bold">true</span><span style="color: #333333">);</span>
+        mWebView<span style="color: #333333">.</span><span style="color: #0000CC">getSettings</span><span style="color: #333333">().</span><span style="color: #0000CC">setUseWideViewPort</span><span style="color: #333333">(</span><span style="color: #008800; font-weight: bold">true</span><span style="color: #333333">);</span>
+        mWebView<span style="color: #333333">.</span><span style="color: #0000CC">getSettings</span><span style="color: #333333">().</span><span style="color: #0000CC">setJavaScriptEnabled</span><span style="color: #333333">(</span><span style="color: #008800; font-weight: bold">true</span><span style="color: #333333">);</span>
+
+        Init<span style="color: #333333">(</span>GameKey<span style="color: #333333">,</span> AppSecret<span style="color: #333333">,</span> PrivateKey<span style="color: #333333">);</span>
+    <span style="color: #333333">}</span>
+
+    WebViewClient mWebViewClient <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> WebViewClient<span style="color: #333333">()</span> <span style="color: #333333">{</span>
+        <span style="color: #555555; font-weight: bold">@Override</span>
+        <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">onPageFinished</span><span style="color: #333333">(</span>WebView view<span style="color: #333333">,</span> String url<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+            String js <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;ResultCode()&quot;</span><span style="color: #333333">;</span>
+
+            view<span style="color: #333333">.</span><span style="color: #0000CC">evaluateJavascript</span><span style="color: #333333">(</span>js<span style="color: #333333">,</span> <span style="color: #008800; font-weight: bold">new</span> ValueCallback<span style="color: #333333">&lt;</span>String<span style="color: #333333">&gt;()</span> <span style="color: #333333">{</span>
+                <span style="color: #555555; font-weight: bold">@Override</span>
+                <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">onReceiveValue</span><span style="color: #333333">(</span>String value<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+                    Log<span style="color: #333333">.</span><span style="color: #0000CC">d</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;value&quot;</span><span style="color: #333333">,</span> value<span style="color: #333333">);</span>
+                <span style="color: #333333">}</span>
+            <span style="color: #333333">});</span>
+        <span style="color: #333333">}</span>
+    <span style="color: #333333">};</span>
+
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">Init</span><span style="color: #333333">(</span>String gamekey<span style="color: #333333">,</span> String appsecret<span style="color: #333333">,</span> String privatekey<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+        mWebView<span style="color: #333333">.</span><span style="color: #0000CC">loadUrl</span><span style="color: #333333">(</span>String<span style="color: #333333">.</span><span style="color: #0000CC">format</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;%s?gamekey=%s&amp;appsecret=%s&amp;privatekey=%s&quot;</span><span style="color: #333333">,</span> URL_Init<span style="color: #333333">,</span> gamekey<span style="color: #333333">,</span> appsecret<span style="color: #333333">,</span> privatekey<span style="color: #333333">));</span>
+    <span style="color: #333333">}</span>
+<span style="color: #333333">}</span>
+</pre></td></tr></table></div>

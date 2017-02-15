@@ -1,20 +1,34 @@
 <div class="col-sm-9">
     <div id="section1">
-        <h1><%=texts.p2s1%></h1>
+        <h1>Swift 3 集成指南</h1>
         <hr>
+        <h4>開發者可在 Xcode 環境透過調用 Web View 來串接 SG Game API。通過本文以 Swift 3 語言為範例，介紹客戶端接入的整個流程。在接入之前請認真閱讀本文檔，以減少接入過程中遇到的問題。</h4>
     </div>
+    <br>
     <div id="section2">
-        <h1><%=texts.p2s2%></h1>
+        <h1>Xcode 開發環境設定</h1>
         <hr>
-        <h4><%=texts.p2h11%> <a target="_blank" href="http://gameapi.smartgamesltd.com/">http://gameapi.smartgamesltd.com/</a> <%=texts.p2h12%></h4>
+        <h4>以下範例需在 Xcode 8 以上版本執行。</h4>
     </div>
+    <br>
     <div id="section3">
-        <h1><%=texts.p2s3%></h1>
-        <p><%=texts.ApiName%>init<br/>
-            <%=texts.ApiExplain%><%=texts.p2h31%><code>init</code><%=texts.p2h32%><br/>
+        <h1><%=texts.jp2s3%></h1>
+        <hr>
+        <h4></h4>
+        <h4><%=texts.ApiName%><code>init</code><br/>
+            <%=texts.ApiExplain%><%=texts.jp2h31%><%=texts.p2h32%><br/>
             <%=texts.Parameter%>gamekey，appsecret，privatekey<br/>
-            <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/init?gamekey=d7e73390-d7fd-11e6-9074-21c247f06802&appsecret=d7d7c810-d7ee-11e6-9e86-db4f79aeee86&privatekey=azlxEUasGMOf1VoygA9Jvta76pG8QnoC</code></pre>
+            <%=texts.Example%><%=texts.jp2h33%>
+        </h4>
+
+        <%- include code/swift-init.html -%>
+        <br>
+        <h4>
+            <%=texts.Example%><%=texts.sp2h34%>
+            <br>
+            <br>
+            <%- include code/swift-receive-code.html -%>
             <%=texts.ReturnCode + texts.Result%><br/>
-        </p>
+        </h4>
     </div>
 </div>
