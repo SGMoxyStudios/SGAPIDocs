@@ -13,6 +13,8 @@
   "ClientWebAPIUser": "User System",
   "ClientWebAPIPay": "Payment System",
   "ClientWebAPIAnalysis": "Statistical System",
+  "Channel": "Channel List",
+  "ChannelHint": "Loading each channel SDK for different channels. Passing the channel Key for background statistics when game initialization.",
   "Page-api-open": "================================",
   "p1s1": "API Service On",
   "p1s2": "Developer Account Application",

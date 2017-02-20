@@ -1,0 +1,100 @@
+<div class="col-sm-9">
+    <div id="section1">
+        <h1><%=texts.Channel%></h1>
+        <hr>
+        <h4></h>
+    </div>
+    <% if (locals.ChannelAndroid != null && ChannelAndroid.length > 0) { %>
+    <div id="section2">
+        <h1>Android</h1>
+        <hr>
+        <table class="table"> <!--Gem Start-->
+            <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    SDK
+                </th>
+                <th>
+                    Key
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+                <% for (var i = 0; i < ChannelAndroid.length; i++) { %>
+                    <% if (i % 2 == 1) { %>
+                    <tr class="success">
+                        <% } else { %>
+                    <tr>
+                    <% } %>
+
+                    <td>
+                        <%= i+1 %>
+                    </td>
+                    <td>
+                        <%= ChannelAndroid[i].name %>
+                    </td>
+                    <td>
+                        <%= ChannelAndroid[i].sdk %>
+                    </td>
+                    <td>
+                        <%= ChannelAndroid[i].key %>
+                    </td>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+    <% } %>
+
+    <% if (locals.ChannelIOS != null && ChannelIOS.length > 0) { %>
+    <div id="section3">
+        <h1>iOS</h1>
+        <hr>
+        <table class="table"> <!--Gem Start-->
+            <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    SDK
+                </th>
+                <th>
+                    Key
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <% for (var i = 0; i < ChannelIOS.length; i++) { %>
+            <% if (i % 2 == 1) { %>
+            <tr class="success">
+                <% } else { %>
+            <tr>
+                <% } %>
+
+                <td>
+                    <%= i+1 %>
+                </td>
+                <td>
+                    <%= ChannelAndroid[i].name %>
+                </td>
+                <td>
+                    <%= ChannelAndroid[i].sdk %>
+                </td>
+                <td>
+                    <%= ChannelAndroid[i].key %>
+                </td>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+    <% } %>
+</div>
