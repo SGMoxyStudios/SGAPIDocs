@@ -1,4 +1,5 @@
 var util = require('util'),
+    fs = require('fs'),
     path = require('path'),
     i18n=require("i18n-express"),
     express = require('express'),
@@ -30,10 +31,36 @@ if ('development' === app.get('env')) {
     app.use(express.errorHandler());
 }
 
+//load file
+var FilePath = __dirname + '/public/data/';
+var ChannelAndroid = [];
+var ChannelIOS = [];
+
+function ReloadData() {
+    fs.readFile(FilePath + 'channelandroid.json', 'utf8', function (err, data) {
+        if (!err) {
+            ChannelAndroid = JSON.parse(data);
+        } else
+            console.log('Load channelandroid error: ' + err);
+    });
+
+    fs.readFile(FilePath + 'channelios.json', 'utf8', function (err, data) {
+        if (!err) {
+            ChannelIOS = JSON.parse(data);
+        } else
+            console.log('Load channelios error: ' + err);
+    });
+}
+
+ReloadData();
+
 app.get('/', function(req, res){res.render('index')});
 app.get('/api-open', function(req, res){res.render('api-open')});
 app.get('/api-verification', function(req, res){res.render('api-verification')});
 app.get('/must-read', function(req, res){res.render('must-read')});
+app.get('/channel', function(req, res) {
+    res.render('channel', {ChannelAndroid: ChannelAndroid, ChannelIOS: ChannelIOS});
+});
 //web api
 app.get('/webapi-init', function(req, res){res.render('webapi-init')});
 app.get('/webapi-user', function(req, res){res.render('webapi-user')});
