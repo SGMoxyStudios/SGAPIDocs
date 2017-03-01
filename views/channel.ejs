@@ -1,13 +1,7 @@
 <div class="col-sm-9">
     <div id="section1">
         <h1><%=texts.Channel%></h1>
-        <hr>
-        <h4></h>
-    </div>
-    <% if (locals.ChannelAndroid != null && ChannelAndroid.length > 0) { %>
-    <div id="section2">
-        <h1>Android</h1>
-        <hr>
+        <% if (locals.Channels != null && Channels.length > 0) { %>
         <table class="table"> <!--Gem Start-->
             <thead>
             <tr>
@@ -26,7 +20,7 @@
             </tr>
             </thead>
             <tbody>
-                <% for (var i = 0; i < ChannelAndroid.length; i++) { %>
+                <% for (var i = 0; i < Channels.length; i++) { %>
                     <% if (i % 2 == 1) { %>
                     <tr class="success">
                         <% } else { %>
@@ -37,64 +31,17 @@
                         <%= i+1 %>
                     </td>
                     <td>
-                        <%= ChannelAndroid[i].name %>
+                        <%= Channels[i].name %>
                     </td>
                     <td>
-                        <%= ChannelAndroid[i].sdk %>
+                        <%= Channels[i].sdk %>
                     </td>
                     <td>
-                        <%= ChannelAndroid[i].key %>
+                        <%= Channels[i].key %>
                     </td>
                 <% } %>
             </tbody>
         </table>
-    </div>
     <% } %>
-
-    <% if (locals.ChannelIOS != null && ChannelIOS.length > 0) { %>
-    <div id="section3">
-        <h1>iOS</h1>
-        <hr>
-        <table class="table"> <!--Gem Start-->
-            <thead>
-            <tr>
-                <th>
-                    ID
-                </th>
-                <th>
-                    Name
-                </th>
-                <th>
-                    SDK
-                </th>
-                <th>
-                    Key
-                </th>
-            </tr>
-            </thead>
-            <tbody>
-            <% for (var i = 0; i < ChannelIOS.length; i++) { %>
-            <% if (i % 2 == 1) { %>
-            <tr class="success">
-                <% } else { %>
-            <tr>
-                <% } %>
-
-                <td>
-                    <%= i+1 %>
-                </td>
-                <td>
-                    <%= ChannelIOS[i].name %>
-                </td>
-                <td>
-                    <%= ChannelIOS[i].sdk %>
-                </td>
-                <td>
-                    <%= ChannelIOS[i].key %>
-                </td>
-                <% } %>
-            </tbody>
-        </table>
     </div>
-    <% } %>
 </div>

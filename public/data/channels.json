@@ -1,0 +1,33 @@
+[
+  {
+    "id": 1,
+    "name": "App Store",
+    "sdk": "SG_iOS",
+    "key": "appstore"
+  },
+  {
+    "id": 2,
+    "name": "Google Play",
+    "sdk": "SG_Android",
+    "key": "googleplay"
+  },
+  {
+    "id": 3,
+    "name": "樂苗",
+    "sdk": "SG_LeMiao",
+    "key": "lemian"
+  },
+  {
+    "id": 4,
+    "name": "智苗",
+    "sdk": "SG_ZhiMiao",
+    "key": "zhimiao"
+  },
+
+  {
+    "id": 5,
+    "name": "智冠",
+    "sdk": "SG_ZhiGuan",
+    "key": "zhiguan"
+  }
+]

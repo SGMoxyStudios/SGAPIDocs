@@ -13,11 +13,27 @@
     <br>
     <div id="section3">
         <h1><%=texts.p2s3%></h1>
+        <hr>
         <p><%=texts.ApiName%><code>init</code><br/>
             <%=texts.ApiExplain%><%=texts.p2h31%><%=texts.p2h32%><br/>
-            <%=texts.Parameter%>gamekey，appsecret，privatekey，channel<br/>
+            <%=texts.Parameter%>gamekey，appsecret，privatekey，<a target="_blank" href="http://apidocs.smartgamesltd.com/channel">channel</a> <br/>
+            HTTP Method : <code>GET</code><br>
             <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/init?gamekey=d7e73390-d7fd-11e6-9074-21c247f06802&appsecret=d7d7c810-d7ee-11e6-9e86-db4f79aeee86&privatekey=azlxEUasGMOf1VoygA9Jvta76pG8QnoC&channel=googleplay</code></pre>
             <%=texts.ReturnCode + texts.Result%><br/>
         </p>
+    </div>
+    <br>
+    <div id="section4">
+        <h1>詳細說明</h1>
+        <hr>
+        <p>
+            返回值以JSON格式回傳，例如<code>{"code": 1}</code>
+        </p>
+        <h4>可在<a target="_blank" href="http://dashboard.smartgamesltd.com/my-game">SG Developer</a> 取得接入參數。</h4>
+        <div class="well well-sm">
+            <img src=<%= "assets/img/" + lang + "/pic06.png"%> class="img-responsive"/>
+        </div>
+        <br>
+
     </div>
 </div>

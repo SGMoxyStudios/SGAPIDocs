@@ -23,22 +23,44 @@
     <div id="section2">
         <h1><%=texts.p3s2%></h1>
         <hr>
-        <p><%=texts.ApiName%><code>signup</code><br/>
+        <p> <%=texts.ApiName%><code>signup</code><br/>
             <%=texts.ApiExplain%><%=texts.p3h21%><%=texts.p3h22%><br/>
             <%=texts.Parameter%>account，password，confirm<br/>
-        <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/signup?account=test@smartgamesltd.com&password=123456&confirm=123456</code></pre>
-        <%=texts.ReturnCode + texts.Result%>
+            HTTP Method : <code>GET</code><br>
+            <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/signup?account=test@smartgamesltd.com&password=123456&confirm=123456</code></pre>
+            <%=texts.ReturnCode + texts.Result%><br>
+            <br>
+            <%=texts.Or%><br>
+            <%=texts.CallWebView%><br>
+            <pre><code class="js">http://gameapi.smartgamesltd.com/signup</code></pre>
+
+            <div class="well well-sm">
+                <img src=<%= "assets/img/" + lang + "/pic08.png"%> class="img-responsive"/>
+            </div>
+
+            <%=texts.ReturnCode%><%=texts.CallJS%><code>ResultCode()</code><br>
         </p>
     </div>
     <br>
     <div id="section3">
         <h1><%=texts.p3s3%></h1>
         <hr>
-        <p><%=texts.ApiName%><code>login</code><br/>
+        <p> <%=texts.ApiName%><code>login</code><br/>
             <%=texts.ApiExplain%><%=texts.p3h31%><%=texts.p3h32%><br/>
             <%=texts.Parameter%>account，password<br/>
-        <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/login?account=test@smartgamesltd.com&password=123456</code></pre>
-        <%=texts.ReturnCode + texts.Result%>
+            HTTP Method : <code>GET</code><br>
+            <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/login?account=test@smartgamesltd.com&password=123456</code></pre>
+            <%=texts.ReturnCode + texts.Result%><br>
+            <br>
+            <%=texts.Or%><br>
+            <%=texts.CallWebView%><br>
+            <pre><code class="js">http://gameapi.smartgamesltd.com/login</code></pre>
+
+            <div class="well well-sm">
+                <img src=<%= "assets/img/" + lang + "/pic07.png"%> class="img-responsive"/>
+            </div>
+
+            <%=texts.ReturnCode%><%=texts.CallJS%><code>ResultCode()</code><br>
         </p>
     </div>
     <br>
@@ -48,8 +70,19 @@
         <p><%=texts.ApiName%><code>forgot-password</code><br/>
             <%=texts.ApiExplain%><%=texts.p3h41%><%=texts.p3h42%><br/>
             <%=texts.Parameter%>account<br/>
-        <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/forgot-password?account=test@smartgamesltd.com</code></pre>
-        <%=texts.ReturnCode + texts.Result%>
+            HTTP Method : <code>GET</code><br>
+            <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/forgot-password?account=test@smartgamesltd.com</code></pre>
+            <%=texts.ReturnCode + texts.Result%><br>
+            <br>
+            <%=texts.Or%><br>
+            <%=texts.CallWebView%><br>
+            <pre><code class="js">http://gameapi.smartgamesltd.com/forgot-password</code></pre>
+
+            <div class="well well-sm">
+                <img src=<%= "assets/img/" + lang + "/pic09.png"%> class="img-responsive"/>
+            </div>
+
+            <%=texts.ReturnCode%><%=texts.CallJS%><code>ResultCode()</code><br>
         </p>
     </div>
     <br>
@@ -59,8 +92,9 @@
         <p><%=texts.ApiName%><code>change-password</code><br/>
             <%=texts.ApiExplain%><%=texts.p3h5%><br/>
             <%=texts.Parameter%>originalpassword，newpassword，confirm<br/>
-        <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/change-password?originalpassword=123456&newpassword=111111&confirm=111111</code></pre>
-        <%=texts.ReturnCode + texts.Result%>
+            HTTP Method : <code>GET</code><br>
+            <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/change-password?originalpassword=123456&newpassword=111111&confirm=111111</code></pre>
+            <%=texts.ReturnCode + texts.Result%>
         </p>
     </div>
     <br>
@@ -70,8 +104,9 @@
         <p><%=texts.ApiName%><code>ask-code</code><br/>
             <%=texts.ApiExplain%><%=texts.p3h6%><br/>
             <%=texts.Parameter%><%=texts.Empty%><br/>
-        <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/ask-code</code></pre>
-        <%=texts.ReturnCode + texts.Empty%>
+            HTTP Method : <code>GET</code><br>
+            <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/ask-code</code></pre>
+            <%=texts.ReturnCode + texts.Empty%>
         </p>
     </div>
     <br/>
@@ -81,8 +116,9 @@
         <p><%=texts.ApiName%>child-data<br/>
             <%=texts.ApiExplain%><%=texts.p3h7%><code>child-data</code><br/>
             <%=texts.Parameter%>face，name，sex，birthday<br/>
-        <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/child-data?face=1&name=sg&sex=1&birthday=2017-1-1</code></pre>
-        <%=texts.ReturnCode + texts.Result%>
+            HTTP Method : <code>GET</code><br>
+            <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/child-data?face=1&name=sg&sex=1&birthday=2017-1-1</code></pre>
+            <%=texts.ReturnCode + texts.Result%>
         </p>
     </div>
     <br>
@@ -92,8 +128,9 @@
         <p><%=texts.ApiName%><code>my-account</code><br/>
             <%=texts.ApiExplain%><%=texts.p3h8%><br/>
             <%=texts.Parameter%><%=texts.Empty%><br/>
-        <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/my-account</code></pre>
-        <%=texts.ReturnCode + texts.Empty%>
+            HTTP Method : <code>GET</code><br>
+            <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/my-account</code></pre>
+            <%=texts.ReturnCode + texts.Empty%>
         </p>
     </div>
     <br>
@@ -103,8 +140,9 @@
         <p><%=texts.ApiName%><code>openid</code><br/>
             <%=texts.ApiExplain%><%=texts.p3h9%><br/>
             <%=texts.Parameter%><%=texts.Empty%><br/>
-        <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/openid</code></pre>
-        <%=texts.ReturnCode + texts.p3s9%>
+            HTTP Method : <code>GET</code><br>
+            <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/openid</code></pre>
+            <%=texts.ReturnCode + texts.p3s9%>
         </p>
     </div>
     <br>
@@ -114,8 +152,9 @@
         <p><%=texts.ApiName%><code>logout</code><br/>
             <%=texts.ApiExplain%><%=texts.p3h10%><br/>
             <%=texts.Parameter%><%=texts.Empty%><br/>
-        <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/logout</code></pre>
-        <%=texts.ReturnCode + texts.Empty%>
+            HTTP Method : <code>GET</code><br>
+            <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/logout</code></pre>
+            <%=texts.ReturnCode + texts.Empty%>
         </p>
     </div>
 </div>

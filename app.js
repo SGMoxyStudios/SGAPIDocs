@@ -33,22 +33,14 @@ if ('development' === app.get('env')) {
 
 //load file
 var FilePath = __dirname + '/public/data/';
-var ChannelAndroid = [];
-var ChannelIOS = [];
+var Channels = [];
 
 function ReloadData() {
-    fs.readFile(FilePath + 'channelandroid.json', 'utf8', function (err, data) {
+    fs.readFile(FilePath + 'channels.json', 'utf8', function (err, data) {
         if (!err) {
-            ChannelAndroid = JSON.parse(data);
+            Channels = JSON.parse(data);
         } else
-            console.log('Load channelandroid error: ' + err);
-    });
-
-    fs.readFile(FilePath + 'channelios.json', 'utf8', function (err, data) {
-        if (!err) {
-            ChannelIOS = JSON.parse(data);
-        } else
-            console.log('Load channelios error: ' + err);
+            console.log('Load channels error: ' + err);
     });
 }
 
@@ -59,7 +51,7 @@ app.get('/api-open', function(req, res){res.render('api-open')});
 app.get('/api-verification', function(req, res){res.render('api-verification')});
 app.get('/must-read', function(req, res){res.render('must-read')});
 app.get('/channel', function(req, res) {
-    res.render('channel', {ChannelAndroid: ChannelAndroid, ChannelIOS: ChannelIOS});
+    res.render('channel', {Channels: Channels});
 });
 //web api
 app.get('/webapi-init', function(req, res){res.render('webapi-init')});
