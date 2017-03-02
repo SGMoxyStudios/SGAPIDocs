@@ -13,8 +13,10 @@
     <div id="section3">
         <h1><%=texts.p4s3%></h1>
         <hr>
-        <p><%=texts.ApiName%><code>pay</code><br/>
+        <p>
+            <%=texts.ApiName%><code>pay</code><br/>
             <%=texts.ApiExplain%><%=texts.p4h3%><br/>
+            HTTP Method : <code>GET</code><br>
         </p>
 
         <table class="table"> <!--Gem Start-->
@@ -72,7 +74,7 @@
 
         <p>
             <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/pay?product_id=com.smartgamesltd.diamond1&product_name=diamond&product_price=1.99</code></pre>
-            <%=texts.ReturnCode + texts.Result%><br/>
+            <%=texts.ReturnCode + texts.Result + texts.ReturnJSON%><code>{"code": 1}</code><br/>
         </p>
     </div>
 </div>
