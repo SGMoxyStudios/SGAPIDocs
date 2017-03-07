@@ -31,8 +31,70 @@
                 <img src=<%= "assets/img/" + lang + "/pic08.png"%> class="img-responsive"/>
             </div>
 
-            <%=texts.ReturnCode + texts.CallJS%><code>ResultCode()</code><%='，' + texts.Result%><br>
-            <%=texts.NextPage + texts.p3h22%><br>
+            <%=texts.ReturnCode%><br>
+            <table class="table"> <!--Gem Start-->
+                <thead>
+                <tr>
+                    <th>
+                        <%=texts.Variable%>
+                    </th>
+                    <th>
+                        <%=texts.FunctionName%>
+                    </th>
+                    <th>
+                        <%=texts.Description%>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="active">
+                    <td>
+                        Code
+                    </td>
+                    <td>
+                        ResultCode()
+                    </td>
+                    <td>
+                        <%=texts.Result%>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        OpenID
+                    </td>
+                    <td>
+                        GetOpenID()
+                    </td>
+                    <td>
+                        <%=texts.Result2%>
+                    </td>
+                </tr>
+
+                <tr class="active">
+                    <td>
+                        SessionID
+                    </td>
+                    <td>
+                        GetSessionID()
+                    </td>
+                    <td>
+                        <%=texts.Result3%>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Token
+                    </td>
+                    <td>
+                        GetToken()
+                    </td>
+                    <td>
+                        <%=texts.Result4%>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </p>
     </div>
     <br>
@@ -48,8 +110,70 @@
                 <img src=<%= "assets/img/" + lang + "/pic07.png"%> class="img-responsive"/>
             </div>
 
-            <%=texts.ReturnCode + texts.CallJS%><code>ResultCode()</code><%='，' + texts.Result%><br>
-            <%=texts.NextPage + texts.p3h22%><br>
+            <%=texts.ReturnCode%><br>
+            <table class="table"> <!--Gem Start-->
+                <thead>
+                <tr>
+                    <th>
+                        <%=texts.Variable%>
+                    </th>
+                    <th>
+                        <%=texts.FunctionName%>
+                    </th>
+                    <th>
+                        <%=texts.Description%>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="active">
+                    <td>
+                        Code
+                    </td>
+                    <td>
+                        ResultCode()
+                    </td>
+                    <td>
+                        <%=texts.Result%>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        OpenID
+                    </td>
+                    <td>
+                        GetOpenID()
+                    </td>
+                    <td>
+                        <%=texts.Result2%>
+                    </td>
+                </tr>
+
+                <tr class="active">
+                    <td>
+                        SessionID
+                    </td>
+                    <td>
+                        GetSessionID()
+                    </td>
+                    <td>
+                        <%=texts.Result3%>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Token
+                    </td>
+                    <td>
+                        GetToken()
+                    </td>
+                    <td>
+                        <%=texts.Result4%>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </p>
     </div>
     <br>
@@ -145,8 +269,34 @@
     <div id="section10">
         <h1><%=texts.p3s10%></h1>
         <hr>
-        <p><%=texts.ApiName%><code>logout</code><br/>
+        <p>
+            <%=texts.ApiName%><code>verifysession</code><br/>
             <%=texts.ApiExplain%><%=texts.p3h10%><br/>
+            <%=texts.Parameter%>sessionid<br>
+            HTTP Method : <code>GET</code><br>
+            <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/verifysession?sessionid=xxxxx</code></pre>
+            <%=texts.ReturnCode + texts.ReturnJSON%><code>{"Account" : "abc@gmail.com", "OpenID" : 1000000000, "Password" : "password","EMail" : "abc@gmail.com"}</code><br/>
+        </p>
+    </div>
+    <br>
+    <div id="section11">
+        <h1><%=texts.p3s11%></h1>
+        <hr>
+        <p>
+            <%=texts.ApiName%><code>verifytoken</code><br/>
+            <%=texts.ApiExplain%><%=texts.p3h11%><br/>
+            <%=texts.Parameter%>token<br>
+            HTTP Method : <code>GET</code><br>
+            <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/verifytoken?token=xxxxx</code></pre>
+            <%=texts.ReturnCode + texts.ReturnJSON%><code>{"Account" : "abc@gmail.com", "OpenID" : 1000000000, "Password" : "password","EMail" : "abc@gmail.com"}</code><br/>
+        </p>
+    </div>
+    <br>
+    <div id="section12">
+        <h1><%=texts.p3s12%></h1>
+        <hr>
+        <p><%=texts.ApiName%><code>logout</code><br/>
+            <%=texts.ApiExplain%><%=texts.p3h12%><br/>
             HTTP Method : <code>GET</code><br>
             <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/logout</code></pre>
             <%=texts.ReturnCode + texts.Empty%>
