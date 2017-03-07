@@ -48,7 +48,7 @@
   "Result": "code=1為成功，其他都是失敗。",
   "Empty": "無",
   "Can": "可以",
-  "GetParameter": "取得接入參數。",
+  "GetParameter": " 可以在此網址取得接入參數。",
   "p2s1": "【Web API 使用指南】",
   "p2s2": "調用 API 頁面",
   "p2s3": "API 初始化",

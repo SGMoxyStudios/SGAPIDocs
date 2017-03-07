@@ -49,7 +49,7 @@
   "Result": "code = 1 is success, otherwise is a failure.",
   "Empty": "None",
   "Can": "Can",
-  "GetParameter": "get access parameters.",
+  "GetParameter": " You can get access parameters at this URL.",
   "p2s1": "Web View Using Guide",
   "p2s2": "Call API Page",
   "p2s3": "API Initialization",
