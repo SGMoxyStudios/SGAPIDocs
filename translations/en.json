@@ -69,6 +69,8 @@
   "jp2h33": "Call Web View",
   "jp2h34": "Receive server return value. Use WebView.evaluateJavascript() function to have the web JavaScript funtion <code>ResultCode()</code> return value",
   "sp2h34": "Receive server return value. Use webView.stringByEvaluatingJavaScript() function to have the web JavaScript funtion ResultCode() return value。",
+  "p2s4": "Cookie Setting",
+  "p2h4": "After Http Get call init you need to save Header's Set-Cookie parameter. Other calls must be added this parameter.",
   "Page-webapi-user": "==============================",
   "p3s1": "Web API User System Interface",
   "jp3s1": "Java User System Interface",

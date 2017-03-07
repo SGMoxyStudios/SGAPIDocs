@@ -68,6 +68,8 @@
   "jp2h33": "呼叫 Web View",
   "jp2h34": "接收 Server 回傳值。使用 WebView.evaluateJavascript() 函式取得網頁 JavaScript 函式 <code>ResultCode()</code> 回傳值。",
   "sp2h34": "接收 Server 回傳值。使用 webView.stringByEvaluatingJavaScript() 函式取得網頁 JavaScript 函式 ResultCode() 回傳值。",
+  "p2s4": "Cookie設定",
+  "p2h4": "以 Http Get 調用 init 之後需保存 Header 的 Set-Cookie 參數，之後所有調用的接口都必須加上此參數。",
   "Page-webapi-user": "================================",
   "p3s1": "【Web API 用戶系統接口】",
   "jp3s1": "【Java 用戶系統接口】",
