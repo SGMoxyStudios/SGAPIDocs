@@ -1,8 +1,8 @@
 <nav class="col-sm-3" id="myScrollspy">
     <ul class="nav nav-pills nav-stacked well" data-spy="affix" data-offset-top="600" style="background-color: white">
         <li><a href="#section1"><h4> <%=texts.p3s1%> </h4></a></li>
-        <li><a href="#section2"><h4> <%=texts.p3s2%> </h4></a></li>
         <li><a href="#section3"><h4> <%=texts.p3s3%> </h4></a></li>
+        <li><a href="#section2"><h4> <%=texts.p3s2%> </h4></a></li>
         <li><a href="#section4"><h4> <%=texts.p3s4%> </h4></a></li>
         <li><a href="#section5"><h4> <%=texts.p3s5%> </h4></a></li>
         <li><a href="#section6"><h4> <%=texts.p3s6%> </h4></a></li>
@@ -20,6 +20,86 @@
         <h4><%=texts.p3h1%></h4>
     </div>
     <br>
+
+    <div id="section3">
+        <h1><%=texts.p3s3%></h1>
+        <hr>
+        <p> <%=texts.ApiName%><code>login</code><br/>
+            <%=texts.ApiExplain%><%=texts.p3h3%><br/>
+            HTTP Method : <code>GET</code><br>
+        <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/login</code></pre>
+
+        <div class="well well-sm">
+            <img src=<%= "assets/img/" + lang + "/pic07.png"%> class="img-responsive"/>
+        </div>
+
+        <%=texts.ReturnCode%><br>
+        <table class="table"> <!--Gem Start-->
+            <thead>
+            <tr>
+                <th>
+                    <%=texts.Variable%>
+                </th>
+                <th>
+                    <%=texts.FunctionName%>
+                </th>
+                <th>
+                    <%=texts.Description%>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="active">
+                <td>
+                    Code
+                </td>
+                <td>
+                    ResultCode()
+                </td>
+                <td>
+                    <%=texts.Result%>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    OpenID
+                </td>
+                <td>
+                    GetOpenID()
+                </td>
+                <td>
+                    <%=texts.Result2%>
+                </td>
+            </tr>
+
+            <tr class="active">
+                <td>
+                    SessionID
+                </td>
+                <td>
+                    GetSessionID()
+                </td>
+                <td>
+                    <%=texts.Result3%>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Token
+                </td>
+                <td>
+                    GetToken()
+                </td>
+                <td>
+                    <%=texts.Result4%>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        </p>
+    </div>
+    <br>
     <div id="section2">
         <h1><%=texts.p3s2%></h1>
         <hr>
@@ -29,85 +109,6 @@
             <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/signup</code></pre>
             <div class="well well-sm">
                 <img src=<%= "assets/img/" + lang + "/pic08.png"%> class="img-responsive"/>
-            </div>
-
-            <%=texts.ReturnCode%><br>
-            <table class="table"> <!--Gem Start-->
-                <thead>
-                <tr>
-                    <th>
-                        <%=texts.Variable%>
-                    </th>
-                    <th>
-                        <%=texts.FunctionName%>
-                    </th>
-                    <th>
-                        <%=texts.Description%>
-                    </th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr class="active">
-                    <td>
-                        Code
-                    </td>
-                    <td>
-                        ResultCode()
-                    </td>
-                    <td>
-                        <%=texts.Result%>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        OpenID
-                    </td>
-                    <td>
-                        GetOpenID()
-                    </td>
-                    <td>
-                        <%=texts.Result2%>
-                    </td>
-                </tr>
-
-                <tr class="active">
-                    <td>
-                        SessionID
-                    </td>
-                    <td>
-                        GetSessionID()
-                    </td>
-                    <td>
-                        <%=texts.Result3%>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Token
-                    </td>
-                    <td>
-                        GetToken()
-                    </td>
-                    <td>
-                        <%=texts.Result4%>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </p>
-    </div>
-    <br>
-    <div id="section3">
-        <h1><%=texts.p3s3%></h1>
-        <hr>
-        <p> <%=texts.ApiName%><code>login</code><br/>
-            <%=texts.ApiExplain%><%=texts.p3h3%><br/>
-            HTTP Method : <code>GET</code><br>
-            <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/login</code></pre>
-
-            <div class="well well-sm">
-                <img src=<%= "assets/img/" + lang + "/pic07.png"%> class="img-responsive"/>
             </div>
 
             <%=texts.ReturnCode%><br>
@@ -272,9 +273,9 @@
         <p>
             <%=texts.ApiName%><code>verifysession</code><br/>
             <%=texts.ApiExplain%><%=texts.p3h10%><br/>
-            <%=texts.Parameter%>sessionid<br>
+            <%=texts.Parameter%>appId, session, uid, signature<br>
             HTTP Method : <code>GET</code><br>
-            <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/verifysession?sessionid=xxxxx</code></pre>
+            <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/verifysession?appId=d7e73390-d7fd-11e6-9074-21c247f06802&session=xxxx&uid=10000000&signature=xxxx</code></pre>
             <%=texts.ReturnCode + texts.ReturnJSON%><code>{"Account" : "abc@gmail.com", "OpenID" : 1000000000, "Password" : "password","EMail" : "abc@gmail.com"}</code><br/>
         </p>
     </div>

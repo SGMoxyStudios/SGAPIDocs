@@ -1,3 +1,13 @@
+<nav class="col-sm-3" id="myScrollspy">
+    <ul class="nav nav-pills nav-stacked well" data-spy="affix" data-offset-top="600" style="background-color: white">
+        <li><a href="#section1"><h4> <%=texts.p2s1%> </h4></a></li>
+        <li><a href="#section2"><h4> <%=texts.p2s2%> </h4></a></li>
+        <li><a href="#section3"><h4> <%=texts.p2s3%> </h4></a></li>
+        <li><a href="#section4"><h4> <%=texts.Description%> </h4></a></li>
+        <li><a href="#section5"><h4> <%=texts.p2s6%> </h4></a></li>
+    </ul>
+</nav>
+
 <div class="col-sm-9">
     <div id="section1">
         <h1><%=texts.p2s1%></h1>
@@ -38,5 +48,41 @@
         <p><%=texts.p2h5%><br>
             <code>webViewCookie.put("Cookie", response.headers.get("Set-Cookie"));</code>
         </p>
+    </div>
+    <br>
+    <div id="section5">
+        <h1><%=texts.p2s6%></h1>
+        <hr>
+        <h4><%=texts.p2h6%><code>code, msg</code></h4>
+        <table class="table"> <!--Gem Start-->
+            <thead>
+            <tr>
+                <th>
+                    api
+                </th>
+                <th>
+                    code
+                </th>
+                <th>
+                    msg
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <% for (var i = 0; i < ResultCode.length; i++) { %>
+                <tr class=<%=ResultCode[i].class%>>
+                    <td>
+                        <%=ResultCode[i].api%>
+                    </td>
+                    <td>
+                        <%=ResultCode[i].code%>
+                    </td>
+                    <td>
+                        <%=ResultCode[i].msg%>
+                    </td>
+                </tr>
+            <% } %>
+            </tbody>
+        </table>
     </div>
 </div>

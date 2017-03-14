@@ -34,6 +34,7 @@ if ('development' === app.get('env')) {
 //load file
 var FilePath = __dirname + '/public/data/';
 var Channels = [];
+var ResultCode = [];
 
 function ReloadData() {
     fs.readFile(FilePath + 'channels.json', 'utf8', function (err, data) {
@@ -41,6 +42,13 @@ function ReloadData() {
             Channels = JSON.parse(data);
         } else
             console.log('Load channels error: ' + err);
+    });
+
+    fs.readFile(FilePath + 'resultcode.json', 'utf8', function (err, data) {
+        if (!err) {
+            ResultCode = JSON.parse(data);
+        } else
+            console.log('Load ResultCode error: ' + err);
     });
 }
 
@@ -54,7 +62,9 @@ app.get('/channel', function(req, res) {
     res.render('channel', {Channels: Channels});
 });
 //web api
-app.get('/webapi-init', function(req, res){res.render('webapi-init')});
+app.get('/webapi-init', function(req, res){
+    res.render('webapi-init', {ResultCode: ResultCode})
+});
 app.get('/webapi-user', function(req, res){res.render('webapi-user')});
 app.get('/webapi-pay', function(req, res){res.render('webapi-pay')});
 app.get('/webapi-analytics', function(req, res){res.render('webapi-analytics')});

@@ -1,0 +1,362 @@
+[
+  {
+    "api": "init",
+    "code": 101,
+    "msg": "ok",
+    "class": "active"
+  },
+  {
+    "api": "",
+    "code": 102,
+    "msg": "Find game error.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 103,
+    "msg": "Find game error.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 104,
+    "msg": "Game not found.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 105,
+    "msg": "App secret error.",
+    "class": ""
+  },
+  {
+    "api": "login",
+    "code": 201,
+    "msg": "ok",
+    "class": "active"
+  },
+  {
+    "api": "",
+    "code": 202,
+    "msg": "Not init yet.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 203,
+    "msg": "Find team error.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 204,
+    "msg": "Account not found.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 205,
+    "msg": "Not verify yet.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 206,
+    "msg": "Password error.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 207,
+    "msg": "Login update error.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 221,
+    "msg": "Account not found.",
+    "class": ""
+  },
+  {
+    "api": "signup",
+    "code": 301,
+    "msg": "ok",
+    "class": "active"
+  },
+  {
+    "api": "",
+    "code": 302,
+    "msg": "Not init yet.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 303,
+    "msg": "Please confirm password.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 304,
+    "msg": "Length of password have to longer than 5.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 305,
+    "msg": "This email has been used.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 306,
+    "msg": "This email has been used.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 307,
+    "msg": "Signup update error.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 308,
+    "msg": "Waiting confirm code.",
+    "class": ""
+  },
+  {
+    "api": "forgot-password",
+    "code": 401,
+    "msg": "ok",
+    "class": "active"
+  },
+  {
+    "api": "",
+    "code": 421,
+    "msg": "Account not found.",
+    "class": ""
+  },
+  {
+    "api": "change-password",
+    "code": 501,
+    "msg": "ok",
+    "class": "active"
+  },
+  {
+    "api": "",
+    "code": 502,
+    "msg": "Please confirm new password.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 503,
+    "msg": "Length of password have to longer than 5.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 504,
+    "msg": "Password error.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 521,
+    "msg": "Account not found.",
+    "class": ""
+  },
+  {
+    "api": "child-data",
+    "code": 601,
+    "msg": "ok",
+    "class": "active"
+  },
+  {
+    "api": "",
+    "code": 602,
+    "msg": "Not init yet.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 603,
+    "msg": "Please fill all field.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 604,
+    "msg": "Find error.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 606,
+    "msg": "Update error",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 621,
+    "msg": "Account not found.",
+    "class": ""
+  },
+  {
+    "api": "verifysession",
+    "code": 701,
+    "msg": "ok",
+    "class": "active"
+  },
+  {
+    "api": "",
+    "code": 702,
+    "msg": "Post data error.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 703,
+    "msg": "Game not found.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 704,
+    "msg": "Signature error.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 721,
+    "msg": "Account not found.",
+    "class": ""
+  },
+  {
+    "api": "verifytoken",
+    "code": 801,
+    "msg": "ok",
+    "class": "active"
+  },
+  {
+    "api": "",
+    "code": 802,
+    "msg": "No token.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 803,
+    "msg": "Failed to authenticate token",
+    "class": ""
+  },
+  {
+    "api": "pay",
+    "code": 901,
+    "msg": "ok",
+    "class": "active"
+  },
+  {
+    "api": "",
+    "code": 902,
+    "msg": "Not login yet.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 903,
+    "msg": "Payment data error.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 904,
+    "msg": "Find error.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 905,
+    "msg": "Order exists.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 906,
+    "msg": "Update error.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 907,
+    "msg": "Send to U8 error.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 908,
+    "msg": "Receive from U8 error",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 909,
+    "msg": "Payment callback from U8 failure.",
+    "class": ""
+  },
+  {
+    "api": "getorder",
+    "code": 1001,
+    "msg": "ok",
+    "class": "active"
+  },
+  {
+    "api": "",
+    "code": 1002,
+    "msg": "Data error.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 1003,
+    "msg": "Game not found.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 1004,
+    "msg": "Signature error.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 1005,
+    "msg": "Order not found.",
+    "class": ""
+  },
+  {
+    "api": "gamestop",
+    "code": 1101,
+    "msg": "ok",
+    "class": "active"
+  },
+  {
+    "api": "",
+    "code": 1102,
+    "msg": "Not Init yet.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 1103,
+    "msg": "Find error.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 1104,
+    "msg": "Update error.",
+    "class": ""
+  }
+]
