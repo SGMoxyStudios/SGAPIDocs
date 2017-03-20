@@ -36,7 +36,7 @@
             <tbody>
                 <tr class="active">
                     <td>
-                        product_id
+                        productId
                     </td>
                     <td>
                         Y
@@ -48,7 +48,7 @@
 
                 <tr>
                     <td>
-                        product_name
+                        productName
                     </td>
                     <td>
                         Y
@@ -60,32 +60,128 @@
 
                 <tr class="active">
                     <td>
-                        product_price
+                        paymentMethod
                     </td>
                     <td>
                         Y
                     </td>
                     <td>
-                        <%=texts.p4d3%> <br> <%=texts.p4p2%>
+                        <%=texts.p4d3%> <%=texts.p4d2%> <br> <%=texts.p4p1%>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        paymentChannel
+                    </td>
+                    <td>
+                        Y
+                    </td>
+                    <td>
+                        <%=texts.p4d4%> <br> <%=texts.p4p1%>
                     </td>
                 </tr>
 
                 <tr class="active">
                     <td>
-                        notify_url
+                        productDesc
                     </td>
                     <td>
-                        X
+                        Ｎ
                     </td>
                     <td>
-                        <%=texts.p4d4%> <br> <%=texts.p4p1%>
+                        <%=texts.p4d5%> <br> <%=texts.p4p1%>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        price
+                    </td>
+                    <td>
+                        Y
+                    </td>
+                    <td>
+                        <%=texts.p4d6%> <br> <%=texts.p4p2%>
+                    </td>
+                </tr>
+
+                <tr class="active">
+                    <td>
+                        serverId
+                    </td>
+                    <td>
+                        N
+                    </td>
+                    <td>
+                        <%=texts.p4d7%> <br> <%=texts.p4p1%>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        serverName
+                    </td>
+                    <td>
+                        N
+                    </td>
+                    <td>
+                        <%=texts.p4d8%> <br> <%=texts.p4p1%>
+                    </td>
+                </tr>
+
+                <tr class="active">
+                    <td>
+                        roleId
+                    </td>
+                    <td>
+                        Y
+                    </td>
+                    <td>
+                        <%=texts.p4d9%> <br> <%=texts.p4p1%>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        roleName
+                    </td>
+                    <td>
+                        N
+                    </td>
+                    <td>
+                        <%=texts.p4d10%> <br> <%=texts.p4p1%>
+                    </td>
+                </tr>
+
+                <tr class="active">
+                    <td>
+                        roleLevel
+                    </td>
+                    <td>
+                        N
+                    </td>
+                    <td>
+                        <%=texts.p4d11%> <br> <%=texts.p4p3%>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        payNotifyUrl
+                    </td>
+                    <td>
+                        N
+                    </td>
+                    <td>
+                        <%=texts.p4d12%> <br> <%=texts.p4p1%>
                     </td>
                 </tr>
             </tbody>
         </table>
 
         <p>
-            <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/pay?product_id=com.smartgamesltd.diamond1&product_name=diamond&product_price=1.99</code></pre>
+            <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/pay?productId=com.smartgamesltd.diamond1&productName=diamond&price=1.99</code></pre>
             <%=texts.ReturnCode + texts.Result + texts.ReturnJSON%><code>{"code": 1}</code><br/>
         </p>
     </div>
@@ -101,7 +197,7 @@
 
         </p>
         <p>
-        <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/getorder?order_id=11&game_key=d7e73390-d7fd-11e6-9074-21c247f06802&user_id=1000000011&sign=253db4397d1c40cb647d7ea15cb7fbee</code></pre>
+        <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/getorder?order_id=11&game_key=d7e73390-d7fd-11e6-9074-21c247f06802&user_id=1000000022&sign=253db4397d1c40cb647d7ea15cb7fbee</code></pre>
         <%=texts.ReturnCode%><%=texts.p4h42%><br/>
         </p>
     </div>
