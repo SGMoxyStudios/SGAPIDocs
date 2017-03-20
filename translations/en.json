@@ -119,6 +119,7 @@
   "p4h3": "After IAP successful call this interface to upload payment infomation to server.",
   "p4h41": "Use sign to get order after purchased.",
   "p4h42": "Return order detail by JSON format.",
+  "p4h43": "Return original upload parameters by JSON format after call interface success. Plus code, msg, sign these three parameters.",
   "p4t1": "Parameters",
   "p4t2": "Must or not to pass",
   "p4t3": "Parameter description",
