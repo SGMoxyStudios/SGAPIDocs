@@ -33,15 +33,13 @@
             <img src=<%= "assets/img/" + lang + "/pic07.png"%> class="img-responsive"/>
         </div>
 
-        <%=texts.ReturnCode%><br>
+        <%=texts.ReturnCode + texts.CallJS%><code>GetResult()</code><%=texts.p2h42%><code>{"code": 1, "msg": "ok"}</code><br>
+        <a href="/webapi-init#section5"> <%=texts.LookCode%> </a>
         <table class="table"> <!--Gem Start-->
             <thead>
             <tr>
                 <th>
                     <%=texts.Variable%>
-                </th>
-                <th>
-                    <%=texts.FunctionName%>
                 </th>
                 <th>
                     <%=texts.Description%>
@@ -54,19 +52,13 @@
                     Code
                 </td>
                 <td>
-                    ResultCode()
-                </td>
-                <td>
-                    <%=texts.Result%>
+                    <%=texts.Result201%>
                 </td>
             </tr>
 
             <tr>
                 <td>
                     OpenID
-                </td>
-                <td>
-                    GetOpenID()
                 </td>
                 <td>
                     <%=texts.Result2%>
@@ -78,18 +70,12 @@
                     SessionID
                 </td>
                 <td>
-                    GetSessionID()
-                </td>
-                <td>
                     <%=texts.Result3%>
                 </td>
             </tr>
             <tr>
                 <td>
                     Token
-                </td>
-                <td>
-                    GetToken()
                 </td>
                 <td>
                     <%=texts.Result4%>
@@ -111,15 +97,13 @@
                 <img src=<%= "assets/img/" + lang + "/pic08.png"%> class="img-responsive"/>
             </div>
 
-            <%=texts.ReturnCode%><br>
+            <%=texts.ReturnCode%><%=texts.ReturnCode + texts.CallJS%><code>GetResult()</code><%=texts.p2h42%><code>{"code": 1, "msg": "ok"}</code><br>
+            <a href="/webapi-init#section5"> <%=texts.LookCode%> </a>
             <table class="table"> <!--Gem Start-->
                 <thead>
                 <tr>
                     <th>
                         <%=texts.Variable%>
-                    </th>
-                    <th>
-                        <%=texts.FunctionName%>
                     </th>
                     <th>
                         <%=texts.Description%>
@@ -132,19 +116,13 @@
                         Code
                     </td>
                     <td>
-                        ResultCode()
-                    </td>
-                    <td>
-                        <%=texts.Result%>
+                        <%=texts.Result301%>
                     </td>
                 </tr>
 
                 <tr>
                     <td>
                         OpenID
-                    </td>
-                    <td>
-                        GetOpenID()
                     </td>
                     <td>
                         <%=texts.Result2%>
@@ -156,18 +134,12 @@
                         SessionID
                     </td>
                     <td>
-                        GetSessionID()
-                    </td>
-                    <td>
                         <%=texts.Result3%>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         Token
-                    </td>
-                    <td>
-                        GetToken()
                     </td>
                     <td>
                         <%=texts.Result4%>
@@ -190,7 +162,8 @@
                 <img src=<%= "assets/img/" + lang + "/pic09.png"%> class="img-responsive"/>
             </div>
 
-            <%=texts.ReturnCode + texts.CallJS%><code>ResultCode()</code><%='，' + texts.Result%><br>
+            <%=texts.ReturnCode%><%=texts.ReturnCode + texts.CallJS%><code>GetResult()</code><%=texts.p2h42%><code>{"code": 1, "msg": "ok"}</code><br>
+            <a href="/webapi-init#section5"> <%=texts.LookCode%> </a>
         </p>
     </div>
     <br>
@@ -205,7 +178,8 @@
             <div class="well well-sm">
                 <img src=<%= "assets/img/" + lang + "/pic10.png"%> class="img-responsive"/>
             </div>
-            <%=texts.ReturnCode + texts.CallJS%><code>ResultCode()</code><%='，' + texts.Result%><br>
+            <%=texts.ReturnCode%><%=texts.ReturnCode + texts.CallJS%><code>GetResult()</code><%=texts.p2h42%><code>{"code": 1, "msg": "ok"}</code><br>
+            <a href="/webapi-init#section5"> <%=texts.LookCode%> </a>
         </p>
     </div>
     <br>
@@ -213,10 +187,10 @@
         <h1><%=texts.p3s6%></h1>
         <hr>
         <p>
-            <%=texts.ApiName%><code>ask-code</code><br/>
+            <%=texts.ApiName%><code>parental-lock</code><br/>
             <%=texts.ApiExplain%><%=texts.p3h6%><br/>
             HTTP Method : <code>GET</code><br>
-            <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/ask-code</code></pre>
+            <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/parental-lock</code></pre>
             <div class="well well-sm">
                 <img src=<%= "assets/img/" + lang + "/pic11.png"%> class="img-responsive"/>
             </div>
@@ -229,15 +203,17 @@
         <h1><%=texts.p3s7%></h1>
         <hr>
         <p>
-            <%=texts.ApiName%><code>child-data</code><br/>
+            <%=texts.ApiName%><code>my-kid</code><br/>
             <%=texts.ApiExplain%><%=texts.p3h7%><br/>
             HTTP Method : <code>GET</code><br>
-            <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/child-data</code></pre>
+            <%=texts.Example%><pre><code class="js">http://gameapi.smartgamesltd.com/my-kid</code></pre>
             <div class="well well-sm">
                 <img src=<%= "assets/img/" + lang + "/pic12.png"%> class="img-responsive"/>
             </div>
-            <%=texts.ReturnCode + texts.CallJS%><code>ResultCode()</code><%='，' + texts.Result%><br>
+            <%=texts.ReturnCode%><%=texts.ReturnCode + texts.CallJS%><code>GetResult()</code><%=texts.p2h42%><code>{"code": 1, "msg": "ok"}</code><br>
+            <a href="/webapi-init#section5"> <%=texts.LookCode%> </a>
         </p>
+        <br>
     </div>
     <br>
     <div id="section8">

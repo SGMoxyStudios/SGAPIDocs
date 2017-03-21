@@ -1,5 +1,29 @@
 [
   {
+    "api": "General Error Code",
+    "code": 30,
+    "msg": "Not init yet.",
+    "class": "active"
+  },
+  {
+    "api": "",
+    "code": 31,
+    "msg": "Account not found.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 32,
+    "msg": "Not login yet.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 33,
+    "msg": "DB error.",
+    "class": ""
+  },
+  {
     "api": "init",
     "code": 101,
     "msg": "ok",
@@ -8,24 +32,18 @@
   {
     "api": "",
     "code": 102,
-    "msg": "Find game error.",
+    "msg": "Post data error.",
     "class": ""
   },
   {
     "api": "",
     "code": 103,
-    "msg": "Find game error.",
-    "class": ""
-  },
-  {
-    "api": "",
-    "code": 104,
     "msg": "Game not found.",
     "class": ""
   },
   {
     "api": "",
-    "code": 105,
+    "code": 104,
     "msg": "App secret error.",
     "class": ""
   },
@@ -38,43 +56,13 @@
   {
     "api": "",
     "code": 202,
-    "msg": "Not init yet.",
+    "msg": "Not confirm yet.",
     "class": ""
   },
   {
     "api": "",
     "code": 203,
-    "msg": "Find team error.",
-    "class": ""
-  },
-  {
-    "api": "",
-    "code": 204,
-    "msg": "Account not found.",
-    "class": ""
-  },
-  {
-    "api": "",
-    "code": 205,
-    "msg": "Not verify yet.",
-    "class": ""
-  },
-  {
-    "api": "",
-    "code": 206,
     "msg": "Password error.",
-    "class": ""
-  },
-  {
-    "api": "",
-    "code": 207,
-    "msg": "Login update error.",
-    "class": ""
-  },
-  {
-    "api": "",
-    "code": 221,
-    "msg": "Account not found.",
     "class": ""
   },
   {
@@ -86,89 +74,47 @@
   {
     "api": "",
     "code": 302,
-    "msg": "Not init yet.",
-    "class": ""
-  },
-  {
-    "api": "",
-    "code": 303,
     "msg": "Please confirm password.",
     "class": ""
   },
   {
     "api": "",
-    "code": 304,
+    "code": 303,
     "msg": "Length of password have to longer than 5.",
     "class": ""
   },
   {
     "api": "",
-    "code": 305,
+    "code": 304,
     "msg": "This email has been used.",
     "class": ""
   },
   {
-    "api": "",
-    "code": 306,
-    "msg": "This email has been used.",
-    "class": ""
-  },
-  {
-    "api": "",
-    "code": 307,
-    "msg": "Signup update error.",
-    "class": ""
-  },
-  {
-    "api": "",
-    "code": 308,
-    "msg": "Waiting confirm code.",
-    "class": ""
-  },
-  {
-    "api": "forgot-password",
+    "api": "email-confirm",
     "code": 401,
     "msg": "ok",
     "class": "active"
   },
   {
     "api": "",
-    "code": 421,
-    "msg": "Account not found.",
+    "code": 402,
+    "msg": "Not confirm yet.",
     "class": ""
   },
   {
-    "api": "change-password",
+    "api": "",
+    "code": 406,
+    "msg": "Code error.",
+    "class": ""
+  },
+  {
+    "api": "forgot-password",
     "code": 501,
     "msg": "ok",
     "class": "active"
   },
   {
-    "api": "",
-    "code": 502,
-    "msg": "Please confirm new password.",
-    "class": ""
-  },
-  {
-    "api": "",
-    "code": 503,
-    "msg": "Length of password have to longer than 5.",
-    "class": ""
-  },
-  {
-    "api": "",
-    "code": 504,
-    "msg": "Password error.",
-    "class": ""
-  },
-  {
-    "api": "",
-    "code": 521,
-    "msg": "Account not found.",
-    "class": ""
-  },
-  {
-    "api": "child-data",
+    "api": "change-password",
     "code": 601,
     "msg": "ok",
     "class": "active"
@@ -176,35 +122,23 @@
   {
     "api": "",
     "code": 602,
-    "msg": "Not init yet.",
+    "msg": "Please confirm new password.",
     "class": ""
   },
   {
     "api": "",
     "code": 603,
-    "msg": "Please fill all field.",
+    "msg": "Length of password have to longer than 5.",
     "class": ""
   },
   {
     "api": "",
     "code": 604,
-    "msg": "Find error.",
+    "msg": "Password error.",
     "class": ""
   },
   {
-    "api": "",
-    "code": 606,
-    "msg": "Update error",
-    "class": ""
-  },
-  {
-    "api": "",
-    "code": 621,
-    "msg": "Account not found.",
-    "class": ""
-  },
-  {
-    "api": "verifysession",
+    "api": "reset-password",
     "code": 701,
     "msg": "ok",
     "class": "active"
@@ -218,23 +152,29 @@
   {
     "api": "",
     "code": 703,
-    "msg": "Game not found.",
+    "msg": "Reset password disabled.",
     "class": ""
   },
   {
     "api": "",
     "code": 704,
-    "msg": "Signature error.",
+    "msg": "Please confirm password.",
     "class": ""
   },
   {
     "api": "",
-    "code": 721,
-    "msg": "Account not found.",
+    "code": 705,
+    "msg": "Please click email link again.",
     "class": ""
   },
   {
-    "api": "verifytoken",
+    "api": "",
+    "code": 706,
+    "msg": "Password error.",
+    "class": ""
+  },
+  {
+    "api": "my-kid",
     "code": 801,
     "msg": "ok",
     "class": "active"
@@ -242,17 +182,11 @@
   {
     "api": "",
     "code": 802,
-    "msg": "No token.",
+    "msg": "Please fill all field.",
     "class": ""
   },
   {
-    "api": "",
-    "code": 803,
-    "msg": "Failed to authenticate token",
-    "class": ""
-  },
-  {
-    "api": "pay",
+    "api": "verifysession",
     "code": 901,
     "msg": "ok",
     "class": "active"
@@ -260,53 +194,29 @@
   {
     "api": "",
     "code": 902,
-    "msg": "Not login yet.",
+    "msg": "Try error.",
     "class": ""
   },
   {
     "api": "",
     "code": 903,
-    "msg": "Payment data error.",
+    "msg": "Post data error.",
     "class": ""
   },
   {
     "api": "",
     "code": 904,
-    "msg": "Find error.",
+    "msg": "Game not found.",
     "class": ""
   },
   {
     "api": "",
     "code": 905,
-    "msg": "Order exists.",
+    "msg": "Signature error.",
     "class": ""
   },
   {
-    "api": "",
-    "code": 906,
-    "msg": "Update error.",
-    "class": ""
-  },
-  {
-    "api": "",
-    "code": 907,
-    "msg": "Send to U8 error.",
-    "class": ""
-  },
-  {
-    "api": "",
-    "code": 908,
-    "msg": "Receive from U8 error",
-    "class": ""
-  },
-  {
-    "api": "",
-    "code": 909,
-    "msg": "Payment callback from U8 failure.",
-    "class": ""
-  },
-  {
-    "api": "getorder",
+    "api": "verifytoken",
     "code": 1001,
     "msg": "ok",
     "class": "active"
@@ -314,29 +224,17 @@
   {
     "api": "",
     "code": 1002,
-    "msg": "Data error.",
+    "msg": "No token.",
     "class": ""
   },
   {
     "api": "",
     "code": 1003,
-    "msg": "Game not found.",
+    "msg": "Failed to authenticate token",
     "class": ""
   },
   {
-    "api": "",
-    "code": 1004,
-    "msg": "Signature error.",
-    "class": ""
-  },
-  {
-    "api": "",
-    "code": 1005,
-    "msg": "Order not found.",
-    "class": ""
-  },
-  {
-    "api": "gamestop",
+    "api": "pay",
     "code": 1101,
     "msg": "ok",
     "class": "active"
@@ -344,19 +242,85 @@
   {
     "api": "",
     "code": 1102,
-    "msg": "Not Init yet.",
+    "msg": "Try error.",
     "class": ""
   },
   {
     "api": "",
     "code": 1103,
-    "msg": "Find error.",
+    "msg": "Payment data error.",
     "class": ""
   },
   {
     "api": "",
     "code": 1104,
-    "msg": "Update error.",
+    "msg": "Order exists.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 1105,
+    "msg": "Send to U8 error.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 1106,
+    "msg": "Receive from U8 error",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 1107,
+    "msg": "Payment callback from U8 failure.",
+    "class": ""
+  },
+  {
+    "api": "getorder",
+    "code": 1201,
+    "msg": "ok",
+    "class": "active"
+  },
+  {
+    "api": "",
+    "code": 1202,
+    "msg": "Try error.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 1203,
+    "msg": "Post data error.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 1204,
+    "msg": "Game not found.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 1205,
+    "msg": "Signature error.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 1206,
+    "msg": "Order not found.",
+    "class": ""
+  },
+  {
+    "api": "gamestop",
+    "code": 1301,
+    "msg": "ok",
+    "class": "active"
+  },
+  {
+    "api": "",
+    "code": 1302,
+    "msg": "Not call game start yet.",
     "class": ""
   }
 ]
