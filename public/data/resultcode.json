@@ -74,37 +74,43 @@
   {
     "api": "",
     "code": 302,
-    "msg": "Please confirm password.",
+    "msg": "Please enter confirm code.",
     "class": ""
   },
   {
     "api": "",
     "code": 303,
-    "msg": "Length of password have to longer than 5.",
+    "msg": "Please confirm password.",
     "class": ""
   },
   {
     "api": "",
     "code": 304,
-    "msg": "This email has been used.",
-    "class": ""
-  },
-  {
-    "api": "email-confirm",
-    "code": 401,
-    "msg": "ok",
-    "class": "active"
-  },
-  {
-    "api": "",
-    "code": 402,
-    "msg": "Not confirm yet.",
+    "msg": "Length of password have to longer than 5.",
     "class": ""
   },
   {
     "api": "",
-    "code": 406,
-    "msg": "Code error.",
+    "code": 305,
+    "msg": "This account has been used.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 306,
+    "msg": "No confirm code.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 307,
+    "msg": "Confirm code over time.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 308,
+    "msg": "Confirm error.",
     "class": ""
   },
   {
@@ -273,6 +279,12 @@
     "api": "",
     "code": 1107,
     "msg": "Payment callback from U8 failure.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 1108,
+    "msg": "Notify url error.",
     "class": ""
   },
   {
