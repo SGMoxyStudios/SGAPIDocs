@@ -136,19 +136,7 @@
         <div>
             <%= texts.Example %>
             <pre>SgSDK.Instance.Pay(payRequest: initPayReq(productId: productIDs[0], payMethod: "managed"))</pre>
-            <pre>private func initPayReq(productId: String, payMethod: String) -> SgSDKPayRequest {
-    let req = SgSDKPayRequest()
-    req.ProductId = productId
-    req.PaymentMethod = payMethod
-    req.PaymentChannel = "AppStore"
-    req.ServerId = "Server ID"
-    req.ServerName = "Server Name"
-    req.RoleId = "9487"
-    req.RoleName = "Roger"
-    req.RoleLevel = 99
-    req.PayNotifyUrl = "PAY_NOTIFY_URL"
-    return req
-}</pre>
+            <%- include code/swift-initPayReq.html -%>
             <%= texts.ReturnCode %>
             <ul>
                 <li>Code: 1101, SgServer驗證成功, Data: SgSDKPayResponse</li>

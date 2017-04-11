@@ -26,6 +26,7 @@
         <ul>
             <li><a href="/sdk/debug/SgSDK.framework.zip" download>SgSDK Farmework(debug)</a></li>
             <li><a href="/sdk/release/SgSDK.framework.zip" download>SgSDK Farmework(release)</a></li>
+            <li><a href="https://github.com/SGMoxyStudios/SGSDK-iOS-Sample">SGSDK iOS Sample</a></li>
         </ul>
         <br>
         <div id="section2-1">
@@ -84,12 +85,7 @@
             <li>Msg: String 回傳該Error Code代表的訊息</li>
             <li>Data: Any? 沒有其他資訊的話會是nil，有資訊的話可以轉換為任一結構</li>
         </ul>
-        <pre>
-            <code>func MsgListen(result: SgSDKResult) {
-                self.setMessage("code: \(result.Code), msg: \(result.Msg)")
-            }</code>
-        </pre>
-
+        <%- include code/swift-setListen.html -%>
         <h4></h4>
         <h4><%=texts.ApiName%><code>Init</code><br/>
             <%=texts.ApiExplain%>初始化SgSDK才能使用之後的所有功能<br/>

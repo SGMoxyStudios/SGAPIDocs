@@ -1,0 +1,14 @@
+<pre>private func initPayReq(productId: String, payMethod: String) -> SgSDKPayRequest {
+    let req = SgSDKPayRequest()
+    req.ProductId = productId
+    req.PaymentMethod = payMethod
+    req.PaymentChannel = "AppStore"
+    req.ServerId = "Server ID"
+    req.ServerName = "Server Name"
+    req.RoleId = "9487"
+    req.RoleName = "Roger"
+    req.RoleLevel = 99
+    req.PayNotifyUrl = "PAY_NOTIFY_URL"
+    return req
+}
+</pre>

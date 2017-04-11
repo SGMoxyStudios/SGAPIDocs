@@ -288,6 +288,84 @@
     "class": ""
   },
   {
+    "api": "ios in-app purchase",
+    "code": 1130,
+    "msg": "IAP not init yet.",
+    "class": "active"
+  },
+  {
+    "api": "",
+    "code": 1131,
+    "msg": "IAP init ok",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 1132,
+    "msg": "Can not perform In App Purchases.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 1133,
+    "msg": "There are no products.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 1134,
+    "msg": "Invalid Product IDs.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 1135,
+    "msg": "Product id not found.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 1136,
+    "msg": "Transaction OK.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 1137,
+    "msg": "Transaction failed.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 1138,
+    "msg": "Unknown transaction state.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 1139,
+    "msg": "Get receipt failed.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 1140,
+    "msg": "AppStore nothing to restore.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 1141,
+    "msg": "Purchase restore OK.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 1142,
+    "msg": "Purchasing...",
+    "class": ""
+  },
+  {
     "api": "getorder",
     "code": 1201,
     "msg": "ok",
@@ -333,6 +411,36 @@
     "api": "",
     "code": 1302,
     "msg": "Not call game start yet.",
+    "class": ""
+  },
+  {
+    "api": "ios",
+    "code": 8000,
+    "msg": "GetResult() error.",
+    "class": "active"
+  },
+  {
+    "api": "",
+    "code": 8001,
+    "msg": "Json decode error.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 8002,
+    "msg": "Http response try error.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 8003,
+    "msg": "Http response parse error.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 8004,
+    "msg": "Get open id ok.",
     "class": ""
   }
 ]

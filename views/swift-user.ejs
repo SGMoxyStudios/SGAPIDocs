@@ -124,12 +124,7 @@
         <hr>
         <p><%=texts.ApiName%><code>GetOpenID</code><br/>
             <%=texts.ApiExplain%>取得用戶唯一識別 ID (SG ID)，以此 ID 登入遊戲伺服器，登入SG Sever後才可取得。<br/>
-            <%=texts.Example%><pre>
-            if let openid = SgSDK.Instance.GetOpenID() {
-                setMessage("\(openid)")
-            } else {
-                setMessage("Please login.")
-            }</pre>
+            <%=texts.Example%><%- include code/swift-getOpenId.html -%>
             <%=texts.ReturnCode%> 成功的話會得到一個Int?，失敗的話會得到一個nil
         </p>
     </div>
@@ -139,12 +134,7 @@
         <hr>
         <p><%=texts.ApiName%><code>GetSessionID</code><br/>
             <%=texts.ApiExplain%>取得Session ID，登入SG Sever後才可取得。<br/>
-            <%=texts.Example%><pre>
-            if let session = SgSDK.Instance.GetSessionID() {
-                setMessage(session)
-            } else {
-                setMessage("Please login.")
-            }</pre>
+            <%=texts.Example%><%- include code/swift-getSessionId.html -%>
             <%=texts.ReturnCode%> 成功的話會得到一個String?，失敗的話會得到一個nil
         </p>
     </div>
@@ -154,12 +144,7 @@
         <hr>
         <p><%=texts.ApiName%><code>GetToken</code><br/>
             <%=texts.ApiExplain%>取得Token，登入SG Sever後才可取得。<br/>
-            <%=texts.Example%><pre>
-            if let token = SgSDK.Instance.GetToken() {
-                setMessage(token)
-            } else {
-                setMessage("Please login.")
-            }</pre>
+            <%=texts.Example%><%- include code/swift-getToken.html -%>
             <%=texts.ReturnCode%> 成功的話會得到一個String?，失敗的話會得到一個nil
         </p>
     </div>
