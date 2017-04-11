@@ -1,23 +1,21 @@
 <div class="col-sm-9">
     <div id="section1">
-        <h1><%=texts.p5s1%></h1>
+        <h1><%= texts.p5s1 %></h1>
         <hr>
     </div>
     <br>
     <div id="section2">
-        <h1><%=texts.p5s3%></h1>
+        <h1><%= texts.p5s3 %></h1>
         <hr>
-        <p>
-            <%=texts.ApiName%><code>GameStart, GameStop</code><br/>
-            <%=texts.ApiExplain%>
-            <%=texts.p5h31 + 'GameStart' + texts.p5h32 + 'GameStop' + texts.p5h33%><br>
-        <%=texts.Example%><pre>SgSDK.Instance.GameStart()</pre>
-        <%=texts.ReturnCode + texts.Empty%><br/>
+        <%= texts.ApiName %><code>GameStart, GameStop</code><br/>
+        <%= texts.ApiExplain %>
+        <%= texts.p5h31 + 'GameStart' + texts.p5h32 + 'GameStop' + texts.p5h33 %><br>
+        <%= texts.Example %>
+        <pre>SgSDK.Instance.GameStart()</pre>
+        <%= texts.ReturnCode + texts.Empty %><br/>
         <br>
-        <%=texts.Example%><pre>SgSDK.Instance.GameStop()</pre>
-        <%=texts.ReturnCode%><a href="/webapi-init#section5"> <%=texts.LookCode%> </a>
-        </p>
+        <%= texts.Example %>
+        <pre>SgSDK.Instance.GameStop()</pre>
+        <%= texts.ReturnCode %><a href="/webapi-init#section5"> <%= texts.LookCode %> </a>
     </div>
-
-
 </div>

@@ -1,17 +1,17 @@
 <nav class="col-sm-3" id="myScrollspy">
     <ul class="nav nav-pills nav-stacked well" data-spy="affix" data-offset-top="600" style="background-color: white">
-        <li><a href="#section1"> <%=texts.sp3s1%> </a></li>
-        <li><a href="#Signup"> <%=texts.p3s2%> </a></li>
-        <li><a href="#Login"> <%=texts.p3s3%> </a></li>
+        <li><a href="#section1"> <%= texts.sp3s1 %> </a></li>
+        <li><a href="#Signup"> <%= texts.p3s2 %> </a></li>
+        <li><a href="#Login"> <%= texts.p3s3 %> </a></li>
         <li><a href="#ForgotPassword">查詢密碼</a></li>
         <li><a href="#ChangePassword">變更密碼</a></li>
-        <li><a href="#ParentalLock"> <%=texts.p3s6%> </a></li>
-        <li><a href="#MyKid"> <%=texts.p3s7%> </a></li>
-        <li><a href="#MyAccount"> <%=texts.p3s8%> </a></li>
-        <li><a href="#GetOpenID"> <%=texts.p3s9%> </a></li>
+        <li><a href="#ParentalLock"> <%= texts.p3s6 %> </a></li>
+        <li><a href="#MyKid"> <%= texts.p3s7 %> </a></li>
+        <li><a href="#MyAccount"> <%= texts.p3s8 %> </a></li>
+        <li><a href="#GetOpenID"> <%= texts.p3s9 %> </a></li>
         <li><a href="#GetSessionID">取得Session ID</a></li>
         <li><a href="#GetToken">取得Token</a></li>
-        <li><a href="#VerifySession"> <%=texts.p3s10%> </a></li>
+        <li><a href="#VerifySession"> <%= texts.p3s10 %> </a></li>
         <li><a href="#VerifyToken">Token 登入驗證</a></li>
         <li><a href="#Logout">登出</a></li>
         <li><a href="#IsLogined">取得登入狀態</a></li>
@@ -23,209 +23,203 @@
 
 <div class="col-sm-9">
     <div id="section1">
-        <h1><%=texts.sp3s1%></h1>
+        <h1><%= texts.sp3s1 %></h1>
         <hr>
         <h4>透過 SgSDK 調用各個接口，例如創帳號，登入等等。某些接口調用後需要接收回傳值。客戶端再依據收到的回傳值進行對應處理。</h4>
     </div>
     <br>
     <div id="Signup">
-        <h1><%=texts.p3s2%></h1>
+        <h1><%= texts.p3s2 %></h1>
         <hr>
-        <p><%=texts.ApiName%><code>Signup</code><br/>
-            <%=texts.ApiExplain%>註冊成功後自動登入然後關閉頁面<br/>
-            <%=texts.Example%><pre>SgSDK.Instance.Signup()</pre>
-            <div class="well well-sm">
-                <img src=<%= "assets/img/" + lang + "/pic08.png"%> class="img-responsive"/>
-            </div>
-            <%=texts.ReturnCode%><a href="/webapi-init#section5"> <%=texts.LookCode%> </a>
-        </p>
+        <%= texts.ApiName %><code>Signup</code><br/>
+        <%= texts.ApiExplain %>註冊成功後自動登入然後關閉頁面<br/>
+        <%= texts.Example %>
+        <pre>SgSDK.Instance.Signup()</pre>
+        <div class="well well-sm">
+            <img src=<%= "assets/img/" + lang + "/pic08.png" %>>
+        </div>
+        <%= texts.ReturnCode %><a href="/webapi-init#section5"> <%= texts.LookCode %> </a>
     </div>
     <br>
     <div id="Login">
-        <h1><%=texts.p3s3%></h1>
+        <h1><%= texts.p3s3 %></h1>
         <hr>
-        <p><%=texts.ApiName%><code>Login</code><br/>
-            <%=texts.ApiExplain%>登入成功後自動關閉頁面<br/>
-            <%=texts.Example%><pre>SgSDK.Instance.Login()</pre>
-            <div class="well well-sm">
-                <img src=<%= "assets/img/" + lang + "/pic07.png"%> class="img-responsive"/>
-            </div>
-            <%=texts.ReturnCode%><a href="/webapi-init#section5"> <%=texts.LookCode%> </a>
-        </pre>
+        <%= texts.ApiName %><code>Login</code><br/>
+        <%= texts.ApiExplain %>登入成功後自動關閉頁面<br/>
+        <%= texts.Example %>
+        <pre>SgSDK.Instance.Login()</pre>
+        <div class="well well-sm">
+            <img src=<%= "assets/img/" + lang + "/pic07.png" %>>
+        </div>
+        <%= texts.ReturnCode %><a href="/webapi-init#section5"> <%= texts.LookCode %> </a>
     </div>
     <br>
     <div id="ForgotPassword">
         <h1>查詢密碼</h1>
         <hr>
-        <p><%=texts.ApiName%><code>ForgotPassword</code><br/>
-            <%=texts.ApiExplain%>調用找回密碼頁面進行重設密碼。<br/>
-            <%=texts.Example%><pre>SgSDK.Instance.ForgotPassword()</pre>
-            <div class="well well-sm">
-                <img src=<%= "assets/img/" + lang + "/pic09.png"%> class="img-responsive"/>
-            </div>
-            <%=texts.ReturnCode%><a href="/webapi-init#section5"> <%=texts.LookCode%> </a>
-        </pre>
+        <%= texts.ApiName %><code>ForgotPassword</code><br/>
+        <%= texts.ApiExplain %>調用找回密碼頁面進行重設密碼。<br/>
+        <%= texts.Example %>
+        <pre>SgSDK.Instance.ForgotPassword()</pre>
+        <div class="well well-sm">
+            <img src=<%= "assets/img/" + lang + "/pic09.png" %>>
+        </div>
+        <%= texts.ReturnCode %><a href="/webapi-init#section5"> <%= texts.LookCode %> </a>
     </div>
     <br>
     <div id="ChangePassword">
         <h1>變更密碼</h1>
         <hr>
-        <p><%=texts.ApiName%><code>ChangePassword</code><br/>
-            <%=texts.ApiExplain%>調用變更密碼頁面。<br/>
-            <%=texts.Example%><pre>SgSDK.Instance.ChangePassword()</pre>
-            <div class="well well-sm">
-                <img src=<%= "assets/img/" + lang + "/pic10.png"%> class="img-responsive"/>
-            </div>
-            <%=texts.ReturnCode%><a href="/webapi-init#section5"> <%=texts.LookCode%> </a>
-        </pre>
+        <%= texts.ApiName %><code>ChangePassword</code><br/>
+        <%= texts.ApiExplain %>調用變更密碼頁面。<br/>
+        <%= texts.Example %>
+        <pre>SgSDK.Instance.ChangePassword()</pre>
+        <div class="well well-sm">
+            <img src=<%= "assets/img/" + lang + "/pic10.png" %>>
+        </div>
+        <%= texts.ReturnCode %><a href="/webapi-init#section5"> <%= texts.LookCode %> </a>
     </div>
     <br>
     <div id="ParentalLock">
-        <h1><%=texts.p3s6%></h1>
+        <h1><%= texts.p3s6 %></h1>
         <hr>
-        <p><%=texts.ApiName%><code>ParentalLock</code><br/>
-            <%=texts.ApiExplain%><%=texts.p3h6%><br/>
-            <%=texts.Example%><pre>SgSDK.Instance.ParentalLock()</pre>
-            <div class="well well-sm">
-                <img src=<%= "assets/img/" + lang + "/pic11.png"%> class="img-responsive"/>
-            </div>
-            <%=texts.ReturnCode + texts.Empty%>
-        </p>
+        <%= texts.ApiName %><code>ParentalLock</code><br/>
+        <%= texts.ApiExplain %><%= texts.p3h6 %><br/>
+        <%= texts.Example %>
+        <pre>SgSDK.Instance.ParentalLock()</pre>
+        <div class="well well-sm">
+            <img src=<%= "assets/img/" + lang + "/pic11.png" %>>
+        </div>
+        <%= texts.ReturnCode + texts.Empty %>
     </div>
     <br>
     <div id="MyKid">
-        <h1><%=texts.p3s7%></h1>
+        <h1><%= texts.p3s7 %></h1>
         <hr>
-        <p><%=texts.ApiName%><code>MyKid</code><br/>
-            <%=texts.ApiExplain%><%=texts.p3h7%><br/>
-            <%=texts.Example%><pre>SgSDK.Instance.MyKid()</pre>
-            <div class="well well-sm">
-                <img src=<%= "assets/img/" + lang + "/pic12.png"%> class="img-responsive"/>
-            </div>
-            <%=texts.ReturnCode%><a href="/webapi-init#section5"> <%=texts.LookCode%> </a>
-        </p>
+        <%= texts.ApiName %><code>MyKid</code><br/>
+        <%= texts.ApiExplain %><%= texts.p3h7 %><br/>
+        <%= texts.Example %>
+        <pre>SgSDK.Instance.MyKid()</pre>
+        <div class="well well-sm">
+            <img src=<%= "assets/img/" + lang + "/pic12.png" %>>
+        </div>
+        <%= texts.ReturnCode %><a href="/webapi-init#section5"> <%= texts.LookCode %> </a>
     </div>
     <br>
     <div id="MyAccount">
-        <h1><%=texts.p3s8%></h1>
+        <h1><%= texts.p3s8 %></h1>
         <hr>
-        <p><%=texts.ApiName%><code>MyAccount</code><br/>
-            <%=texts.ApiExplain%><%=texts.p3h8%><br/>
-            <%=texts.Example%><pre>SgSDK.Instance.MyAccount()</pre>
-            <div class="well well-sm">
-                <img src=<%= "assets/img/" + lang + "/pic13.png"%> class="img-responsive"/>
-            </div>
-            <%=texts.ReturnCode + texts.Empty%>
-        </p>
+        <%= texts.ApiName %><code>MyAccount</code><br/>
+        <%= texts.ApiExplain %><%= texts.p3h8 %><br/>
+        <%= texts.Example %>
+        <pre>SgSDK.Instance.MyAccount()</pre>
+        <div class="well well-sm">
+            <img src=<%= "assets/img/" + lang + "/pic13.png" %>>
+        </div>
+        <%= texts.ReturnCode + texts.Empty %>
     </div>
     <br>
     <div id="GetOpenID">
-        <h1><%=texts.p3s9%></h1>
+        <h1><%= texts.p3s9 %></h1>
         <hr>
-        <p><%=texts.ApiName%><code>GetOpenID</code><br/>
-            <%=texts.ApiExplain%>取得用戶唯一識別 ID (SG ID)，以此 ID 登入遊戲伺服器，登入SG Sever後才可取得。<br/>
-            <%=texts.Example%><%- include code/swift-getOpenId.html -%>
-            <%=texts.ReturnCode%> 成功的話會得到一個Int?，失敗的話會得到一個nil
-        </p>
+        <%= texts.ApiName %><code>GetOpenID</code><br/>
+        <%= texts.ApiExplain %>取得用戶唯一識別 ID (SG ID)，以此 ID 登入遊戲伺服器，登入SG Sever後才可取得。<br/>
+        <%= texts.Example %>
+        <% include code/swift-getOpenId.html %>
+        <%= texts.ReturnCode %> 成功的話會得到一個Int?，失敗的話會得到一個nil
     </div>
     <br>
     <div id="GetSessionID">
         <h1>取得Session ID</h1>
         <hr>
-        <p><%=texts.ApiName%><code>GetSessionID</code><br/>
-            <%=texts.ApiExplain%>取得Session ID，登入SG Sever後才可取得。<br/>
-            <%=texts.Example%><%- include code/swift-getSessionId.html -%>
-            <%=texts.ReturnCode%> 成功的話會得到一個String?，失敗的話會得到一個nil
-        </p>
+        <%= texts.ApiName %><code>GetSessionID</code><br/>
+        <%= texts.ApiExplain %>取得Session ID，登入SG Sever後才可取得。<br/>
+        <%= texts.Example %>
+        <% include code/swift-getSessionId.html %>
+        <%= texts.ReturnCode %> 成功的話會得到一個String?，失敗的話會得到一個nil
     </div>
     <br>
     <div id="GetToken">
         <h1>取得Token</h1>
         <hr>
-        <p><%=texts.ApiName%><code>GetToken</code><br/>
-            <%=texts.ApiExplain%>取得Token，登入SG Sever後才可取得。<br/>
-            <%=texts.Example%><%- include code/swift-getToken.html -%>
-            <%=texts.ReturnCode%> 成功的話會得到一個String?，失敗的話會得到一個nil
-        </p>
+        <%= texts.ApiName %><code>GetToken</code><br/>
+        <%= texts.ApiExplain %>取得Token，登入SG Sever後才可取得。<br/>
+        <%= texts.Example %>
+        <% include code/swift-getToken.html %>
+        <%= texts.ReturnCode %> 成功的話會得到一個String?，失敗的話會得到一個nil
     </div>
     <br>
     <div id="VerifySession">
-        <h1><%=texts.p3s10%></h1>
+        <h1><%= texts.p3s10 %></h1>
         <hr>
-        <p><%=texts.ApiName%><code>VerifySession</code><br/>
-            <%=texts.ApiExplain%><%=texts.p3h10%><br/>
-            <%=texts.Parameter%>appId, session, uid, signature<br/>
-            <%=texts.Example%>
+        <%= texts.ApiName %><code>VerifySession</code><br/>
+        <%= texts.ApiExplain %><%= texts.p3h10 %><br/>
+        <%= texts.Parameter %>appId, session, uid, signature<br/>
+        <%= texts.Example %>
         <pre>SgSDK.Instance.VerifySession(appId: "app id", session: "session", uid: "uid", signature: "signature")</pre>
-            <%=texts.ReturnCode%> Verify結構，結構有六個屬性Code, Msg, Account, OpenID, Password, EMail
-        </p>
+        <%= texts.ReturnCode %> Verify結構，結構有六個屬性Code, Msg, Account, OpenID, Password, EMail
     </div>
     <br>
     <div id="VerifyToken">
         <h1>Token 登入驗證</h1>
         <hr>
-        <p><%=texts.ApiName%><code>VerifyToken</code><br/>
-            <%=texts.ApiExplain%>使用 Token 取得登入帳號資訊<br/>
-            <%=texts.Parameter%>token<br/>
-            <%=texts.Example%>
+        <%= texts.ApiName %><code>VerifyToken</code><br/>
+        <%= texts.ApiExplain %>使用 Token 取得登入帳號資訊<br/>
+        <%= texts.Parameter %>token<br/>
+        <%= texts.Example %>
         <pre>SgSDK.Instance.VerifyToken(token: "token")</pre>
-        <%=texts.ReturnCode%> Verify結構，結構有六個屬性Code, Msg, Account, OpenID, Password, EMail
-        </p>
+        <%= texts.ReturnCode %> Verify結構，結構有六個屬性Code, Msg, Account, OpenID, Password, EMail
     </div>
     <br>
     <div id="Logout">
         <h1>登出</h1>
         <hr>
-        <p><%=texts.ApiName%><code>Logout</code><br/>
-            <%=texts.ApiExplain%>帳號登出<br/>
-            <%=texts.Example%>
+        <%= texts.ApiName %><code>Logout</code><br/>
+        <%= texts.ApiExplain %>帳號登出<br/>
+        <%= texts.Example %>
         <pre>SgSDK.Instance.Logout()</pre>
-        <%=texts.ReturnCode + texts.Empty%>
-        </p>
+        <%= texts.ReturnCode + texts.Empty %>
     </div>
     <br>
     <div id="IsLogined">
         <h1>取得登入狀態</h1>
         <hr>
-        <p><%=texts.ApiName%><code>IsLogined</code><br/>
-            <%=texts.ApiExplain%>判斷是否為登入狀態<br/>
-            <%=texts.Example%>
+        <%= texts.ApiName %><code>IsLogined</code><br/>
+        <%= texts.ApiExplain %>判斷是否為登入狀態<br/>
+        <%= texts.Example %>
         <pre>SgSDK.Instance.IsLogined()</pre>
-        <%=texts.ReturnCode%> True為已登入，False為未登入
-        </p>
+        <%= texts.ReturnCode %> True為已登入，False為未登入
     </div>
     <br>
     <div id="GetChannelID">
         <h1>取得平台ID</h1>
         <hr>
-        <p><%=texts.ApiName%><code>GetChannelID</code><br/>
-            <%=texts.ApiExplain%>取得平台名稱<br/>
-            <%=texts.Example%>
+        <%= texts.ApiName %><code>GetChannelID</code><br/>
+        <%= texts.ApiExplain %>取得平台名稱<br/>
+        <%= texts.Example %>
         <pre>SgSDK.Instance.GetChannelID()</pre>
-        <%=texts.ReturnCode%> 取得平台ID，例如：appstore
-        </p>
+        <%= texts.ReturnCode %> 取得平台ID，例如：appstore
     </div>
     <br>
     <div id="ShowFloatingButton">
         <h1>顯示懸浮按鈕</h1>
         <hr>
-        <p><%=texts.ApiName%><code>ShowFloatingButton</code><br/>
-            <%=texts.ApiExplain%>顯示懸浮按鈕，登入後自動顯示<br/>
-            <%=texts.Parameter%>place: eFloatingButtonPlace，有八個方向可以選擇分別是，LeftTop, Top, RightTop, Left, Right, LeftBottom, Bottom, RightBottom<br/>
-            <%=texts.Example%>
+        <%= texts.ApiName %><code>ShowFloatingButton</code><br/>
+        <%= texts.ApiExplain %>顯示懸浮按鈕，登入後自動顯示<br/>
+        <%= texts.Parameter %>place: eFloatingButtonPlace，有八個方向可以選擇分別是，LeftTop, Top, RightTop, Left, Right,
+        LeftBottom, Bottom, RightBottom<br/>
+        <%= texts.Example %>
         <pre>SgSDK.Instance.ShowFloatingButton(place: .Right)</pre>
-        <%=texts.ReturnCode + texts.Empty%>
-        </p>
+        <%= texts.ReturnCode + texts.Empty %>
     </div>
     <br>
     <div id="HideFloatingButton">
         <h1>隱藏懸浮按鈕</h1>
         <hr>
-        <p><%=texts.ApiName%><code>HideFloatingButton</code><br/>
-            <%=texts.ApiExplain%>隱藏懸浮按鈕<br/>
-            <%=texts.Example%>
+        <%= texts.ApiName %><code>HideFloatingButton</code><br/>
+        <%= texts.ApiExplain %>隱藏懸浮按鈕<br/>
+        <%= texts.Example %>
         <pre>SgSDK.Instance.HideFloatingButton()</pre>
-        <%=texts.ReturnCode + texts.Empty%>
-        </p>
+        <%= texts.ReturnCode + texts.Empty %>
     </div>
 </div>

@@ -29,17 +29,18 @@
             <li>在要使用IAP的.swift檔案加入<code>import StoreKit</code></li>
         </ol>
         <div class="well well-sm">
-            <img src=<%= "assets/img/" + lang + "/swiftpic05.png" %> class="img-responsive"/>
+            <img src=<%= "assets/img/" + lang + "/swiftpic05.png" %>>
         </div>
     </div>
     <br>
     <div id="IAPInit">
         <h1>IAP初始化</h1>
         <hr>
-        <p><%= texts.ApiName %><code>IAPInit</code><br/>
-            <%= texts.ApiExplain %>In-App Purchase初始化之後才能開始購買<br/>
-            <%= texts.Parameter %>productIDs<br/>
-            <%= texts.Example %><%- include code/swift-IAPInit.html -%>
+        <%= texts.ApiName %><code>IAPInit</code><br/>
+        <%= texts.ApiExplain %>In-App Purchase初始化之後才能開始購買<br/>
+        <%= texts.Parameter %>productIDs<br/>
+        <%= texts.Example %>
+        <% include code/swift-IAPInit.html %>
         <%= texts.ReturnCode %>
         <ul>
             <li>Code: 1131, IAP初始化成功</li>
@@ -47,31 +48,29 @@
             <li>Code: 1133, 拿不到商品資訊</li>
             <li>Code: 1134, Msg: 列出無效的商品ID</li>
         </ul>
-        </p>
     </div>
     <br>
     <div id="Pay">
         <h1><%= texts.p4s3 %></h1>
         <hr>
-        <div><%= texts.ApiName %><code>Pay</code><br/>
-            <%= texts.ApiExplain %><%= texts.p4h3 %><br/>
-            <%= texts.Parameter %>payRequest<br/>
-            <ul>
-                <li>SgSDKPayRequest有以下的屬性可以存取</li>
-                <li>ProductId: 產品ID(必填)</li>
-                <li>ProductName: 產品名稱</li>
-                <li>ProductDesc: 產品說明</li>
-                <li>PaymentMethod: 產品種類 ex. managed, subscription(必填)</li>
-                <li>PaymentChannel: 平台 ex.AppStore</li>
-                <li>Price: 產品價格</li>
-                <li>ServerId: Server ID</li>
-                <li>ServerName: Server 名稱</li>
-                <li>RoleId: 角色ID</li>
-                <li>RoleName: 角色名稱</li>
-                <li>RoleLevel: 角色等級</li>
-                <li>PayNotifyUrl: 驗證地址</li>
-            </ul>
-        </div>
+        <%= texts.ApiName %><code>Pay</code><br/>
+        <%= texts.ApiExplain %><%= texts.p4h3 %><br/>
+        <%= texts.Parameter %>payRequest<br/>
+        <ul>
+            <li>SgSDKPayRequest有以下的屬性可以存取</li>
+            <li>ProductId: 產品ID(必填)</li>
+            <li>ProductName: 產品名稱</li>
+            <li>ProductDesc: 產品說明</li>
+            <li>PaymentMethod: 產品種類 ex. managed, subscription(必填)</li>
+            <li>PaymentChannel: 平台 ex.AppStore</li>
+            <li>Price: 產品價格</li>
+            <li>ServerId: Server ID</li>
+            <li>ServerName: Server 名稱</li>
+            <li>RoleId: 角色ID</li>
+            <li>RoleName: 角色名稱</li>
+            <li>RoleLevel: 角色等級</li>
+            <li>PayNotifyUrl: 驗證地址</li>
+        </ul>
 
         <table class="table"> <!--Gem Start-->
             <thead>
@@ -126,64 +125,53 @@
             </tbody>
         </table>
 
-        <div>
-            <%= texts.Example %>
-            <pre>SgSDK.Instance.Pay(payRequest: initPayReq(productId: productIDs[0], payMethod: "managed"))</pre>
-            <%- include code/swift-initPayReq.html -%>
-            <%= texts.ReturnCode %>
-            <ul>
-                <li>Code: 1101, SgServer驗證成功, Data: SgSDKPayResponse</li>
-                <li>Code: 1130, IAP未初始化</li>
-                <li>Code: 1135, 查無商品ID</li>
-                <li>Code: 1136, 與appstore交易成功</li>
-                <li>Code: 1137, 與appstore交易失敗</li>
-                <li>Code: 1142, 交易處理中</li>
-                <li><a href="/webapi-init#section5"> <%= texts.LookCode %> </a></li>
-            </ul>
-        </div>
+        <%= texts.Example %>
+        <pre>SgSDK.Instance.Pay(payRequest: initPayReq(productId: productIDs[0], payMethod: "managed"))</pre>
+        <% include code/swift-initPayReq.html %>
+        <%= texts.ReturnCode %>
+        <ul>
+            <li>Code: 1101, SgServer驗證成功, Data: SgSDKPayResponse</li>
+            <li>Code: 1130, IAP未初始化</li>
+            <li>Code: 1135, 查無商品ID</li>
+            <li>Code: 1136, 與appstore交易成功</li>
+            <li>Code: 1137, 與appstore交易失敗</li>
+            <li>Code: 1142, 交易處理中</li>
+            <li><a href="/webapi-init#section5"> <%= texts.LookCode %> </a></li>
+        </ul>
     </div>
     <br>
     <div id="GetOrder">
         <h1><%= texts.p4s4 %></h1>
         <hr>
-        <div>
-            <%= texts.ApiName %><code>GetOrder</code><br/>
-            <%= texts.ApiExplain %><%= texts.p4h41 %><br/>
-            <%= texts.Parameter %>game_key，payResponse</a> <br/>
-            <ul>
-                <li>SgSDKPayResponse有SgSDKPayRequest的全部屬性加上以下三個屬性</li>
-                <li>Code: Error code</li>
-                <li>Msg</li>
-                <li>Sign</li>
-            </ul>
-
-        </div>
-        <div>
-            <%= texts.Example %>
-            <pre>SgSDK.Instance.GetOrder(GameKey, 上次交易收到的SgSDKPayResponse)</pre>
-            <%= texts.ReturnCode %>
-            <ul>
-                <li>Code: 1201, 取得訂單成功, Data: SgSDKPayResponse</li>
-                <li><a href="/webapi-init#section5"> <%= texts.LookCode %> </a></li>
-            </ul>
-        </div>
+        <%= texts.ApiName %><code>GetOrder</code><br/>
+        <%= texts.ApiExplain %><%= texts.p4h41 %><br/>
+        <%= texts.Parameter %>game_key，payResponse</a> <br/>
+        <ul>
+            <li>SgSDKPayResponse有SgSDKPayRequest的全部屬性加上以下三個屬性</li>
+            <li>Code: Error code</li>
+            <li>Msg</li>
+            <li>Sign</li>
+        </ul>
+        <%= texts.Example %>
+        <pre>SgSDK.Instance.GetOrder(GameKey, 上次交易收到的SgSDKPayResponse)</pre>
+        <%= texts.ReturnCode %>
+        <ul>
+            <li>Code: 1201, 取得訂單成功, Data: SgSDKPayResponse</li>
+            <li><a href="/webapi-init#section5"> <%= texts.LookCode %> </a></li>
+        </ul>
     </div>
     <br>
     <div id="RestorePurchase">
         <h1>恢復購買</h1>
         <hr>
-        <div>
-            <%= texts.ApiName %><code>RestorePurchase</code><br/>
-            <%= texts.ApiExplain %>恢復購買，換手機時，只有在商品種類是Non-Consumable, Auto-renewing subscripton這兩種商品會用到<br/>
-        </div>
-        <div>
-            <%= texts.Example %>
-            <pre>SgSDK.Instance.RestorePurchase()</pre>
-            <%= texts.ReturnCode %>
-            <ul>
-                <li>Code: 1140, 沒有商品可以恢復</li>
-                <li>Code: 1141, 商品恢復成功</li>
-            </ul>
-        </div>
+        <%= texts.ApiName %><code>RestorePurchase</code><br/>
+        <%= texts.ApiExplain %>恢復購買，換手機時，只有在商品種類是Non-Consumable, Auto-renewing subscripton這兩種商品會用到<br/>
+        <%= texts.Example %>
+        <pre>SgSDK.Instance.RestorePurchase()</pre>
+        <%= texts.ReturnCode %>
+        <ul>
+            <li>Code: 1140, 沒有商品可以恢復</li>
+            <li>Code: 1141, 商品恢復成功</li>
+        </ul>
     </div>
 </div>

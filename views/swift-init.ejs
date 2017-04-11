@@ -1,6 +1,6 @@
 <nav class="col-sm-3" id="myScrollspy">
     <ul class="nav nav-pills nav-stacked well" data-spy="affix" style="background-color: white">
-        <li><a href="#section1"><h4>wift 3 集成指南</h4></a></li>
+        <li><a href="#section1"><h4>Swift 3 集成指南</h4></a></li>
         <li><a href="#section2"><h4>Xcode 開發環境設定</h4></a></li>
         <ul>
             <li><a href="#section2-1">SgSDK Farmework(swift)</a></li>
@@ -16,16 +16,17 @@
     <div id="section1">
         <h1>Swift 3 集成指南</h1>
         <hr>
-        <h4>開發者可在 Xcode 環境透過調用 Web View 來串接 SG Game API。通過本文以 Swift 3 語言為範例，介紹客戶端接入的整個流程。在接入之前請認真閱讀本文檔，以減少接入過程中遇到的問題。</h4>
+        <h4>開發者可在 Xcode 環境透過調用 Web View 來串接 SG Game API。通過本文以 Swift 3
+            語言為範例，介紹客戶端接入的整個流程。在接入之前請認真閱讀本文檔，以減少接入過程中遇到的問題。</h4>
     </div>
     <br>
     <div id="section2">
         <h1>Xcode 開發環境設定</h1>
         <hr>
-        <h4>SDK 支援的最低iOS版本 8.0<br>SDK Sample 支援的最低iOS版本 9.0<br>swift版本 3</h4>
+        <h4>SDK 支援的最低iOS版本： 8.0<br>SDK Sample 支援的最低iOS版本： 9.0<br>Swift版本： 3</h4>
         <ul>
-            <li><a href="/sdk/debug/SgSDK.framework.zip" download>SgSDK Farmework(debug)</a></li>
-            <li><a href="/sdk/release/SgSDK.framework.zip" download>SgSDK Farmework(release)</a></li>
+            <li><a href="/sdk/debug/SgSDK.framework.zip" download>SgSDK Farmework(debug, 用於模擬器)</a></li>
+            <li><a href="/sdk/release/SgSDK.framework.zip" download>SgSDK Farmework(release, 用於真實裝置)</a></li>
             <li><a href="https://github.com/SGMoxyStudios/SGSDK-iOS-Sample">SGSDK iOS Sample</a></li>
         </ul>
         <br>
@@ -34,7 +35,7 @@
             <hr>
             <p>將SgSDK.framework放入專案資料夾</p>
             <div class="well well-sm">
-                <img src=<%= "assets/img/" + lang + "/swiftpic01.png"%> class="img-responsive"/>
+                <img src=<%= "assets/img/" + lang + "/swiftpic01.png" %>>
             </div>
         </div>
         <div id="section2-2">
@@ -51,62 +52,50 @@
                 <li>會看到Embedded Binaries和Linded Frameworks and Binaries都出現SgSDK.framework</li>
             </ol>
             <div class="well well-sm">
-                <img src=<%= "assets/img/" + lang + "/swiftpic02.png"%> class="img-responsive"/>
-                <img src=<%= "assets/img/" + lang + "/swiftpic03.png"%> class="img-responsive"/>
-                <img src=<%= "assets/img/" + lang + "/swiftpic04.png"%> class="img-responsive"/>
+                <img src=<%= "assets/img/" + lang + "/swiftpic02.png" %>>
+                <img src=<%= "assets/img/" + lang + "/swiftpic03.png" %>>
+                <img src=<%= "assets/img/" + lang + "/swiftpic04.png" %>>
             </div>
         </div>
         <div id="section2-3">
             <h4>客戶端接入代碼</h4>
             <hr>
-            <ul>
-                <li>在要接入的.swift裡面加入SgSDK</li>
-            </ul>
-            <code class="well well-sm">import SgSDK</code>
+            <h4>在要接入的.swift裡面加入<code>import SgSDK</code></h4>
         </div>
     </div>
     <br>
     <div id="section3">
         <h1>SgSDK初始化</h1>
         <hr>
+        <%= texts.ApiName %><code>SetListener</code><br/>
+        <%= texts.ApiExplain %>初始化之前要先設定callBack function才能知道呼叫function後成功或失敗<br/>
+        <%= texts.Parameter %>listener 是有一個SgSDKResult當參數的function<br/>
+        <%= texts.Example %>
+        <pre>SgSDK.Instance.SetListener(listener: MsgListen)</pre>
+        參數SgSDKResult有三個屬性
 
-        <h4></h4>
-        <h4><%=texts.ApiName%><code>SetListener</code><br/>
-            <%=texts.ApiExplain%>初始化之前要先設定callBack function才能知道呼叫function後成功或失敗<br/>
-            <%=texts.Parameter%>listener 是有一個SgSDKResult當參數的function<br/>
-            <%=texts.Example%>
-        </h4>
-
-        <pre><code>SgSDK.Instance.SetListener(listener: MsgListen)</code></pre>
-
-        <h4>參數SgSDKResult有三個屬性</h4>
         <ul>
             <li>Code: Int 回傳Error Code</li>
             <li>Msg: String 回傳該Error Code代表的訊息</li>
             <li>Data: Any? 沒有其他資訊的話會是nil，有資訊的話可以轉換為任一結構</li>
         </ul>
-        <%- include code/swift-setListen.html -%>
-        <h4></h4>
-        <h4><%=texts.ApiName%><code>Init</code><br/>
-            <%=texts.ApiExplain%>初始化SgSDK才能使用之後的所有功能<br/>
-            <%=texts.Parameter%>GameKey, AppSecret<br/>
-            <%=texts.Example%>
-        </h4>
-        <pre><code>SgSDK.Instance.Init("YourGameKey", "YourAppSecret")</code></pre>
-        <%=texts.ReturnCode%><a href="/webapi-init#section5"> <%=texts.LookCode%> </a>
+        <% include code/swift-setListen.html %>
+        <br>
+        <%= texts.ApiName %><code>Init</code><br/>
+        <%= texts.ApiExplain %>初始化SgSDK才能使用之後的所有功能<br/>
+        <%= texts.Parameter %>GameKey, AppSecret<br/>
+        <%= texts.Example %>
+        <pre>SgSDK.Instance.Init("YourGameKey", "YourAppSecret")</pre>
+        <%= texts.ReturnCode %><a href="/webapi-init#section5"> <%= texts.LookCode %> </a>
     </div>
     <br>
     <div id="section4">
         <h1>釋放SgSDK資源</h1>
         <hr>
-
-        <h4></h4>
-        <h4><%=texts.ApiName%><code>Destroy</code><br/>
-            <%=texts.ApiExplain%>釋放SgSDK資源<br/>
-            <%=texts.Example%>
-        </h4>
-
-        <pre><code>SgSDK.Instance.Destroy()</code></pre>
-        <%=texts.ReturnCode + texts.Empty%>
+        <%= texts.ApiName %><code>Destroy</code><br/>
+        <%= texts.ApiExplain %>釋放SgSDK資源<br/>
+        <%= texts.Example %>
+        <pre>SgSDK.Instance.Destroy()</pre>
+        <%= texts.ReturnCode + texts.Empty %>
     </div>
 </div>
