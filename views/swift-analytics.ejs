@@ -8,11 +8,16 @@
         <h1><%=texts.p5s3%></h1>
         <hr>
         <p>
-            <%=texts.ApiName%><code>gamestart</code>, <code>gamestop</code><br/>
-            <%=texts.ApiExplain%><%=texts.p5h31%> <code>gamestart</code> <%=texts.p5h32%> <code>gamestop</code> <%=texts.p5h33%> <br>
-            <%=texts.ReturnName%><%=texts.Empty%><br/>
-            <%=texts.Example%><pre><code class="js">myWebView.loadRequest(NSURLRequest(url: NSURL(string: "http://gameapi.smartgamesltd.com/gamestart")! as URL) as URLRequest)<br>myWebView.loadRequest(NSURLRequest(url: NSURL(string: "http://gameapi.smartgamesltd.com/gamestop")! as URL) as URLRequest)</code></pre>
-            <%=texts.ReturnCode + texts.Empty%><br/>
+            <%=texts.ApiName%><code>GameStart, GameStop</code><br/>
+            <%=texts.ApiExplain%>
+            <%=texts.p5h31 + 'GameStart' + texts.p5h32 + 'GameStop' + texts.p5h33%><br>
+        <%=texts.Example%><pre>SgSDK.Instance.GameStart()</pre>
+        <%=texts.ReturnCode + texts.Empty%><br/>
+        <br>
+        <%=texts.Example%><pre>SgSDK.Instance.GameStop()</pre>
+        <%=texts.ReturnCode%><a href="/webapi-init#section5"> <%=texts.LookCode%> </a>
         </p>
     </div>
+
+
 </div>

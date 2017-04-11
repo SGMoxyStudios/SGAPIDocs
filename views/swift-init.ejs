@@ -1,3 +1,17 @@
+<nav class="col-sm-3" id="myScrollspy">
+    <ul class="nav nav-pills nav-stacked well" data-spy="affix" style="background-color: white">
+        <li><a href="#section1"><h4>wift 3 集成指南</h4></a></li>
+        <li><a href="#section2"><h4>Xcode 開發環境設定</h4></a></li>
+        <ul>
+            <li><a href="#section2-1">SgSDK Farmework(swift)</a></li>
+            <li><a href="#section2-2">XCode設定</a></li>
+            <li><a href="#section2-3">客戶端接入代碼</a></li>
+        </ul>
+        <li><a href="#section3"><h4>SgSDK初始化</h4></a></li>
+        <li><a href="#section4"><h4>釋放SgSDK資源</h4></a></li>
+    </ul>
+</nav>
+
 <div class="col-sm-9">
     <div id="section1">
         <h1>Swift 3 集成指南</h1>
@@ -8,27 +22,95 @@
     <div id="section2">
         <h1>Xcode 開發環境設定</h1>
         <hr>
-        <h4>以下範例需在 Xcode 8 以上版本執行。</h4>
+        <h4>SDK 支援的最低iOS版本 8.0<br>SDK Sample 支援的最低iOS版本 9.0<br>swift版本 3</h4>
+        <ul>
+            <li><a href="/sdk/debug/SgSDK.framework.zip" download>SgSDK Farmework(debug)</a></li>
+            <li><a href="/sdk/release/SgSDK.framework.zip" download>SgSDK Farmework(release)</a></li>
+        </ul>
+        <br>
+        <div id="section2-1">
+            <h4>SgSDK Farmework(swift)</h4>
+            <hr>
+            <p>將SgSDK.framework放入專案資料夾</p>
+            <div class="well well-sm">
+                <img src=<%= "assets/img/" + lang + "/swiftpic01.png"%> class="img-responsive"/>
+            </div>
+        </div>
+        <div id="section2-2">
+            <h4>XCode設定</h4>
+            <hr>
+            <ol>
+                <li>在navigator區點選專案</li>
+                <li>在editor區點選General</li>
+                <li>找到Embedded Binaries</li>
+                <li>點選＋</li>
+                <li>選擇Add Other...</li>
+                <li>選擇剛剛放入的SgSDK.framework</li>
+                <li>點選finish</li>
+                <li>會看到Embedded Binaries和Linded Frameworks and Binaries都出現SgSDK.framework</li>
+            </ol>
+            <div class="well well-sm">
+                <img src=<%= "assets/img/" + lang + "/swiftpic02.png"%> class="img-responsive"/>
+                <img src=<%= "assets/img/" + lang + "/swiftpic03.png"%> class="img-responsive"/>
+                <img src=<%= "assets/img/" + lang + "/swiftpic04.png"%> class="img-responsive"/>
+            </div>
+        </div>
+        <div id="section2-3">
+            <h4>客戶端接入代碼</h4>
+            <hr>
+            <ul>
+                <li>在要接入的.swift裡面加入SgSDK</li>
+            </ul>
+            <code class="well well-sm">import SgSDK</code>
+        </div>
     </div>
     <br>
     <div id="section3">
-        <h1><%=texts.jp2s3%></h1>
+        <h1>SgSDK初始化</h1>
         <hr>
+
         <h4></h4>
-        <h4><%=texts.ApiName%><code>init</code><br/>
-            <%=texts.ApiExplain%><%=texts.jp2h31%><%=texts.p2h32%><br/>
-            <%=texts.Parameter%>gamekey，appsecret，privatekey<br/>
-            <%=texts.Example%><%=texts.jp2h33%>
+        <h4><%=texts.ApiName%><code>SetListener</code><br/>
+            <%=texts.ApiExplain%>初始化之前要先設定callBack function才能知道呼叫function後成功或失敗<br/>
+            <%=texts.Parameter%>listener 是有一個SgSDKResult當參數的function<br/>
+            <%=texts.Example%>
         </h4>
 
-        <%- include code/swift-init.html -%>
-        <br>
-        <h4>
-            <%=texts.Example%><%=texts.sp2h34%>
-            <br>
-            <br>
-            <%- include code/swift-receive-code.html -%>
-            <%=texts.ReturnCode + texts.Result%><br/>
+        <pre><code>SgSDK.Instance.SetListener(listener: MsgListen)</code></pre>
+
+        <h4>參數SgSDKResult有三個屬性</h4>
+        <ul>
+            <li>Code: Int 回傳Error Code</li>
+            <li>Msg: String 回傳該Error Code代表的訊息</li>
+            <li>Data: Any? 沒有其他資訊的話會是nil，有資訊的話可以轉換為任一結構</li>
+        </ul>
+        <pre>
+            <code>func MsgListen(result: SgSDKResult) {
+                self.setMessage("code: \(result.Code), msg: \(result.Msg)")
+            }</code>
+        </pre>
+
+        <h4></h4>
+        <h4><%=texts.ApiName%><code>Init</code><br/>
+            <%=texts.ApiExplain%>初始化SgSDK才能使用之後的所有功能<br/>
+            <%=texts.Parameter%>GameKey, AppSecret<br/>
+            <%=texts.Example%>
         </h4>
+        <pre><code>SgSDK.Instance.Init("YourGameKey", "YourAppSecret")</code></pre>
+        <%=texts.ReturnCode%><a href="/webapi-init#section5"> <%=texts.LookCode%> </a>
+    </div>
+    <br>
+    <div id="section4">
+        <h1>釋放SgSDK資源</h1>
+        <hr>
+
+        <h4></h4>
+        <h4><%=texts.ApiName%><code>Destroy</code><br/>
+            <%=texts.ApiExplain%>釋放SgSDK資源<br/>
+            <%=texts.Example%>
+        </h4>
+
+        <pre><code>SgSDK.Instance.Destroy()</code></pre>
+        <%=texts.ReturnCode + texts.Empty%>
     </div>
 </div>
