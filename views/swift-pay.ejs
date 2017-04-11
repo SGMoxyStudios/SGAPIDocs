@@ -39,14 +39,7 @@
         <p><%= texts.ApiName %><code>IAPInit</code><br/>
             <%= texts.ApiExplain %>In-App Purchase初始化之後才能開始購買<br/>
             <%= texts.Parameter %>productIDs<br/>
-            <%= texts.Example %>
-        <pre>
-        var productIDs = [String]()
-        productIDs.append("ConsumbleItem")
-        productIDs.append("NonConsumable")
-        productIDs.append("AutoSubscription")
-        productIDs.append("NonAutoSbuscriptions")
-        SgSDK.Instance.IAPInit(productIDs)</pre>
+            <%= texts.Example %><%- include code/swift-IAPInit.html -%>
         <%= texts.ReturnCode %>
         <ul>
             <li>Code: 1131, IAP初始化成功</li>
