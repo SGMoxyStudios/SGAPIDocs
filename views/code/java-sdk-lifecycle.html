@@ -1,0 +1,68 @@
+<!-- HTML generated using hilite.me --><div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008000; font-weight: bold">private</span> SgSDK _sdk <span style="color: #666666">=</span> SgSDK<span style="color: #666666">.</span><span style="color: #7D9029">getInstance</span><span style="color: #666666">();</span>
+
+<span style="color: #AA22FF">@Override</span>
+<span style="color: #008000; font-weight: bold">protected</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onResume</span><span style="color: #666666">()</span>
+<span style="color: #666666">{</span>
+    _sdk<span style="color: #666666">.</span><span style="color: #7D9029">onResume</span><span style="color: #666666">();</span>
+    <span style="color: #008000; font-weight: bold">super</span><span style="color: #666666">.</span><span style="color: #7D9029">onResume</span><span style="color: #666666">();</span>
+<span style="color: #666666">}</span>
+
+<span style="color: #AA22FF">@Override</span>
+<span style="color: #008000; font-weight: bold">protected</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onActivityResult</span><span style="color: #666666">(</span><span style="color: #B00040">int</span> requestCode<span style="color: #666666">,</span> <span style="color: #B00040">int</span> resultCode<span style="color: #666666">,</span> Intent data<span style="color: #666666">)</span>
+<span style="color: #666666">{</span>   _sdk<span style="color: #666666">.</span><span style="color: #7D9029">onActivityResult</span><span style="color: #666666">(</span>requestCode<span style="color: #666666">,</span>resultCode<span style="color: #666666">,</span>data<span style="color: #666666">);</span>
+    <span style="color: #008000; font-weight: bold">super</span><span style="color: #666666">.</span><span style="color: #7D9029">onActivityResult</span><span style="color: #666666">(</span>requestCode<span style="color: #666666">,</span> resultCode<span style="color: #666666">,</span> data<span style="color: #666666">);</span>
+<span style="color: #666666">}</span>
+
+<span style="color: #AA22FF">@Override</span>
+<span style="color: #008000; font-weight: bold">protected</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onDestroy</span><span style="color: #666666">()</span>
+<span style="color: #666666">{</span>
+    _sdk<span style="color: #666666">.</span><span style="color: #7D9029">onDestroy</span><span style="color: #666666">();</span>
+    <span style="color: #008000; font-weight: bold">super</span><span style="color: #666666">.</span><span style="color: #7D9029">onDestroy</span><span style="color: #666666">();</span>
+<span style="color: #666666">}</span>
+
+<span style="color: #AA22FF">@Override</span>
+<span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onBackPressed</span><span style="color: #666666">()</span>
+<span style="color: #666666">{</span>
+    <span style="color: #008000; font-weight: bold">if</span><span style="color: #666666">(</span>_sdk<span style="color: #666666">.</span><span style="color: #7D9029">onBackPressed</span><span style="color: #666666">())</span>
+    <span style="color: #666666">{</span>
+        Log<span style="color: #666666">.</span><span style="color: #7D9029">i</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;[Action] BackPressed is handled by SDK...&quot;</span><span style="color: #666666">);</span>
+    <span style="color: #666666">}</span>
+    <span style="color: #008000; font-weight: bold">else</span>
+    <span style="color: #666666">{</span>
+        <span style="color: #008000; font-weight: bold">super</span><span style="color: #666666">.</span><span style="color: #7D9029">onBackPressed</span><span style="color: #666666">();</span>
+    <span style="color: #666666">}</span>
+<span style="color: #666666">}</span>
+</pre></td></tr></table></div>
