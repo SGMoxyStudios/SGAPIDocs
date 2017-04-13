@@ -33,7 +33,7 @@
         <br />
 
         <h3>3. SgSDK.ARR 會自動引用的權限 </h3>
-        <%- include code/java-user-permission.html -%>
+        <%- include ../code/java-user-permission.html -%>
 
     </div>
     <br/>
@@ -54,12 +54,12 @@
                 <li>
                     確認 <b>build.gradle</b> 的 dependencies 檔案顯示如下：
                     <pre><code class="js">dependencies {
-    compile project(":SgSDK")
-}</code></pre>
+                            compile project(":SgSDK")
+                            }</code></pre>
                 </li>
             </ul>
         </h4>
-        
+
         <br />
 
         <h3>2. 其他參考資料</h3>
@@ -76,7 +76,7 @@
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/dpuJPoXkFG4?ecver=1" frameborder="0" allowfullscreen></iframe>
                 </li>
             </ul>
-            
+
         </h4>
 
     </div>
@@ -87,7 +87,7 @@
         <hr/>
 
         <h4>1. 開始使用 SgSDK 之前，請確認於 AndroidManifest.xml 設置 SDK所需的 meta-data。</h4>
-        <%- include code/java-sdk-metadata.html -%>
+        <%- include ../code/java-sdk-metadata.html -%>
         <h4>
             <ul>
                 <li>
@@ -109,7 +109,7 @@
             2. 初始化函式 <pre>init(Context ctx, String gameKey, String appSecret)</pre>
             在主 Activity 的 onCreate 方法中，對 SgSDK 進行初始化。
         </h4>
-        <%- include code/java-sdk-init.html -%>
+        <%- include ../code/java-sdk-init.html -%>
         <h4>
             注： GameKey、AppSecret 可以在 SgSDK 客户端遊戲理界面查看到。
         </h4>
@@ -120,7 +120,7 @@
         <h3>SgSDK 生命周期事件</h3>
         <hr/>
         <h4>請參照如下，在主 APP 的生命周期事件裏，呼叫 SgSDK 對應的生命周期函式。</h4>
-        <%- include code/java-sdk-lifecycle.html -%>
+        <%- include ../code/java-sdk-lifecycle.html -%>
         <h4>
             <ul>
                 <li>
@@ -129,7 +129,7 @@
                     <i>_sdk.onBackPressed()</i> 會回傳 boolean，請依照 true 或 false 來決定需不需要呼叫 base 的 <i>super.onBackPressed()</i>。
                 </li>
             </ul>
-            
+
         </h4>
     </div>
     <br />
@@ -138,7 +138,7 @@
         <h3>SgSDK 回調監聽</h3>
         <hr />
         <h4>SgSDK 所有非同步的函式，都透過回調監聽來得到結果。範例如下：</h4>
-        <%- include code/java-sdk-listener.html -%>
+        <%- include ../code/java-sdk-listener.html -%>
         <h4>
             <ul>
                 <li>

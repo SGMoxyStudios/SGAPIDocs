@@ -69,7 +69,7 @@ app.get('/webapi-user', function(req, res){res.render('webapi-user')});
 app.get('/webapi-pay', function(req, res){res.render('webapi-pay')});
 app.get('/webapi-analytics', function(req, res){res.render('webapi-analytics')});
 //java
-app.get('/java-init', function(req, res){res.render('java-init')});
+app.get('/java-init', function(req, res){res.render(req.i18n_lang+'/java-init')});
 app.get('/java-user', function(req, res){res.render('java-user')});
 app.get('/java-pay', function(req, res){res.render('java-pay')});
 app.get('/java-analytics', function(req, res){res.render('java-analytics')});
