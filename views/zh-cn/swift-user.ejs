@@ -1,13 +1,5 @@
-<head>
-    <style>
-        tr:nth-child(even) {
-            background-color: #dddddd;
-        }
-    </style>
-</head>
-<body data-spy="scroll" data-target="#myScrollspy" data-offset="50">
-<nav class="col-sm-3" id="myScrollspy">
-    <ul class="nav nav-pills nav-stacked well" data-spy="affix" style="background-color: white">
+<div class="left-side" id="myScrollspy">
+    <ul class="nav nav-pills">
         <li><a href="#section1">【Swift 3 用户系统接口】</a></li>
         <li><a href="#Signup">创帐号</a></li>
         <li><a href="#Login">登入</a></li>
@@ -24,9 +16,9 @@
         <li><a href="#ShowFloatingButton">显示悬浮按钮</a></li>
         <li><a href="#HideFloatingButton">隐藏悬浮按钮</a></li>
     </ul>
-</nav>
+</div>
 
-<div class="col-sm-9">
+<div class="right-side">
     <div id="section1">
         <h1>【Swift 3 用户系统接口】</h1>
         <hr>
@@ -58,7 +50,7 @@
         </div>
         返回值：<a href="/webapi-init#section5"> 查看回传值定义 </a><br>
         <br>
-        <h4>取得用户 Open ID</h4>
+        <h4 id="GetOpenID">取得用户 Open ID</h4>
         <hr>
         接口名称：<code>GetOpenID</code><br/>
         接口说明：取得用户唯一识別 ID (SG ID)，以此 ID 登入游戏伺服器，登入后才可取得。<br/>
@@ -66,7 +58,7 @@
         <% include ../code/swift-getOpenId.html %>
         返回值： 成功的话会得到一个Int?，失败的话会得到一个nil
         <br>
-        <h4>取得Session ID</h4>
+        <h4 id="GetSessionID">取得Session ID</h4>
         <hr>
         接口名称：<code>GetSessionID</code><br/>
         接口说明：取得Session ID，登入后才可取得。<br/>
@@ -74,7 +66,7 @@
         <% include ../code/swift-getSessionId.html %>
         返回值： 成功的话会得到一个String?，失败的话会得到一个nil
         <br>
-        <h4>取得Token</h4>
+        <h4 id="GetToken">取得Token</h4>
         <hr>
         接口名称：<code>GetToken</code><br/>
         接口说明：取得Token，登入后才可取得。<br/>
@@ -154,7 +146,7 @@
         接口名称：<code>VerifySession</code><br/>
         接口说明：使用 SessionID 取得登入帐号资讯<br/>
         参数列表：appId, session, uid, signature<br/>
-        <table class="table">
+        <table class="table table-striped">
             <col width="15%">
             <col width="85%">
             <tr>
@@ -167,11 +159,11 @@
             </tr>
             <tr>
                 <td>session</td>
-                <td>Login后可用GetSessionID()取得</td>
+                <td>Login后可用<a href="#GetSessionID">GetSessionID()</a>取得</td>
             </tr>
             <tr>
                 <td>uid</td>
-                <td>Login后可用GetOpenID()取得</td>
+                <td>Login后可用<a href="#GetOpenID">GetOpenID()</a>取得</td>
             </tr>
             <tr>
                 <td>signature</td>
@@ -182,7 +174,7 @@
         <pre>SgSDK.Instance.VerifySession(appId: "app id", session: "session", uid: "uid", signature: "signature")</pre>
         返回值：
         <h4>Verify结构</h4>
-        <table id="Verify" class="table">
+        <table id="Verify" class="table table-striped">
             <col width="15%">
             <col width="85%">
             <tr>
@@ -217,7 +209,7 @@
         <hr>
         接口名称：<code>VerifyToken</code><br/>
         接口说明：使用 Token 取得登入帐号资讯<br/>
-        参数列表：token<br/>
+        参数列表：token, Login后可用<a href="#GetToken">GetToken()</a>取得<br/>
         范例：
         <pre>SgSDK.Instance.VerifyToken(token: "token")</pre>
         返回值： <a href="#Verify">Verify结构</a>
@@ -259,7 +251,7 @@
         接口名称：<code>ShowFloatingButton</code><br/>
         接口说明：显示悬浮按钮，登入后自动显示<br/>
         参数列表：
-        <table class="table">
+        <table class="table table-striped">
             <col width="20%">
             <col width="80%">
             <tr>
@@ -314,4 +306,3 @@
         返回值：无
     </div>
 </div>
-</body>

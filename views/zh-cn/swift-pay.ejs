@@ -1,13 +1,5 @@
-<head>
-    <style>
-        tr:nth-child(even) {
-            background-color: #dddddd;
-        }
-    </style>
-</head>
-<body data-spy="scroll" data-target="#myScrollspy" data-offset="50">
-<nav class="col-sm-3" id="myScrollspy">
-    <ul class="nav nav-pills nav-stacked well" data-spy="affix" style="background-color: white">
+<div class="left-side" id="myScrollspy">
+    <ul class="nav nav-pills">
         <li><a href="#section1">【支付系统接口】</a></li>
         <li><a href="#section2">调用说明</a></li>
         <li><a href="#IAPInit">IAP初始化</a></li>
@@ -15,9 +7,9 @@
         <li><a href="#GetOrder">查询订单</a></li>
         <li><a href="#RestorePurchase">恢复购买</a></li>
     </ul>
-</nav>
+</div>
 
-<div class="col-sm-9">
+<div class="right-side">
     <div id="section1">
         <h1>【支付系统接口】</h1>
         <hr>
@@ -65,7 +57,7 @@
         接口说明：购买游戏内付费商品时调用，向app store购买成功后会跟SG Server做验证<br/>
         参数列表：payRequest: SgSDKPayRequest<br/>
         <h4>SgSDKPayRequest结构</h4>
-        <table id="SgSDKPayReuest" class="table">
+        <table id="SgSDKPayReuest" class="table table-striped">
             <col width="15%">
             <col width="10%">
             <col width="75%">
@@ -147,7 +139,7 @@
         </table>
 
         <h4>SgSDKPayResponse结构</h4>
-        <table id="SgSDKPayResponse" class="table">
+        <table id="SgSDKPayResponse" class="table table-striped">
             <col width="15%">
             <col width="10%">
             <col width="75%">
@@ -264,7 +256,31 @@
         接口名称：<code>GetOrder</code><br/>
         接口说明：需传送购买成功后的簽名(sign)，才能查询订单详细内容。<br/>
         参数列表：orderId，gameKey，openId，sign <br/>
-        范例： tempPayresponse是上次Pay之后收到的<a href="#SgSDKPayResponse">SgSDKPayResponse</a>，openid可以在Login后用GetOpenID()拿到
+        <table class="table table-striped">
+            <col width="15%">
+            <col width="85%">
+            <tr>
+                <th>参数名称</th>
+                <th>描述</th>
+            </tr>
+            <tr>
+                <td>orderId</td>
+                <td><a href="#SgSDKPayResponse">SgSDKPayResponse</a>的属性</td>
+            </tr>
+            <tr>
+                <td>gameKey</td>
+                <td>Game key</td>
+            </tr>
+            <tr>
+                <td>openId</td>
+                <td>Login后可用<a href="/swift-user#GetOpenID">GetOpenID()</a>取得</td>
+            </tr>
+            <tr>
+                <td>sign</td>
+                <td><a href="#SgSDKPayResponse">SgSDKPayResponse</a>的属性</td>
+            </tr>
+        </table>
+        范例：
         <pre>SgSDK.Instance.GetOrder(tempPayresponse.OrderId, GameKey, openid, tempPayresponse.Sign)</pre>
         返回值：
         <ul>
@@ -287,4 +303,3 @@
         </ul>
     </div>
 </div>
-</body>

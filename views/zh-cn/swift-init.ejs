@@ -1,21 +1,13 @@
-<head>
-    <style>
-        tr:nth-child(even) {
-            background-color: #dddddd;
-        }
-    </style>
-</head>
-<body data-spy="scroll" data-target="#myScrollspy" data-offset="50">
-<nav class="col-sm-3" id="myScrollspy">
-    <ul class="nav nav-pills nav-stacked well" data-spy="affix" style="background-color: white">
+<div class="left-side" id="myScrollspy">
+    <ul class="nav nav-pills">
         <li><a href="#section1">Swift 3 集成指南</a></li>
         <li><a href="#section2">Xcode 开发环境设定</a></li>
         <li><a href="#section3">SgSDK初始化</a></li>
         <li><a href="#section4">释放SgSDK资源</a></li>
     </ul>
-</nav>
+</div>
 
-<div class="col-sm-9">
+<div class="right-side">
     <div id="section1">
         <h1>Swift 3 集成指南</h1>
         <hr>
@@ -71,12 +63,12 @@
         <h1>SgSDK初始化</h1>
         <hr>
         接口名称：<code>SetListener</code><br/>
-        接口说明：初始化之前要先设定callBack function才能知道呼叫function后成功或失败<br/>
+        接口说明：SgSDK 所有非同步的函式，都透过回调监听来得到结果<br/>
         参数列表：listener 是有一个SgSDKResult当参数的function<br/>
         范例：
         <pre>SgSDK.Instance.SetListener(listener: MsgListen)</pre>
         <h4>SgSDKResult结构</h4>
-        <table class="table">
+        <table class="table table-striped">
             <col width="10%">
             <col width="5%">
             <col width="85%">
@@ -121,4 +113,3 @@
         返回值：无
     </div>
 </div>
-</body>
