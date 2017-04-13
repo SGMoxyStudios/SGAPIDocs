@@ -1,0 +1,135 @@
+<div class="left-side" id="myScrollspy">
+
+    <ul class="nav nav-pills">
+        <li><a href="#section1">Web API 使用指南</a></li>
+        <li><a href="#section2">調用 API 頁面</a></li>
+        <li><a href="#section3">API 初始化</a></li>
+        <li><a href="#section4">詳細說明</a></li>
+        <li><a href="#section5">回傳值定義</a></li>
+    </ul>
+
+</div>
+
+<div class="right-side">
+    <div id="section1">
+        <h1>Web API 使用指南】</h1>
+        <hr>
+        <h4>開發者在串接SG Game API時，可透過呼叫Web API的方式來完成各種功能。通過本文的介紹可以了解客戶端接入的整個流程。在接入之前請認真閱讀本文檔，以減少接入過程中遇到的問題。</h4>
+    </div>
+    <br>
+    <div id="section2">
+        <h1> 調用 API 頁面 </h1>
+        <hr>
+        <h4>開發者可透過呼叫網址
+            <a target="_blank" href="http://gameapi.smartgamesltd.com/">http://gameapi.smartgamesltd.com/</a>
+            調用SG Game API各個接口。
+        </h4>
+    </div>
+    <br>
+    <div id="section3">
+        <h1> API 初始化 </h1>
+        <hr>
+        <p>接口名稱：<code>init</code><br/>
+            接口說明：調用 SG Game API 之前需要先調用init接口，進行初始化。<br/>
+            參數列表：
+        </p>
+        <table class="table table-striped"> <!--Gem Start-->
+            <thead>
+            <tr>
+                <th>
+                    參數名稱
+                </th>
+                <th>
+                    參數說明
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    gamekey
+                </td>
+                <td>
+                    開發者申請開通遊戲後取得。例如 d7e73390-d7fd-11e6-9074-21c247f06802
+                </td>
+            </tr>
+            <tr class>
+                <td>
+                    appsecret
+                </td>
+                <td>
+                    開發者申請開通遊戲後取得。例如 d7d7c810-d7ee-11e6-9e86-db4f79aeee86
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a target="_blank" href="http://apidocs.smartgamesltd.com/channel">channel</a>
+                </td>
+                <td>
+                    使用API的遊戲上線平台。例如 Google Play, App Store。
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <p>
+            HTTP Method : <code>GET</code><br>
+            範例：<pre><code class="js">http://gameapi.smartgamesltd.com/init?gamekey=d7e73390-d7fd-11e6-9074-21c247f06802&appsecret=d7d7c810-d7ee-11e6-9e86-db4f79aeee86&channel=googleplay</code></pre>
+            返回值：返回值以JSON格式回傳，例如<code>{"code": 1, "msg": "ok"}</code>。<br/>
+            <a href="#section5"> 查看回傳值定義 </a>
+        </p>
+    </div>
+    <br>
+    <div id="section4">
+        <h1> 詳細說明 </h1>
+        <hr>
+        <h4>取得網頁回傳值</h4>
+        <p>在所有網頁執行完動作之後，都可透過解析該網頁的Javascript函式<code>GetResult()</code>來取得回傳結果。該函式回傳JSON字串，例如<code>{"code": 1, "msg": "ok"}</code>。</p>
+        <br>
+        <h4><a target="_blank" href="http://dashboard.smartgamesltd.com/my-game">SG Developer</a> 可以在此網址取得接入參數。</h4>
+        <div class="well well-sm">
+            <img src=<%= "assets/img/" + lang + "/pic06.png"%> class="img-responsive"/>
+        </div>
+        <br>
+        <h4>Cookie設定</h4>
+        <p>以 Http Get 調用 init 之後需保存 Header 的 Set-Cookie 參數，之後所有調用的接口都必須加上此參數。<br>
+            <code>webViewCookie.put("Cookie", response.headers.get("Set-Cookie"));</code>
+        </p>
+    </div>
+    <br>
+    <div id="section5">
+        <h1>回傳值定義</h1>
+        <hr>
+        <h4>所有接口回傳值都包含<code>code, msg</code>。</h4>
+        <table class="table"> <!--Gem Start-->
+            <thead>
+            <tr>
+                <th>
+                    api
+                </th>
+                <th>
+                    code
+                </th>
+                <th>
+                    msg
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <% for (var i = 0; i < ResultCode.length; i++) { %>
+                <tr class=<%=ResultCode[i].class%>>
+                    <td>
+                        <%=ResultCode[i].api%>
+                    </td>
+                    <td>
+                        <%=ResultCode[i].code%>
+                    </td>
+                    <td>
+                        <%=ResultCode[i].msg%>
+                    </td>
+                </tr>
+            <% } %>
+            </tbody>
+        </table>
+    </div>
+</div>

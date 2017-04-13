@@ -63,11 +63,11 @@ app.get('/channel', function(req, res) {
 });
 //web api
 app.get('/webapi-init', function(req, res){
-    res.render('webapi-init', {ResultCode: ResultCode})
+    res.render(req.i18n_lang+'/webapi-init', {ResultCode: ResultCode})
 });
-app.get('/webapi-user', function(req, res){res.render('webapi-user')});
-app.get('/webapi-pay', function(req, res){res.render('webapi-pay')});
-app.get('/webapi-analytics', function(req, res){res.render('webapi-analytics')});
+app.get('/webapi-user', function(req, res){res.render(req.i18n_lang+'/webapi-user')});
+app.get('/webapi-pay', function(req, res){res.render(req.i18n_lang+'/webapi-pay')});
+app.get('/webapi-analytics', function(req, res){res.render(req.i18n_lang+'/webapi-analytics')});
 //java
 app.get('/java-init', function(req, res){res.render(req.i18n_lang+'/java-init')});
 app.get('/java-user', function(req, res){res.render('java-user')});
