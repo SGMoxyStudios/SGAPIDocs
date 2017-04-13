@@ -1,0 +1,290 @@
+<head>
+    <style>
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="50">
+<nav class="col-sm-3" id="myScrollspy">
+    <ul class="nav nav-pills nav-stacked well" data-spy="affix" style="background-color: white">
+        <li><a href="#section1">【支付系统接口】</a></li>
+        <li><a href="#section2">调用说明</a></li>
+        <li><a href="#IAPInit">IAP初始化</a></li>
+        <li><a href="#Pay">上传订单</a></li>
+        <li><a href="#GetOrder">查询订单</a></li>
+        <li><a href="#RestorePurchase">恢复购买</a></li>
+    </ul>
+</nav>
+
+<div class="col-sm-9">
+    <div id="section1">
+        <h1>【支付系统接口】</h1>
+        <hr>
+    </div>
+    <br>
+    <div id="section2">
+        <h1>调用说明</h1>
+        <hr>
+        <h4>购买游戏内购商品(IAP)成功后，必须上传商品订单，用作后台统计。</h4>
+        <br>
+        <h4>XCode 设定</h4>
+        <hr>
+        <ol>
+            <li>在navigator区点选专案</li>
+            <li>在editor区点选Capabilities</li>
+            <li>启用In-App Purchase</li>
+            <li>在要使用IAP的.swift档案加入<code>import StoreKit</code></li>
+        </ol>
+        <div class="well well-sm">
+            <img src=<%= "assets/img/" + lang + "/swiftpic05.png" %>>
+        </div>
+    </div>
+    <br>
+    <div id="IAPInit">
+        <h1>IAP初始化</h1>
+        <hr>
+        接口名称：<code>IAPInit</code><br/>
+        接口说明：In-App Purchase初始化之后才能开始购买<br/>
+        参数列表：productIDs<br/>
+        范例：
+        <% include ../code/swift-IAPInit.html %>
+        返回值：
+        <ul>
+            <li>Code: 1131, IAP初始化成功</li>
+            <li>Code: 1132, IAP初始化失败</li>
+            <li>Code: 1133, 拿不到商品资讯</li>
+            <li>Code: 1134, Msg: 列出无效的商品ID</li>
+        </ul>
+    </div>
+    <br>
+    <div id="Pay">
+        <h1>上传订单</h1>
+        <hr>
+        接口名称：<code>Pay</code><br/>
+        接口说明：购买游戏内付费商品时调用，向app store购买成功后会跟SG Server做验证<br/>
+        参数列表：payRequest: SgSDKPayRequest<br/>
+        <h4>SgSDKPayRequest结构</h4>
+        <table id="SgSDKPayReuest" class="table">
+            <col width="15%">
+            <col width="10%">
+            <col width="75%">
+            <tr>
+                <th>属性</th>
+                <th>是否必填</th>
+                <th>描述</th>
+            </tr>
+            <tr>
+                <td>ProductId</td>
+                <td>Y</td>
+                <td>产品代号</td>
+            </tr>
+            <tr>
+                <td>ProductName</td>
+                <td>Y</td>
+                <td>产品名称</td>
+            </tr>
+            <tr>
+                <td>ProductDesc</td>
+                <td>N</td>
+                <td>产品描述</td>
+            </tr>
+            <tr>
+                <td>PaymentMethod</td>
+                <td>Y</td>
+                <td>产品种类 ex. managed, subscription</td>
+            </tr>
+            <tr>
+                <td>PaymentChannel</td>
+                <td>N</td>
+                <td>平台 ex.AppStore</td>
+            </tr>
+            <tr>
+                <td>Price</td>
+                <td>N</td>
+                <td>产品价格</td>
+            </tr>
+            <tr>
+                <td>ServerId</td>
+                <td>N</td>
+                <td>伺服器代号</td>
+            </tr>
+            <tr>
+                <td>ServerName</td>
+                <td>Ｎ</td>
+                <td>伺服器名称</td>
+            </tr>
+            <tr>
+                <td>RoleId</td>
+                <td>Ｎ</td>
+                <td>角色代号</td>
+            </tr>
+            <tr>
+                <td>RoleName</td>
+                <td>Ｎ</td>
+                <td>角色名称</td>
+            </tr>
+            <tr>
+                <td>RoleLevel</td>
+                <td>Ｎ</td>
+                <td>角色等级</td>
+            </tr>
+            <tr>
+                <td>PayNotifyUrl</td>
+                <td>Ｎ</td>
+                <td>验证地址</td>
+            </tr>
+            <tr>
+                <td>OrderId</td>
+                <td>Ｎ</td>
+                <td>订单编号</td>
+            </tr>
+            <tr>
+                <td>Receipt</td>
+                <td>Ｎ</td>
+                <td>Appstore的收据</td>
+            </tr>
+        </table>
+
+        <h4>SgSDKPayResponse结构</h4>
+        <table id="SgSDKPayResponse" class="table">
+            <col width="15%">
+            <col width="10%">
+            <col width="75%">
+            <tr>
+                <th>属性</th>
+                <th>是否必填</th>
+                <th>描述</th>
+            </tr>
+            <tr>
+                <td>Code</td>
+                <td>N</td>
+                <td>状态代码</td>
+            </tr>
+            <tr>
+                <td>Msg</td>
+                <td>N</td>
+                <td>状态描述</td>
+            </tr>
+            <tr>
+                <td>Sign</td>
+                <td>N</td>
+                <td>由SG Server产生的簽名</td>
+            </tr>
+            <tr>
+                <td>ProductId</td>
+                <td>Y</td>
+                <td>产品代号</td>
+            </tr>
+            <tr>
+                <td>ProductName</td>
+                <td>Y</td>
+                <td>产品名称</td>
+            </tr>
+            <tr>
+                <td>ProductDesc</td>
+                <td>N</td>
+                <td>产品描述</td>
+            </tr>
+            <tr>
+                <td>PaymentMethod</td>
+                <td>Y</td>
+                <td>产品种类 ex. managed, subscription</td>
+            </tr>
+            <tr>
+                <td>PaymentChannel</td>
+                <td>N</td>
+                <td>平台 ex.AppStore</td>
+            </tr>
+            <tr>
+                <td>Price</td>
+                <td>N</td>
+                <td>产品价格</td>
+            </tr>
+            <tr>
+                <td>ServerId</td>
+                <td>N</td>
+                <td>伺服器代号</td>
+            </tr>
+            <tr>
+                <td>ServerName</td>
+                <td>Ｎ</td>
+                <td>伺服器名称</td>
+            </tr>
+            <tr>
+                <td>RoleId</td>
+                <td>Ｎ</td>
+                <td>角色代号</td>
+            </tr>
+            <tr>
+                <td>RoleName</td>
+                <td>Ｎ</td>
+                <td>角色名称</td>
+            </tr>
+            <tr>
+                <td>RoleLevel</td>
+                <td>Ｎ</td>
+                <td>角色等级</td>
+            </tr>
+            <tr>
+                <td>PayNotifyUrl</td>
+                <td>Ｎ</td>
+                <td>验证地址</td>
+            </tr>
+            <tr>
+                <td>OrderId</td>
+                <td>Ｎ</td>
+                <td>订单编号</td>
+            </tr>
+            <tr>
+                <td>Receipt</td>
+                <td>Ｎ</td>
+                <td>Appstore的收据</td>
+            </tr>
+        </table>
+
+        范例：
+        <pre>SgSDK.Instance.Pay(payRequest: initPayReq(productId: productIDs[0], payMethod: "managed"))</pre>
+        <% include ../code/swift-initPayReq.html %>
+        返回值：
+        <ul>
+            <li>Code: 1101, SgServer验证成功, Data: <a href="#SgSDKPayResponse">SgSDKPayResponse</a></li>
+            <li>Code: 1130, IAP未初始化</li>
+            <li>Code: 1135, 查无商品ID</li>
+            <li>Code: 1136, 与appstore交易成功</li>
+            <li>Code: 1137, 与appstore交易失败</li>
+            <li>Code: 1142, 交易处理中</li>
+            <li><a href="/webapi-init#section5"> 查看回传值定义 </a></li>
+        </ul>
+    </div>
+    <br>
+    <div id="GetOrder">
+        <h1>查询订单</h1>
+        <hr>
+        接口名称：<code>GetOrder</code><br/>
+        接口说明：需传送购买成功后的簽名(sign)，才能查询订单详细内容。<br/>
+        参数列表：orderId，gameKey，openId，sign <br/>
+        范例： tempPayresponse是上次Pay之后收到的<a href="#SgSDKPayResponse">SgSDKPayResponse</a>，openid可以在Login后用GetOpenID()拿到
+        <pre>SgSDK.Instance.GetOrder(tempPayresponse.OrderId, GameKey, openid, tempPayresponse.Sign)</pre>
+        返回值：
+        <ul>
+            <li>Code: 1201, 取得订单成功, Data: <a href="#SgSDKPayReuest">SgSDKPayResponse</a></li>
+            <li><a href="/webapi-init#section5"> 查看回传值定义 </a></li>
+        </ul>
+    </div>
+    <br>
+    <div id="RestorePurchase">
+        <h1>恢复购买</h1>
+        <hr>
+        接口名称：<code>RestorePurchase</code><br/>
+        接口说明：恢复购买，换手机时，只有在商品种类是Non-Consumable, Auto-renewing subscripton这两种商品会用到<br/>
+        范例：
+        <pre>SgSDK.Instance.RestorePurchase()</pre>
+        返回值：
+        <ul>
+            <li>Code: 1140, 没有商品可以恢复</li>
+            <li>Code: 1141, 商品恢复成功</li>
+        </ul>
+    </div>
+</div>
+</body>

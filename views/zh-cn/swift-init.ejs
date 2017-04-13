@@ -1,0 +1,124 @@
+<head>
+    <style>
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="50">
+<nav class="col-sm-3" id="myScrollspy">
+    <ul class="nav nav-pills nav-stacked well" data-spy="affix" style="background-color: white">
+        <li><a href="#section1">Swift 3 集成指南</a></li>
+        <li><a href="#section2">Xcode 开发环境设定</a></li>
+        <li><a href="#section3">SgSDK初始化</a></li>
+        <li><a href="#section4">释放SgSDK资源</a></li>
+    </ul>
+</nav>
+
+<div class="col-sm-9">
+    <div id="section1">
+        <h1>Swift 3 集成指南</h1>
+        <hr>
+        <h4>开发者可在 Xcode 环境透过调用 Web View 来串接 SG Game API。通过本文以 Swift 3
+            语言为范例，介绍客户端接入的整个流程。在接入之前请认真阅读本文档，以减少接入过程中遇到的问题。</h4>
+    </div>
+    <br>
+    <div id="section2">
+        <h1>Xcode 开发环境设定</h1>
+        <hr>
+        <h4>SDK 支援的最低iOS版本： 8.0<br>SDK Sample 支援的最低iOS版本： 9.0<br>Swift版本： 3</h4>
+        <ul>
+            <li><a href="/sdk/ios/debug/SgSDK.framework.zip" download>SgSDK Farmework(debug, 用于模拟器)</a></li>
+            <li><a href="/sdk/ios/release/SgSDK.framework.zip" download>SgSDK Farmework(release, 用于真实装置)</a></li>
+            <li><a href="https://github.com/SGMoxyStudios/SGSDK-iOS-Sample">SGSDK iOS Sample</a></li>
+        </ul>
+        <br>
+        <div id="section2-1">
+            <h4>SgSDK Farmework(swift)</h4>
+            <hr>
+            <p>将SgSDK.framework放入专案资料夹</p>
+            <div class="well well-sm">
+                <img src=<%= "assets/img/" + lang + "/swiftpic01.png" %>>
+            </div>
+        </div>
+        <div id="section2-2">
+            <h4>XCode设定</h4>
+            <hr>
+            <ol>
+                <li>在navigator区点选专案</li>
+                <li>在editor区点选General</li>
+                <li>找到Embedded Binaries</li>
+                <li>点选＋</li>
+                <li>选择Add Other...</li>
+                <li>选择刚刚放入的SgSDK.framework</li>
+                <li>点选finish</li>
+                <li>会看到Embedded Binaries和Linded Frameworks and Binaries都出现SgSDK.framework</li>
+            </ol>
+            <div class="well well-sm">
+                <img src=<%= "assets/img/" + lang + "/swiftpic02.png" %>>
+                <img src=<%= "assets/img/" + lang + "/swiftpic03.png" %>>
+                <img src=<%= "assets/img/" + lang + "/swiftpic04.png" %>>
+            </div>
+        </div>
+        <div id="section2-3">
+            <h4>客户端接入代码</h4>
+            <hr>
+            在要接入的.swift里面加入<code>import SgSDK</code>
+        </div>
+    </div>
+    <br>
+    <div id="section3">
+        <h1>SgSDK初始化</h1>
+        <hr>
+        接口名称：<code>SetListener</code><br/>
+        接口说明：初始化之前要先设定callBack function才能知道呼叫function后成功或失败<br/>
+        参数列表：listener 是有一个SgSDKResult当参数的function<br/>
+        范例：
+        <pre>SgSDK.Instance.SetListener(listener: MsgListen)</pre>
+        <h4>SgSDKResult结构</h4>
+        <table class="table">
+            <col width="10%">
+            <col width="5%">
+            <col width="85%">
+            <tr>
+                <th>参数名称</th>
+                <th>型态</th>
+                <th>描述</th>
+            </tr>
+            <tr>
+                <td>Code</td>
+                <td>Int</td>
+                <td><a href="/webapi-init#section5">状态代码</a></td>
+            </tr>
+            <tr>
+                <td>Msg</td>
+                <td>String</td>
+                <td><a href="/webapi-init#section5">状态描述</a></td>
+            </tr>
+            <tr>
+                <td>Data</td>
+                <td>Any?</td>
+                <td>没有其他资讯的话会是nil，有资讯的话可以转换为任一结构</td>
+            </tr>
+        </table>
+        <% include ../code/swift-setListen.html %>
+        <br>
+        接口名称：<code>Init</code><br/>
+        接口说明：初始化SgSDK才能使用之后的所有功能<br/>
+        参数列表：GameKey, AppSecret<br/>
+        范例：
+        <pre>SgSDK.Instance.Init("YourGameKey", "YourAppSecret")</pre>
+        返回值：<a href="/webapi-init#section5"> <%= texts.LookCode %> </a>
+    </div>
+    <br>
+    <div id="section4">
+        <h1>释放SgSDK资源</h1>
+        <hr>
+        接口名称：<code>Destroy</code><br/>
+        接口说明：释放SgSDK资源<br/>
+        范例：
+        <pre>SgSDK.Instance.Destroy()</pre>
+        返回值：无
+    </div>
+</div>
+</body>

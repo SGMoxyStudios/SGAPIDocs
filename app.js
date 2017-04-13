@@ -74,10 +74,10 @@ app.get('/java-user', function(req, res){res.render('java-user')});
 app.get('/java-pay', function(req, res){res.render('java-pay')});
 app.get('/java-analytics', function(req, res){res.render('java-analytics')});
 //swift
-app.get('/swift-init', function(req, res){res.render('swift-init')});
-app.get('/swift-user', function(req, res){res.render('swift-user')});
-app.get('/swift-pay', function(req, res){res.render('swift-pay')});
-app.get('/swift-analytics', function(req, res){res.render('swift-analytics')});
+app.get('/swift-init', function(req, res){res.render(req.i18n_lang+'/swift-init')});
+app.get('/swift-user', function(req, res){res.render(req.i18n_lang+'/swift-user')});
+app.get('/swift-pay', function(req, res){res.render(req.i18n_lang+'/swift-pay')});
+app.get('/swift-analytics', function(req, res){res.render(req.i18n_lang+'/swift-analytics')});
 
 app.listen(port);
 console.log('Express server listening on port ' + port);

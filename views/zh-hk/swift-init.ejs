@@ -1,16 +1,17 @@
+<head>
+    <style>
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
 <body data-spy="scroll" data-target="#myScrollspy" data-offset="50">
 <nav class="col-sm-3" id="myScrollspy">
     <ul class="nav nav-pills nav-stacked well" data-spy="affix" style="background-color: white">
-        <li><a href="#section1"><h4>Swift 3 集成指南</h4></a></li>
-        <li><a href="#section2"><h4>Xcode 開發環境設定</h4></a>
-            <ul>
-                <li><a href="#section2-1">SgSDK Farmework(swift)</a></li>
-                <li><a href="#section2-2">XCode設定</a></li>
-                <li><a href="#section2-3">客戶端接入代碼</a></li>
-            </ul>
-        </li>
-        <li><a href="#section3"><h4>SgSDK初始化</h4></a></li>
-        <li><a href="#section4"><h4>釋放SgSDK資源</h4></a></li>
+        <li><a href="#section1">Swift 3 集成指南</a></li>
+        <li><a href="#section2">Xcode 開發環境設定</a></li>
+        <li><a href="#section3">SgSDK初始化</a></li>
+        <li><a href="#section4">釋放SgSDK資源</a></li>
     </ul>
 </nav>
 
@@ -62,43 +63,62 @@
         <div id="section2-3">
             <h4>客戶端接入代碼</h4>
             <hr>
-            <h4>在要接入的.swift裡面加入<code>import SgSDK</code></h4>
+            在要接入的.swift裡面加入<code>import SgSDK</code>
         </div>
     </div>
     <br>
     <div id="section3">
         <h1>SgSDK初始化</h1>
         <hr>
-        <%= texts.ApiName %><code>SetListener</code><br/>
-        <%= texts.ApiExplain %>初始化之前要先設定callBack function才能知道呼叫function後成功或失敗<br/>
-        <%= texts.Parameter %>listener 是有一個SgSDKResult當參數的function<br/>
-        <%= texts.Example %>
+        接口名稱：<code>SetListener</code><br/>
+        接口說明：初始化之前要先設定callBack function才能知道呼叫function後成功或失敗<br/>
+        參數列表：listener 是有一個SgSDKResult當參數的function<br/>
+        範例：
         <pre>SgSDK.Instance.SetListener(listener: MsgListen)</pre>
-        參數SgSDKResult有三個屬性
-
-        <ul>
-            <li>Code: Int 回傳Error Code</li>
-            <li>Msg: String 回傳該Error Code代表的訊息</li>
-            <li>Data: Any? 沒有其他資訊的話會是nil，有資訊的話可以轉換為任一結構</li>
-        </ul>
-        <% include code/swift-setListen.html %>
+        <h4>SgSDKResult結構</h4>
+        <table class="table">
+            <col width="10%">
+            <col width="5%">
+            <col width="85%">
+            <tr>
+                <th>參數名稱</th>
+                <th>型態</th>
+                <th>描述</th>
+            </tr>
+            <tr>
+                <td>Code</td>
+                <td>Int</td>
+                <td><a href="/webapi-init#section5">狀態代碼</a></td>
+            </tr>
+            <tr>
+                <td>Msg</td>
+                <td>String</td>
+                <td><a href="/webapi-init#section5">狀態描述</a></td>
+            </tr>
+            <tr>
+                <td>Data</td>
+                <td>Any?</td>
+                <td>沒有其他資訊的話會是nil，有資訊的話可以轉換為任一結構</td>
+            </tr>
+        </table>
+        <% include ../code/swift-setListen.html %>
         <br>
-        <%= texts.ApiName %><code>Init</code><br/>
-        <%= texts.ApiExplain %>初始化SgSDK才能使用之後的所有功能<br/>
-        <%= texts.Parameter %>GameKey, AppSecret<br/>
-        <%= texts.Example %>
+        接口名稱：<code>Init</code><br/>
+        接口說明：初始化SgSDK才能使用之後的所有功能<br/>
+        參數列表：GameKey, AppSecret<br/>
+        範例：
         <pre>SgSDK.Instance.Init("YourGameKey", "YourAppSecret")</pre>
-        <%= texts.ReturnCode %><a href="/webapi-init#section5"> <%= texts.LookCode %> </a>
+        返回值：<a href="/webapi-init#section5"> <%= texts.LookCode %> </a>
     </div>
     <br>
     <div id="section4">
         <h1>釋放SgSDK資源</h1>
         <hr>
-        <%= texts.ApiName %><code>Destroy</code><br/>
-        <%= texts.ApiExplain %>釋放SgSDK資源<br/>
-        <%= texts.Example %>
+        接口名稱：<code>Destroy</code><br/>
+        接口說明：釋放SgSDK資源<br/>
+        範例：
         <pre>SgSDK.Instance.Destroy()</pre>
-        <%= texts.ReturnCode + texts.Empty %>
+        返回值：無
     </div>
 </div>
 </body>

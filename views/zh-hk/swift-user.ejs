@@ -1,0 +1,317 @@
+<head>
+    <style>
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="50">
+<nav class="col-sm-3" id="myScrollspy">
+    <ul class="nav nav-pills nav-stacked well" data-spy="affix" style="background-color: white">
+        <li><a href="#section1">【Swift 3 用戶系統接口】</a></li>
+        <li><a href="#Signup">創帳號</a></li>
+        <li><a href="#Login">登入</a></li>
+        <li><a href="#ForgotPassword">查詢密碼</a></li>
+        <li><a href="#ChangePassword">變更密碼</a></li>
+        <li><a href="#ParentalLock">家長安全操作</a></li>
+        <li><a href="#MyKid">設置孩童資料</a></li>
+        <li><a href="#MyAccount">帳號資訊</a></li>
+        <li><a href="#VerifySession">Session ID 登入驗證</a></li>
+        <li><a href="#VerifyToken">Token 登入驗證</a></li>
+        <li><a href="#Logout">登出</a></li>
+        <li><a href="#IsLogined">取得登入狀態</a></li>
+        <li><a href="#GetChannelID">取得平台ID</a></li>
+        <li><a href="#ShowFloatingButton">顯示懸浮按鈕</a></li>
+        <li><a href="#HideFloatingButton">隱藏懸浮按鈕</a></li>
+    </ul>
+</nav>
+
+<div class="col-sm-9">
+    <div id="section1">
+        <h1>【Swift 3 用戶系統接口】</h1>
+        <hr>
+        <h4>透過 SgSDK 調用各個接口，例如創帳號，登入等等。某些接口調用後需要接收回傳值。客戶端再依據收到的回傳值進行對應處理。</h4>
+    </div>
+    <br>
+    <div id="Signup">
+        <h1>創帳號</h1>
+        <hr>
+        接口名稱：<code>Signup</code><br/>
+        接口說明：註冊成功等同登入然後關閉web view<br/>
+        範例：
+        <pre>SgSDK.Instance.Signup()</pre>
+        <div class="well well-sm">
+            <img src=<%= "assets/img/" + lang + "/pic08.png" %>>
+        </div>
+        返回值：<a href="/webapi-init#section5"> 查看回傳值定義 </a>
+    </div>
+    <br>
+    <div id="Login">
+        <h1>登入</h1>
+        <hr>
+        接口名稱：<code>Login</code><br/>
+        接口說明：登入成功後關閉web view<br/>
+        範例：
+        <pre>SgSDK.Instance.Login()</pre>
+        <div class="well well-sm">
+            <img src=<%= "assets/img/" + lang + "/pic07.png" %>>
+        </div>
+        返回值：<a href="/webapi-init#section5"> 查看回傳值定義 </a><br>
+        <br>
+        <h4>取得用戶 Open ID</h4>
+        <hr>
+        接口名稱：<code>GetOpenID</code><br/>
+        接口說明：取得用戶唯一識別 ID (SG ID)，以此 ID 登入遊戲伺服器，登入後才可取得。<br/>
+        範例：
+        <% include ../code/swift-getOpenId.html %>
+        返回值： 成功的話會得到一個Int?，失敗的話會得到一個nil
+        <br>
+        <h4>取得Session ID</h4>
+        <hr>
+        接口名稱：<code>GetSessionID</code><br/>
+        接口說明：取得Session ID，登入後才可取得。<br/>
+        範例：
+        <% include ../code/swift-getSessionId.html %>
+        返回值： 成功的話會得到一個String?，失敗的話會得到一個nil
+        <br>
+        <h4>取得Token</h4>
+        <hr>
+        接口名稱：<code>GetToken</code><br/>
+        接口說明：取得Token，登入後才可取得。<br/>
+        範例：
+        <% include ../code/swift-getToken.html %>
+        返回值： 成功的話會得到一個String?，失敗的話會得到一個nil
+    </div>
+    <br>
+    <div id="ForgotPassword">
+        <h1>查詢密碼</h1>
+        <hr>
+        接口名稱：<code>ForgotPassword</code><br/>
+        接口說明：調用找回密碼頁面進行重設密碼。<br/>
+        範例：
+        <pre>SgSDK.Instance.ForgotPassword()</pre>
+        <div class="well well-sm">
+            <img src=<%= "assets/img/" + lang + "/pic09.png" %>>
+        </div>
+        返回值：<a href="/webapi-init#section5"> 查看回傳值定義 </a>
+    </div>
+    <br>
+    <div id="ChangePassword">
+        <h1>變更密碼</h1>
+        <hr>
+        接口名稱：<code>ChangePassword</code><br/>
+        接口說明：調用變更密碼頁面。<br/>
+        範例：
+        <pre>SgSDK.Instance.ChangePassword()</pre>
+        <div class="well well-sm">
+            <img src=<%= "assets/img/" + lang + "/pic10.png" %>>
+        </div>
+        返回值：<a href="/webapi-init#section5"> 查看回傳值定義 </a>
+    </div>
+    <br>
+    <div id="ParentalLock">
+        <h1>家長安全操作</h1>
+        <hr>
+        接口名稱：<code>ParentalLock</code><br/>
+        接口說明：在呼叫帳號設置前需要先呼叫家長安全操作頁面以防孩童誤擊重要功能。<br/>
+        範例：
+        <pre>SgSDK.Instance.ParentalLock()</pre>
+        <div class="well well-sm">
+            <img src=<%= "assets/img/" + lang + "/pic11.png" %>>
+        </div>
+        返回值：無
+    </div>
+    <br>
+    <div id="MyKid">
+        <h1>設置孩童資料</h1>
+        <hr>
+        接口名稱：<code>MyKid</code><br/>
+        接口說明：調用新增孩童資料頁面。<br/>
+        範例：
+        <pre>SgSDK.Instance.MyKid()</pre>
+        <div class="well well-sm">
+            <img src=<%= "assets/img/" + lang + "/pic12.png" %>>
+        </div>
+        返回值：<a href="/webapi-init#section5"> 查看回傳值定義 </a>
+    </div>
+    <br>
+    <div id="MyAccount">
+        <h1>帳號資訊</h1>
+        <hr>
+        接口名稱：<code>MyAccount</code><br/>
+        接口說明：調用帳號總覽頁面，以瀏覽孩童遊戲紀錄。<br/>
+        範例：
+        <pre>SgSDK.Instance.MyAccount()</pre>
+        <div class="well well-sm">
+            <img src=<%= "assets/img/" + lang + "/pic13.png" %>>
+        </div>
+        返回值：無
+    </div>
+    <br>
+    <div id="VerifySession">
+        <h1>Session ID 登入驗證</h1>
+        <hr>
+        接口名稱：<code>VerifySession</code><br/>
+        接口說明：使用 SessionID 取得登入帳號資訊<br/>
+        參數列表：appId, session, uid, signature<br/>
+        <table class="table">
+            <col width="15%">
+            <col width="85%">
+            <tr>
+                <th>參數名稱</th>
+                <th>描述</th>
+            </tr>
+            <tr>
+                <td>appId</td>
+                <td>Game key</td>
+            </tr>
+            <tr>
+                <td>session</td>
+                <td>Login後可用GetSessionID()取得</td>
+            </tr>
+            <tr>
+                <td>uid</td>
+                <td>Login後可用GetOpenID()取得</td>
+            </tr>
+            <tr>
+                <td>signature</td>
+                <td>server返回的簽名</td>
+            </tr>
+        </table>
+        範例：
+        <pre>SgSDK.Instance.VerifySession(appId: "app id", session: "session", uid: "uid", signature: "signature")</pre>
+        返回值：
+        <h4>Verify結構</h4>
+        <table id="Verify" class="table">
+            <col width="15%">
+            <col width="85%">
+            <tr>
+                <th>參數名稱</th>
+                <th>描述</th>
+            </tr>
+            <tr>
+                <td>Code</td>
+                <td>狀態代碼</td>
+            </tr>
+            <tr>
+                <td>Msg</td>
+                <td>狀態描述</td>
+            </tr>
+            <tr>
+                <td>Account</td>
+                <td>帳號</td>
+            </tr>
+            <tr>
+                <td>OpenID</td>
+                <td>Open ID</td>
+            </tr>
+            <tr>
+                <td>EMail</td>
+                <td>EMail</td>
+            </tr>
+        </table>
+    </div>
+    <br>
+    <div id="VerifyToken">
+        <h1>Token 登入驗證</h1>
+        <hr>
+        接口名稱：<code>VerifyToken</code><br/>
+        接口說明：使用 Token 取得登入帳號資訊<br/>
+        參數列表：token<br/>
+        範例：
+        <pre>SgSDK.Instance.VerifyToken(token: "token")</pre>
+        返回值： <a href="#Verify">Verify結構</a>
+    </div>
+    <br>
+    <div id="Logout">
+        <h1>登出</h1>
+        <hr>
+        接口名稱：<code>Logout</code><br/>
+        接口說明：帳號登出<br/>
+        範例：
+        <pre>SgSDK.Instance.Logout()</pre>
+        返回值：無
+    </div>
+    <br>
+    <div id="IsLogined">
+        <h1>取得登入狀態</h1>
+        <hr>
+        接口名稱：<code>IsLogined</code><br/>
+        接口說明：判斷是否為登入狀態<br/>
+        範例：
+        <pre>SgSDK.Instance.IsLogined()</pre>
+        返回值： True為已登入，False為未登入
+    </div>
+    <br>
+    <div id="GetChannelID">
+        <h1>取得平台ID</h1>
+        <hr>
+        接口名稱：<code>GetChannelID</code><br/>
+        接口說明：取得平台名稱<br/>
+        範例：
+        <pre>SgSDK.Instance.GetChannelID()</pre>
+        返回值： 取得平台ID，例如：appstore
+    </div>
+    <br>
+    <div id="ShowFloatingButton">
+        <h1>顯示懸浮按鈕</h1>
+        <hr>
+        接口名稱：<code>ShowFloatingButton</code><br/>
+        接口說明：顯示懸浮按鈕，登入後自動顯示<br/>
+        參數列表：
+        <table class="table">
+            <col width="20%">
+            <col width="80%">
+            <tr>
+                <th>位置狀態碼</th>
+                <th>狀態描述</th>
+            </tr>
+            <tr>
+                <td>eFloatingButtonPlace.LeftTop</td>
+                <td>左上角</td>
+            </tr>
+            <tr>
+                <td>eFloatingButtonPlace.Top</td>
+                <td>上方</td>
+            </tr>
+            <tr>
+                <td>eFloatingButtonPlace.RightTop</td>
+                <td>右上角</td>
+            </tr>
+            <tr>
+                <td>eFloatingButtonPlace.Left</td>
+                <td>左方</td>
+            </tr>
+            <tr>
+                <td>eFloatingButtonPlace.Right</td>
+                <td>右方</td>
+            </tr>
+            <tr>
+                <td>eFloatingButtonPlace.LeftBottom</td>
+                <td>左下角</td>
+            </tr>
+            <tr>
+                <td>eFloatingButtonPlace.Bottom</td>
+                <td>下方</td>
+            </tr>
+            <tr>
+                <td>eFloatingButtonPlace.RightBottom</td>
+                <td>右下角</td>
+            </tr>
+        </table>
+        範例：
+        <pre>SgSDK.Instance.ShowFloatingButton(place: .Right)</pre>
+        返回值：無
+    </div>
+    <br>
+    <div id="HideFloatingButton">
+        <h1>隱藏懸浮按鈕</h1>
+        <hr>
+        接口名稱：<code>HideFloatingButton</code><br/>
+        接口說明：隱藏懸浮按鈕<br/>
+        範例：
+        <pre>SgSDK.Instance.HideFloatingButton()</pre>
+        返回值：無
+    </div>
+</div>
+</body>
