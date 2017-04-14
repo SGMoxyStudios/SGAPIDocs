@@ -24,7 +24,7 @@
         <hr>
         <h4>透過 SgSDK 調用各個接口，例如創帳號，登入等等。某些接口調用後需要接收回傳值。客戶端再依據收到的回傳值進行對應處理。</h4>
     </div>
-    <br>
+    <br/>
     <div id="Signup">
         <h1>創帳號</h1>
         <hr>
@@ -37,7 +37,7 @@
         </div>
         返回值：<a href="/webapi-init#section5"> 查看回傳值定義 </a>
     </div>
-    <br>
+    <br/>
     <div id="Login">
         <h1>登入</h1>
         <hr>
@@ -48,16 +48,16 @@
         <div class="well well-sm">
             <img src=<%= "assets/img/" + lang + "/pic07.png" %>>
         </div>
-        返回值：<a href="/webapi-init#section5"> 查看回傳值定義 </a><br>
-        <br>
+        返回值：<a href="/webapi-init#section5"> 查看回傳值定義 </a><br/>
+        <br/>
         <h4 id="GetOpenID">取得用戶 Open ID</h4>
         <hr>
         接口名稱：<code>GetOpenID</code><br/>
         接口說明：取得用戶唯一識別 ID (SG ID)，以此 ID 登入遊戲伺服器，登入後才可取得。<br/>
         範例：
         <% include ../code/swift-getOpenId.html %>
-        返回值： 成功的話會得到一個Int?，失敗的話會得到一個nil
-        <br>
+        返回值： 成功的話會得到一個Int?，失敗的話會得到一個nil。<br/>
+        <br/>
         <h4 id="GetSessionID">取得Session ID</h4>
         <hr>
         接口名稱：<code>GetSessionID</code><br/>
@@ -65,7 +65,7 @@
         範例：
         <% include ../code/swift-getSessionId.html %>
         返回值： 成功的話會得到一個String?，失敗的話會得到一個nil
-        <br>
+        <br/>
         <h4 id="GetToken">取得Token</h4>
         <hr>
         接口名稱：<code>GetToken</code><br/>
@@ -74,7 +74,7 @@
         <% include ../code/swift-getToken.html %>
         返回值： 成功的話會得到一個String?，失敗的話會得到一個nil
     </div>
-    <br>
+    <br/>
     <div id="ForgotPassword">
         <h1>查詢密碼</h1>
         <hr>
@@ -87,7 +87,7 @@
         </div>
         返回值：<a href="/webapi-init#section5"> 查看回傳值定義 </a>
     </div>
-    <br>
+    <br/>
     <div id="ChangePassword">
         <h1>變更密碼</h1>
         <hr>
@@ -100,7 +100,7 @@
         </div>
         返回值：<a href="/webapi-init#section5"> 查看回傳值定義 </a>
     </div>
-    <br>
+    <br/>
     <div id="ParentalLock">
         <h1>家長安全操作</h1>
         <hr>
@@ -113,7 +113,7 @@
         </div>
         返回值：無
     </div>
-    <br>
+    <br/>
     <div id="MyKid">
         <h1>設置孩童資料</h1>
         <hr>
@@ -126,7 +126,7 @@
         </div>
         返回值：<a href="/webapi-init#section5"> 查看回傳值定義 </a>
     </div>
-    <br>
+    <br/>
     <div id="MyAccount">
         <h1>帳號資訊</h1>
         <hr>
@@ -139,7 +139,7 @@
         </div>
         返回值：無
     </div>
-    <br>
+    <br/>
     <div id="VerifySession">
         <h1>Session ID 登入驗證</h1>
         <hr>
@@ -203,7 +203,7 @@
             </tr>
         </table>
     </div>
-    <br>
+    <br/>
     <div id="VerifyToken">
         <h1>Token 登入驗證</h1>
         <hr>
@@ -214,7 +214,7 @@
         <pre>SgSDK.Instance.VerifyToken(token: "token")</pre>
         返回值： <a href="#Verify">Verify結構</a>
     </div>
-    <br>
+    <br/>
     <div id="Logout">
         <h1>登出</h1>
         <hr>
@@ -224,7 +224,7 @@
         <pre>SgSDK.Instance.Logout()</pre>
         返回值：無
     </div>
-    <br>
+    <br/>
     <div id="IsLogined">
         <h1>取得登入狀態</h1>
         <hr>
@@ -234,7 +234,7 @@
         <pre>SgSDK.Instance.IsLogined()</pre>
         返回值： True為已登入，False為未登入
     </div>
-    <br>
+    <br/>
     <div id="GetChannelID">
         <h1>取得平台ID</h1>
         <hr>
@@ -244,50 +244,50 @@
         <pre>SgSDK.Instance.GetChannelID()</pre>
         返回值： 取得平台ID，例如：appstore
     </div>
-    <br>
+    <br/>
     <div id="ShowFloatingButton">
         <h1>顯示懸浮按鈕</h1>
         <hr>
-        接口名稱：<code>ShowFloatingButton</code><br/>
+        接口名稱：<code>ShowFloatingButton(place eFloatingButtonPlace)</code><br/>
         接口說明：顯示懸浮按鈕，登入後自動顯示<br/>
-        參數列表：
+        參數：
         <table class="table table-striped">
             <col width="20%">
             <col width="80%">
             <tr>
-                <th>位置狀態碼</th>
+                <th>eFloatingButtonPlace case</th>
                 <th>狀態描述</th>
             </tr>
             <tr>
-                <td>eFloatingButtonPlace.LeftTop</td>
+                <td>LeftTop</td>
                 <td>左上角</td>
             </tr>
             <tr>
-                <td>eFloatingButtonPlace.Top</td>
+                <td>Top</td>
                 <td>上方</td>
             </tr>
             <tr>
-                <td>eFloatingButtonPlace.RightTop</td>
+                <td>RightTop</td>
                 <td>右上角</td>
             </tr>
             <tr>
-                <td>eFloatingButtonPlace.Left</td>
+                <td>Left</td>
                 <td>左方</td>
             </tr>
             <tr>
-                <td>eFloatingButtonPlace.Right</td>
+                <td>Right</td>
                 <td>右方</td>
             </tr>
             <tr>
-                <td>eFloatingButtonPlace.LeftBottom</td>
+                <td>LeftBottom</td>
                 <td>左下角</td>
             </tr>
             <tr>
-                <td>eFloatingButtonPlace.Bottom</td>
+                <td>Bottom</td>
                 <td>下方</td>
             </tr>
             <tr>
-                <td>eFloatingButtonPlace.RightBottom</td>
+                <td>RightBottom</td>
                 <td>右下角</td>
             </tr>
         </table>
@@ -295,7 +295,7 @@
         <pre>SgSDK.Instance.ShowFloatingButton(place: .Right)</pre>
         返回值：無
     </div>
-    <br>
+    <br/>
     <div id="HideFloatingButton">
         <h1>隱藏懸浮按鈕</h1>
         <hr>
