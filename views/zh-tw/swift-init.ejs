@@ -14,102 +14,176 @@
         <h4>開發者可在 Xcode 環境透過調用 Web View 來串接 SG Game API。通過本文以 Swift 3
             語言為範例，介紹客戶端接入的整個流程。在接入之前請認真閱讀本文檔，以減少接入過程中遇到的問題。</h4>
     </div>
-    <br>
+    <br/>
     <div id="section2">
         <h1>Xcode 開發環境設定</h1>
         <hr>
-        <h4>SDK 支援的最低iOS版本： 8.0<br>SDK Sample 支援的最低iOS版本： 9.0<br>Swift版本： 3</h4>
+        <h4>1.SDK 支援版本：</h4>
         <ul>
-            <li><a href="/sdk/ios/debug/SgSDK.framework.zip" download>SgSDK Farmework(debug, 用於模擬器)</a></li>
-            <li><a href="/sdk/ios/release/SgSDK.framework.zip" download>SgSDK Farmework(release, 用於真實裝置)</a></li>
+            <li>最低 iOS 版本： 8.0</li>
+            <li>Swift 版本： 3</li>
+        </ul>
+        <h4>2.下載SgSDK iOS framework</h4>
+        <ul>
+            <li><a href="/sdk/ios/debug/SgSDK.framework.zip" download>SgSDK Framework (debug, 用於模擬器)</a></li>
+            <li><a href="/sdk/ios/release/SgSDK.framework.zip" download>SgSDK Framework (release, 用於真實裝置)</a></li>
+        </ul>
+        <h4>3.範例程式</h4>
+        <ul>
             <li><a href="https://github.com/SGMoxyStudios/SGSDK-iOS-Sample">SGSDK iOS Sample</a></li>
         </ul>
-        <br>
+        <br/>
         <div id="section2-1">
-            <h4>SgSDK Farmework(swift)</h4>
+            <h4>SgSDK Framework(swift)</h4>
             <hr>
-            <p>將SgSDK.framework放入專案資料夾</p>
+            <p>將 SgSDK.framework 放入專案資料夾</p>
             <div class="well well-sm">
-                <img src=<%= "assets/img/" + lang + "/swiftpic01.png" %>>
+                <img src=<%= "assets/img/" + lang + "/swiftpic01.png" %> class="img-responsive"/>
             </div>
         </div>
         <div id="section2-2">
-            <h4>XCode設定</h4>
+            <h4>XCode 設定</h4>
             <hr>
             <ol>
-                <li>在navigator區點選專案</li>
-                <li>在editor區點選General</li>
-                <li>找到Embedded Binaries</li>
-                <li>點選＋</li>
-                <li>選擇Add Other...</li>
-                <li>選擇剛剛放入的SgSDK.framework</li>
-                <li>點選finish</li>
-                <li>會看到Embedded Binaries和Linded Frameworks and Binaries都出現SgSDK.framework</li>
+                <li>在 navigator 區點選專案。</li>
+                <li>在 editor 區點選 General。</li>
+                <li>找到 Embedded Binaries。</li>
+                <li>點選＋。</li>
+                <li>選擇 Add Other...。</li>
+                <li>選擇剛剛放入的 SgSDK.framework。</li>
+                <li>點選 finish。</li>
+                <li>會看到 Embedded Binaries 和 Linked Frameworks and Binaries 都出現 SgSDK.framework。</li>
             </ol>
             <div class="well well-sm">
-                <img src=<%= "assets/img/" + lang + "/swiftpic02.png" %>>
-                <img src=<%= "assets/img/" + lang + "/swiftpic03.png" %>>
-                <img src=<%= "assets/img/" + lang + "/swiftpic04.png" %>>
+                <img src=<%= "assets/img/" + lang + "/swiftpic02.png" %> class="img-responsive"/>
+                <img src=<%= "assets/img/" + lang + "/swiftpic03.png" %> class="img-responsive"/>
+                <img src=<%= "assets/img/" + lang + "/swiftpic04.png" %> class="img-responsive"/>
             </div>
         </div>
         <div id="section2-3">
             <h4>客戶端接入代碼</h4>
             <hr>
-            在要接入的.swift裡面加入<code>import SgSDK</code>
+            在要接入的 .swift 裡面加入<code>import SgSDK</code>
         </div>
     </div>
-    <br>
+    <br/>
     <div id="section3">
         <h1>SgSDK初始化</h1>
         <hr>
-        接口名稱：<code>SetListener</code><br/>
-        接口說明：SgSDK 所有非同步的函式，都透過回調監聽來得到結果<br/>
-        參數列表：listener 是有一個SgSDKResult當參數的function<br/>
-        範例：
-        <pre>SgSDK.Instance.SetListener(listener: MsgListen)</pre>
-        <h4>SgSDKResult結構</h4>
-        <table class="table table-striped">
-            <col width="10%">
-            <col width="5%">
-            <col width="85%">
+        <h4>1.SgSDK 回調監聽</h4>
+        <table class="table">
             <tr>
-                <th>參數名稱</th>
-                <th>型態</th>
-                <th>描述</th>
+                <td>函式</td>
+                <td><code>SetListener(listener: @escaping (SgSDKResult) -> Void)</code></td>
+
             </tr>
             <tr>
-                <td>Code</td>
-                <td>Int</td>
-                <td><a href="/webapi-init#section5">狀態代碼</a></td>
+                <td>說明</td>
+                <td>SgSDK 所有非同步的函式，都透過回調監聽來得到結果。</td>
             </tr>
             <tr>
-                <td>Msg</td>
-                <td>String</td>
-                <td><a href="/webapi-init#section5">狀態描述</a></td>
+                <td>範例</td>
+                <td>
+                    <pre>SgSDK.Instance.SetListener(listener: MsgListen)</pre>
+                    <% include ../code/swift-setListen.html %>
+                </td>
             </tr>
             <tr>
-                <td>Data</td>
-                <td>Any?</td>
-                <td>沒有其他資訊的話會是nil，有資訊的話可以轉換為任一結構</td>
+                <td>參數</td>
+                <td>
+                    listener 是有一個 SgSDKResult 當參數的 function。<br/>
+                    SgSDKResult 結構<br/>
+                    <table class="table table-striped">
+                        <col width="10%">
+                        <col width="5%">
+                        <col width="85%">
+                        <tr>
+                            <th>參數名稱</th>
+                            <th>型態</th>
+                            <th>描述</th>
+                        </tr>
+                        <tr>
+                            <td>Code</td>
+                            <td>Int</td>
+                            <td><a href="/webapi-init#section5">狀態代碼</a></td>
+                        </tr>
+                        <tr>
+                            <td>Msg</td>
+                            <td>String</td>
+                            <td><a href="/webapi-init#section5">狀態描述</a></td>
+                        </tr>
+                        <tr>
+                            <td>Data</td>
+                            <td>Any?</td>
+                            <td>沒有其他資訊的話會是 nil，有資訊的話可以轉換為任一結構。</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>回傳值</td>
+                <td>無</td>
             </tr>
         </table>
-        <% include ../code/swift-setListen.html %>
-        <br>
-        接口名稱：<code>Init</code><br/>
-        接口說明：初始化SgSDK才能使用之後的所有功能<br/>
-        參數列表：GameKey, AppSecret<br/>
-        範例：
-        <pre>SgSDK.Instance.Init("YourGameKey", "YourAppSecret")</pre>
-        返回值：<a href="/webapi-init#section5"> <%= texts.LookCode %> </a>
+        <br/>
+        <h4>2.SgSDK 初始化</h4>
+        <table class="table">
+            <tr>
+                <td>函式</td>
+                <td><code>Init(GameKey: String, AppSecret: String)</code></td>
+
+            </tr>
+            <tr>
+                <td>說明</td>
+                <td>初始化 SgSDK 才能使用之後的所有功能。</td>
+            </tr>
+            <tr>
+                <td>範例</td>
+                <td>
+                    <pre>SgSDK.Instance.Init(GameKey: "YourGameKey", AppSecret: "YourAppSecret")</pre>
+                </td>
+            </tr>
+            <tr>
+                <td>參數</td>
+                <td>
+                    GameKey, AppSecret
+                </td>
+            </tr>
+            <tr>
+                <td>回傳值</td>
+                <td><a href="/webapi-init#section5">查看回傳值定義</a>。</td>
+            </tr>
+        </table>
     </div>
-    <br>
+    <br/>
     <div id="section4">
-        <h1>釋放SgSDK資源</h1>
+        <h1>釋放 SgSDK 資源</h1>
         <hr>
-        接口名稱：<code>Destroy</code><br/>
-        接口說明：釋放SgSDK資源<br/>
-        範例：
-        <pre>SgSDK.Instance.Destroy()</pre>
-        返回值：無
+        <table class="table">
+            <tr>
+                <td>函式</td>
+                <td><code>Destroy</code></td>
+            </tr>
+            <tr>
+                <td>說明</td>
+                <td>釋放 SgSDK 資源。</td>
+            </tr>
+            <tr>
+                <td>範例</td>
+                <td>
+                    <pre>SgSDK.Instance.Destroy()</pre>
+                </td>
+            </tr>
+            <tr>
+                <td>參數</td>
+                <td>
+                    無
+                </td>
+            </tr>
+            <tr>
+                <td>回傳值</td>
+                <td>無</td>
+            </tr>
+        </table>
     </div>
 </div>
