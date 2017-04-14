@@ -288,6 +288,36 @@
     "class": ""
   },
   {
+    "api": "WeChat Payment",
+    "code": 1120,
+    "msg": "WeChat paid success.",
+    "class": "active"
+  },
+  {
+    "api": "",
+    "code": 1121,
+    "msg": "WeChat prepare order ok.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 1122,
+    "msg": "WeChat prepare order error.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 1124,
+    "msg": "Post payment response empty.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 1126,
+    "msg": "WeChat paid fail.",
+    "class": ""
+  },
+  {
     "api": "ios in-app purchase",
     "code": 1130,
     "msg": "IAP not init yet.",

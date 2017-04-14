@@ -2,8 +2,8 @@
 
     <ul class="nav nav-pills">
         <li><a href="#section1">Web API 用戶系統接口</a></li>
-        <li><a href="#section2">登入</a></li>
-        <li><a href="#section3">創帳號</a></li>
+        <li><a href="#section2">創帳號</a></li>
+        <li><a href="#section3">登入</a></li>
         <li><a href="#section4">查詢密碼</a></li>
         <li><a href="#section5">變更密碼</a></li>
         <li><a href="#section6">家長安全操作</a></li>
@@ -26,137 +26,193 @@
     <br/>
 
     <div id="section2">
-        <h1>登入</h1>
-        <hr>
-        <p> 接口名稱：<code>login</code><br/>
-            接口說明：調用登入頁面進行登入。<br/>
-            HTTP Method : <code>GET</code><br/>
-            範例：<pre><code class="js">http://gameapi.smartgamesltd.com/login</code></pre>
-
-            <div class="well well-sm">
-                <img src=<%= "assets/img/" + lang + "/pic07.png"%> class="img-responsive"/>
-            </div>
-
-            調用回傳頁面的 JavaScript 函式 <code>GetResult()</code> 來取得回傳結果。該函式回傳 JSON 字串，例如<code>{"code": 1, "msg": "ok"}</code>。<br/>
-            <a href="/webapi-init#section5"> 查看回傳值定義 </a>
-        </p>
-
-        <table class="table table-striped"> <!--Gem Start-->
-            <thead>
-            <tr>
-                <th>
-                    變數
-                </th>
-                <th>
-                    詳細說明
-                </th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>
-                    Code
-                </td>
-                <td>
-                    code = 201 為成功，其他都是失敗。
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    OpenID
-                </td>
-                <td>
-                    登入帳號的 SG 平台識別 ID，登入成功後以此 ID 登入遊戲伺服器。
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    SessionID
-                </td>
-                <td>
-                    連線的 SessionID，用以登入二次驗證。
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Token
-                </td>
-                <td>
-                    成功登入後可以此 Token 向渠道 Server 取得帳號資料。
-                </td>
-            </tr>
-            </tbody>
-        </table>
-
-    </div>
-    <br/>
-    <div id="section3">
         <h1>創帳號</h1>
         <hr>
-        <p> 接口名稱：<code>signup</code><br/>
-            接口說明：調用創帳號頁面創建 SG 會員帳號。<br/>
-            HTTP Method : <code>GET</code><br/>
-            範例：<pre><code class="js">http://gameapi.smartgamesltd.com/signup</code></pre>
+        <table class="table">
+            <tr>
+                <td>API</td>
+                <td>
+                    <code>signup</code>
+                </td>
+            </tr>
+            <tr>
+                <td>HTTP Method</td>
+                <td>
+                    <code>GET</code>
+                </td>
+            </tr>
+            <tr>
+                <td>說明</td>
+                <td>調用創帳號頁面創建 SG 會員帳號。</td>
+            </tr>
+            <tr>
+                <td>範例</td>
+                <td>
+                    <pre>http://gameapi.smartgamesltd.com/signup</pre>
+                </td>
+            </tr>
+            <tr>
+                <td>回傳值</td>
+                <td>
+                    調用回傳頁面的 JavaScript 函式 <code>GetResult()</code> 來取得回傳結果，該函式回傳 JSON 字串。<br/>
+                    例如<code>{"code": 1, "msg": "ok"}</code>。<br/>
+                    完整 code 定義，<a href="/webapi-init#section5">請參看對照表</a>。
+                    <br/>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>
+                                回傳值
+                            </th>
+                            <th>
+                                詳細說明
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                code
+                            </td>
+                            <td>
+                                code = 301 為成功，其他都是失敗。
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                openid
+                            </td>
+                            <td>
+                                登入帳號的 SG 平台識別 ID，登入成功後以此 ID 登入遊戲伺服器。
+                            </td>
+                        </tr>
 
-            <div class="well well-sm">
-                <img src=<%= "assets/img/" + lang + "/pic08.png"%> class="img-responsive"/>
-            </div>
-
-            調用回傳頁面的 JavaScript 函式 <code>GetResult()</code> 來取得回傳結果。該函式回傳 JSON 字串，例如<code>{"code": 1, "msg": "ok"}</code>。<br/>
-            <a href="/webapi-init#section5"> 查看回傳值定義 </a>
-        </p>
-
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>
-                    變數
-                </th>
-                <th>
-                    詳細說明
-                </th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>
-                    Code
-                </td>
-                <td>
-                    code = 301 為成功，其他都是失敗。
+                        <tr>
+                            <td>
+                                sessionid
+                            </td>
+                            <td>
+                                連線的 SessionID，用以登入二次驗證。
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                token
+                            </td>
+                            <td>
+                                成功登入後可以此 Token 向渠道 Server 取得帳號資料。
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </td>
             </tr>
             <tr>
                 <td>
-                    OpenID
+                    UI
                 </td>
                 <td>
-                    登入帳號的 SG 平台識別 ID，登入成功後以此 ID 登入遊戲伺服器。
+                    <img src=<%= "assets/img/" + lang + "/pic08.png"%> class="img-responsive"/>
                 </td>
             </tr>
-
-            <tr>
-                <td>
-                    SessionID
-                </td>
-                <td>
-                    連線的 SessionID，用以登入二次驗證。
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Token
-                </td>
-                <td>
-                    成功登入後可以此 Token 向渠道 Server 取得帳號資料。
-                </td>
-            </tr>
-            </tbody>
         </table>
     </div>
     <br/>
+
+    <div id="section3">
+        <h1>登入</h1>
+        <hr>
+        <table class="table">
+            <tr>
+                <td>API</td>
+                <td>
+                    <code>login</code>
+                </td>
+            </tr>
+            <tr>
+                <td>HTTP Method</td>
+                <td>
+                    <code>GET</code>
+                </td>
+            </tr>
+            <tr>
+                <td>說明</td>
+                <td>
+                    調用登入頁面進行登入。
+                </td>
+            </tr>
+            <tr>
+                <td>範例</td>
+                <td>
+                    <pre><code class="js">http://gameapi.smartgamesltd.com/login</code></pre>
+                </td>
+            </tr>
+            <tr>
+                <td>回傳值</td>
+                <td>
+                    調用回傳頁面的 JavaScript 函式 <code>GetResult()</code> 來取得回傳結果，該函式回傳 JSON 字串。<br/>
+                    例如<code>{"code": 1, "msg": "ok"}</code>。<br/>
+                    完整 code 定義，<a href="/webapi-init#section5">請參看對照表</a>。
+                    <table class="table table-striped"> <!--Gem Start-->
+                        <thead>
+                        <tr>
+                            <th>
+                                回傳值
+                            </th>
+                            <th>
+                                詳細說明
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                Code
+                            </td>
+                            <td>
+                                code = 201 為成功，其他都是失敗。
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                OpenID
+                            </td>
+                            <td>
+                                登入帳號的 SG 平台識別 ID，登入成功後以此 ID 登入遊戲伺服器。
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                SessionID
+                            </td>
+                            <td>
+                                連線的 SessionID，用以登入二次驗證。
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Token
+                            </td>
+                            <td>
+                                成功登入後可以此 Token 向渠道 Server 取得帳號資料。
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>UI</td>
+                <td>
+                    <img src=<%= "assets/img/" + lang + "/pic07.png"%> class="img-responsive"/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <br/>
+    
     <div id="section4">
         <h1>查詢密碼</h1>
         <hr>
