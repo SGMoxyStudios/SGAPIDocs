@@ -29,71 +29,39 @@
     <div id="section3">
         <h1> API 初始化 </h1>
         <hr>
-        <h4>
-            <ul>
-                <li>
-                    接口名稱：<code>init</code>
-                <li>
-                <li>
-                    接口說明：調用 SG Game API 之前需要先調用 init 接口，進行初始化。
-                <li>
-                <li>
-                    HTTP Method : <code>GET</code>
-                <li>
-                <li>
-                    調用範例：<pre><code class="js">http://gameapi.smartgamesltd.com/init?gamekey=d7e73390-d7fd-11e6-9074-21c247f06802&appsecret=d7d7c810-d7ee-11e6-9e86-db4f79aeee86&channel=googleplay</code></pre>
-                <li>
-                <li>
-                    返回值：返回值以JSON格式回傳，例如<code>{"code": 1, "msg": "ok"}</code>。
-                <li>
-                <li>
-                    參數列表：
-                <li>
-                <li>
+        <table class="table">
+            <tr>
+                <td>API</td>
+                <td>
+                    <code>init</code>
+                </td>
+            </tr>
+            <tr>
+                <td>說明</td>
+                <td>
+                    調用 SG Game API 之前需要先調用 init 接口，進行初始化。
+                </td>
+            </tr>
+            <tr>
+                <td>HTTP Method</td>
+                <td>
+                    <code>GET</code>
+                </td>
+            </tr>
+            <tr>
+                <td>範例</td>
+                <td>
+                    <pre>http://gameapi.smartgamesltd.com/init?gamekey=d7e73390-d7fd-11e6-9074-21c247f06802&appsecret=d7d7c810-d7ee-11e6-9e86-db4f79aeee86&channel=googleplay</pre>
+                </td>
+            </tr>
+            <tr>
+                <td>回傳值</td>
+                <td>
+                    返回值以JSON格式回傳，例如<code>{"code": 1, "msg": "ok"}</code>。<br/>
                     <a href="#section5"> 查看回傳值定義 </a>
-                <li>
-            </ul>
-
-            <table class="table table-striped"> <!--Gem Start-->
-                <thead>
-                <tr>
-                    <th>
-                        參數名稱
-                    </th>
-                    <th>
-                        參數說明
-                    </th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>
-                        gamekey
-                    </td>
-                    <td>
-                        開發者申請開通遊戲後取得。例如 d7e73390-d7fd-11e6-9074-21c247f06802
-                    </td>
-                </tr>
-                <tr class>
-                    <td>
-                        appsecret
-                    </td>
-                    <td>
-                        開發者申請開通遊戲後取得。例如 d7d7c810-d7ee-11e6-9e86-db4f79aeee86
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        channel
-                    </td>
-                    <td>
-                        使用API的遊戲上線平台。例如 Google Play, App Store。
-                        （<a target="_blank" href="/channel">渠道列表請參看此連結</a>）
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </h4>
+                </td>
+            </tr>
+        </table>
     </div>
     <br>
     <div id="section4">

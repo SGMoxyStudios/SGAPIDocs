@@ -212,189 +212,435 @@
         </table>
     </div>
     <br/>
-    
+
     <div id="section4">
         <h1>查詢密碼</h1>
         <hr>
-        <p> 接口名稱：<code>forgot-password</code><br/>
-            接口說明：調用找回密碼頁面進行重設密碼。<br/>
-            HTTP Method : <code>GET</code><br/>
-            範例：<pre><code class="js">http://gameapi.smartgamesltd.com/forgot-password</code></pre>
-
-            <div class="well well-sm">
-                <img src=<%= "assets/img/" + lang + "/pic09.png"%> class="img-responsive"/>
-            </div>
-
-            調用回傳頁面的 JavaScript 函式 <code>GetResult()</code> 來取得回傳結果。該函式回傳 JSON 字串，例如<code>{"code": 1, "msg": "ok"}</code>。<br/>
-            <a href="/webapi-init#section5"> 查看回傳值定義 </a>
-        </p>
+        <table class="table">
+            <tr>
+                <td>API</td>
+                <td>
+                    forgot-password
+                </td>
+            </tr>
+            <tr>
+                <td>說明</td>
+                <td>
+                    調用找回密碼頁面進行重設密碼。
+                </td>
+            </tr>
+            <tr>
+                <td>HTTP Method</td>
+                <td>
+                    GET
+                </td>
+            </tr>
+            <tr>
+                <td>範例</td>
+                <td>
+                    <pre>http://gameapi.smartgamesltd.com/forgot-password</pre>
+                </td>
+            </tr>
+            <tr>
+                <td>回傳值</td>
+                <td>
+                    調用回傳頁面的 JavaScript 函式 <code>GetResult()</code> 來取得回傳結果，該函式回傳 JSON 字串。<br/>
+                    例如<code>{"code": 1, "msg": "ok"}</code>。<br/>
+                    完整 code 定義，<a href="/webapi-init#section5">請參看對照表</a>。
+                </td>
+            </tr>
+            <tr>
+                <td>UI</td>
+                <td>
+                    <img src=<%= "assets/img/" + lang + "/pic09.png"%> class="img-responsive"/>
+                </td>
+            </tr>
+        </table>
     </div>
     <br/>
+
     <div id="section5">
         <h1>變更密碼</h1>
         <hr>
-        <p> 接口名稱：<code>change-password</code><br/>
-            接口說明：調用變更密碼頁面。<br/>
-            HTTP Method : <code>GET</code><br/>
-            範例：<pre><code class="js">http://gameapi.smartgamesltd.com/change-password</code></pre>
-
-            <div class="well well-sm">
-                <img src=<%= "assets/img/" + lang + "/pic10.png"%> class="img-responsive"/>
-            </div>
-
-            調用回傳頁面的 JavaScript 函式 <code>GetResult()</code> 來取得回傳結果。該函式回傳 JSON 字串，例如<code>{"code": 1, "msg": "ok"}</code>。<br/>
-            <a href="/webapi-init#section5"> 查看回傳值定義 </a>
-        </p>
+        <table class="table">
+            <tr>
+                <td>API</td>
+                <td>
+                    change-password
+                </td>
+            </tr>
+            <tr>
+                <td>說明</td>
+                <td>
+                    調用變更密碼頁面。
+                </td>
+            </tr>
+            <tr>
+                <td>HTTP Method</td>
+                <td>
+                    <code>GET</code>
+                </td>
+            </tr>
+            <tr>
+                <td>範例</td>
+                <td>
+                    <pre>http://gameapi.smartgamesltd.com/change-password</pre>
+                </td>
+            </tr>
+            <tr>
+                <td>回傳值</td>
+                <td>
+                    調用回傳頁面的 JavaScript 函式 <code>GetResult()</code> 來取得回傳結果，該函式回傳 JSON 字串。<br/>
+                    例如<code>{"code": 1, "msg": "ok"}</code>。<br/>
+                    完整 code 定義，<a href="/webapi-init#section5">請參看對照表</a>。
+                </td>
+            </tr>
+            <tr>
+                <td>UI</td>
+                <td>
+                    <img src=<%= "assets/img/" + lang + "/pic10.png"%> class="img-responsive"/>
+                </td>
+            </tr>
+        </table>
     </div>
     <br/>
+
     <div id="section6">
         <h1>家長安全操作</h1>
         <hr>
-        <p> 接口名稱：<code>parental-lock</code><br/>
-            接口說明：在呼叫帳號設置前需要先呼叫家長安全操作頁面以防孩童誤擊重要功能。<br/>
-            HTTP Method : <code>GET</code><br/>
-            範例：<pre><code class="js">http://gameapi.smartgamesltd.com/parental-lock</code></pre>
-
-            <div class="well well-sm">
-                <img src=<%= "assets/img/" + lang + "/pic11.png"%> class="img-responsive"/>
-            </div>
-
-            返回值：無<br/>
-            後續處理：正確輸入安全碼後會自動轉跳至 my-account 頁面。若尚未建立任何孩童資料則會轉跳至 my-kid 頁面。
-        </p>
+        <table class="table">
+            <tr>
+                <td>API</td>
+                <td>
+                    parental-lock
+                </td>
+            </tr>
+            <tr>
+                <td>說明</td>
+                <td>
+                    在呼叫帳號設置前需要先呼叫家長安全操作頁面以防孩童誤擊重要功能。
+                </td>
+            </tr>
+            <tr>
+                <td>HTTP Method</td>
+                <td>
+                    <code>GET</code><br/>
+                </td>
+            </tr>
+            <tr>
+                <td>範例</td>
+                <td>
+                    <pre>http://gameapi.smartgamesltd.com/parental-lock</pre>
+                </td>
+            </tr>
+            <tr>
+                <td>後續處理</td>
+                <td>
+                    正確輸入安全碼後會自動轉跳至 my-account 頁面。若尚未建立任何孩童資料則會轉跳至 my-kid 頁面。
+                </td>
+            </tr>
+            <tr>
+                <td>UI</td>
+                <td>
+                    <img src=<%= "assets/img/" + lang + "/pic11.png"%> class="img-responsive"/>
+                </td>
+            </tr>
+        </table>
     </div>
     <br/>
+
     <div id="section7">
         <h1>設置孩童資料</h1>
         <hr>
-        <p> 接口名稱：<code>my-kid</code><br/>
-            接口說明：調用新增孩童資料頁面。<br/>
-            HTTP Method : <code>GET</code><br/>
-            範例：<pre><code class="js">http://gameapi.smartgamesltd.com/my-kid</code></pre>
-
-            <div class="well well-sm">
-                <img src=<%= "assets/img/" + lang + "/pic12.png"%> class="img-responsive"/>
-            </div>
-
-            調用回傳頁面的 JavaScript 函式 <code>GetResult()</code> 來取得回傳結果。該函式回傳 JSON 字串，例如<code>{"code": 1, "msg": "ok"}</code>。<br/>
-            <a href="/webapi-init#section5"> 查看回傳值定義 </a>
-        </p>
-        <br/>
+        <table class="table">
+            <tr>
+                <td>API</td>
+                <td>
+                    my-kid
+                </td>
+            </tr>
+            <tr>
+                <td>說明</td>
+                <td>
+                    調用新增孩童資料頁面。
+                </td>
+            </tr>
+            <tr>
+                <td>HTTP Method</td>
+                <td>
+                    <code>GET</code>
+                </td>
+            </tr>
+            <tr>
+                <td>範例</td>
+                <td>
+                    <pre>http://gameapi.smartgamesltd.com/my-kid</pre>
+                </td>
+            </tr>
+            <tr>
+                <td>回傳值</td>
+                <td>
+                    調用回傳頁面的 JavaScript 函式 <code>GetResult()</code> 來取得回傳結果，該函式回傳 JSON 字串。<br/>
+                    例如<code>{"code": 1, "msg": "ok"}</code>。<br/>
+                    完整 code 定義，<a href="/webapi-init#section5">請參看對照表</a>。
+                </td>
+            </tr>
+            <tr>
+                <td>UI</td>
+                <td>
+                    <img src=<%= "assets/img/" + lang + "/pic12.png"%> class="img-responsive"/>
+                </td>
+            </tr>
+        </table>
     </div>
     <br/>
+
     <div id="section8">
         <h1>帳號資訊</h1>
         <hr>
-        <p> 接口名稱：<code>my-account</code><br/>
-            接口說明：調用帳號總覽頁面，以瀏覽帳號與孩童遊戲紀錄。<br/>
-            HTTP Method : <code>GET</code><br/>
-            範例：<pre><code class="js">http://gameapi.smartgamesltd.com/my-account</code></pre>
-
-        <div class="well well-sm">
-            <img src=<%= "assets/img/" + lang + "/pic13.png"%> class="img-responsive"/>
-        </div>
-
-        返回值：無
-        </p>
+        <table class="table">
+            <tr>
+                <td>API</td>
+                <td>
+                    my-account
+                </td>
+            </tr>
+            <tr>
+                <td>說明</td>
+                <td>
+                    調用帳號總覽頁面，以瀏覽帳號與孩童遊戲紀錄。
+                </td>
+            </tr>
+            <tr>
+                <td>HTTP Method</td>
+                <td>
+                    <code>GET</code>
+                </td>
+            </tr>
+            <tr>
+                <td>範例</td>
+                <td>
+                    <pre>http://gameapi.smartgamesltd.com/my-account</pre>
+                </td>
+            </tr>
+            <tr>
+                <td>回傳值</td>
+                <td>
+                    無。
+                </td>
+            </tr>
+            <tr>
+                <td>UI</td>
+                <td>
+                    <img src=<%= "assets/img/" + lang + "/pic13.png"%> class="img-responsive"/>
+                </td>
+            </tr>
+        </table>
     </div>
     <br/>
+
     <div id="section9">
         <h1>取得用戶 Open ID</h1>
         <hr>
-        <p> 接口名稱：<code>openid</code><br/>
-            接口說明：取得用戶唯一識別 ID (SG ID)，以此 ID 登入遊戲伺服器。<br/>
-            HTTP Method : <code>GET</code><br/>
-            範例：<pre><code class="js">http://gameapi.smartgamesltd.com/openid</code></pre>
-            返回值：取得用戶 Open ID 返回值以 JSON 格式回傳，例如<code>{"openid": 100001}</code>。
-        </p>
+        <table class="table">
+            <tr>
+                <td>API</td>
+                <td>
+                    openid
+                </td>
+            </tr>
+            <tr>
+                <td>說明</td>
+                <td>
+                    取得用戶唯一識別 ID (SG ID)，以此 ID 登入遊戲伺服器。
+                </td>
+            </tr>
+            <tr>
+                <td>HTTP Method</td>
+                <td>
+                    <code>GET</code>
+                </td>
+            </tr>
+            <tr>
+                <td>範例</td>
+                <td>
+                    <pre>http://gameapi.smartgamesltd.com/openid</pre>
+                </td>
+            </tr>
+            <tr>
+                <td>回傳值</td>
+                <td>
+                    取得用戶 Open ID 返回值以 JSON 格式回傳，例如<code>{"openid": 100001}</code>。
+                </td>
+            </tr>
+        </table>
     </div>
     <br/>
+
     <div id="section10">
         <h1>Session ID 登入驗證</h1>
         <hr>
-        <p>
-            接口名稱：<code>verifysession</code><br/>
-            接口說明：使用 SessionID 取得登入帳號資訊。
-            參數列表： <br/>
-        </p>
-        <table class="table table-striped"> <!--Gem Start-->
-            <thead>
+        <table class="table">
             <tr>
-                <th>
-                    參數名稱
-                </th>
-                <th>
-                    參數說明
-                </th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
+                <td>API</td>
                 <td>
-                    appId
-                </td>
-                <td>
-                    開發者申請開通遊戲後取得的gamekey。例如 d7e73390-d7fd-11e6-9074-21c247f06802
-                </td>
-            </tr>
-            <tr class>
-                <td>
-                    session
-                </td>
-                <td>
-                    登入成功後取得的 sessionID。
+                    verifysession
                 </td>
             </tr>
             <tr>
+                <td>說明</td>
                 <td>
-                    uid
-                </td>
-                <td>
-                    登入成功後取得的openid。
+                    使用 SessionID 取得登入帳號資訊。
                 </td>
             </tr>
             <tr>
+                <td>HTTP Method</td>
                 <td>
-                    signature
-                </td>
-                <td>
-                    登入成功後回傳的sign。
+                    <code>GET</code>
                 </td>
             </tr>
+            <tr>
+                <td>範例</td>
+                <td>
+                    <pre>http://gameapi.smartgamesltd.com/verifysession?appId=d7e73390-d7fd-11e6-9074-21c247f06802&session=xxxx&uid=10000000&signature=xxxx</pre>
+                </td>
+            </tr>
+            <tr>
+                <td>參數列表</td>
+                <td>
+                    <table class="table table-striped"> <!--Gem Start-->
+                        <thead>
+                        <tr>
+                            <th>
+                                參數名稱
+                            </th>
+                            <th>
+                                參數說明
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                appId
+                            </td>
+                            <td>
+                                開發者申請開通遊戲後取得的gamekey。例如 d7e73390-d7fd-11e6-9074-21c247f06802
+                            </td>
+                        </tr>
+                        <tr class>
+                            <td>
+                                session
+                            </td>
+                            <td>
+                                登入成功後取得的 sessionID。
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                uid
+                            </td>
+                            <td>
+                                登入成功後取得的openid。
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                signature
+                            </td>
+                            <td>
+                                登入成功後回傳的sign。
+                            </td>
+                        </tr>
 
-            </tbody>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>回傳值</td>
+                <td>
+                    回傳 JSON 字串。<br/>
+                    例如<code>{"Account" : "abc@gmail.com", "OpenID" : 1000000000, "EMail" : "abc@gmail.com"}</code>。
+                </td>
+            </tr>
         </table>
-        <p>
-            HTTP Method : <code>GET</code><br/>
-            範例：<pre><code class="js">http://gameapi.smartgamesltd.com/verifysession?appId=d7e73390-d7fd-11e6-9074-21c247f06802&session=xxxx&uid=10000000&signature=xxxx</code></pre>
-            返回值：回傳 JSON 字串。<br/>
-            例如<code>{"Account" : "abc@gmail.com", "OpenID" : 1000000000, "EMail" : "abc@gmail.com"}</code>。<br/>
-        </p>
     </div>
     <br/>
+
     <div id="section11">
         <h1>Token 登入驗證</h1>
         <hr>
-        <p>
-            接口名稱：<code>verifytoken</code><br/>
-            接口說明：使用 Token 取得登入帳號資訊。<br/>
-            參數：token（登入成功後取得）<br/>
-            HTTP Method : <code>GET</code><br/>
-            範例：<pre><code class="js">http://gameapi.smartgamesltd.com/verifytoken?token=xxxxx</code></pre>
-            返回值：回傳 JSON 字串。<br/>
-            例如<code>{"Account" : "abc@gmail.com", "OpenID" : 1000000000, "EMail" : "abc@gmail.com"}</code>。<br/>
-        </p>
+        <table class="table">
+            <tr>
+                <td>API</td>
+                <td>
+                    verifytoken
+                </td>
+            </tr>
+            <tr>
+                <td>說明</td>
+                <td>
+                    使用 Token 取得登入帳號資訊。
+                </td>
+            </tr>
+            <tr>
+                <td>HTTP Method</td>
+                <td>
+                    <code>GET</code>
+                </td>
+            </tr>
+            <tr>
+                <td>範例</td>
+                <td>
+                    <pre>http://gameapi.smartgamesltd.com/verifytoken?token=xxxxx</pre>
+                </td>
+            </tr>
+            <tr>
+                <td>回傳值</td>
+                <td>
+                    回傳 JSON 字串。<br/>
+                    例如<code>{"Account" : "abc@gmail.com", "OpenID" : 1000000000, "EMail" : "abc@gmail.com"}</code>。<br/>
+                </td>
+            </tr>
+        </table>
     </div>
     <br/>
+
     <div id="section12">
         <h1>登出</h1>
         <hr>
-        <p>
-            接口名稱：<code>logout</code><br/>
-            接口說明：帳號登出<br/>
-            HTTP Method : <code>GET</code><br/>
-            範例：<pre><code class="js">http://gameapi.smartgamesltd.com/logout</code></pre>
-            返回值：無
-        </p>
+        <table class="table">
+            <tr>
+                <td>API</td>
+                <td>
+                    logout
+                </td>
+            </tr>
+            <tr>
+                <td>說明</td>
+                <td>
+                    帳號登出
+                </td>
+            </tr>
+            <tr>
+                <td>HTTP Method</td>
+                <td>
+                    <code>GET</code>
+                </td>
+            </tr>
+            <tr>
+                <td>範例</td>
+                <td>
+                    <pre>http://gameapi.smartgamesltd.com/logout</pre>
+                </td>
+            </tr>
+            <tr>
+                <td>回傳值</td>
+                <td>
+                    無。
+                </td>
+            </tr>
+        </table>
     </div>
 </div>
