@@ -1,62 +1,63 @@
 <div class="left-side" id="myScrollspy">
     <ul class="nav nav-pills">
-        <li><a href="#section1">【支付系統接口】</a></li>
-        <li><a href="#section2">調用說明</a></li>
-        <li><a href="#IAPInit">IAP初始化</a></li>
-        <li><a href="#Pay">上傳訂單</a></li>
-        <li><a href="#GetOrder">查詢訂單</a></li>
+        <li><a href="#section1">支付系統</a></li>
+        <li><a href="#section2">環境設定</a></li>
+        <li><a href="#IAPInit">IAP 初始化</a></li>
+        <li><a href="#Pay">支付</a></li>
+        <li><a href="#GetOrder">查詢購買收據</a></li>
         <li><a href="#RestorePurchase">恢復購買</a></li>
     </ul>
 </div>
 
 <div class="right-side">
     <div id="section1">
-        <h1>【支付系統接口】</h1>
+        <h1>支付系統</h1>
         <hr>
+        <h4>與遊戲內購相關函式。</h4>
     </div>
-    <br>
+    <br/>
     <div id="section2">
-        <h1>調用說明</h1>
+        <h1>環境設定</h1>
         <hr>
-        <h4>購買遊戲內購商品(IAP)成功後，必須上傳商品訂單，用作後台統計。</h4>
-        <br>
+        <h4>要使用 Apple In-App Purchase 功能必須完成以下設定才能正常使用。</h4>
+        <br/>
         <h4>XCode 設定</h4>
         <hr>
         <ol>
-            <li>在navigator區點選專案</li>
-            <li>在editor區點選Capabilities</li>
-            <li>啟用In-App Purchase</li>
-            <li>在要使用IAP的.swift檔案加入<code>import StoreKit</code></li>
+            <li>在 navigator 區點選專案。</li>
+            <li>在 editor 區點選 Capabilities。</li>
+            <li>啟用 In-App Purchase。</li>
+            <li>在要使用 IAP 的 .swift 檔案加入<code>import StoreKit</code>。</li>
         </ol>
         <div class="well well-sm">
-            <img src=<%= "assets/img/" + lang + "/swiftpic05.png" %>>
+            <img src=<%= "assets/img/" + lang + "/swiftpic05.png" %> class="img-responsive"/>
         </div>
     </div>
-    <br>
+    <br/>
     <div id="IAPInit">
-        <h1>IAP初始化</h1>
+        <h1>IAP 初始化</h1>
         <hr>
-        接口名稱：<code>IAPInit</code><br/>
-        接口說明：In-App Purchase初始化之後才能開始購買<br/>
-        參數列表：productIDs<br/>
+        函式名稱：<code>IAPInit(productIDs: [String])</code><br/>
+        函式說明：In-App Purchase 初始化之後才能開始購買。<br/>
+        參數：productIDs 是在 iTunes Connect 設定的商品編號<br/>
         範例：
         <% include ../code/swift-IAPInit.html %>
         返回值：
         <ul>
-            <li>Code: 1131, IAP初始化成功</li>
-            <li>Code: 1132, IAP初始化失敗</li>
-            <li>Code: 1133, 拿不到商品資訊</li>
-            <li>Code: 1134, Msg: 列出無效的商品ID</li>
+            <li>Code: 1131, IAP 初始化成功。</li>
+            <li>Code: 1132, IAP 初始化失敗。</li>
+            <li>Code: 1133, 拿不到商品資訊。</li>
+            <li>Code: 1134, Msg: 列出無效的商品 ID。</li>
         </ul>
     </div>
-    <br>
+    <br/>
     <div id="Pay">
-        <h1>上傳訂單</h1>
+        <h1>支付</h1>
         <hr>
-        接口名稱：<code>Pay</code><br/>
-        接口說明：購買遊戲內付費商品時調用，向app store購買成功後會跟SG Server做驗證<br/>
-        參數列表：payRequest: SgSDKPayRequest<br/>
-        <h4>SgSDKPayRequest結構</h4>
+        函式名稱：<code>Pay(payRequest: SgSDKPayRequest)</code><br/>
+        函式說明：購買遊戲內付費商品時調用，向 app store 購買成功後會跟 SG Server 做驗證。<br/>
+        參數：payRequest<br/>
+        <h4>SgSDKPayRequest 結構</h4>
         <table id="SgSDKPayReuest" class="table table-striped">
             <col width="15%">
             <col width="10%">
@@ -134,11 +135,11 @@
             <tr>
                 <td>Receipt</td>
                 <td>Ｎ</td>
-                <td>Appstore的收據</td>
+                <td>App store 收據</td>
             </tr>
         </table>
 
-        <h4>SgSDKPayResponse結構</h4>
+        <h4>SgSDKPayResponse 結構</h4>
         <table id="SgSDKPayResponse" class="table table-striped">
             <col width="15%">
             <col width="10%">
@@ -161,7 +162,7 @@
             <tr>
                 <td>Sign</td>
                 <td>N</td>
-                <td>由SG Server產生的簽名</td>
+                <td>由 SG Server 產生的簽名</td>
             </tr>
             <tr>
                 <td>ProductId</td>
@@ -231,7 +232,7 @@
             <tr>
                 <td>Receipt</td>
                 <td>Ｎ</td>
-                <td>Appstore的收據</td>
+                <td>App store 收據</td>
             </tr>
         </table>
 
@@ -240,22 +241,22 @@
         <% include ../code/swift-initPayReq.html %>
         返回值：
         <ul>
-            <li>Code: 1101, SgServer驗證成功, Data:  <a href="#SgSDKPayResponse">SgSDKPayResponse</a></li>
-            <li>Code: 1130, IAP未初始化</li>
-            <li>Code: 1135, 查無商品ID</li>
-            <li>Code: 1136, 與appstore交易成功</li>
-            <li>Code: 1137, 與appstore交易失敗</li>
-            <li>Code: 1142, 交易處理中</li>
-            <li><a href="/webapi-init#section5"> 查看回傳值定義 </a></li>
+            <li>Code: 1101, SgServer 驗證成功, Data:  <a href="#SgSDKPayResponse">SgSDKPayResponse</a>。</li>
+            <li>Code: 1130, IAP 未初始化。</li>
+            <li>Code: 1135, 查無商品 ID。</li>
+            <li>Code: 1136, 與 app store 交易成功。</li>
+            <li>Code: 1137, 與 app store 交易失敗。</li>
+            <li>Code: 1142, 交易處理中。</li>
+            <li><a href="/webapi-init#section5">查看回傳值定義</a>。</li>
         </ul>
     </div>
-    <br>
+    <br/>
     <div id="GetOrder">
-        <h1>查詢訂單</h1>
+        <h1>查詢購買收據</h1>
         <hr>
-        接口名稱：<code>GetOrder</code><br/>
-        接口說明：需傳送購買成功後的簽名(sign)，才能查詢訂單詳細內容。<br/>
-        參數列表：orderId，gameKey，openId，sign <br/>
+        函式名稱：<code>GetOrder(orderId: String, gameKey: String, openId: Int, sign: String)</code><br/>
+        函式說明：需傳送購買成功後的簽名(sign)，才能查詢訂單詳細內容。<br/>
+        參數列表：
         <table class="table table-striped">
             <col width="15%">
             <col width="85%">
@@ -265,7 +266,7 @@
             </tr>
             <tr>
                 <td>orderId</td>
-                <td><a href="#SgSDKPayResponse">SgSDKPayResponse</a>的屬性</td>
+                <td><a href="#SgSDKPayResponse">SgSDKPayResponse</a> 的屬性。</td>
             </tr>
             <tr>
                 <td>gameKey</td>
@@ -273,27 +274,27 @@
             </tr>
             <tr>
                 <td>openId</td>
-                <td>Login後可用<a href="/swift-user#GetOpenID">GetOpenID()</a>取得</td>
+                <td>Login後可用 <a href="/swift-user#GetOpenID">GetOpenID()</a> 取得。</td>
             </tr>
             <tr>
                 <td>sign</td>
-                <td><a href="#SgSDKPayResponse">SgSDKPayResponse</a>的屬性</td>
+                <td><a href="#SgSDKPayResponse">SgSDKPayResponse</a> 的屬性。</td>
             </tr>
         </table>
         範例：
-        <pre>SgSDK.Instance.GetOrder(tempPayresponse.OrderId, GameKey, openid, tempPayresponse.Sign)</pre>
+        <pre>SgSDK.Instance.GetOrder(orderId: tempPayresponse.OrderId, gameKey: GameKey, openId: openid, sign: tempPayresponse.Sign)</pre>
         返回值：
         <ul>
             <li>Code: 1201, 取得訂單成功, Data: <a href="#SgSDKPayReuest">SgSDKPayResponse</a></li>
-            <li><a href="/webapi-init#section5"> 查看回傳值定義 </a></li>
+            <li><a href="/webapi-init#section5">查看回傳值定義</a>。</li>
         </ul>
     </div>
-    <br>
+    <br/>
     <div id="RestorePurchase">
         <h1>恢復購買</h1>
         <hr>
-        接口名稱：<code>RestorePurchase</code><br/>
-        接口說明：恢復購買，換手機時，只有在商品種類是Non-Consumable, Auto-renewing subscripton這兩種商品會用到<br/>
+        函式名稱：<code>RestorePurchase</code><br/>
+        函式說明：恢復購買，換手機時，只有在商品種類是 Non-Consumable, Auto-renewing subscription 這兩種商品會用到。<br/>
         範例：
         <pre>SgSDK.Instance.RestorePurchase()</pre>
         返回值：

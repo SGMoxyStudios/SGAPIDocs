@@ -10,15 +10,72 @@
         <hr>
         <h4>統計玩家遊戲時間。</h4>
         <br/>
-        <p>
-            接口名稱：<code>gamestart, gamestop</code><br/>
-            接口說明：在遊戲啟動和遊戲從後台切到前台的時候調用 gamestart 。在遊戲退出和遊戲從前台切到後台的時候調用 gamestop ，用以統計玩家進行遊戲的時間。<br>
-            範例：<pre><code class="js">http://gameapi.smartgamesltd.com/gamestart</code></pre>
-            返回值：無<br/>
-            <br>
-            範例：<pre><code class="js">http://gameapi.smartgamesltd.com/gamestop</code></pre>
-            返回值：回傳 JSON 字串。例如 <code>{"code": 1, "msg": "ok"}</code>。<br>
-            <a href="/webapi-init#section5"> 查看回傳值定義 </a>
-        </p>
+        <table class="table">
+            <tr>
+                <td>API</td>
+                <td>
+                    <code>gamestart</code>
+                </td>
+            </tr>
+            <tr>
+                <td>說明</td>
+                <td>
+                    在遊戲啟動和遊戲從後台切到前台的時候調用。
+                </td>
+            </tr>
+            <tr>
+                <td>HTTP Method</td>
+                <td>
+                    <code>GET</code>
+                </td>
+            </tr>
+            <tr>
+                <td>範例</td>
+                <td>
+                    <pre>http://gameapi.smartgamesltd.com/gamestart</pre>
+                </td>
+            </tr>
+            <tr>
+                <td>回傳值</td>
+                <td>
+                    回傳 JSON 字串。例如 <code>{"code": 1, "msg": "ok"}</code>。<br/>
+                    完整 code 定義，<a href="/webapi-init#section5">請參看對照表</a>。
+                </td>
+            </tr>
+        </table>
+        <br/>
+        <table class="table">
+            <tr>
+                <td>API</td>
+                <td>
+                    <code>gamestop</code>
+                </td>
+            </tr>
+            <tr>
+                <td>說明</td>
+                <td>
+                    在遊戲退出和遊戲從前台切到後台的時候調用 gamestop ，用以統計玩家進行遊戲的時間。
+                </td>
+            </tr>
+            <tr>
+                <td>HTTP Method</td>
+                <td>
+                    <code>GET</code>
+                </td>
+            </tr>
+            <tr>
+                <td>範例</td>
+                <td>
+                    <pre>http://gameapi.smartgamesltd.com/gamestop</pre>
+                </td>
+            </tr>
+            <tr>
+                <td>回傳值</td>
+                <td>
+                    回傳 JSON 字串。例如 <code>{"code": 1, "msg": "ok"}</code>。<br/>
+                    完整 code 定義，<a href="/webapi-init#section5">請參看對照表</a>。
+                </td>
+            </tr>
+        </table>
     </div>
 </div>
