@@ -13,145 +13,141 @@
 
 <div class="right-side">
 
-    <div id="summary">
+    <section id="summary">
         <h1>Android 集成指南</h1>
-        <hr>
-        <h4><%=texts.p2h1%></h4>
-    </div>
-    <br/>
+        <p>
+            通過本文的介紹可以了解 Android SDK 客戶端接入的整個流程。
+            在接入之前請認真閱讀本文檔，以減少接入過程中遇到的問題。
+        </p>
+    </section>
 
-    <div id="environment">
+    <section id="environment">
         <h1>開發環境設定</h1>
-        <hr>
         <h3>1. SgSDK 支援版本 : </h3>
-        <h4>SgSDK 支援 Android 最低版本為 4.4 (KitKat, API Level 19)</h4>
+        <p>SgSDK 支援 Android 最低版本為 4.4 (KitKat, API Level 19)</p>
         <img src=<%= "assets/img/" + lang + "/pic05.png"%> class="img-responsive"/>
         <br />
 
         <h3>2. 下載 SgSDK Android Library File</h3>
-        <h4><a href="/sdk/android/SgSDK.arr">SgSDK Android Library File (SgSDK.ARR) 下載</a></h4>
+        <p><a href="/sdk/android/SgSDK.arr">SgSDK Android Library File (SgSDK.ARR) 下載</a></p>
         <br />
 
         <h3>3. SgSDK.ARR 會自動引用的權限 </h3>
         <%- include ../code/java-user-permission.html -%>
 
-    </div>
-    <br/>
+    </section>
 
-    <div id="import">
+    <section id="import">
         <h1>引用 SgSDK.ARR</h1>
-        <hr/>
         <h3>1. 基本引用步驟</h3>
-        <h4>
-            <ul>
-                <li>從選單 <b>File > New Module</b></li>
-                <li>選擇 <b>Import .JAR/.AAR Package</b> 之後選 <b>Next</b></li>
-                <li>輸入 <b>SgSDK.AAR</b> 路徑，然後按 <b>Finish</b>.</li>
-                <li>
-                    確認 <b>settings.gradle</b> 檔案顯示如下：
-                    <pre><code class="js">include ':app', ':SgSDK'</code></pre>
-                </li>
-                <li>
-                    確認 <b>build.gradle</b> 的 dependencies 檔案顯示如下：
-                    <pre><code class="js">dependencies {
-                            compile project(":SgSDK")
-                            }</code></pre>
-                </li>
-            </ul>
-        </h4>
+        <ul>
+            <li>從選單 <b>File > New Module</b></li>
+            <li>選擇 <b>Import .JAR/.AAR Package</b> 之後選 <b>Next</b></li>
+            <li>輸入 <b>SgSDK.AAR</b> 路徑，然後按 <b>Finish</b>.</li>
+            <li>
+                確認 <b>settings.gradle</b> 檔案顯示如下：
+                <pre><code class="js">include ':app', ':SgSDK'</code></pre>
+            </li>
+            <li>
+                確認 <b>build.gradle</b> 的 dependencies 檔案顯示如下：
+                <pre><code class="js">dependencies { compile project(":SgSDK") }</code></pre>
+            </li>
+        </ul>
 
         <br />
 
         <h3>2. 其他參考資料</h3>
-        <h4>
-            <ul>
-                <li>
-                    <a href="https://developer.android.com/studio/projects/android-library.html#AddDependency" target="_blank">
-                        Google 開發者文件的詳細説明
-                    </a>
-                </li>
-                <li>
-                    YouTube 參考範例
-                    <br />
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/dpuJPoXkFG4?ecver=1" frameborder="0" allowfullscreen></iframe>
-                </li>
-            </ul>
+        <ul>
+            <li>
+                <a href="https://developer.android.com/studio/projects/android-library.html#AddDependency" target="_blank">
+                    Google 開發者文件的詳細説明
+                </a>
+            </li>
+            <li>
+                YouTube 參考範例
+                <br />
+                <div style="position: relative; width:100%; padding-bottom:56%">
+                    <iframe style="position: absolute;top: 0; left: 0;width:100%;height:100%;" src="https://www.youtube.com/embed/dpuJPoXkFG4?ecver=1" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </li>
+        </ul>
 
-        </h4>
+    </section>
 
-    </div>
-    <br />
+    <section id="init">
+        <h1>SgSDK 初始化</h1>
 
-    <div id="init">
-        <h3>SgSDK 初始化</h3>
-        <hr/>
-
-        <h4>1. 開始使用 SgSDK 之前，請確認於 AndroidManifest.xml 設置 SDK所需的 meta-data。</h4>
+        <h3>1. 使用之前</h3>
+        <p>開始使用 SgSDK 之前，請確認於 AndroidManifest.xml 設置 SDK所需的 meta-data。</p>
         <%- include ../code/java-sdk-metadata.html -%>
-        <h4>
-            <ul>
-                <li>
-                    <b>SDKChannel</b>：SDK 渠道設定。此參數為必設。
-                    （<a target="_blank" href="/channel">渠道列表請參看此連結</a>）
-                </li>
-                <li>
-                    <b>Base64PublicKey</b>：只有當使用 Google IAP 的時候才需要設定此參數。
-                    （關於 Google IAP 使用，請參考
-                    <a href="https://developer.android.com/google/play/billing/index.html" target="_blank">
-                        Google 開發者文件的詳細説明
-                    </a>）
-                </li>
-            </ul>
-        </h4>
+        <ul>
+            <li>
+                <b>SDKChannel</b>：SDK 渠道設定。此參數為必設。
+                （<a target="_blank" href="/channel">渠道列表請參看此連結</a>）
+            </li>
+            <li>
+                <b>Base64PublicKey</b>：只有當使用 Google IAP 的時候才需要設定此參數。
+                （關於 Google IAP 使用，請參考
+                <a href="https://developer.android.com/google/play/billing/index.html" target="_blank">
+                    Google 開發者文件的詳細説明
+                </a>）
+            </li>
+        </ul>
         <br />
 
-        <h4>
-            2. 初始化函式 <pre>init(Context ctx, String gameKey, String appSecret)</pre>
-            在主 Activity 的 onCreate 方法中，對 SgSDK 進行初始化。
-        </h4>
-        <%- include ../code/java-sdk-init.html -%>
-        <h4>
-            注： GameKey、AppSecret 可以在 SgSDK 客户端遊戲理界面查看到。
-        </h4>
-    </div>
-    <br />
+        <h3>2. 初始化函式</h3>
 
-    <div id="lifecycle">
-        <h3>SgSDK 生命周期事件</h3>
-        <hr/>
-        <h4>請參照如下，在主 APP 的生命周期事件裏，呼叫 SgSDK 對應的生命周期函式。</h4>
+        <span class="badge badge-ttl">API</span>
+        <pre>void init(Context ctx, String gameKey, String appSecret)</pre>
+
+        <span class="badge badge-ttl">説明</span>
+        <ul>
+            <li>調用 SG Game API 之前需要先調用 init 接口，進行初始化。</li>
+        </ul>
+
+        <span class="badge badge-ttl">範例</span>
+        <p>在主 Activity 的 onCreate 方法中，對 SgSDK 進行初始化。</p>
+        <div class="code-block"><%- include ../code/java-sdk-init.html -%></div>
+
+        <span class="badge badge-ttl">參數</span>
+        <ul>
+            <li>Context 為 App 的 Activity 物件。</li>
+            <li>GameKey、AppSecret 可以在 SgSDK 客户端遊戲理界面查看到。</li>
+        </ul>
+
+        <span class="badge badge-ttl">回傳</span>
+        <ul>
+            <li>請參看【<a href="/java-init#listener">回調堅聽</a>】的設定，以及回傳的代碼與定義<a href="/webapi-init#section5">對照表</a>。</li>
+            <li>回調堅聽的 Data 參數：無。</li>
+        </ul>
+        
+
+    </section>
+
+    <section id="lifecycle">
+        <h1>SgSDK 生命周期事件</h1>
+        <p>請參照如下，在主 APP 的生命周期事件裏，呼叫 SgSDK 對應的生命周期函式。</p>
         <%- include ../code/java-sdk-lifecycle.html -%>
-        <h4>
-            <ul>
-                <li>
-                    <b>onBackPressed()</b> 特別説明：
-                    由於 SDK 有許多函式藉由開啓 WebView 來運作，當裝置的返回鍵觸發時，
-                    <i>_sdk.onBackPressed()</i> 會回傳 boolean，請依照 true 或 false 來決定需不需要呼叫 base 的 <i>super.onBackPressed()</i>。
-                </li>
-            </ul>
+        <ul>
+            <li>
+                <b>onBackPressed()</b> 特別説明：
+                由於 SDK 有許多函式藉由開啓 WebView 來運作，當裝置的返回鍵觸發時，
+                <code>_sdk.onBackPressed()</code> 會回傳 boolean，請依照 true 或 false 來決定需不需要呼叫 base 的 <code>super.onBackPressed()</code>。
+            </li>
+        </ul>
+    </section>
 
-        </h4>
-    </div>
-    <br />
-
-    <div id="listener">
-        <h3>SgSDK 回調監聽</h3>
-        <hr />
-        <h4>SgSDK 所有非同步的函式，都透過回調監聽來得到結果。範例如下：</h4>
+    <section id="listener">
+        <h1>SgSDK 回調監聽</h1>
+        <p>SgSDK 所有非同步的函式，都透過回調監聽來得到結果。範例如下：</p>
         <%- include ../code/java-sdk-listener.html -%>
-        <h4>
-            <ul>
-                <li>
-                    <b>SgSDKResult</b> 的物件包含三個變數，code, msg, 和 data, 分別透過 <i>getCode()</i>，<i>getMsg()</i> 和 <i>getData()</i> 來取得。
-                    data 會根據不同狀況，回傳不同物件。
-                </li>
-                <li>
-                    完整的回傳代碼與定義，<a href="/webapi-init#section5">請參看對照表</a>。
-                </li>
-            </ul>
-
-        </h4>
-    </div>
-    <br />
+        <ul>
+            <li>
+                <b>SgSDKResult</b> 的物件包含三個變數，code, msg, 和 data, 分別透過 <code>getCode()</code>，<code>getMsg()</code> 和 <code>getData()</code> 來取得。
+                data 會根據不同狀況，回傳不同物件。
+            </li>
+            <li>完整的回傳代碼與定義，<a href="/webapi-init#section5">請參看對照表</a>。</li>
+        </ul>
+    </section>
 
 </div>

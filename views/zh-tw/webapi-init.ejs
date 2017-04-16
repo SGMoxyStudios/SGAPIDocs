@@ -11,80 +11,59 @@
 </div>
 
 <div class="right-side">
-    <div id="section1">
+    <section id="section1">
         <h1>Web API 使用指南</h1>
-        <hr>
         <h4>開發者在串接 SG Game API 時，可透過呼叫 Web API 的方式來完成各種功能。通過本文的介紹可以了解客戶端接入的整個流程。在接入之前請認真閱讀本文檔，以減少接入過程中遇到的問題。</h4>
-    </div>
-    <br>
-    <div id="section2">
+    </section>
+    <section id="section2">
         <h1> 調用 API 頁面 </h1>
-        <hr>
         <h4>開發者可透過呼叫網址
             <a target="_blank" href="http://gameapi.smartgamesltd.com/">http://gameapi.smartgamesltd.com/</a>
             調用 SG Game API 各個接口。
         </h4>
-    </div>
-    <br>
-    <div id="section3">
+    </section>
+    <section id="section3">
         <h1> API 初始化 </h1>
-        <hr>
-        <table class="table">
-            <tr>
-                <td>API</td>
-                <td>
-                    <code>init</code>
-                </td>
-            </tr>
-            <tr>
-                <td>說明</td>
-                <td>
-                    調用 SG Game API 之前需要先調用 init 接口，進行初始化。
-                </td>
-            </tr>
-            <tr>
-                <td>HTTP Method</td>
-                <td>
-                    <code>GET</code>
-                </td>
-            </tr>
-            <tr>
-                <td>範例</td>
-                <td>
-                    <pre>http://gameapi.smartgamesltd.com/init?gamekey=d7e73390-d7fd-11e6-9074-21c247f06802&appsecret=d7d7c810-d7ee-11e6-9e86-db4f79aeee86&channel=googleplay</pre>
-                </td>
-            </tr>
-            <tr>
-                <td>回傳值</td>
-                <td>
-                    返回值以JSON格式回傳，例如<code>{"code": 1, "msg": "ok"}</code>。<br/>
-                    <a href="#section5"> 查看回傳值定義 </a>
-                </td>
-            </tr>
-        </table>
-    </div>
-    <br>
-    <div id="section4">
+
+        <span class="badge">API</span>
+        <pre>init</pre>
+
+        <span class="badge">HTTP Method</span>
+        <p><code>GET</code></p>
+
+        <span class="badge">説明</span>
+        <p>調用 SG Game API 之前需要先調用 init 接口，進行初始化。</p>
+
+        <span class="badge">範例</span>
+        <pre>http://gameapi.smartgamesltd.com/init?gamekey=d7e73390-d7fd-11e6-9074-21c247f06802&appsecret=d7d7c810-d7ee-11e6-9e86-db4f79aeee86&channel=googleplay</pre>
+
+        <span class="badge">回傳</span>
+        <p>
+            返回值以JSON格式回傳，例如<code>{"code": 1, "msg": "ok"}</code>。
+            <br />
+            <a href="#section5"> 查看回傳值定義 </a>
+        </p>
+    </section>
+
+    <section id="section4">
         <h1> 詳細說明 </h1>
-        <hr>
-        <h4>取得網頁回傳值</h4>
+        <h3>1. 取得網頁回傳值</h3>
         <p>在所有網頁執行完動作之後，都可透過解析該網頁的 Javascript 函式 <code>GetResult()</code> 來取得回傳結果。該函式回傳 JSON 字串，例如<code>{"code": 1, "msg": "ok"}</code>。</p>
-        <br>
-        <h4>開發者可在 <a target="_blank" href="http://dashboard.smartgamesltd.com/my-game">SG Developer</a> 取得接入參數。</h4>
+        <p>開發者可在 <a target="_blank" href="http://dashboard.smartgamesltd.com/my-game">SG Developer</a> 取得接入參數。</p>
         <div class="well well-sm">
             <img src=<%= "assets/img/" + lang + "/pic06.png"%> class="img-responsive"/>
         </div>
         <br>
-        <h4>Cookie設定</h4>
+
+        <h3>2. Cookie設定</h3>
         <p>以 Http Get 調用 init 之後需保存 Header 的 Set-Cookie 參數，之後所有調用的接口都必須加上此參數。<br>
             <code>webViewCookie.put("Cookie", response.headers.get("Set-Cookie"));</code>
         </p>
-    </div>
-    <br>
-    <div id="section5">
+    </section>
+    <section id="section5">
         <h1>回傳值定義</h1>
-        <hr>
-        <h4>所有接口回傳值都包含<code>code, msg</code>。</h4>
+        <p>所有接口回傳值都包含<code>code, msg</code>。</p>
+
         <table class="table"> <!--Gem Start-->
             <thead>
             <tr>
@@ -115,5 +94,5 @@
             <% } %>
             </tbody>
         </table>
-    </div>
+    </section>
 </div>

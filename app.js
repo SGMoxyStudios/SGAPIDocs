@@ -70,9 +70,9 @@ app.get('/webapi-pay', function(req, res){res.render(req.i18n_lang+'/webapi-pay'
 app.get('/webapi-analytics', function(req, res){res.render(req.i18n_lang+'/webapi-analytics')});
 //java
 app.get('/java-init', function(req, res){res.render(req.i18n_lang+'/java-init')});
-app.get('/java-user', function(req, res){res.render('java-user')});
-app.get('/java-pay', function(req, res){res.render('java-pay')});
-app.get('/java-analytics', function(req, res){res.render('java-analytics')});
+app.get('/java-user', function (req, res) { res.render(req.i18n_lang + '/java-user') });
+app.get('/java-pay', function (req, res) { res.render(req.i18n_lang + '/java-pay') });
+app.get('/java-analytics', function (req, res) { res.render(req.i18n_lang + '/java-analytics') });
 //swift
 app.get('/swift-init', function(req, res){res.render(req.i18n_lang+'/swift-init')});
 app.get('/swift-user', function(req, res){res.render(req.i18n_lang+'/swift-user')});

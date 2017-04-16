@@ -1,0 +1,43 @@
+﻿/* overwrite bootsrap ------------------------*/
+.nav-pills>li { float:none; }
+.nav-pills>li>a { border-radius: 0; }
+.nav-pills>li+li { margin-left: 0; }
+pre { border:0;}
+
+/* ------------------------*/
+@offtop:70px;
+
+
+body{ padding-top:@offtop; }
+
+/*.sep-line { border-bottom:1px solid #eee; padding-bottom:15px; margin-bottom:20px; }*/
+.left-side { padding:0 10px 10px 10px; 
+    .nav { border:1px solid #e1e1e1; padding:15px 10px;
+    border-radius:3px; box-shadow:0 2px 6px 0 rgba(0,0,0,0.06); font-size:1.5rem; }
+}
+.right-side { padding:0 10px 10px 10px;  
+
+    section { padding-bottom:30px; padding-top:@offtop; margin-top:-@offtop; }
+    h1 { border-bottom: 3px solid #c2d7ea; padding-bottom:15px; margin:10px 0 30px 0; }
+    h3 { margin:15px 0;}
+    h4,p { font-size:1.6rem; line-height:2.5rem; } /* this somehow used as <p> so add line-height */
+    ul { font-size:1.6rem; margin:12px 0; padding-left:25px;
+         li { margin:0 0 4px 0; line-height:2.4rem;}
+    }
+    pre, code { font-size:1.4rem;}
+    .table-api { font-size:1.6rem; 
+        tr { border-bottom:1px dashed #ddd }
+        td { border:0; padding:12px 6px;}
+    }
+    .code-block { padding-bottom:15px;
+        tr{ border:0;}
+        td { padding:0;}
+    }
+
+    .badge-ttl { padding: 5px 10px; font-size: 1.3rem; background-color:#6e5fad; border-radius:8px; margin:5px 0; }
+}
+
+@media (min-width: 768px) {
+    .left-side { padding:0 20px 0 15px; width: 25%; float:left; position:fixed; }
+    .right-side { padding:0 15px; width: 75%;  float:right; }
+}
