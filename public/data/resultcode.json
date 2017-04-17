@@ -432,14 +432,20 @@
     "class": ""
   },
   {
-    "api": "gamestop",
+    "api": "gamestart",
     "code": 1301,
     "msg": "ok",
     "class": "active"
   },
   {
+    "api": "gamestop",
+    "code": 1401,
+    "msg": "ok",
+    "class": "active"
+  },
+  {
     "api": "",
-    "code": 1302,
+    "code": 1402,
     "msg": "Not call game start yet.",
     "class": ""
   },

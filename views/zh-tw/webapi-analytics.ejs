@@ -1,81 +1,67 @@
-<div class="col-sm-9">
-    <div id="section1">
+<div class="left-side" id="myScrollspy">
+
+    <ul class="nav nav-pills">
+        <li><a href="#section1">統計系統接口</a></li>
+        <li><a href="#section2">統計遊戲時間</a></li>
+    </ul>
+
+</div>
+
+<div class="right-side">
+    <section id="section1">
         <h1>統計系統接口</h1>
-        <hr>
         <h4>各種統計相關接口，用以統計遊戲數據。</h4>
-    </div>
-    <br>
-    <div id="section2">
+    </section>
+
+    <section id="section2">
         <h1>統計遊戲時間</h1>
-        <hr>
-        <h4>統計玩家遊戲時間。</h4>
-        <br/>
-        <table class="table">
-            <tr>
-                <td>API</td>
-                <td>
-                    <code>gamestart</code>
-                </td>
-            </tr>
-            <tr>
-                <td>說明</td>
-                <td>
-                    在遊戲啟動和遊戲從後台切到前台的時候調用。
-                </td>
-            </tr>
-            <tr>
-                <td>HTTP Method</td>
-                <td>
-                    <code>GET</code>
-                </td>
-            </tr>
-            <tr>
-                <td>範例</td>
-                <td>
-                    <pre>http://gameapi.smartgamesltd.com/gamestart</pre>
-                </td>
-            </tr>
-            <tr>
-                <td>回傳值</td>
-                <td>
-                    回傳 JSON 字串。例如 <code>{"code": 1, "msg": "ok"}</code>。<br/>
-                    完整 code 定義，<a href="/webapi-init#section5">請參看對照表</a>。
-                </td>
-            </tr>
-        </table>
-        <br/>
-        <table class="table">
-            <tr>
-                <td>API</td>
-                <td>
-                    <code>gamestop</code>
-                </td>
-            </tr>
-            <tr>
-                <td>說明</td>
-                <td>
-                    在遊戲退出和遊戲從前台切到後台的時候調用 gamestop ，用以統計玩家進行遊戲的時間。
-                </td>
-            </tr>
-            <tr>
-                <td>HTTP Method</td>
-                <td>
-                    <code>GET</code>
-                </td>
-            </tr>
-            <tr>
-                <td>範例</td>
-                <td>
-                    <pre>http://gameapi.smartgamesltd.com/gamestop</pre>
-                </td>
-            </tr>
-            <tr>
-                <td>回傳值</td>
-                <td>
-                    回傳 JSON 字串。例如 <code>{"code": 1, "msg": "ok"}</code>。<br/>
-                    完整 code 定義，<a href="/webapi-init#section5">請參看對照表</a>。
-                </td>
-            </tr>
-        </table>
-    </div>
+        <h3>1.開始統計遊戲時間</h3>
+
+        <div class="row">
+            <span class="badge badge-ttl">API</span>
+            <p><code>gamestart</code></p>
+
+            <span class="badge badge-ttl">HTTP Method</span>
+            <p><code>GET</code></p>
+
+            <span class="badge badge-ttl">説明</span>
+            <p>在遊戲啟動和遊戲從後台切到前台的時候調用。</p>
+
+            <span class="badge badge-ttl">範例</span>
+            <pre>http://gameapi.smartgamesltd.com/gamestart</pre>
+
+            <span class="badge badge-ttl">參數</span>
+            <p>無。</p>
+
+            <span class="badge badge-ttl">回傳</span>
+            <p>回傳 JSON 字串。例如 <code>{"code": 1301, "msg": "ok"}</code>。</p>
+        </div>
+        <br>
+
+        <hr/>
+        <h3>2.結束統計遊戲時間</h3>
+
+        <div class="row">
+            <span class="badge badge-ttl">API</span>
+            <p><code>gamestop</code></p>
+
+            <span class="badge badge-ttl">HTTP Method</span>
+            <p><code>GET</code></p>
+
+            <span class="badge badge-ttl">説明</span>
+            <p>在遊戲退出和遊戲從前台切到後台的時候調用 gamestop ，用以統計玩家進行遊戲的時間。</p>
+
+            <span class="badge badge-ttl">範例</span>
+            <pre>http://gameapi.smartgamesltd.com/gamestop</pre>
+
+            <span class="badge badge-ttl">參數</span>
+            <p>無。</p>
+
+            <span class="badge badge-ttl">回傳</span>
+            <ul>
+                <li>回傳 JSON 字串。例如 <code>{"code": 1401, "msg": "ok"}</code>。</li>
+                <li>完整 code 定義，<a target="_blank" href="/webapi-init#section5">請參看對照表</a>。</li>
+            </ul>
+        </div>
+    </section>
 </div>
