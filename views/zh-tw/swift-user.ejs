@@ -21,135 +21,263 @@
 <div class="right-side">
     <div id="section1">
         <h1>Swift 3 用戶系統</h1>
-        <hr>
-        <h4>透過 SgSDK 調用各個函式，例如創帳號，登入等等。某些函式調用後需要接收回傳值。客戶端再依據收到的回傳值進行對應處理。</h4>
+        <h3>透過 SgSDK 調用各個函式，例如創帳號，登入等等。某些函式調用後需要接收回傳值。客戶端再依據收到的回傳值進行對應處理。</h3>
     </div>
     <br/>
-    <div id="Signup">
+    <section id="Signup">
         <h1>創帳號</h1>
-        <hr>
-        函式名稱：<code>Signup</code><br/>
-        函式說明：調用註冊頁面，註冊成功等同登入然後關閉web view。<br/>
-        範例：
-        <pre>SgSDK.Instance.Signup()</pre>
-        <div class="well well-sm">
-            <img src=<%= "assets/img/" + lang + "/pic08.png" %> class="img-responsive"/>
+        <div class="row">
+            <div class="col-sm-9">
+                <span class="badge badge-ttl">函式</span>
+                <p><code>Signup</code></p>
+
+                <span class="badge badge-ttl">説明</span>
+                <p>調用註冊頁面，註冊成功等同登入然後關閉WebView。</p>
+
+                <span class="badge badge-ttl">範例</span>
+                <p>
+                <pre>SgSDK.Instance.Signup()</pre>
+                </p>
+
+                <span class="badge badge-ttl">回傳</span>
+                <p><a href="/webapi-init#section5">查看回傳值定義</a>。</p>
+            </div>
+            <div class="col-sm-3">
+                <span class="badge badge-ttl">WebView 頁面</span>
+                <a href="<%= "assets/img/" + lang + "/pic08.png" %>" data-toggle="lightbox">
+                    <img src="<%= "assets/img/" + lang + "/pic08.png" %>" class="img-responsive"/>
+                </a>
+            </div>
         </div>
-        返回值：<a href="/webapi-init#section5">查看回傳值定義</a>。<br/>
-    </div>
-    <br/>
-    <div id="Login">
+    </section>
+
+    <section id="Login">
         <h1>登入</h1>
-        <hr>
-        函式名稱：<code>Login</code><br/>
-        函式說明：調用登入頁面，登入成功後關閉web view。<br/>
-        範例：
-        <pre>SgSDK.Instance.Login()</pre>
-        <div class="well well-sm">
-            <img src=<%= "assets/img/" + lang + "/pic07.png" %> class="img-responsive"/>
+        <div class="row">
+            <div class="col-sm-9">
+                <span class="badge badge-ttl">函式</span>
+                <p><code>Login</code></p>
+
+                <span class="badge badge-ttl">説明</span>
+                <p>調用登入頁面，登入成功後關閉WebView。</p>
+
+                <span class="badge badge-ttl">範例</span>
+                <p>
+                <pre>SgSDK.Instance.Login()</pre>
+                </p>
+
+                <span class="badge badge-ttl">回傳</span>
+                <p><a href="/webapi-init#section5">查看回傳值定義</a>。</p>
+            </div>
+            <div class="col-sm-3">
+                <span class="badge badge-ttl">WebView 頁面</span>
+                <a href="<%= "assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
+                    <img src="<%= "assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
+                </a>
+            </div>
         </div>
-        返回值：<a href="/webapi-init#section5">查看回傳值定義</a>。<br/>
         <br/>
         <div>
-            <h4>登入後可以使用以下三個方法</h4>
-            <hr>
-            <h5 id="GetOpenID"> 1.取得用戶 Open ID</h5>
-            <hr>
-            函式名稱：<code>GetOpenID</code><br/>
-            函式說明：取得用戶唯一識別 ID (SG ID)，以此 ID 登入遊戲伺服器，登入後才可取得。<br/>
-            範例：
-            <% include ../code/swift-getOpenId.html %>
-            返回值： 成功的話會得到一個 Int?，失敗的話會得到一個 nil。<br/>
+            <h1>登入後可以使用以下三個方法</h1>
+
+            <h1 id="GetOpenID"> 1.取得用戶 Open ID</h1>
+            <span class="badge badge-ttl">函式</span>
+            <p><code>GetOpenID</code></p>
+
+            <span class="badge badge-ttl">説明</span>
+            <p>取得用戶唯一識別 ID (SG ID)，以此 ID 登入遊戲伺服器，登入後才可取得。</p>
+
+            <span class="badge badge-ttl">範例</span>
+            <p>
+                <% include ../code/swift-getOpenId.html %>
+            </p>
+
+            <span class="badge badge-ttl">回傳</span>
+            <p>成功： Int?，失敗： nil。</p>
             <br/>
-            <h5 id="GetSessionID">2.取得Session ID</h5>
-            <hr>
-            函式名稱：<code>GetSessionID</code><br/>
-            函式說明：取得Session ID，登入後才可取得。<br/>
-            範例：
-            <% include ../code/swift-getSessionId.html %>
-            返回值： 成功的話會得到一個String?，失敗的話會得到一個nil。<br/>
+
+            <h1 id="GetSessionID">2.取得Session ID</h1>
+            <span class="badge badge-ttl">函式</span>
+            <p><code>GetSessionID</code></p>
+
+            <span class="badge badge-ttl">説明</span>
+            <p>取得Session ID，登入後才可取得。</p>
+
+            <span class="badge badge-ttl">範例</span>
+            <p>
+                <% include ../code/swift-getSessionId.html %>
+            </p>
+
+            <span class="badge badge-ttl">回傳</span>
+            <p>成功： String?，失敗： nil。</p>
             <br/>
-            <h5 id="GetToken">3.取得Token</h5>
-            <hr>
-            函式名稱：<code>GetToken</code><br/>
-            函式說明：取得Token，登入後才可取得。<br/>
-            範例：
-            <% include ../code/swift-getToken.html %>
-            返回值： 成功的話會得到一個String?，失敗的話會得到一個nil。<br/>
+
+            <h1 id="GetToken">3.取得Token</h1>
+            <span class="badge badge-ttl">函式</span>
+            <p><code>GetToken</code></p>
+
+            <span class="badge badge-ttl">説明</span>
+            <p>取得Token，登入後才可取得。</p>
+
+            <span class="badge badge-ttl">範例</span>
+            <p>
+                <% include ../code/swift-getToken.html %>
+            </p>
+
+            <span class="badge badge-ttl">回傳</span>
+            <p>成功： String?，失敗： nil。</p>
         </div>
-    </div>
-    <br/>
-    <div id="ForgotPassword">
+    </section>
+
+    <section id="ForgotPassword">
         <h1>查詢密碼</h1>
-        <hr>
-        函式名稱：<code>ForgotPassword</code><br/>
-        函式說明：調用找回密碼頁面進行重設密碼。<br/>
-        範例：
-        <pre>SgSDK.Instance.ForgotPassword()</pre>
-        <div class="well well-sm">
-            <img src=<%= "assets/img/" + lang + "/pic09.png" %> class="img-responsive"/>
+        <div class="row">
+            <div class="col-sm-9">
+                <span class="badge badge-ttl">函式</span>
+                <p><code>ForgotPassword</code></p>
+
+                <span class="badge badge-ttl">説明</span>
+                <p>調用找回密碼頁面進行重設密碼。</p>
+
+                <span class="badge badge-ttl">範例</span>
+                <p>
+                <pre>SgSDK.Instance.ForgotPassword()</pre>
+                </p>
+
+                <span class="badge badge-ttl">回傳</span>
+                <p><a href="/webapi-init#section5">查看回傳值定義</a>。</p>
+            </div>
+            <div class="col-sm-3">
+                <span class="badge badge-ttl">WebView 頁面</span>
+                <a href="<%= "assets/img/" + lang + "/pic09.png" %>" data-toggle="lightbox">
+                    <img src="<%= "assets/img/" + lang + "/pic09.png" %>" class="img-responsive"/>
+                </a>
+            </div>
         </div>
-        返回值：<a href="/webapi-init#section5">查看回傳值定義</a>。<br/>
-    </div>
-    <br/>
-    <div id="ChangePassword">
+    </section>
+
+    <section id="ChangePassword">
         <h1>變更密碼</h1>
-        <hr>
-        函式名稱：<code>ChangePassword</code><br/>
-        函式說明：調用變更密碼頁面。<br/>
-        範例：
-        <pre>SgSDK.Instance.ChangePassword()</pre>
-        <div class="well well-sm">
-            <img src=<%= "assets/img/" + lang + "/pic10.png" %> class="img-responsive"/>
+        <div class="row">
+            <div class="col-sm-9">
+                <span class="badge badge-ttl">函式</span>
+                <p><code>ChangePassword</code></p>
+
+                <span class="badge badge-ttl">説明</span>
+                <p>調用變更密碼頁面。</p>
+
+                <span class="badge badge-ttl">範例</span>
+                <p>
+                <pre>SgSDK.Instance.ChangePassword()</pre>
+                </p>
+
+                <span class="badge badge-ttl">回傳</span>
+                <p><a href="/webapi-init#section5">查看回傳值定義</a>。</p>
+            </div>
+            <div class="col-sm-3">
+                <span class="badge badge-ttl">WebView 頁面</span>
+                <a href="<%= "assets/img/" + lang + "/pic10.png" %>" data-toggle="lightbox">
+                    <img src="<%= "assets/img/" + lang + "/pic10.png" %>" class="img-responsive"/>
+                </a>
+            </div>
         </div>
-        返回值：<a href="/webapi-init#section5">查看回傳值定義</a>。<br/>
-    </div>
-    <br/>
-    <div id="ParentalLock">
+    </section>
+
+    <section id="ParentalLock">
         <h1>家長安全操作</h1>
-        <hr>
-        函式名稱：<code>ParentalLock</code><br/>
-        函式說明：在呼叫帳號設置前需要先呼叫家長安全操作頁面以防孩童誤擊重要功能。<br/>
-        範例：
-        <pre>SgSDK.Instance.ParentalLock()</pre>
-        <div class="well well-sm">
-            <img src=<%= "assets/img/" + lang + "/pic11.png" %> class="img-responsive"/>
+        <div class="row">
+            <div class="col-sm-9">
+                <span class="badge badge-ttl">函式</span>
+                <p><code>ParentalLock</code></p>
+
+                <span class="badge badge-ttl">説明</span>
+                <p>在呼叫帳號設置前需要先呼叫家長安全操作頁面以防孩童誤擊重要功能。</p>
+
+                <span class="badge badge-ttl">範例</span>
+                <p>
+                <pre>SgSDK.Instance.ParentalLock()</pre>
+                </p>
+
+                <span class="badge badge-ttl">回傳</span>
+                <p>無。</p>
+            </div>
+            <div class="col-sm-3">
+                <span class="badge badge-ttl">WebView 頁面</span>
+                <a href="<%= "assets/img/" + lang + "/pic11.png" %>" data-toggle="lightbox">
+                    <img src="<%= "assets/img/" + lang + "/pic11.png" %>" class="img-responsive"/>
+                </a>
+            </div>
         </div>
-        返回值：無。<br/>
-    </div>
-    <br/>
-    <div id="MyKid">
+    </section>
+
+    <section id="MyKid">
         <h1>設置孩童資料</h1>
-        <hr>
-        函式名稱：<code>MyKid</code><br/>
-        函式說明：調用新增孩童資料頁面。<br/>
-        範例：
-        <pre>SgSDK.Instance.MyKid()</pre>
-        <div class="well well-sm">
-            <img src=<%= "assets/img/" + lang + "/pic12.png" %> class="img-responsive"/>
+        <div class="row">
+            <div class="col-sm-9">
+                <span class="badge badge-ttl">函式</span>
+                <p><code>MyKid</code></p>
+
+                <span class="badge badge-ttl">説明</span>
+                <p>調用新增孩童資料頁面。</p>
+
+                <span class="badge badge-ttl">範例</span>
+                <p>
+                <pre>SgSDK.Instance.MyKid()</pre>
+                </p>
+
+                <span class="badge badge-ttl">回傳</span>
+                <p><a href="/webapi-init#section5">查看回傳值定義</a>。</p>
+            </div>
+            <div class="col-sm-3">
+                <span class="badge badge-ttl">WebView 頁面</span>
+                <a href="<%= "assets/img/" + lang + "/pic12.png" %>" data-toggle="lightbox">
+                    <img src="<%= "assets/img/" + lang + "/pic12.png" %>" class="img-responsive"/>
+                </a>
+            </div>
         </div>
-        返回值：<a href="/webapi-init#section5">查看回傳值定義</a>。<br/>
-    </div>
-    <br/>
-    <div id="MyAccount">
+    </section>
+
+    <section id="MyAccount">
         <h1>帳號資訊</h1>
-        <hr>
-        函式名稱：<code>MyAccount</code><br/>
-        函式說明：調用帳號總覽頁面，以瀏覽孩童遊戲紀錄。<br/>
-        範例：
-        <pre>SgSDK.Instance.MyAccount()</pre>
-        <div class="well well-sm">
-            <img src=<%= "assets/img/" + lang + "/pic13.png" %> class="img-responsive"/>
+        <div class="row">
+            <div class="col-sm-9">
+                <span class="badge badge-ttl">函式</span>
+                <p><code>MyAccount</code></p>
+
+                <span class="badge badge-ttl">説明</span>
+                <p>調用帳號總覽頁面，以瀏覽孩童遊戲紀錄。</p>
+
+                <span class="badge badge-ttl">範例</span>
+                <p>
+                <pre>SgSDK.Instance.MyAccount()</pre>
+                </p>
+
+                <span class="badge badge-ttl">回傳</span>
+                <p>無。</p>
+            </div>
+            <div class="col-sm-3">
+                <span class="badge badge-ttl">WebView 頁面</span>
+                <a href="<%= "assets/img/" + lang + "/pic13.png" %>" data-toggle="lightbox">
+                    <img src="<%= "assets/img/" + lang + "/pic13.png" %>" class="img-responsive"/>
+                </a>
+            </div>
         </div>
-        返回值：無。<br/>
-    </div>
-    <br/>
-    <div id="VerifySession">
+    </section>
+
+    <section id="VerifySession">
         <h1>Session ID 登入驗證</h1>
-        <hr>
-        函式名稱：<code>VerifySession(appId: String, session: String, uid: String, signature: String)</code><br/>
-        函式說明：使用 SessionID 取得登入帳號資訊。<br/>
-        參數列表：
+        <span class="badge badge-ttl">函式</span>
+        <p><code>VerifySession(appId: String, session: String, uid: String, signature: String)</code></p>
+
+        <span class="badge badge-ttl">説明</span>
+        <p>使用 SessionID 取得登入帳號資訊。</p>
+
+        <span class="badge badge-ttl">範例</span>
+        <p>
+        <pre>SgSDK.Instance.VerifySession(appId: "app id", session: "session", uid: "uid", signature: "signature")</pre>
+        </p>
+        <span class="badge badge-ttl">參數</span>
+        <p>
         <table class="table table-striped">
             <col width="15%">
             <col width="85%">
@@ -174,10 +302,10 @@
                 <td>server返回的簽名。</td>
             </tr>
         </table>
-        範例：
-        <pre>SgSDK.Instance.VerifySession(appId: "app id", session: "session", uid: "uid", signature: "signature")</pre>
-        返回值：
-        <h4>SgMember 結構</h4>
+        </p>
+        <span class="badge badge-ttl">回傳</span>
+        <p>
+        <h3>SgMember 結構</h3>
         <table id="SgMember" class="table table-striped">
             <col width="15%">
             <col width="85%">
@@ -235,7 +363,7 @@
             </tr>
         </table>
 
-        <h4>Children 結構</h4>
+        <h3>Children 結構</h3>
         <table id="Children" class="table table-striped">
             <col width="15%">
             <col width="85%">
@@ -260,55 +388,93 @@
                 <td>生日</td>
             </tr>
         </table>
-    </div>
-    <br/>
-    <div id="VerifyToken">
+        </p>
+    </section>
+
+    <section id="VerifyToken">
         <h1>Token 登入驗證</h1>
-        <hr>
-        函式名稱：<code>VerifyToken(token: String)</code><br/>
-        函式說明：使用 Token 取得登入帳號資訊。<br/>
-        參數列表：token, Login 後可用 <a href="#GetToken">GetToken()</a> 取得。<br/>
-        範例：
+        <span class="badge badge-ttl">函式</span>
+        <p><code>VerifyToken(token: String)</code></p>
+
+        <span class="badge badge-ttl">説明</span>
+        <p>使用 Token 取得登入帳號資訊。</p>
+
+        <span class="badge badge-ttl">範例</span>
+        <p>
         <pre>SgSDK.Instance.VerifyToken(token: "token")</pre>
-        返回值： <a href="#SgMember">SgMember 結構</a>。<br/>
-    </div>
-    <br/>
-    <div id="Logout">
+        </p>
+        <span class="badge badge-ttl">參數</span>
+        <p>token, Login 後可用 <a href="#GetToken">GetToken()</a> 取得。</p>
+        <span class="badge badge-ttl">回傳</span>
+        <p><a href="#SgMember">SgMember 結構</a>。</p>
+    </section>
+
+    <section id="Logout">
         <h1>登出</h1>
-        <hr>
-        函式名稱：<code>Logout</code><br/>
-        函式說明：帳號登出。<br/>
-        範例：
+        <span class="badge badge-ttl">函式</span>
+        <p><code>Logout</code></p>
+
+        <span class="badge badge-ttl">説明</span>
+        <p>帳號登出。</p>
+
+        <span class="badge badge-ttl">範例</span>
+        <p>
         <pre>SgSDK.Instance.Logout()</pre>
-        返回值：無。<br/>
-    </div>
-    <br/>
-    <div id="IsLogined">
+        </p>
+
+        <span class="badge badge-ttl">回傳</span>
+        <p>無。</p>
+    </section>
+
+    <section id="IsLogined">
         <h1>取得登入狀態</h1>
-        <hr>
-        函式名稱：<code>IsLogined</code><br/>
-        函式說明：判斷是否為登入狀態。<br/>
-        範例：
+        <span class="badge badge-ttl">函式</span>
+        <p><code>IsLogined</code></p>
+
+        <span class="badge badge-ttl">説明</span>
+        <p>判斷是否為登入狀態。</p>
+
+        <span class="badge badge-ttl">範例</span>
+        <p>
         <pre>SgSDK.Instance.IsLogined()</pre>
-        返回值： True 為已登入，False 為未登入。<br/>
-    </div>
-    <br/>
-    <div id="GetChannelID">
+        </p>
+
+        <span class="badge badge-ttl">回傳</span>
+        <p>登入：True ， 未登入：False。</p>
+    </section>
+
+    <section id="GetChannelID">
         <h1>取得平台ID</h1>
-        <hr>
-        函式名稱：<code>GetChannelID</code><br/>
-        函式說明：取得平台名稱。<br/>
-        範例：
+        <span class="badge badge-ttl">函式</span>
+        <p><code>GetChannelID</code></p>
+
+        <span class="badge badge-ttl">説明</span>
+        <p>取得平台名稱。</p>
+
+        <span class="badge badge-ttl">範例</span>
+        <p>
         <pre>SgSDK.Instance.GetChannelID()</pre>
-        返回值： 取得平台 ID，例如：appstore。<br/>
-    </div>
-    <br/>
-    <div id="ShowFloatingButton">
+        </p>
+
+        <span class="badge badge-ttl">回傳</span>
+        <p>平台名稱，例如：appstore。</p>
+    </section>
+
+    <section id="ShowFloatingButton">
         <h1>顯示懸浮按鈕</h1>
-        <hr>
-        函式名稱：<code>ShowFloatingButton(place: eFloatingButtonPlace)</code><br/>
-        函式說明：顯示懸浮按鈕，登入後自動顯示<br/>
-        參數：
+        <span class="badge badge-ttl">函式</span>
+        <p><code>ShowFloatingButton(place: eFloatingButtonPlace)</code></p>
+
+        <span class="badge badge-ttl">説明</span>
+        <p>顯示懸浮按鈕，登入後自動顯示。</p>
+
+        <span class="badge badge-ttl">範例</span>
+        <p>
+        <pre>SgSDK.Instance.ShowFloatingButton(place: .Right)</pre>
+        </p>
+
+        <span class="badge badge-ttl">參數</span>
+        <p>
         <table class="table table-striped">
             <col width="30%">
             <col width="70%">
@@ -349,18 +515,26 @@
                 <td>右下角</td>
             </tr>
         </table>
-        範例：
-        <pre>SgSDK.Instance.ShowFloatingButton(place: .Right)</pre>
-        返回值：無。<br/>
-    </div>
-    <br/>
-    <div id="HideFloatingButton">
+        </p>
+
+        <span class="badge badge-ttl">回傳</span>
+        <p>無。</p>
+    </section>
+
+    <section id="HideFloatingButton">
         <h1>隱藏懸浮按鈕</h1>
-        <hr>
-        函式名稱：<code>HideFloatingButton</code><br/>
-        函式說明：隱藏懸浮按鈕。<br/>
-        範例：
+        <span class="badge badge-ttl">函式</span>
+        <p><code>HideFloatingButton</code></p>
+
+        <span class="badge badge-ttl">説明</span>
+        <p>隱藏懸浮按鈕。</p>
+
+        <span class="badge badge-ttl">範例</span>
+        <p>
         <pre>SgSDK.Instance.HideFloatingButton()</pre>
-        返回值：無。<br/>
-    </div>
+        </p>
+
+        <span class="badge badge-ttl">回傳</span>
+        <p>無。</p>
+    </section>
 </div>

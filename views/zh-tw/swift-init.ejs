@@ -10,29 +10,29 @@
 <div class="right-side">
     <section id="section1">
         <h1>Swift 3 集成指南</h1>
-        <h4>開發者可在 Xcode 環境透過調用 Web View 來串接 SG Game API。通過本文以 Swift 3
-            語言為範例，介紹客戶端接入的整個流程。在接入之前請認真閱讀本文檔，以減少接入過程中遇到的問題。</h4>
+        <h3>開發者可在 Xcode 環境透過調用 Web View 來串接 SG Game API。通過本文以 Swift 3
+            語言為範例，介紹客戶端接入的整個流程。在接入之前請認真閱讀本文檔，以減少接入過程中遇到的問題。</h3>
     </section>
-    
+
     <section id="section2">
         <h1>Xcode 開發環境設定</h1>
-        <h4>1.SDK 支援版本：</h4>
+        <h3>1.SDK 支援版本：</h3>
         <ul>
             <li>最低 iOS 版本： 8.0</li>
             <li>Swift 版本： 3</li>
         </ul>
-        <h4>2.下載SgSDK iOS framework</h4>
+        <h3>2.下載SgSDK iOS framework</h3>
         <ul>
             <li><a href="/sdk/ios/debug/SgSDK.framework.zip" download>SgSDK Framework (debug, 用於模擬器)</a></li>
             <li><a href="/sdk/ios/release/SgSDK.framework.zip" download>SgSDK Framework (release, 用於真實裝置)</a></li>
         </ul>
-        <h4>3.範例程式</h4>
+        <h3>3.範例程式</h3>
         <ul>
             <li><a href="https://github.com/SGMoxyStudios/SGSDK-iOS-Sample">SGSDK iOS Sample</a></li>
         </ul>
         <br/>
         <div id="section2-1">
-            <h4>SgSDK Framework(swift)</h4>
+            <h3>SgSDK Framework(swift)</h3>
             <hr>
             <p>將 SgSDK.framework 放入專案資料夾</p>
             <div class="well well-sm">
@@ -40,7 +40,7 @@
             </div>
         </div>
         <div id="section2-2">
-            <h4>XCode 設定</h4>
+            <h3>XCode 設定</h3>
             <hr>
             <ol>
                 <li>在 navigator 區點選專案。</li>
@@ -59,129 +59,97 @@
             </div>
         </div>
         <div id="section2-3">
-            <h4>客戶端接入代碼</h4>
+            <h3>客戶端接入代碼</h3>
             <hr>
             在要接入的 .swift 裡面加入<code>import SgSDK</code>
         </div>
     </section>
-    
+
     <section id="section3">
         <h1>SgSDK初始化</h1>
-        <hr>
-        <h4>1.SgSDK 回調監聽</h4>
-        <table class="table">
-            <tr>
-                <td>函式</td>
-                <td><code>SetListener(listener: @escaping (SgSDKResult) -> Void)</code></td>
+        <h3>1.SgSDK 回調監聽</h3>
+        <span class="badge badge-ttl">函式</span>
+        <p><code>SetListener(listener: @escaping (SgSDKResult) -> Void)</code></p>
 
-            </tr>
-            <tr>
-                <td>說明</td>
-                <td>SgSDK 所有非同步的函式，都透過回調監聽來得到結果。</td>
-            </tr>
-            <tr>
-                <td>範例</td>
-                <td>
-                    <pre>SgSDK.Instance.SetListener(listener: MsgListen)</pre>
-                    <% include ../code/swift-setListen.html %>
-                </td>
-            </tr>
-            <tr>
-                <td>參數</td>
-                <td>
-                    listener 是有一個 SgSDKResult 當參數的 function。<br/>
-                    SgSDKResult 結構<br/>
-                    <table class="table table-striped">
-                        <col width="10%">
-                        <col width="5%">
-                        <col width="85%">
-                        <tr>
-                            <th>參數名稱</th>
-                            <th>型態</th>
-                            <th>描述</th>
-                        </tr>
-                        <tr>
-                            <td>Code</td>
-                            <td>Int</td>
-                            <td><a href="/webapi-init#section5">狀態代碼</a></td>
-                        </tr>
-                        <tr>
-                            <td>Msg</td>
-                            <td>String</td>
-                            <td><a href="/webapi-init#section5">狀態描述</a></td>
-                        </tr>
-                        <tr>
-                            <td>Data</td>
-                            <td>Any?</td>
-                            <td>沒有其他資訊的話會是 nil，有資訊的話可以轉換為任一結構。</td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td>回傳值</td>
-                <td>無</td>
-            </tr>
-        </table>
-        <br/>
-        <h4>2.SgSDK 初始化</h4>
-        <table class="table">
-            <tr>
-                <td>函式</td>
-                <td><code>Init(GameKey: String, AppSecret: String)</code></td>
+        <span class="badge badge-ttl">説明</span>
+        <p>SgSDK 所有非同步的函式，都透過回調監聽來得到結果。</p>
 
-            </tr>
-            <tr>
-                <td>說明</td>
-                <td>初始化 SgSDK 才能使用之後的所有功能。</td>
-            </tr>
-            <tr>
-                <td>範例</td>
-                <td>
-                    <pre>SgSDK.Instance.Init(GameKey: "YourGameKey", AppSecret: "YourAppSecret")</pre>
-                </td>
-            </tr>
-            <tr>
-                <td>參數</td>
-                <td>
-                    GameKey, AppSecret
-                </td>
-            </tr>
-            <tr>
-                <td>回傳值</td>
-                <td><a href="/webapi-init#section5">查看回傳值定義</a>。</td>
-            </tr>
-        </table>
+        <span class="badge badge-ttl">範例</span>
+        <p>
+        <pre>SgSDK.Instance.SetListener(listener: MsgListen)</pre>
+        <% include ../code/swift-setListen.html %>
+        </p>
+
+        <span class="badge badge-ttl">參數</span>
+        <ul>
+            <li>
+                listener 是有一個 SgSDKResult 當參數的 delegate。
+            </li>
+            <li>SgSDKResult 結構</li>
+            <table class="table table-striped">
+                <col width="10%">
+                <col width="5%">
+                <col width="85%">
+                <tr>
+                    <th>參數名稱</th>
+                    <th>型態</th>
+                    <th>描述</th>
+                </tr>
+                <tr>
+                    <td>Code</td>
+                    <td>Int</td>
+                    <td><a href="/webapi-init#section5">狀態代碼</a></td>
+                </tr>
+                <tr>
+                    <td>Msg</td>
+                    <td>String</td>
+                    <td><a href="/webapi-init#section5">狀態描述</a></td>
+                </tr>
+                <tr>
+                    <td>Data</td>
+                    <td>Any?</td>
+                    <td>沒有其他資訊的話會是 nil，有資訊的話可以轉換為任一結構。</td>
+                </tr>
+            </table>
+        </ul>
+        <span class="badge badge-ttl">回傳</span>
+        <p>無。</p>
+
+        <h3>2.SgSDK 初始化</h3>
+        <span class="badge badge-ttl">函式</span>
+        <p><code>Init(GameKey: String, AppSecret: String)</code></p>
+
+        <span class="badge badge-ttl">説明</span>
+        <p>初始化 SgSDK 才能使用之後的所有功能。</p>
+
+        <span class="badge badge-ttl">範例</span>
+        <p>
+        <pre>SgSDK.Instance.Init(GameKey: "YourGameKey", AppSecret: "YourAppSecret")</pre>
+        </p>
+
+        <span class="badge badge-ttl">參數</span>
+        <ul>
+            <li>GameKey</li>
+            <li>AppSecret</li>
+        </ul>
+        <span class="badge badge-ttl">回傳</span>
+        <p><a href="/webapi-init#section5">查看回傳值定義</a>。</p>
     </section>
-    
+
     <section id="section4">
         <h1>釋放 SgSDK 資源</h1>
-        <hr>
-        <table class="table">
-            <tr>
-                <td>函式</td>
-                <td><code>Destroy</code></td>
-            </tr>
-            <tr>
-                <td>說明</td>
-                <td>釋放 SgSDK 資源。</td>
-            </tr>
-            <tr>
-                <td>範例</td>
-                <td>
-                    <pre>SgSDK.Instance.Destroy()</pre>
-                </td>
-            </tr>
-            <tr>
-                <td>參數</td>
-                <td>
-                    無
-                </td>
-            </tr>
-            <tr>
-                <td>回傳值</td>
-                <td>無</td>
-            </tr>
-        </table>
+        <span class="badge badge-ttl">函式</span>
+        <p><code>Destroy</code></p>
+
+        <span class="badge badge-ttl">説明</span>
+        <p>釋放 SgSDK 資源。</p>
+
+        <span class="badge badge-ttl">範例</span>
+        <p>
+        <pre>SgSDK.Instance.Destroy()</pre>
+        </p>
+
+        <span class="badge badge-ttl">回傳</span>
+        <p>無。</p>
     </section>
 </div>
