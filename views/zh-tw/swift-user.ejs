@@ -3,44 +3,45 @@
         <li><a href="#section1">Swift 3 用戶系統</a></li>
         <li><a href="#Signup">創帳號</a></li>
         <li><a href="#Login">登入</a></li>
+        <li><a href="#GetOpenID">取得用戶 Open ID</a></li>
+        <li><a href="#GetSessionID">取得 Session ID</a></li>
+        <li><a href="#GetToken">取得 Token</a></li>
         <li><a href="#ForgotPassword">查詢密碼</a></li>
         <li><a href="#ChangePassword">變更密碼</a></li>
         <li><a href="#ParentalLock">家長安全操作</a></li>
         <li><a href="#MyKid">設置孩童資料</a></li>
         <li><a href="#MyAccount">帳號資訊</a></li>
         <li><a href="#VerifySession">Session ID 登入驗證</a></li>
-        <li><a href="#VerifyToken">Token 登入驗證</a></li>
-        <li><a href="#Logout">登出</a></li>
-        <li><a href="#IsLogined">取得登入狀態</a></li>
+        <li><a href="#LoginByToken">Token 快速登入</a></li>
+        <li><a href="#IsLogin">取得登入狀態</a></li>
         <li><a href="#GetChannelID">取得平台ID</a></li>
         <li><a href="#ShowFloatingButton">顯示懸浮按鈕</a></li>
         <li><a href="#HideFloatingButton">隱藏懸浮按鈕</a></li>
+        <li><a href="#Logout">登出</a></li>
     </ul>
 </div>
 
 <div class="right-side">
-    <div id="section1">
+    <section id="section1">
         <h1>Swift 3 用戶系統</h1>
-        <h3>透過 SgSDK 調用各個函式，例如創帳號，登入等等。某些函式調用後需要接收回傳值。客戶端再依據收到的回傳值進行對應處理。</h3>
-    </div>
-    <br/>
+        <p>透過 SgSDK 調用各個函式，例如創帳號，登入等等。某些函式調用後需要接收回傳值。客戶端再依據收到的回傳值進行對應處理。</p>
+    </section>
+
     <section id="Signup">
         <h1>創帳號</h1>
         <div class="row">
             <div class="col-sm-9">
                 <span class="badge badge-ttl">函式</span>
-                <p><code>Signup</code></p>
+                <p><pre>Signup() -> Void</pre></p>
 
                 <span class="badge badge-ttl">説明</span>
                 <p>調用註冊頁面，註冊成功等同登入然後關閉WebView。</p>
 
-                <span class="badge badge-ttl">範例</span>
-                <p>
-                <pre>SgSDK.Instance.Signup()</pre>
-                </p>
-
                 <span class="badge badge-ttl">回傳</span>
-                <p><a href="/webapi-init#section5">查看回傳值定義</a>。</p>
+                <ul>
+                    <li>請參看【<a href="/swift-init#listener">回調監聽</a>】的設定，以及回傳的代碼與定義<a href="/webapi-init#section5">對照表</a>。</li>
+                    <li>回調監聽的 Data 參數：無。</li>
+                </ul>
             </div>
             <div class="col-sm-3">
                 <span class="badge badge-ttl">WebView 頁面</span>
@@ -56,18 +57,16 @@
         <div class="row">
             <div class="col-sm-9">
                 <span class="badge badge-ttl">函式</span>
-                <p><code>Login</code></p>
+                <p><pre>Login() -> Void</pre></p>
 
                 <span class="badge badge-ttl">説明</span>
                 <p>調用登入頁面，登入成功後關閉WebView。</p>
 
-                <span class="badge badge-ttl">範例</span>
-                <p>
-                <pre>SgSDK.Instance.Login()</pre>
-                </p>
-
                 <span class="badge badge-ttl">回傳</span>
-                <p><a href="/webapi-init#section5">查看回傳值定義</a>。</p>
+                <ul>
+                    <li>請參看【<a href="/swift-init#listener">回調監聽</a>】的設定，以及回傳的代碼與定義<a href="/webapi-init#section5">對照表</a>。</li>
+                    <li>回調監聽的 Data 參數：無。</li>
+                </ul>
             </div>
             <div class="col-sm-3">
                 <span class="badge badge-ttl">WebView 頁面</span>
@@ -76,57 +75,62 @@
                 </a>
             </div>
         </div>
+    </section>
+
+    <section id="GetOpenID">
+        <h1>取得用戶 Open ID</h1>
+
+        <span class="badge badge-ttl">函式</span>
+        <p><pre>GetOpenID() -> Int?</pre></p>
+
+        <span class="badge badge-ttl">説明</span>
+        <p>取得用戶唯一識別 ID (SG ID)，以此 ID 登入遊戲伺服器，登入後才可取得。</p>
+
+        <span class="badge badge-ttl">範例</span>
+        <p>
+            <% include ../code/swift-getOpenId.html %>
+        </p>
+
+        <span class="badge badge-ttl">回傳</span>
+        <p>成功： open id，失敗： nil。</p>
         <br/>
-        <div>
-            <h1>登入後可以使用以下三個方法</h1>
+    </section>
 
-            <h1 id="GetOpenID"> 1.取得用戶 Open ID</h1>
-            <span class="badge badge-ttl">函式</span>
-            <p><code>GetOpenID</code></p>
+    <section id="GetSessionID">
+        <h1>取得 Session ID</h1>
 
-            <span class="badge badge-ttl">説明</span>
-            <p>取得用戶唯一識別 ID (SG ID)，以此 ID 登入遊戲伺服器，登入後才可取得。</p>
+        <span class="badge badge-ttl">函式</span>
+        <p><pre>GetSessionID() -> String?</pre></p>
 
-            <span class="badge badge-ttl">範例</span>
-            <p>
-                <% include ../code/swift-getOpenId.html %>
-            </p>
+        <span class="badge badge-ttl">説明</span>
+        <p>取得Session ID，登入後才可取得。</p>
 
-            <span class="badge badge-ttl">回傳</span>
-            <p>成功： Int?，失敗： nil。</p>
-            <br/>
+        <span class="badge badge-ttl">範例</span>
+        <p>
+            <% include ../code/swift-getSessionId.html %>
+        </p>
 
-            <h1 id="GetSessionID">2.取得Session ID</h1>
-            <span class="badge badge-ttl">函式</span>
-            <p><code>GetSessionID</code></p>
+        <span class="badge badge-ttl">回傳</span>
+        <p>成功： session id，失敗： nil。</p>
+        <br/>
+    </section>
 
-            <span class="badge badge-ttl">説明</span>
-            <p>取得Session ID，登入後才可取得。</p>
+    <section id="GetToken">
+        <h1>取得 Token</h1>
 
-            <span class="badge badge-ttl">範例</span>
-            <p>
-                <% include ../code/swift-getSessionId.html %>
-            </p>
+        <span class="badge badge-ttl">函式</span>
+        <p><pre>GetToken() -> String?</pre></p>
 
-            <span class="badge badge-ttl">回傳</span>
-            <p>成功： String?，失敗： nil。</p>
-            <br/>
+        <span class="badge badge-ttl">説明</span>
+        <p>取得Token，登入後才可取得。</p>
 
-            <h1 id="GetToken">3.取得Token</h1>
-            <span class="badge badge-ttl">函式</span>
-            <p><code>GetToken</code></p>
+        <span class="badge badge-ttl">範例</span>
+        <p>
+            <% include ../code/swift-getToken.html %>
+        </p>
 
-            <span class="badge badge-ttl">説明</span>
-            <p>取得Token，登入後才可取得。</p>
-
-            <span class="badge badge-ttl">範例</span>
-            <p>
-                <% include ../code/swift-getToken.html %>
-            </p>
-
-            <span class="badge badge-ttl">回傳</span>
-            <p>成功： String?，失敗： nil。</p>
-        </div>
+        <span class="badge badge-ttl">回傳</span>
+        <p>成功： token，失敗： nil。</p>
     </section>
 
     <section id="ForgotPassword">
@@ -134,18 +138,16 @@
         <div class="row">
             <div class="col-sm-9">
                 <span class="badge badge-ttl">函式</span>
-                <p><code>ForgotPassword</code></p>
+                <p><pre>ForgotPassword() -> Void</pre></p>
 
                 <span class="badge badge-ttl">説明</span>
                 <p>調用找回密碼頁面進行重設密碼。</p>
 
-                <span class="badge badge-ttl">範例</span>
-                <p>
-                <pre>SgSDK.Instance.ForgotPassword()</pre>
-                </p>
-
                 <span class="badge badge-ttl">回傳</span>
-                <p><a href="/webapi-init#section5">查看回傳值定義</a>。</p>
+                <ul>
+                    <li>請參看【<a href="/swift-init#listener">回調監聽</a>】的設定，以及回傳的代碼與定義<a href="/webapi-init#section5">對照表</a>。</li>
+                    <li>回調監聽的 Data 參數：無。</li>
+                </ul>
             </div>
             <div class="col-sm-3">
                 <span class="badge badge-ttl">WebView 頁面</span>
@@ -161,18 +163,16 @@
         <div class="row">
             <div class="col-sm-9">
                 <span class="badge badge-ttl">函式</span>
-                <p><code>ChangePassword</code></p>
+                <p><pre>ChangePassword() -> Void</pre></p>
 
                 <span class="badge badge-ttl">説明</span>
                 <p>調用變更密碼頁面。</p>
 
-                <span class="badge badge-ttl">範例</span>
-                <p>
-                <pre>SgSDK.Instance.ChangePassword()</pre>
-                </p>
-
                 <span class="badge badge-ttl">回傳</span>
-                <p><a href="/webapi-init#section5">查看回傳值定義</a>。</p>
+                <ul>
+                    <li>請參看【<a href="/swift-init#listener">回調監聽</a>】的設定，以及回傳的代碼與定義<a href="/webapi-init#section5">對照表</a>。</li>
+                    <li>回調監聽的 Data 參數：無。</li>
+                </ul>
             </div>
             <div class="col-sm-3">
                 <span class="badge badge-ttl">WebView 頁面</span>
@@ -188,15 +188,10 @@
         <div class="row">
             <div class="col-sm-9">
                 <span class="badge badge-ttl">函式</span>
-                <p><code>ParentalLock</code></p>
+                <p><pre>ParentalLock() -> Void</pre></p>
 
                 <span class="badge badge-ttl">説明</span>
                 <p>在呼叫帳號設置前需要先呼叫家長安全操作頁面以防孩童誤擊重要功能。</p>
-
-                <span class="badge badge-ttl">範例</span>
-                <p>
-                <pre>SgSDK.Instance.ParentalLock()</pre>
-                </p>
 
                 <span class="badge badge-ttl">回傳</span>
                 <p>無。</p>
@@ -215,18 +210,16 @@
         <div class="row">
             <div class="col-sm-9">
                 <span class="badge badge-ttl">函式</span>
-                <p><code>MyKid</code></p>
+                <p><pre>MyKid() -> Void</pre></p>
 
                 <span class="badge badge-ttl">説明</span>
                 <p>調用新增孩童資料頁面。</p>
 
-                <span class="badge badge-ttl">範例</span>
-                <p>
-                <pre>SgSDK.Instance.MyKid()</pre>
-                </p>
-
                 <span class="badge badge-ttl">回傳</span>
-                <p><a href="/webapi-init#section5">查看回傳值定義</a>。</p>
+                <ul>
+                    <li>請參看【<a href="/swift-init#listener">回調監聽</a>】的設定，以及回傳的代碼與定義<a href="/webapi-init#section5">對照表</a>。</li>
+                    <li>回調監聽的 Data 參數：無。</li>
+                </ul>
             </div>
             <div class="col-sm-3">
                 <span class="badge badge-ttl">WebView 頁面</span>
@@ -242,15 +235,10 @@
         <div class="row">
             <div class="col-sm-9">
                 <span class="badge badge-ttl">函式</span>
-                <p><code>MyAccount</code></p>
+                <p><pre>MyAccount() -> Void</pre></p>
 
                 <span class="badge badge-ttl">説明</span>
                 <p>調用帳號總覽頁面，以瀏覽孩童遊戲紀錄。</p>
-
-                <span class="badge badge-ttl">範例</span>
-                <p>
-                <pre>SgSDK.Instance.MyAccount()</pre>
-                </p>
 
                 <span class="badge badge-ttl">回傳</span>
                 <p>無。</p>
@@ -267,15 +255,11 @@
     <section id="VerifySession">
         <h1>Session ID 登入驗證</h1>
         <span class="badge badge-ttl">函式</span>
-        <p><code>VerifySession(appId: String, session: String, uid: String, signature: String)</code></p>
+        <p><pre>VerifySession(appId: String, session: String, uid: String, signature: String)</pre></p>
 
         <span class="badge badge-ttl">説明</span>
         <p>使用 SessionID 取得登入帳號資訊。</p>
 
-        <span class="badge badge-ttl">範例</span>
-        <p>
-        <pre>SgSDK.Instance.VerifySession(appId: "app id", session: "session", uid: "uid", signature: "signature")</pre>
-        </p>
         <span class="badge badge-ttl">參數</span>
         <p>
         <table class="table table-striped">
@@ -305,8 +289,12 @@
         </p>
         <span class="badge badge-ttl">回傳</span>
         <p>
-        <h3>SgMember 結構</h3>
-        <table id="SgMember" class="table table-striped">
+        <ul>
+            <li>請參看【<a href="/swift-init#listener">回調監聽</a>】的設定，以及回傳的代碼與定義<a href="/webapi-init#section5">對照表</a>。</li>
+            <li>回調監聽的 Data 參數：<a href="#SGMember">SGMember</a>。</li>
+        </ul>
+        <h3>SGMember 結構</h3>
+        <table id="SGMember" class="table table-striped">
             <col width="15%">
             <col width="85%">
             <tr>
@@ -363,7 +351,7 @@
             </tr>
         </table>
 
-        <h3>Children 結構</h3>
+        <h3>SGChild 結構</h3>
         <table id="Children" class="table table-striped">
             <col width="15%">
             <col width="85%">
@@ -391,53 +379,30 @@
         </p>
     </section>
 
-    <section id="VerifyToken">
-        <h1>Token 登入驗證</h1>
+    <section id="LoginByToken">
+        <h1>Token 快速登入</h1>
         <span class="badge badge-ttl">函式</span>
-        <p><code>VerifyToken(token: String)</code></p>
+        <p><pre>LoginByToken(token: String) -> Void</pre></p>
 
         <span class="badge badge-ttl">説明</span>
-        <p>使用 Token 取得登入帳號資訊。</p>
+        <p>使用 Token 快速登入。</p>
 
-        <span class="badge badge-ttl">範例</span>
-        <p>
-        <pre>SgSDK.Instance.VerifyToken(token: "token")</pre>
-        </p>
         <span class="badge badge-ttl">參數</span>
         <p>token, Login 後可用 <a href="#GetToken">GetToken()</a> 取得。</p>
         <span class="badge badge-ttl">回傳</span>
-        <p><a href="#SgMember">SgMember 結構</a>。</p>
+        <ul>
+            <li>請參看【<a href="/swift-init#listener">回調監聽</a>】的設定，以及回傳的代碼與定義<a href="/webapi-init#section5">對照表</a>。</li>
+            <li>回調監聽的 Data 參數：<a href="#SGMember">SGMember</a>。</li>
+        </ul>
     </section>
 
-    <section id="Logout">
-        <h1>登出</h1>
-        <span class="badge badge-ttl">函式</span>
-        <p><code>Logout</code></p>
-
-        <span class="badge badge-ttl">説明</span>
-        <p>帳號登出。</p>
-
-        <span class="badge badge-ttl">範例</span>
-        <p>
-        <pre>SgSDK.Instance.Logout()</pre>
-        </p>
-
-        <span class="badge badge-ttl">回傳</span>
-        <p>無。</p>
-    </section>
-
-    <section id="IsLogined">
+    <section id="IsLogin">
         <h1>取得登入狀態</h1>
         <span class="badge badge-ttl">函式</span>
-        <p><code>IsLogined</code></p>
+        <p><pre>IsLogin() -> Bool</pre></p>
 
         <span class="badge badge-ttl">説明</span>
         <p>判斷是否為登入狀態。</p>
-
-        <span class="badge badge-ttl">範例</span>
-        <p>
-        <pre>SgSDK.Instance.IsLogined()</pre>
-        </p>
 
         <span class="badge badge-ttl">回傳</span>
         <p>登入：True ， 未登入：False。</p>
@@ -446,15 +411,10 @@
     <section id="GetChannelID">
         <h1>取得平台ID</h1>
         <span class="badge badge-ttl">函式</span>
-        <p><code>GetChannelID</code></p>
+        <p><pre>GetChannelID() -> String</pre></p>
 
         <span class="badge badge-ttl">説明</span>
         <p>取得平台名稱。</p>
-
-        <span class="badge badge-ttl">範例</span>
-        <p>
-        <pre>SgSDK.Instance.GetChannelID()</pre>
-        </p>
 
         <span class="badge badge-ttl">回傳</span>
         <p>平台名稱，例如：appstore。</p>
@@ -463,15 +423,10 @@
     <section id="ShowFloatingButton">
         <h1>顯示懸浮按鈕</h1>
         <span class="badge badge-ttl">函式</span>
-        <p><code>ShowFloatingButton(place: eFloatingButtonPlace)</code></p>
+        <p><pre>ShowFloatingButton(place: eFloatingButtonPlace) -> Void</pre></p>
 
         <span class="badge badge-ttl">説明</span>
         <p>顯示懸浮按鈕，登入後自動顯示。</p>
-
-        <span class="badge badge-ttl">範例</span>
-        <p>
-        <pre>SgSDK.Instance.ShowFloatingButton(place: .Right)</pre>
-        </p>
 
         <span class="badge badge-ttl">參數</span>
         <p>
@@ -524,17 +479,27 @@
     <section id="HideFloatingButton">
         <h1>隱藏懸浮按鈕</h1>
         <span class="badge badge-ttl">函式</span>
-        <p><code>HideFloatingButton</code></p>
+        <p><pre>HideFloatingButton() -> Void</pre></p>
 
         <span class="badge badge-ttl">説明</span>
         <p>隱藏懸浮按鈕。</p>
 
-        <span class="badge badge-ttl">範例</span>
-        <p>
-        <pre>SgSDK.Instance.HideFloatingButton()</pre>
-        </p>
-
         <span class="badge badge-ttl">回傳</span>
         <p>無。</p>
+    </section>
+
+    <section id="Logout">
+        <h1>登出</h1>
+        <span class="badge badge-ttl">函式</span>
+        <p><pre>Logout() -> Void</pre></p>
+
+        <span class="badge badge-ttl">説明</span>
+        <p>帳號登出。</p>
+
+        <span class="badge badge-ttl">回傳</span>
+        <ul>
+            <li>請參看【<a href="/swift-init#listener">回調監聽</a>】的設定，以及回傳的代碼與定義<a href="/webapi-init#section5">對照表</a>。</li>
+            <li>回調監聽的 Data 參數：無。</li>
+        </ul>
     </section>
 </div>

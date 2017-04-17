@@ -1,5 +1,5 @@
 <!-- HTML generated using hilite.me -->
-<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
     <table>
         <tr>
             <td><pre style="margin: 0; line-height: 125%"> 1
@@ -16,35 +16,32 @@
 12
 13</pre>
             </td>
-            <td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">private</span> func <span
-                    style="color: #0066BB; font-weight: bold">initPayReq</span><span
-                    style="color: #333333">(</span><span style="color: #997700; font-weight: bold">productId:</span> String<span
-                    style="color: #333333">,</span> <span style="color: #997700; font-weight: bold">payMethod:</span> String<span
-                    style="color: #333333">)</span> <span style="color: #333333">-&gt;</span> SgSDKPayRequest <span
-                    style="color: #333333">{</span>
-    let req <span style="color: #333333">=</span> SgSDKPayRequest<span style="color: #333333">()</span>
-    req<span style="color: #333333">.</span><span style="color: #0000CC">ProductId</span> <span
-                        style="color: #333333">=</span> productId
-    req<span style="color: #333333">.</span><span style="color: #0000CC">PaymentMethod</span> <span
-                        style="color: #333333">=</span> payMethod
-    req<span style="color: #333333">.</span><span style="color: #0000CC">PaymentChannel</span> <span
-                        style="color: #333333">=</span> <span
-                        style="background-color: #fff0f0">&quot;AppStore&quot;</span>
-    req<span style="color: #333333">.</span><span style="color: #0000CC">ServerId</span> <span
-                        style="color: #333333">=</span> <span
-                        style="background-color: #fff0f0">&quot;Server ID&quot;</span>
-    req<span style="color: #333333">.</span><span style="color: #0000CC">ServerName</span> <span style="color: #333333">=</span> <span
-                        style="background-color: #fff0f0">&quot;Server Name&quot;</span>
-    req<span style="color: #333333">.</span><span style="color: #0000CC">RoleId</span> <span
-                        style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;9487&quot;</span>
-    req<span style="color: #333333">.</span><span style="color: #0000CC">RoleName</span> <span
-                        style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;Roger&quot;</span>
-    req<span style="color: #333333">.</span><span style="color: #0000CC">RoleLevel</span> <span
-                        style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">99</span>
-    req<span style="color: #333333">.</span><span style="color: #0000CC">PayNotifyUrl</span> <span
-                        style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;PAY_NOTIFY_URL&quot;</span>
-    <span style="color: #008800; font-weight: bold">return</span> req
-<span style="color: #333333">}</span>
+            <td><pre style="margin: 0; line-height: 125%"><span style="color: #008000; font-weight: bold">private</span> func <span
+                    style="color: #0000FF">initPayReq</span><span style="color: #666666">(</span><span
+                    style="color: #A0A000">productId:</span> String<span style="color: #666666">,</span> <span
+                    style="color: #A0A000">payMethod:</span> String<span style="color: #666666">)</span> <span
+                    style="color: #666666">-&gt;</span> SGPayRequest <span style="color: #666666">{</span>
+    let req <span style="color: #666666">=</span> SGPayRequest<span style="color: #666666">()</span>
+    req<span style="color: #666666">.</span><span style="color: #7D9029">ProductId</span> <span
+                        style="color: #666666">=</span> productId
+    req<span style="color: #666666">.</span><span style="color: #7D9029">PaymentMethod</span> <span
+                        style="color: #666666">=</span> payMethod
+    req<span style="color: #666666">.</span><span style="color: #7D9029">PaymentChannel</span> <span
+                        style="color: #666666">=</span> <span style="color: #BA2121">&quot;AppStore&quot;</span>
+    req<span style="color: #666666">.</span><span style="color: #7D9029">ServerId</span> <span
+                        style="color: #666666">=</span> <span style="color: #BA2121">&quot;Server ID&quot;</span>
+    req<span style="color: #666666">.</span><span style="color: #7D9029">ServerName</span> <span style="color: #666666">=</span> <span
+                        style="color: #BA2121">&quot;Server Name&quot;</span>
+    req<span style="color: #666666">.</span><span style="color: #7D9029">RoleId</span> <span
+                        style="color: #666666">=</span> <span style="color: #BA2121">&quot;9487&quot;</span>
+    req<span style="color: #666666">.</span><span style="color: #7D9029">RoleName</span> <span
+                        style="color: #666666">=</span> <span style="color: #BA2121">&quot;Roger&quot;</span>
+    req<span style="color: #666666">.</span><span style="color: #7D9029">RoleLevel</span> <span
+                        style="color: #666666">=</span> <span style="color: #666666">99</span>
+    req<span style="color: #666666">.</span><span style="color: #7D9029">PayNotifyUrl</span> <span
+                        style="color: #666666">=</span> <span style="color: #BA2121">&quot;PAY_NOTIFY_URL&quot;</span>
+    <span style="color: #008000; font-weight: bold">return</span> req
+<span style="color: #666666">}</span>
 </pre>
             </td>
         </tr>
