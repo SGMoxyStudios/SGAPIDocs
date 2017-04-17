@@ -450,6 +450,12 @@
     "class": ""
   },
   {
+    "api": "logout",
+    "code": 1501,
+    "msg": "ok",
+    "class": "active"
+  },
+  {
     "api": "ios",
     "code": 8000,
     "msg": "GetResult() error.",
