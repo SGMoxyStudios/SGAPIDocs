@@ -9,249 +9,110 @@
 </div>
 
 <div class="right-side">
-    <div id="section1">
+    <section id="section1">
         <h1>支付系统接口</h1>
-        <hr>
-        <h4>与游戏内购相关接口。</h4>
-    </div>
-    <br>
-    <div id="section2">
+        <p>与游戏内购相关接口。</p>
+    </section>
+
+    <section id="section2">
         <h1>上传商品收据</h1>
-        <hr>
-        <h4>购买游戏内购商品(IAP)成功后，必须上传商品收据，用作后台统计。</h4>
-        <br/>
-        <p>
-            接口名称：<code>pay</code><br/>
-            接口说明：成功购买游戏内付费商品后调用，上传商品数据。<br/>
-            HTTP Method : <code>GET</code><br>
-        </p>
+        <p>购买游戏内购商品(IAP)成功后，必须上传商品收据，用作后台统计。</p>
+        <div class="row">
+            <span class="badge badge-ttl">API</span>
+            <pre> <span class="label label-success">POST</span> /pay</pre>
 
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>
-                    参数
-                </th>
-                <th>
-                    是否必传
-                </th>
-                <th>
-                    参数说明
-                </th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>
-                    productId
-                </td>
-                <td>
-                    Y
-                </td>
-                <td>
-                    商品 ID，设定于 Google Play 或 App Store用于辨识商品的唯一ID<br/>
-                    参数类型：字符串
-                </td>
-            </tr>
+            <span class="badge badge-ttl">说明</span>
+            <p>成功购买游戏内付费商品后调用，上传商品数据。</p>
 
-            <tr>
-                <td>
-                    productName
-                </td>
-                <td>
-                    Y
-                </td>
-                <td>
-                    商品名<br/>
-                    参数类型：字符串
-                </td>
-            </tr>
+            <span class="badge badge-ttl">范例</span>
+            <pre>http://gameapi.smartgamesltd.com/pay?productId=com.smartgamesltd.diamond1&productName=diamond&price=1.99</pre>
 
-            <tr>
-                <td>
-                    paymentMethod
-                </td>
-                <td>
-                    Y
-                </td>
-                <td>
-                    可重复购买商品：managed, 订阅型商品：subscription 商品名<br/>
-                    参数类型：字符串
-                </td>
-            </tr>
+            <span class="badge badge-ttl">参数</span>
+            <p>请参照结构定义 <a target="_blank" href="/webapi-init#SGPayRequest">SGPayRequest</a> 。</p>
 
-            <tr>
-                <td>
-                    paymentChannel
-                </td>
-                <td>
-                    Y
-                </td>
-                <td>
-                    Google：GooglePlay, 微信：WeChat, 智冠：MyCard<br/>
-                    参数类型：字符串
-                </td>
-            </tr>
+            <span class="badge badge-ttl">回传</span>
+            <p>请参照结构定义 <a target="_blank" href="/webapi-init#SGPayResponse">SGPayResponse</a> 。</p>
+        </div>
+    </section>
 
-            <tr>
-                <td>
-                    productDesc
-                </td>
-                <td>
-                    Ｎ
-                </td>
-                <td>
-                    由游戏服务器管理的商品描述<br/>
-                    参数类型：字符串
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    price
-                </td>
-                <td>
-                    Y
-                </td>
-                <td>
-                    商品价格(美元)<br/>
-                    参数类型：浮点数
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    serverId
-                </td>
-                <td>
-                    N
-                </td>
-                <td>
-                    游戏服务器ID<br/>
-                    参数类型：字符串
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    serverName
-                </td>
-                <td>
-                    N
-                </td>
-                <td>
-                    游戏服务器名<br/>
-                    参数类型：字符串
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    roleId
-                </td>
-                <td>
-                    Y
-                </td>
-                <td>
-                    角色ID<br/>
-                    参数类型：字符串
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    roleName
-                </td>
-                <td>
-                    N
-                </td>
-                <td>
-                    角色名<br/>
-                    参数类型：字符串
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    roleLevel
-                </td>
-                <td>
-                    N
-                </td>
-                <td>
-                    角色级别<br/>
-                    参数类型：整数
-                </td>
-            </tr>
-            </tbody>
-        </table>
-
-        <p>
-            范例：<pre><code class="js">http://gameapi.smartgamesltd.com/pay?productId=com.smartgamesltd.diamond1&productName=diamond&price=1.99</code></pre>
-        返回值：接口调用成功后，以JSON格式返回原上传参数，额外再加上 OrderID, code, msg, sign这4个参数。<br/>
-        </p>
-    </div>
-    <br>
-    <div id="section3">
+    <section id="section3">
         <h1>查询购买收据</h1>
-        <hr>
-        <h4>查询已购买商品收据。</h4>
-        <br/>
-        <p>
-            接口名称：<code>getorder</code><br/>
-            接口说明：需传送购买成功后的簽名(sign)，才能查询订单详细内容。<br/>
-            参数列表：
-        </p>
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>
-                    参数
-                </th>
-                <th>
-                    参数说明
-                </th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>
-                    order_id
-                </td>
-                <td>
-                    提交 pay 购买资料后回传的订单编号 OrderID。
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    game_key
-                </td>
-                <td>
-                    开发者申请开通游戏后取得的gamekey。例如 d7e73390-d7fd-11e6-9074-21c247f06802
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    user_id
-                </td>
-                <td>
-                    登入成功后取得的OpenID。
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    sign
-                </td>
-                <td>
-                    提交 pay 购买资料后回传的簽名 sign。
-                </td>
-            </tr>
-            </tbody>
-        </table>
-        <p>
-            HTTP Method : <code>GET</code><br>
-            范例：<pre><code class="js">http://gameapi.smartgamesltd.com/getorder?order_id=11&game_key=d7e73390-d7fd-11e6-9074-21c247f06802&user_id=1000000022&sign=253db4397d1c40cb647d7ea15cb7fbee</code></pre>
-        返回值：以JSON格式回购买商品收据。<br/>
-        </p>
-    </div>
+        <p>查询已购买商品收据。</p>
+        <div class="row">
+            <span class="badge badge-ttl">API</span>
+            <pre> <span class="label label-success">POST</span> /getorder</pre>
+
+            <span class="badge badge-ttl">说明</span>
+            <p>需传送购买成功后的簽名(sign)，才能查询订单详细内容。</p>
+
+            <span class="badge badge-ttl">范例</span>
+            <pre>http://gameapi.smartgamesltd.com/getorder?orderid=my_orderid&gamekey=my_gamekey&openid=my_openid&sign=my_sign</pre>
+
+            <span class="badge badge-ttl">参数</span>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>
+                        参数名称
+                    </th>
+                    <th>
+                        必传
+                    </th>
+                    <th>
+                        参数说明
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        orderid
+                    </td>
+                    <td>
+                        <i class="fa fa-check"></i>
+                    </td>
+                    <td>
+                        提交 pay 购买资料后回传的订单编号 OrderID。
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        gamekey
+                    </td>
+                    <td>
+                        <i class="fa fa-check"></i>
+                    </td>
+                    <td>
+                        开发者申请开通游戏后取得的gamekey。
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        openid
+                    </td>
+                    <td>
+                        <i class="fa fa-check"></i>
+                    </td>
+                    <td>
+                        登入成功后取得的OpenID。
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        sign
+                    </td>
+                    <td>
+                        <i class="fa fa-check"></i>
+                    </td>
+                    <td>
+                        提交 pay 购买资料后回传的簽名 sign。
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <span class="badge badge-ttl">回传</span>
+            <p>以JSON格式回购买商品收据。</p>
+        </div>
+    </section>
 </div>

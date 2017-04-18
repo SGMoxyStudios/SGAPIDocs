@@ -79,7 +79,7 @@
 
         <span class="badge badge-ttl">回傳</span>
         <ul>
-            <li>返回值以 JSON 格式回傳，例如<code>{"code": 1, "msg": "ok"}</code>。</li>
+            <li>返回值以 JSON 格式回傳，例如<code>{"Code": 1, "Message": "ok"}</code>。</li>
             <li><a href="#section5"> 查看回傳值定義 </a></li>
         </ul>
     </section>
@@ -105,19 +105,19 @@
 
     <section id="section5">
         <h1>回傳值定義</h1>
-        <p>所有接口回傳值都包含<code>code, msg</code>。</p>
+        <p>所有接口回傳值都包含<code>Code, Message</code>。</p>
 
         <table class="table"> <!--Gem Start-->
             <thead>
             <tr>
                 <th>
-                    api
+                    API
                 </th>
                 <th>
-                    code
+                    Code
                 </th>
                 <th>
-                    msg
+                    Message
                 </th>
             </tr>
             </thead>
@@ -141,7 +141,7 @@
 
     <section id="section6">
     <h1>結構定義</h1>
-    <p>SG SDK 使用到以下幾個結構定義。</p>
+    <p>SG SDK 使用到以下幾個結構定義。注意 property 大小寫。</p>
         <section id="SGListenResult">
             <h3>1.SGListenResult</h3>
             <ul>
@@ -153,12 +153,12 @@
                             <th>描述</th>
                         </tr>
                         <tr>
-                            <td>code</td>
+                            <td>Code</td>
                             <td>string</td>
                             <td>調用結果代碼</td>
                         </tr>
                         <tr>
-                            <td>msg</td>
+                            <td>Message</td>
                             <td>string</td>
                             <td>回應訊息</td>
                         </tr>
@@ -293,7 +293,7 @@
                         <td>ProductID</td>
                         <td>string</td>
                         <td><i class="fa fa-check"></i></td>
-                        <td>產品代號（GooglePlay 的 IAP ID）</td>
+                        <td>填寫 Google Play 或 iTunes Connect 上的產品 ID</td>
                     </tr>
                     <tr>
                         <td>ProductName</td>
@@ -334,7 +334,7 @@
                         <td>Price</td>
                         <td>float</td>
                         <td><i class="fa fa-check"></i></td>
-                        <td>產品價格</td>
+                        <td>產品價格（單位美元 USD）</td>
                     </tr>
                     <tr>
                         <td>ServerID</td>
@@ -416,7 +416,7 @@
                     <tr>
                         <td>ProductID</td>
                         <td>string</td>
-                        <td>產品代號（GooglePlay 的 IAP ID）</td>
+                        <td>Google Play 或 iTunes Connect 上的產品 ID</td>
                     </tr>
                     <tr>
                         <td>ProductName</td>
@@ -450,7 +450,7 @@
                     <tr>
                         <td>Price</td>
                         <td>float</td>
-                        <td>產品價格</td>
+                        <td>產品價格（單位美元 USD）</td>
                     </tr>
                     <tr>
                         <td>ServerID</td>

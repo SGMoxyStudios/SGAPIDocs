@@ -1,24 +1,55 @@
-<div class="col-sm-9">
-    <div id="section1">
+<div class="left-side" id="myScrollspy">
+
+    <ul class="nav nav-pills">
+        <li><a href="#section1">統計系統接口</a></li>
+        <li><a href="#section2">統計遊戲時間</a></li>
+    </ul>
+
+</div>
+
+<div class="right-side">
+    <section id="section1">
         <h1>統計系統接口</h1>
-        <hr>
         <h4>各種統計相關接口，用以統計遊戲數據。</h4>
-    </div>
-    <br>
-    <div id="section2">
+    </section>
+
+    <section id="section2">
         <h1>統計遊戲時間</h1>
-        <hr>
-        <h4>統計玩家遊戲時間。</h4>
-        <br/>
-        <p>
-            接口名稱：<code>gamestart, gamestop</code><br/>
-            接口說明：在遊戲啟動和遊戲從後台切到前台的時候調用 gamestart 。在遊戲退出和遊戲從前台切到後台的時候調用 gamestop ，用以統計玩家進行遊戲的時間。<br>
-            範例：<pre><code class="js">http://gameapi.smartgamesltd.com/gamestart</code></pre>
-            返回值：無<br/>
-            <br>
-            範例：<pre><code class="js">http://gameapi.smartgamesltd.com/gamestop</code></pre>
-            返回值：回傳 JSON 字串。例如 <code>{"code": 1, "msg": "ok"}</code>。<br>
-            <a href="/webapi-init#section5"> 查看回傳值定義 </a>
-        </p>
-    </div>
+        <h3>1.開始統計遊戲時間</h3>
+
+        <div class="row">
+            <span class="badge badge-ttl">API</span>
+            <pre> <span class="label label-warning">GET</span> /gamestart</pre>
+
+            <span class="badge badge-ttl">説明</span>
+            <p>在遊戲啟動和遊戲從後台切到前台的時候調用。</p>
+
+            <span class="badge badge-ttl">範例</span>
+            <pre>http://gameapi.smartgamesltd.com/gamestart</pre>
+
+            <span class="badge badge-ttl">回傳</span>
+            <p>回傳 JSON 字串。例如 <code>{"code": 1301, "msg": "ok"}</code>。</p>
+        </div>
+        <br>
+
+        <hr/>
+        <h3>2.結束統計遊戲時間</h3>
+
+        <div class="row">
+            <span class="badge badge-ttl">API</span>
+            <pre> <span class="label label-warning">GET</span> /gamestop</pre>
+
+            <span class="badge badge-ttl">説明</span>
+            <p>在遊戲退出和遊戲從前台切到後台的時候調用，用以統計玩家進行遊戲的時間。</p>
+
+            <span class="badge badge-ttl">範例</span>
+            <pre>http://gameapi.smartgamesltd.com/gamestop</pre>
+
+            <span class="badge badge-ttl">回傳</span>
+            <ul>
+                <li>回傳 JSON 字串。例如 <code>{"code": 1401, "msg": "ok"}</code>。</li>
+                <li>完整 code 定義，<a target="_blank" href="/webapi-init#section5">請參看對照表</a>。</li>
+            </ul>
+        </div>
+    </section>
 </div>

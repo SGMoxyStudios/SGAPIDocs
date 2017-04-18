@@ -1,344 +1,451 @@
 <div class="left-side" id="myScrollspy">
 
     <ul class="nav nav-pills">
-        <li><a href="#section1">Web API 用户系统接口</a></li>
-        <li><a href="#section2">登入</a></li>
-        <li><a href="#section3">创帐号</a></li>
-        <li><a href="#section4">查询密码</a></li>
-        <li><a href="#section5">变更密码</a></li>
-        <li><a href="#section6">家长安全操作</a></li>
-        <li><a href="#section7">设置孩童资料</a></li>
-        <li><a href="#section8">帐号资讯</a></li>
-        <li><a href="#section9">取得用户 Open ID</a></li>
-        <li><a href="#section10">Session ID 登入验证</a></li>
-        <li><a href="#section11">Token 登入验证</a></li>
+        <li><a href="#section1">Web API 用戶系統接口</a></li>
+        <li><a href="#section2">創帳號</a></li>
+        <li><a href="#section3">登入</a></li>
+        <li><a href="#section4">查詢密碼</a></li>
+        <li><a href="#section5">變更密碼</a></li>
+        <li><a href="#section6">家長安全操作</a></li>
+        <li><a href="#section7">設置孩童資料</a></li>
+        <li><a href="#section8">帳號資訊</a></li>
+        <li><a href="#section9">取得用戶 Open ID</a></li>
+        <li><a href="#section10">Token 登入驗證</a></li>
+        <li><a href="#section11">Session ID 登入驗證</a></li>
         <li><a href="#section12">登出</a></li>
     </ul>
 
 </div>
 
 <div class="right-side">
-    <div id="section1">
-        <h1>Web API 用户系统接口</h1>
-        <hr>
-        <h4>用户系统接口包含创帐号、登入、查询密码、变更密码、家长安全操作、设置孩童资料、帐号总览、取得用户 ID、登出，跟 SG 会员帐号相关等功能。</h4>
-    </div>
-    <br/>
+    <section id="section1">
+        <h1>Web API 用戶系統接口</h1>
+        <h4>用戶系統接口包含創帳號、登入、查詢密碼、家長安全鎖、設置孩童資料、帳號總覽、登出等跟 SG 會員帳號相關等功能。</h4>
+    </section>
 
-    <div id="section2">
+    <section id="section2">
+        <h1>創帳號</h1>
+
+        <div class="row">
+            <div class="col-sm-9">
+                <span class="badge badge-ttl">API</span>
+                <pre> <span class="label label-warning">GET</span> /signup</pre>
+
+                <span class="badge badge-ttl">説明</span>
+                <p>調用創帳號頁面創建 SG 會員帳號。帳號創建成功後，自動登入。</p>
+
+                <span class="badge badge-ttl">範例</span>
+                <pre>http://gameapi.smartgamesltd.com/signup</pre>
+
+                <span class="badge badge-ttl">回傳</span>
+                <ul>
+                    <li>調用回傳頁面的 JavaScript 函式 <code>GetResult()</code> 來取得回傳結果，該函式回傳 JSON 字串。</li>
+                    <li>例如<code>{"code": 301, "msg": "ok"}</code>。</li>
+                    <li>完整 code 定義，<a target="_blank" href="/webapi-init#section5">請參看對照表</a>。</li>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>
+                                回傳值
+                            </th>
+                            <th>
+                                詳細說明
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                code
+                            </td>
+                            <td>
+                                code = 301 為成功，其他都是失敗。
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                openid
+                            </td>
+                            <td>
+                                登入帳號的 SG 平台識別 ID，登入成功後以此 ID 登入遊戲伺服器。
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                sessionid
+                            </td>
+                            <td>
+                                連線的 SessionID，用以二次登入驗證。
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                token
+                            </td>
+                            <td>
+                                成功登入之後可以此 token 進行快速登入，時效7天。
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <span class="badge badge-ttl">UI</span>
+                <a href="<%= "assets/img/" + lang + "/pic08.png" %>" data-toggle="lightbox">
+                    <img src="<%= "assets/img/" + lang + "/pic08.png" %>" class="img-responsive"/>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="section3">
         <h1>登入</h1>
-        <hr>
-        <p> 接口名称：<code>login</code><br/>
-            接口说明：调用登入页面进行登入。<br/>
-            HTTP Method : <code>GET</code><br/>
-            范例：<pre><code class="js">http://gameapi.smartgamesltd.com/login</code></pre>
 
-        <div class="well well-sm">
-            <img src=<%= "assets/img/" + lang + "/pic07.png"%> class="img-responsive"/>
+        <div class="row">
+            <div class="col-sm-9">
+                <span class="badge badge-ttl">API</span>
+                <pre> <span class="label label-warning">GET</span> /login</pre>
+
+                <span class="badge badge-ttl">説明</span>
+                <p>調用登入頁面進行登入。</p>
+
+                <span class="badge badge-ttl">範例</span>
+                <pre>http://gameapi.smartgamesltd.com/login</pre>
+
+                <span class="badge badge-ttl">回傳</span>
+                <ul>
+                    <li>調用回傳頁面的 JavaScript 函式 <code>GetResult()</code> 來取得回傳結果，該函式回傳 JSON 字串。</li>
+                    <li>例如<code>{"code": 201, "msg": "ok"}</code>。</li>
+                    <li>完整 code 定義，<a target="_blank" href="/webapi-init#section5">請參看對照表</a>。</li>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>
+                                回傳值
+                            </th>
+                            <th>
+                                詳細說明
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                code
+                            </td>
+                            <td>
+                                code = 201 為成功，其他都是失敗。
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                openid
+                            </td>
+                            <td>
+                                登入帳號的 SG 平台識別 ID，登入成功後以此 ID 登入遊戲伺服器。
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                sessionid
+                            </td>
+                            <td>
+                                連線的 SessionID，用以二次登入驗證。
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                token
+                            </td>
+                            <td>
+                                成功登入之後可以此 token 進行快速登入，時效7天。
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <span class="badge badge-ttl">UI</span>
+                <a href="<%= "assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
+                    <img src="<%= "assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
+                </a>
+            </div>
         </div>
+    </section>
 
-        调用回传页面的 JavaScript 函式 <code>GetResult()</code> 来取得回传结果。该函式回传 JSON 字串，例如<code>{"code": 1, "msg": "ok"}</code>。<br/>
-        <a href="/webapi-init#section5"> 查看回传值定义 </a>
-        </p>
+    <section id="section4">
+        <h1>查詢密碼</h1>
 
-        <table class="table table-striped"> <!--Gem Start-->
-            <thead>
-            <tr>
-                <th>
-                    变量
-                </th>
-                <th>
-                    详细说明
-                </th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>
-                    Code
-                </td>
-                <td>
-                    code = 201 为成功，其他都是失败。
-                </td>
-            </tr>
+        <div class="row">
+            <div class="col-sm-9">
+                <span class="badge badge-ttl">API</span>
+                <pre> <span class="label label-warning">GET</span> /forgot-password</pre>
 
-            <tr>
-                <td>
-                    OpenID
-                </td>
-                <td>
-                    登入帐号的 SG 平台识別 ID，登入成功后以此 ID 登入游戏伺服器。
-                </td>
-            </tr>
+                <span class="badge badge-ttl">説明</span>
+                <p>調用找回密碼頁面進行重設密碼。</p>
 
-            <tr>
-                <td>
-                    SessionID
-                </td>
-                <td>
-                    连线的 SessionID，用以登入二次验证。
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Token
-                </td>
-                <td>
-                    成功登入后可以此 Token 向渠道 Server 取得帐号资料。
-                </td>
-            </tr>
-            </tbody>
-        </table>
+                <span class="badge badge-ttl">範例</span>
+                <pre>http://gameapi.smartgamesltd.com/forgot-password</pre>
 
-    </div>
-    <br/>
-    <div id="section3">
-        <h1>创帐号</h1>
-        <hr>
-        <p> 接口名称：<code>signup</code><br/>
-            接口说明：调用创帐号页面创建 SG 会员帐号。<br/>
-            HTTP Method : <code>GET</code><br/>
-            范例：<pre><code class="js">http://gameapi.smartgamesltd.com/signup</code></pre>
-
-        <div class="well well-sm">
-            <img src=<%= "assets/img/" + lang + "/pic08.png"%> class="img-responsive"/>
+                <span class="badge badge-ttl">回傳</span>
+                <ul>
+                    <li>調用回傳頁面的 JavaScript 函式 <code>GetResult()</code> 來取得回傳結果，該函式回傳 JSON 字串。</li>
+                    <li>例如<code>{"code": 501, "msg": "ok"}</code>。</li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <span class="badge badge-ttl">UI</span>
+                <a href="<%= "assets/img/" + lang + "/pic09.png" %>" data-toggle="lightbox">
+                    <img src="<%= "assets/img/" + lang + "/pic09.png" %>" class="img-responsive"/>
+                </a>
+            </div>
         </div>
+    </section>
 
-        调用回传页面的 JavaScript 函式 <code>GetResult()</code> 来取得回传结果。该函式回传 JSON 字串，例如<code>{"code": 1, "msg": "ok"}</code>。<br/>
-        <a href="/webapi-init#section5"> 查看回传值定义 </a>
-        </p>
+    <section id="section5">
+        <h1>變更密碼</h1>
 
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>
-                    变量
-                </th>
-                <th>
-                    详细说明
-                </th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>
-                    Code
-                </td>
-                <td>
-                    code = 301 为成功，其他都是失败。
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    OpenID
-                </td>
-                <td>
-                    登入帐号的 SG 平台识別 ID，登入成功后以此 ID 登入游戏伺服器。
-                </td>
-            </tr>
+        <div class="row">
+            <div class="col-sm-9">
+                <span class="badge badge-ttl">API</span>
+                <pre> <span class="label label-warning">GET</span> /change-password</pre>
 
-            <tr>
-                <td>
-                    SessionID
-                </td>
-                <td>
-                    连线的 SessionID，用以登入二次验证。
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Token
-                </td>
-                <td>
-                    成功登入后可以此 Token 向渠道 Server 取得帐号资料。
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-    <br/>
-    <div id="section4">
-        <h1>查询密码</h1>
-        <hr>
-        <p> 接口名称：<code>forgot-password</code><br/>
-            接口说明：调用找回密码页面进行重设密码。<br/>
-            HTTP Method : <code>GET</code><br/>
-            范例：<pre><code class="js">http://gameapi.smartgamesltd.com/forgot-password</code></pre>
+                <span class="badge badge-ttl">説明</span>
+                <p>調用變更密碼頁面。</p>
 
-        <div class="well well-sm">
-            <img src=<%= "assets/img/" + lang + "/pic09.png"%> class="img-responsive"/>
+                <span class="badge badge-ttl">範例</span>
+                <pre>http://gameapi.smartgamesltd.com/change-password</pre>
+
+                <span class="badge badge-ttl">回傳</span>
+                <ul>
+                    <li>調用回傳頁面的 JavaScript 函式 <code>GetResult()</code> 來取得回傳結果，該函式回傳 JSON 字串。</li>
+                    <li>例如<code>{"code": 601, "msg": "ok"}</code>。</li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <span class="badge badge-ttl">UI</span>
+                <a href="<%= "assets/img/" + lang + "/pic10.png" %>" data-toggle="lightbox">
+                    <img src="<%= "assets/img/" + lang + "/pic10.png" %>" class="img-responsive"/>
+                </a>
+            </div>
         </div>
+    </section>
 
-        调用回传页面的 JavaScript 函式 <code>GetResult()</code> 来取得回传结果。该函式回传 JSON 字串，例如<code>{"code": 1, "msg": "ok"}</code>。<br/>
-        <a href="/webapi-init#section5"> 查看回传值定义 </a>
-        </p>
-    </div>
-    <br/>
-    <div id="section5">
-        <h1>变更密码</h1>
-        <hr>
-        <p> 接口名称：<code>change-password</code><br/>
-            接口说明：调用变更密码页面。<br/>
-            HTTP Method : <code>GET</code><br/>
-            范例：<pre><code class="js">http://gameapi.smartgamesltd.com/change-password</code></pre>
+    <section id="section6">
+        <h1>家長安全鎖</h1>
+        <div class="row">
+            <div class="col-sm-9">
+                <span class="badge badge-ttl">API</span>
+                <pre> <span class="label label-warning">GET</span> /parental-lock</pre>
 
-        <div class="well well-sm">
-            <img src=<%= "assets/img/" + lang + "/pic10.png"%> class="img-responsive"/>
+                <span class="badge badge-ttl">説明</span>
+                <p>在呼叫帳號設置前需要先呼叫家長安全鎖，以防孩童誤擊重要功能。</p>
+
+                <span class="badge badge-ttl">範例</span>
+                <pre>http://gameapi.smartgamesltd.com/parental-lock</pre>
+
+                <span class="badge badge-ttl">回傳</span>
+                <p>正確輸入安全碼後會自動轉跳至 my-account 頁面。若尚未建立任何孩童資料則會轉跳至 my-kid 頁面。</p>
+            </div>
+            <div class="col-sm-3">
+                <span class="badge badge-ttl">UI</span>
+                <a href="<%= "assets/img/" + lang + "/pic11.png" %>" data-toggle="lightbox">
+                    <img src="<%= "assets/img/" + lang + "/pic11.png" %>" class="img-responsive"/>
+                </a>
+            </div>
         </div>
+    </section>
 
-        调用回传页面的 JavaScript 函式 <code>GetResult()</code> 来取得回传结果。该函式回传 JSON 字串，例如<code>{"code": 1, "msg": "ok"}</code>。<br/>
-        <a href="/webapi-init#section5"> 查看回传值定义 </a>
-        </p>
-    </div>
-    <br/>
-    <div id="section6">
-        <h1>家长安全操作</h1>
-        <hr>
-        <p> 接口名称：<code>parental-lock</code><br/>
-            接口说明：在呼叫帐号设置前需要先呼叫家长安全操作页面以防孩童误击重要功能。<br/>
-            HTTP Method : <code>GET</code><br/>
-            范例：<pre><code class="js">http://gameapi.smartgamesltd.com/parental-lock</code></pre>
+    <section id="section7">
+        <h1>設置孩童資料</h1>
 
-        <div class="well well-sm">
-            <img src=<%= "assets/img/" + lang + "/pic11.png"%> class="img-responsive"/>
+        <div class="row">
+            <div class="col-sm-9">
+                <span class="badge badge-ttl">API</span>
+                <pre> <span class="label label-warning">GET</span> /my-kid</pre>
+
+                <span class="badge badge-ttl">説明</span>
+                <p>調用新增孩童資料頁面。</p>
+
+                <span class="badge badge-ttl">範例</span>
+                <pre>http://gameapi.smartgamesltd.com/my-kid</pre>
+
+                <span class="badge badge-ttl">回傳</span>
+                <ul>
+                    <li>調用回傳頁面的 JavaScript 函式 <code>GetResult()</code> 來取得回傳結果，該函式回傳 JSON 字串。</li>
+                    <li>例如<code>{"code": 801, "msg": "ok"}</code>。</li>
+                    <li>完整 code 定義，<a target="_blank" href="/webapi-init#section5">請參看對照表</a>。</li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <span class="badge badge-ttl">UI</span>
+                <a href="<%= "assets/img/" + lang + "/pic12.png" %>" data-toggle="lightbox">
+                    <img src="<%= "assets/img/" + lang + "/pic12.png" %>" class="img-responsive"/>
+                </a>
+            </div>
         </div>
+    </section>
 
-        返回值：无<br/>
-        后续处理：正确输入安全码后会自动转跳至 my-account 页面。若尚未建立任何孩童资料则会转跳至 my-kid 页面。
-        </p>
-    </div>
-    <br/>
-    <div id="section7">
-        <h1>设置孩童资料</h1>
-        <hr>
-        <p> 接口名称：<code>my-kid</code><br/>
-            接口说明：调用新增孩童资料页面。<br/>
-            HTTP Method : <code>GET</code><br/>
-            范例：<pre><code class="js">http://gameapi.smartgamesltd.com/my-kid</code></pre>
+    <section id="section8">
+        <h1>帳號資訊</h1>
 
-        <div class="well well-sm">
-            <img src=<%= "assets/img/" + lang + "/pic12.png"%> class="img-responsive"/>
+        <div class="row">
+            <div class="col-sm-9">
+                <span class="badge badge-ttl">API</span>
+                <pre> <span class="label label-warning">GET</span> /my-account</pre>
+
+                <span class="badge badge-ttl">説明</span>
+                <p>調用帳號總覽頁面，以瀏覽帳號與孩童遊戲紀錄。</p>
+
+                <span class="badge badge-ttl">範例</span>
+                <pre>http://gameapi.smartgamesltd.com/my-account</pre>
+
+                <span class="badge badge-ttl">回傳</span>
+                <p>返回帳號資訊頁面。</p>
+            </div>
+            <div class="col-sm-3">
+                <span class="badge badge-ttl">UI</span>
+                <a href="<%= "assets/img/" + lang + "/pic13.png" %>" data-toggle="lightbox">
+                    <img src="<%= "assets/img/" + lang + "/pic13.png" %>" class="img-responsive"/>
+                </a>
+            </div>
         </div>
+    </section>
 
-        调用回传页面的 JavaScript 函式 <code>GetResult()</code> 来取得回传结果。该函式回传 JSON 字串，例如<code>{"code": 1, "msg": "ok"}</code>。<br/>
-        <a href="/webapi-init#section5"> 查看回传值定义 </a>
-        </p>
-        <br/>
-    </div>
-    <br/>
-    <div id="section8">
-        <h1>帐号资讯</h1>
-        <hr>
-        <p> 接口名称：<code>my-account</code><br/>
-            接口说明：调用帐号总览页面，以浏览帐号与孩童游戏纪录。<br/>
-            HTTP Method : <code>GET</code><br/>
-            范例：<pre><code class="js">http://gameapi.smartgamesltd.com/my-account</code></pre>
+    <section id="section9">
+        <h1>取得用戶 Open ID</h1>
 
-        <div class="well well-sm">
-            <img src=<%= "assets/img/" + lang + "/pic13.png"%> class="img-responsive"/>
+        <div class="row">
+            <span class="badge badge-ttl">API</span>
+            <pre> <span class="label label-warning">GET</span> /openid</pre>
+
+            <span class="badge badge-ttl">説明</span>
+            <p>登入成功後才可調用，取得用戶唯一識別 ID (SG ID)，以此 ID 登入遊戲伺服器。</p>
+
+            <span class="badge badge-ttl">範例</span>
+            <pre>http://gameapi.smartgamesltd.com/openid</pre>
+
+            <span class="badge badge-ttl">回傳</span>
+            <p>取得用戶 Open ID 返回值以 JSON 格式回傳，例如<code>{"OpenID": 100001}</code>。</p>
         </div>
+    </section>
 
-        返回值：无
-        </p>
-    </div>
-    <br/>
-    <div id="section9">
-        <h1>取得用户 Open ID</h1>
-        <hr>
-        <p> 接口名称：<code>openid</code><br/>
-            接口说明：取得用户唯一识別 ID (SG ID)，以此 ID 登入游戏伺服器。<br/>
-            HTTP Method : <code>GET</code><br/>
-            范例：<pre><code class="js">http://gameapi.smartgamesltd.com/openid</code></pre>
-        返回值：取得用户 Open ID 返回值以 JSON 格式回传，例如<code>{"openid": 100001}</code>。
-        </p>
-    </div>
-    <br/>
-    <div id="section10">
-        <h1>Session ID 登入验证</h1>
-        <hr>
-        <p>
-            接口名称：<code>verifysession</code><br/>
-            接口说明：使用 SessionID 取得登入帐号资讯。
-            参数列表： <br/>
-        </p>
-        <table class="table table-striped"> <!--Gem Start-->
-            <thead>
-            <tr>
-                <th>
-                    参数名称
-                </th>
-                <th>
-                    参数说明
-                </th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>
-                    appId
-                </td>
-                <td>
-                    开发者申请开通游戏后取得的gamekey。例如 d7e73390-d7fd-11e6-9074-21c247f06802
-                </td>
-            </tr>
-            <tr class>
-                <td>
-                    session
-                </td>
-                <td>
-                    登入成功后取得的 sessionID。
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    uid
-                </td>
-                <td>
-                    登入成功后取得的openid。
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    signature
-                </td>
-                <td>
-                    登入成功后回传的sign。
-                </td>
-            </tr>
+    <section id="section10">
+        <h1>Token 快速登入</h1>
 
-            </tbody>
-        </table>
-        <p>
-            HTTP Method : <code>GET</code><br/>
-            范例：<pre><code class="js">http://gameapi.smartgamesltd.com/verifysession?appId=d7e73390-d7fd-11e6-9074-21c247f06802&session=xxxx&uid=10000000&signature=xxxx</code></pre>
-        返回值：回传 JSON 字串。<br/>
-        例如<code>{"Account" : "abc@gmail.com", "OpenID" : 1000000000, "EMail" : "abc@gmail.com"}</code>。<br/>
-        </p>
-    </div>
-    <br/>
-    <div id="section11">
-        <h1>Token 登入验证</h1>
-        <hr>
-        <p>
-            接口名称：<code>verifytoken</code><br/>
-            接口说明：使用 Token 取得登入帐号资讯。<br/>
-            参数：token（登入成功后取得）<br/>
-            HTTP Method : <code>GET</code><br/>
-            范例：<pre><code class="js">http://gameapi.smartgamesltd.com/verifytoken?token=xxxxx</code></pre>
-        返回值：回传 JSON 字串。<br/>
-        例如<code>{"Account" : "abc@gmail.com", "OpenID" : 1000000000, "EMail" : "abc@gmail.com"}</code>。<br/>
-        </p>
-    </div>
-    <br/>
-    <div id="section12">
+        <div class="row">
+            <span class="badge badge-ttl">API</span>
+            <pre> <span class="label label-success">POST</span> /loginbytoken</pre>
+
+            <span class="badge badge-ttl">説明</span>
+            <p>使用 Token 快速登入，同時取得帳號資訊。</p>
+
+            <span class="badge badge-ttl">範例</span>
+            <pre>http://gameapi.smartgamesltd.com/loginbytoken?token=my_token</pre>
+
+            <span class="badge badge-ttl">參數</span>
+            <p>token：登入成功後取得。</p>
+
+            <span class="badge badge-ttl">回傳</span>
+            <ul>
+                <li>回傳 <a target="_blank" href="/webapi-init#SGMember">SGMember</a> 格式JSON 字串。code 1001 為登入成功，其它則為登入失敗。</li>
+                <li>例如<code>{"code" : "1001", "msg" : "ok", "Account" : "abc@gmail.com", "OpenID" : 1000000000, "EMail" : "abc@gmail.com"}</code>。</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="section11">
+        <h1>Session ID 登入驗證</h1>
+
+        <div class="row">
+            <span class="badge badge-ttl">API</span>
+            <pre> <span class="label label-success">POST</span> /verifysession</pre>
+
+            <span class="badge badge-ttl">説明</span>
+            <p>以 SessionID 取得登入帳號資訊。串接其他渠道二次登入驗證使用。</p>
+
+            <span class="badge badge-ttl">範例</span>
+            <pre>http://gameapi.smartgamesltd.com/verifysession?gamekey=my_gamekey&sessionid=my_sessionid&openid=my_openid&sign=my_sign</pre>
+
+            <span class="badge badge-ttl">參數</span>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>
+                        參數名稱
+                    </th>
+                    <th>
+                        參數說明
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        gamekey
+                    </td>
+                    <td>
+                        開發者申請開通遊戲後取得的gamekey。
+                    </td>
+                </tr>
+                <tr class>
+                    <td>
+                        sessionid
+                    </td>
+                    <td>
+                        登入成功後取得的 sessionID。
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        openid
+                    </td>
+                    <td>
+                        登入成功後取得的 openid。
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        sign
+                    </td>
+                    <td>
+                        登入成功後回傳的 sign。
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+
+            <span class="badge badge-ttl">回傳</span>
+            <ul>
+                <li>回傳 <a target="_blank" href="/webapi-init#SGMember">SGMember</a> 格式JSON 字串。</li>
+                <li>例如<code>{"Account" : "abc@gmail.com", "OpenID" : 1000000000, "EMail" : "abc@gmail.com"}</code>。</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="section12">
         <h1>登出</h1>
-        <hr>
-        <p>
-            接口名称：<code>logout</code><br/>
-            接口说明：帐号登出<br/>
-            HTTP Method : <code>GET</code><br/>
-            范例：<pre><code class="js">http://gameapi.smartgamesltd.com/logout</code></pre>
-        返回值：无
-        </p>
-    </div>
+
+        <div class="row">
+            <span class="badge badge-ttl">API</span>
+            <pre> <span class="label label-warning">GET</span> /logout</pre>
+
+            <span class="badge badge-ttl">説明</span>
+            <p>帳號登出</p>
+
+            <span class="badge badge-ttl">範例</span>
+            <pre>http://gameapi.smartgamesltd.com/logout</pre>
+
+            <span class="badge badge-ttl">回傳</span>
+            <ul>
+                <li>調用回傳頁面的 JavaScript 函式 <code>GetResult()</code> 來取得回傳結果，該函式回傳 JSON 字串。</li>
+                <li>例如<code>{"code": 1501, "msg": "ok"}</code>。</li>
+            </ul>
+        </div>
+    </section>
 </div>
