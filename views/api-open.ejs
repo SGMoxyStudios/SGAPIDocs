@@ -1,4 +1,5 @@
 <div class="left-side" id="myScrollspy">
+
     <ul class="nav nav-pills">
         <li><a href="#section1"><%=texts.p1s1%></a></li>
         <li><a href="#section2"><%=texts.p1s2%></a></li>
@@ -9,32 +10,30 @@
 </div>
 
 <div class="right-side">
-    <div id="section1">
+    <section id="section1">
         <h1> <%=texts.p1s1%> </h1>
-        <hr>
-    </div>
-    <div id="section2">
-        <h1> <%=texts.p1s2%> </h1>
-        <hr>
-        <h4> <%=texts.p1h21%> <a target="_blank" href="http://dashboard.smartgamesltd.com/signup">http://dashboard.smartgamesltd.com/signup</a> <%=texts.p1h22%> </h4>
+        <p> <%=texts.p1h1%> </p>
+    </section>
+
+    <section id="section2">
+        <h3> <%=texts.p1s2%> </h3>
+        <p> <%=texts.p1h21%> <a target="_blank" href="http://dashboard.smartgamesltd.com/signup">http://dashboard.smartgamesltd.com/signup</a> <%=texts.p1h22%> </p>
         <img src=<%= "assets/img/" + lang + "/pic01.png"%> class="img-responsive"/>
-    </div>
-    <div id="section3">
-        <h1> <%=texts.p1s3%> </h1>
-        <hr>
-        <h4> <%=texts.p1h3%> </h4>
-    </div>
-    <div id="section4">
-        <h1> <%=texts.p1s4%> </h1>
-        <hr>
-        <h4> <%=texts.p1h41%> <a target="_blank" href="http://dashboard.smartgamesltd.com/my-game">http://dashboard.smartgamesltd.com/my-game</a> <%=texts.p1h42%> </h4>
-        <div class="well well-sm">
-            <img src=<%= "assets/img/" + lang + "/pic02.png"%> class="img-responsive"/>
-        </div>
-    </div>
-    <div id="section5">
-        <h1> <%=texts.p1s5%> </h1>
-        <hr>
-        <h4> <%=texts.p1h5%> </h4>
-    </div>
+    </section>
+
+    <section id="section3">
+        <h3> <%=texts.p1s3%> </h3>
+        <p> <%=texts.p1h3%> </p>
+    </section>
+
+    <section id="section4">
+        <h3> <%=texts.p1s4%> </h3>
+        <p> <%=texts.p1h41%> <a target="_blank" href="http://dashboard.smartgamesltd.com/my-game">http://dashboard.smartgamesltd.com/my-game</a> <%=texts.p1h42%> </p>
+        <img src=<%= "assets/img/" + lang + "/pic02.png"%> class="img-responsive"/>
+    </section>
+
+    <section id="section5">
+        <h3> <%=texts.p1s5%> </h3>
+        <p> <%=texts.p1h5%> </p>
+    </section>
 </div>

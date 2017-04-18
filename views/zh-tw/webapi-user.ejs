@@ -10,8 +10,8 @@
         <li><a href="#section7">設置孩童資料</a></li>
         <li><a href="#section8">帳號資訊</a></li>
         <li><a href="#section9">取得用戶 Open ID</a></li>
-        <li><a href="#section10">Session ID 登入驗證</a></li>
-        <li><a href="#section11">Token 登入驗證</a></li>
+        <li><a href="#section10">Token 登入驗證</a></li>
+        <li><a href="#section11">Session ID 登入驗證</a></li>
         <li><a href="#section12">登出</a></li>
     </ul>
 
@@ -20,7 +20,7 @@
 <div class="right-side">
     <section id="section1">
         <h1>Web API 用戶系統接口</h1>
-        <h4>用戶系統接口包含創帳號、登入、查詢密碼、變更密碼、家長安全操作、設置孩童資料、帳號總覽、取得用戶 ID、登出，跟 SG 會員帳號相關等功能。</h4>
+        <h4>用戶系統接口包含創帳號、登入、查詢密碼、家長安全鎖、設置孩童資料、帳號總覽、登出等跟 SG 會員帳號相關等功能。</h4>
     </section>
 
     <section id="section2">
@@ -32,7 +32,7 @@
                 <pre> <span class="label label-warning">GET</span> /signup</pre>
 
                 <span class="badge badge-ttl">説明</span>
-                <p>調用創帳號頁面創建 SG 會員帳號。</p>
+                <p>調用創帳號頁面創建 SG 會員帳號。帳號創建成功後，自動登入。</p>
 
                 <span class="badge badge-ttl">範例</span>
                 <pre>http://gameapi.smartgamesltd.com/signup</pre>
@@ -274,9 +274,6 @@
                 <span class="badge badge-ttl">範例</span>
                 <pre>http://gameapi.smartgamesltd.com/my-kid</pre>
 
-                <span class="badge badge-ttl">參數</span>
-                <p>無。</p>
-
                 <span class="badge badge-ttl">回傳</span>
                 <ul>
                     <li>調用回傳頁面的 JavaScript 函式 <code>GetResult()</code> 來取得回傳結果，該函式回傳 JSON 字串。</li>
@@ -308,7 +305,7 @@
                 <pre>http://gameapi.smartgamesltd.com/my-account</pre>
 
                 <span class="badge badge-ttl">回傳</span>
-                <p>返回帳號資訊 WebView 頁面。</p>
+                <p>返回帳號資訊頁面。</p>
             </div>
             <div class="col-sm-3">
                 <span class="badge badge-ttl">UI</span>
@@ -327,7 +324,7 @@
             <pre> <span class="label label-warning">GET</span> /openid</pre>
 
             <span class="badge badge-ttl">説明</span>
-            <p>取得用戶唯一識別 ID (SG ID)，以此 ID 登入遊戲伺服器。</p>
+            <p>登入成功後才可調用，取得用戶唯一識別 ID (SG ID)，以此 ID 登入遊戲伺服器。</p>
 
             <span class="badge badge-ttl">範例</span>
             <pre>http://gameapi.smartgamesltd.com/openid</pre>
@@ -338,6 +335,30 @@
     </section>
 
     <section id="section10">
+        <h1>Token 快速登入</h1>
+
+        <div class="row">
+            <span class="badge badge-ttl">API</span>
+            <pre> <span class="label label-success">POST</span> /loginbytoken</pre>
+
+            <span class="badge badge-ttl">説明</span>
+            <p>使用 Token 快速登入，同時取得帳號資訊。</p>
+
+            <span class="badge badge-ttl">範例</span>
+            <pre>http://gameapi.smartgamesltd.com/loginbytoken?token=my_token</pre>
+
+            <span class="badge badge-ttl">參數</span>
+            <p>token：登入成功後取得。</p>
+
+            <span class="badge badge-ttl">回傳</span>
+            <ul>
+                <li>回傳 <a target="_blank" href="/webapi-init#SGMember">SGMember</a> 格式JSON 字串。code 1001 為登入成功，其它則為登入失敗。</li>
+                <li>例如<code>{"code" : "1001", "msg" : "ok", "Account" : "abc@gmail.com", "OpenID" : 1000000000, "EMail" : "abc@gmail.com"}</code>。</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="section11">
         <h1>Session ID 登入驗證</h1>
 
         <div class="row">
@@ -348,7 +369,7 @@
             <p>以 SessionID 取得登入帳號資訊。串接其他渠道二次登入驗證使用。</p>
 
             <span class="badge badge-ttl">範例</span>
-            <pre>http://gameapi.smartgamesltd.com/verifysession?gamekey=my_gamekey&sessionid=my_sessionid&openid=my_openid&signature=my_signature</pre>
+            <pre>http://gameapi.smartgamesltd.com/verifysession?gamekey=my_gamekey&sessionid=my_sessionid&openid=my_openid&sign=my_sign</pre>
 
             <span class="badge badge-ttl">參數</span>
             <table class="table table-striped">
@@ -365,7 +386,7 @@
                 <tbody>
                 <tr>
                     <td>
-                        game_key
+                        gamekey
                     </td>
                     <td>
                         開發者申請開通遊戲後取得的gamekey。例如 d7e73390-d7fd-11e6-9074-21c247f06802
@@ -373,7 +394,7 @@
                 </tr>
                 <tr class>
                     <td>
-                        session_id
+                        sessionid
                     </td>
                     <td>
                         登入成功後取得的 sessionID。
@@ -381,7 +402,7 @@
                 </tr>
                 <tr>
                     <td>
-                        open_id
+                        openid
                     </td>
                     <td>
                         登入成功後取得的 openid。
@@ -403,30 +424,6 @@
             <ul>
                 <li>回傳 <a target="_blank" href="/webapi-init#SGMember">SGMember</a> 格式JSON 字串。</li>
                 <li>例如<code>{"Account" : "abc@gmail.com", "OpenID" : 1000000000, "EMail" : "abc@gmail.com"}</code>。</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="section11">
-        <h1>Token 快速登入</h1>
-
-        <div class="row">
-            <span class="badge badge-ttl">API</span>
-            <pre> <span class="label label-success">POST</span> /loginbytoken</pre>
-
-            <span class="badge badge-ttl">説明</span>
-            <p>使用 Token 取得登入帳號資訊。</p>
-
-            <span class="badge badge-ttl">範例</span>
-            <pre>http://gameapi.smartgamesltd.com/loginbytoken?token=my_token</pre>
-
-            <span class="badge badge-ttl">參數</span>
-            <p>token：登入成功後取得。</p>
-
-            <span class="badge badge-ttl">回傳</span>
-            <ul>
-                <li>回傳 <a target="_blank" href="/webapi-init#SGMember">SGMember</a> 格式JSON 字串。code 1001 為登入成功，其它則為登入失敗。</li>
-                <li>例如<code>{"code" : "1001", "msg" : "ok", "Account" : "abc@gmail.com", "OpenID" : 1000000000, "EMail" : "abc@gmail.com"}</code>。</li>
             </ul>
         </div>
     </section>

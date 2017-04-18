@@ -14,76 +14,74 @@
 <div class="right-side">
     <section id="section1">
         <h1>Web API 使用指南</h1>
-        <p>開發者在串接 SG Game API 時，可透過呼叫 Web API 的方式來完成各種功能。通過本文的介紹可以了解客戶端接入的整個流程。在接入之前請認真閱讀本文檔，以減少接入過程中遇到的問題。</p>
+        <p>開發者在串接 SG API 時，可透過呼叫 Web API 的方式來完成各種功能。通過本文的介紹可以了解客戶端接入的整個流程。在接入之前請認真閱讀本文檔，以減少接入過程中遇到的問題。</p>
     </section>
 
     <section id="section2">
         <h1> 調用 API 頁面 </h1>
         <p>開發者可透過呼叫網址
-            <a target="_blank" href="http://gameapi.smartgamesltd.com/">http://gameapi.smartgamesltd.com/</a>調用 SG Game API 各個接口。
+            <a target="_blank" href="http://gameapi.smartgamesltd.com/">http://gameapi.smartgamesltd.com/</a> 調用 SG API 各個接口。
         </p>
     </section>
 
     <section id="section3">
         <h1>API 初始化</h1>
-        <p>在調用其他接口前，必須先調用 <code>init</code> 通過驗證。
-        <div class="row">
-            <span class="badge badge-ttl">API</span>
-            <pre><span class="label label-warning">GET</span> <span class="label label-success">POST</span> /init </pre>
 
-            <span class="badge badge-ttl">説明</span>
-            <p>調用 SG Game API 之前需要先調用 init 接口，進行初始化。</p>
+        <span class="badge badge-ttl">API</span>
+        <pre><span class="label label-warning">GET</span> <span class="label label-success">POST</span> /init </pre>
 
-            <span class="badge badge-ttl">範例</span>
-            <pre>http://gameapi.smartgamesltd.com/init?gamekey=my_gamekey&appsecret=my_appsecret&channel=my_channel</pre>
+        <span class="badge badge-ttl">説明</span>
+        <p>調用其他 SG API 之前需要先調用 <code>init</code>，通過驗證進行初始化。</p>
 
-            <span class="badge badge-ttl">參數</span>
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th>
-                        參數名稱
-                    </th>
-                    <th>
-                        參數說明
-                    </th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>
-                        gamekey
-                    </td>
-                    <td>
-                        可以在 <a target="_blank" href="http://dashboard.smartgamesltd.com">SG Developer</a> 申請開通遊戲後取。
-                    </td>
-                </tr>
-                <tr class>
-                    <td>
-                        appsecret
-                    </td>
-                    <td>
-                        可以在 <a target="_blank" href="http://dashboard.smartgamesltd.com">SG Developer</a> 申請開通遊戲後取。
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        channel
-                    </td>
-                    <td>
-                        發佈遊戲的 <a target="_blank" href="/channel">渠道代碼</a> 。
-                    </td>
-                </tr>
+        <span class="badge badge-ttl">範例</span>
+        <pre>http://gameapi.smartgamesltd.com/init?gamekey=my_gamekey&appsecret=my_appsecret&channel=my_channel</pre>
 
-                </tbody>
-            </table>
+        <span class="badge badge-ttl">參數</span>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>
+                    參數名稱
+                </th>
+                <th>
+                    參數說明
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    gamekey
+                </td>
+                <td>
+                    可以在 <a target="_blank" href="http://dashboard.smartgamesltd.com">SG Developer</a> 申請開通遊戲後取。
+                </td>
+            </tr>
+            <tr class>
+                <td>
+                    appsecret
+                </td>
+                <td>
+                    可以在 <a target="_blank" href="http://dashboard.smartgamesltd.com">SG Developer</a> 申請開通遊戲後取。
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    channel
+                </td>
+                <td>
+                    發佈遊戲的 <a target="_blank" href="/channel">渠道代碼</a> 。
+                </td>
+            </tr>
 
-            <span class="badge badge-ttl">回傳</span>
-            <ul>
-                <li>返回值以JSON格式回傳，例如<code>{"code": 1, "msg": "ok"}</code>。</li>
-                <li><a href="#section5"> 查看回傳值定義 </a></li>
-            </ul>
-        </div>
+            </tbody>
+        </table>
+
+        <span class="badge badge-ttl">回傳</span>
+        <ul>
+            <li>返回值以 JSON 格式回傳，例如<code>{"code": 1, "msg": "ok"}</code>。</li>
+            <li><a href="#section5"> 查看回傳值定義 </a></li>
+        </ul>
     </section>
 
     <section id="section4">
@@ -194,6 +192,11 @@
                         <td>SG 會員 ID。</td>
                     </tr>
                     <tr>
+                        <td>Token</td>
+                        <td>string</td>
+                        <td>登入後取得的 token，7天有效期限。</td>
+                    </tr>
+                    <tr>
                         <td>CreateTime</td>
                         <td>DateTime</td>
                         <td>創帳號時間。</td>
@@ -287,25 +290,25 @@
                         <th>描述</th>
                     </tr>
                     <tr>
-                        <td>productId</td>
+                        <td>ProductID</td>
                         <td>string</td>
                         <td><i class="fa fa-check"></i></td>
                         <td>產品代號（GooglePlay 的 IAP ID）</td>
                     </tr>
                     <tr>
-                        <td>productName</td>
+                        <td>ProductName</td>
                         <td>string</td>
                         <td><i class="fa fa-check"></i></td>
                         <td>產品名稱</td>
                     </tr>
                     <tr>
-                        <td>productDesc</td>
+                        <td>ProductDesc</td>
                         <td>string</td>
                         <td></td>
                         <td>產品描述</td>
                     </tr>
                     <tr>
-                        <td>paymentMethod</td>
+                        <td>PaymentMethod</td>
                         <td>string</td>
                         <td></td>
                         <td>
@@ -317,7 +320,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>paymentChannel</td>
+                        <td>PaymentChannel</td>
                         <td>string</td>
                         <td><i class="fa fa-check"></i></td>
                         <td>
@@ -328,55 +331,55 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>price</td>
+                        <td>Price</td>
                         <td>float</td>
                         <td><i class="fa fa-check"></i></td>
                         <td>產品價格</td>
                     </tr>
                     <tr>
-                        <td>serverId</td>
+                        <td>ServerID</td>
                         <td>string</td>
                         <td></td>
                         <td>伺服器代號</td>
                     </tr>
                     <tr>
-                        <td>serverName</td>
+                        <td>ServerName</td>
                         <td>string</td>
                         <td></td>
                         <td>伺服器名稱</td>
                     </tr>
                     <tr>
-                        <td>roleId</td>
+                        <td>RoleID</td>
                         <td>string</td>
                         <td></td>
                         <td>角色代號</td>
                     </tr>
                     <tr>
-                        <td>roleName</td>
+                        <td>RoleName</td>
                         <td>string</td>
                         <td></td>
                         <td>角色名稱</td>
                     </tr>
                     <tr>
-                        <td>roleLevel</td>
+                        <td>RoleLevel</td>
                         <td>int</td>
                         <td></td>
                         <td>角色等級</td>
                     </tr>
                     <tr>
-                        <td>notify_url</td>
+                        <td>NotifyUrl</td>
                         <td>string</td>
                         <td></td>
                         <td>驗證地址。用以通知Game Server，驗證後發送道具。</td>
                     </tr>
                     <tr>
-                        <td>orderId</td>
+                        <td>OrderID</td>
                         <td>string</td>
                         <td></td>
                         <td>訂單編號</td>
                     </tr>
                     <tr>
-                        <td>receipt</td>
+                        <td>ReceiptData</td>
                         <td>string</td>
                         <td></td>
                         <td>IAP Vender 收據</td>
@@ -406,27 +409,27 @@
                         <td>狀態描述</td>
                     </tr>
                     <tr>
-                        <td>sign</td>
+                        <td>Sign</td>
                         <td>string</td>
                         <td>由SG Server產生的簽名</td>
                     </tr>
                     <tr>
-                        <td>productId</td>
+                        <td>ProductID</td>
                         <td>string</td>
                         <td>產品代號（GooglePlay 的 IAP ID）</td>
                     </tr>
                     <tr>
-                        <td>productName</td>
+                        <td>ProductName</td>
                         <td>string</td>
                         <td>產品名稱</td>
                     </tr>
                     <tr>
-                        <td>productDesc</td>
+                        <td>ProductDesc</td>
                         <td>string</td>
                         <td>產品描述</td>
                     </tr>
                     <tr>
-                        <td>paymentMethod</td>
+                        <td>PaymentMethod</td>
                         <td>string</td>
                         <td>
                             產品種類：<br />
@@ -435,7 +438,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>paymentChannel</td>
+                        <td>PaymentChannel</td>
                         <td>string</td>
                         <td>
                             平台： <br />
@@ -445,47 +448,47 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>price</td>
+                        <td>Price</td>
                         <td>float</td>
                         <td>產品價格</td>
                     </tr>
                     <tr>
-                        <td>serverId</td>
+                        <td>ServerID</td>
                         <td>string</td>
                         <td>伺服器代號</td>
                     </tr>
                     <tr>
-                        <td>serverName</td>
+                        <td>ServerName</td>
                         <td>string</td>
                         <td>伺服器名稱</td>
                     </tr>
                     <tr>
-                        <td>roleId</td>
+                        <td>RoleID</td>
                         <td>string</td>
                         <td>角色代號</td>
                     </tr>
                     <tr>
-                        <td>roleName</td>
+                        <td>RoleName</td>
                         <td>string</td>
                         <td>角色名稱</td>
                     </tr>
                     <tr>
-                        <td>roleLevel</td>
+                        <td>RoleLevel</td>
                         <td>int</td>
                         <td>角色等級</td>
                     </tr>
                     <tr>
-                        <td>notify_url</td>
+                        <td>NotifyUrl</td>
                         <td>string</td>
                         <td>驗證地址。用以通知Game Server，驗證後發送道具。</td>
                     </tr>
                     <tr>
-                        <td>orderId</td>
+                        <td>OrderID</td>
                         <td>string</td>
                         <td>訂單編號</td>
                     </tr>
                     <tr>
-                        <td>receipt</td>
+                        <td>ReceiptData</td>
                         <td>string</td>
                         <td>IAP Vender 收據</td>
                     </tr>

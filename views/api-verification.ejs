@@ -1,13 +1,22 @@
+<div class="left-side" id="myScrollspy">
 
-    <div id="section1">
+    <ul class="nav nav-pills">
+        <li><a href="#section1"><%=texts.p6s1%></a></li>
+        <li><a href="#section2"><%=texts.p6s2%></a></li>
+    </ul>
+
+</div>
+
+<div class="right-side">
+    <section id="section1">
         <h1><%=texts.p6s1%></h1>
-        <hr>
-        <h4> <%=texts.p6h11%> <a target="_blank" href="http://dashboard.smartgamesltd.com/my-game">http://dashboard.smartgamesltd.com/my-game</a> <%=texts.p6h12%> </h4>
+        <p> <%=texts.p6h11%> <a target="_blank" href="http://dashboard.smartgamesltd.com/my-game">http://dashboard.smartgamesltd.com/my-game</a> <%=texts.p6h12%> </p>
         <img src=<%= "assets/img/" + lang + "/pic03.png"%> class="img-responsive"/>
-    </div>
-    <div id="section2">
+    </section>
+
+    <section id="section2">
         <h1><%=texts.p6s2%></h1>
-        <hr>
-        <h4><%=texts.p6h2%></h4>
+        <p><%=texts.p6h2%></p>
         <img src=<%= "assets/img/" + lang + "/pic04.png"%> class="img-responsive"/>
-    </div>
+    </section>
+</div>
