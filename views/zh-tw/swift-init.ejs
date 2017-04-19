@@ -23,8 +23,8 @@
         </ul>
         <h3>2.下載 SGSDK iOS framework</h3>
         <ul>
-            <li><a href="/sdk/ios/debug/SgSDK.framework.zip" download>SGSDK Framework (debug, 用於模擬器)</a></li>
-            <li><a href="/sdk/ios/release/SgSDK.framework.zip" download>SGSDK Framework (release, 用於真實裝置)</a></li>
+            <li><a href="/sdk/ios/debug/SGSDK.framework.zip" download>SGSDK Framework (debug, 用於模擬器)</a></li>
+            <li><a href="/sdk/ios/release/SGSDK.framework.zip" download>SGSDK Framework (release, 用於真實裝置)</a></li>
         </ul>
         <h3>3.範例程式</h3>
         <ul>
@@ -83,34 +83,8 @@
         <span class="badge badge-ttl">參數</span>
         <ul>
             <li>
-                listener 是有一個 SGListenResult 當參數的 delegate。
+                listener 是有一個 <a target="_blank" href="/webapi-init#SGListenResult">SGListenResult</a> 當參數的 delegate。
             </li>
-            <li>SGListenResult 結構</li>
-            <table class="table table-striped">
-                <col width="10%">
-                <col width="5%">
-                <col width="85%">
-                <tr>
-                    <th>參數名稱</th>
-                    <th>型態</th>
-                    <th>描述</th>
-                </tr>
-                <tr>
-                    <td>Code</td>
-                    <td>Int</td>
-                    <td><a href="/webapi-init#section5">狀態代碼</a></td>
-                </tr>
-                <tr>
-                    <td>Msg</td>
-                    <td>String</td>
-                    <td><a href="/webapi-init#section5">狀態描述</a></td>
-                </tr>
-                <tr>
-                    <td>Data</td>
-                    <td>Any?</td>
-                    <td>沒有其他資訊的話會是 nil，有資訊的話可以轉換為任一結構。</td>
-                </tr>
-            </table>
         </ul>
         <span class="badge badge-ttl">回傳</span>
         <p>無。</p>

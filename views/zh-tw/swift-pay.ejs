@@ -70,170 +70,13 @@
         </p>
 
         <span class="badge badge-ttl">參數</span>
-        <p>
-        <h3>SGPayRequest 結構</h3>
-        <table id="SGPayRequest" class="table table-striped">
-            <tr>
-                <th>屬性</th>
-                <th>必填</th>
-                <th>描述</th>
-            </tr>
-            <tr>
-                <td>ProductId</td>
-                <td><i class="fa fa-check"></i></td>
-                <td>產品代號</td>
-            </tr>
-            <tr>
-                <td>ProductName</td>
-                <td><i class="fa fa-check"></i></td>
-                <td>產品名稱</td>
-            </tr>
-            <tr>
-                <td>ProductDesc</td>
-                <td></td>
-                <td>產品描述</td>
-            </tr>
-            <tr>
-                <td>PaymentMethod</td>
-                <td></td>
-                <td>產品種類 ex. Consumable, subscription</td>
-            </tr>
-            <tr>
-                <td>PaymentChannel</td>
-                <td></td>
-                <td>
-                    平台：<br/>
-                    <span class="label label-primary">AppStore</span>
-                </td>
-            </tr>
-            <tr>
-                <td>Price</td>
-                <td></td>
-                <td>產品價格</td>
-            </tr>
-            <tr>
-                <td>ServerId</td>
-                <td></td>
-                <td>伺服器代號</td>
-            </tr>
-            <tr>
-                <td>ServerName</td>
-                <td></td>
-                <td>伺服器名稱</td>
-            </tr>
-            <tr>
-                <td>RoleId</td>
-                <td></td>
-                <td>角色代號</td>
-            </tr>
-            <tr>
-                <td>RoleName</td>
-                <td></td>
-                <td>角色名稱</td>
-            </tr>
-            <tr>
-                <td>RoleLevel</td>
-                <td></td>
-                <td>角色等級</td>
-            </tr>
-            <tr>
-                <td>PayNotifyUrl</td>
-                <td></td>
-                <td>驗證地址</td>
-            </tr>
-            <tr>
-                <td>OrderId</td>
-                <td></td>
-                <td>訂單編號</td>
-            </tr>
-            <tr>
-                <td>Receipt</td>
-                <td></td>
-                <td>App store 收據</td>
-            </tr>
-        </table>
-        </p>
+        <p>請參照結構定義 <a target="_blank" href="/webapi-init#SGPayRequest">SGPayRequest</a> 。</p>
 
         <span class="badge badge-ttl">回傳</span>
         <ul>
             <li>請參看【<a href="/swift-init#listener">回調監聽</a>】的設定，以及回傳的代碼與定義<a href="/webapi-init#section5">對照表</a>。</li>
-            <li>回調監聽的 Data 參數：<a href="#SGPayResponse">SGPayResponse</a>。</li>
+            <li>回調監聽的 Data 參數：<a target="_blank" href="/webapi-init#SGPayResponse">SGPayResponse</a>。</li>
         </ul>
-        <h3>SGPayResponse 結構</h3>
-        <table id="SGPayResponse" class="table table-striped">
-            <tr>
-                <th>屬性</th>
-                <th>描述</th>
-            </tr>
-            <tr>
-                <td>Code</td>
-                <td>狀態代碼</td>
-            </tr>
-            <tr>
-                <td>Msg</td>
-                <td>狀態描述</td>
-            </tr>
-            <tr>
-                <td>Sign</td>
-                <td>由 SG Server 產生的簽名</td>
-            </tr>
-            <tr>
-                <td>ProductId</td>
-                <td>產品代號</td>
-            </tr>
-            <tr>
-                <td>ProductName</td>
-                <td>產品名稱</td>
-            </tr>
-            <tr>
-                <td>ProductDesc</td>
-                <td>產品描述</td>
-            </tr>
-            <tr>
-                <td>PaymentMethod</td>
-                <td>產品種類 ex. managed, subscription</td>
-            </tr>
-            <tr>
-                <td>PaymentChannel</td>
-                <td>平台 ex.AppStore</td>
-            </tr>
-            <tr>
-                <td>Price</td>
-                <td>產品價格</td>
-            </tr>
-            <tr>
-                <td>ServerId</td>
-                <td>伺服器代號</td>
-            </tr>
-            <tr>
-                <td>ServerName</td>
-                <td>伺服器名稱</td>
-            </tr>
-            <tr>
-                <td>RoleId</td>
-                <td>角色代號</td>
-            </tr>
-            <tr>
-                <td>RoleName</td>
-                <td>角色名稱</td>
-            </tr>
-            <tr>
-                <td>RoleLevel</td>
-                <td>角色等級</td>
-            </tr>
-            <tr>
-                <td>PayNotifyUrl</td>
-                <td>驗證地址</td>
-            </tr>
-            <tr>
-                <td>OrderId</td>
-                <td>訂單編號</td>
-            </tr>
-            <tr>
-                <td>Receipt</td>
-                <td>App store 收據</td>
-            </tr>
-        </table>
     </section>
 
     <section id="GetOrder">
@@ -253,7 +96,7 @@
             </tr>
             <tr>
                 <td>orderId</td>
-                <td><a href="#SGPayResponse">SGPayResponse</a> 的屬性。</td>
+                <td><a target="_blank" href="/webapi-init#SGPayResponse">SGPayResponse</a> 的屬性。</td>
             </tr>
             <tr>
                 <td>gameKey</td>
@@ -265,7 +108,7 @@
             </tr>
             <tr>
                 <td>sign</td>
-                <td><a href="#SGPayResponse">SGPayResponse</a> 的屬性。</td>
+                <td><a target="_blank" href="/webapi-init#SGPayResponse">SGPayResponse</a> 的屬性。</td>
             </tr>
         </table>
         </p>
@@ -273,7 +116,7 @@
         <span class="badge badge-ttl">回傳</span>
         <ul>
             <li>請參看【<a href="/swift-init#listener">回調監聽</a>】的設定，以及回傳的代碼與定義<a href="/webapi-init#section5">對照表</a>。</li>
-            <li>回調監聽的 Data 參數：<a href="#SGPayResponse">SGPayResponse</a>。</li>
+            <li>回調監聽的 Data 參數：<a target="_blank" href="/webapi-init#SGPayResponse">SGPayResponse</a>。</li>
         </ul>
     </section>
     <br/>

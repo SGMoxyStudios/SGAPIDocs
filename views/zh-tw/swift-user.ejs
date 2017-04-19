@@ -40,7 +40,7 @@
                 <span class="badge badge-ttl">回傳</span>
                 <ul>
                     <li>請參看【<a href="/swift-init#listener">回調監聽</a>】的設定，以及回傳的代碼與定義<a href="/webapi-init#section5">對照表</a>。</li>
-                    <li>回調監聽的 Data 參數：無。</li>
+                    <li>回調監聽的 Data 參數：<a target="_blank" href="/webapi-init#SGMember">SGMember</a>。</li>
                 </ul>
             </div>
             <div class="col-sm-3">
@@ -65,7 +65,7 @@
                 <span class="badge badge-ttl">回傳</span>
                 <ul>
                     <li>請參看【<a href="/swift-init#listener">回調監聽</a>】的設定，以及回傳的代碼與定義<a href="/webapi-init#section5">對照表</a>。</li>
-                    <li>回調監聽的 Data 參數：無。</li>
+                    <li>回調監聽的 Data 參數：<a target="_blank" href="/webapi-init#SGMember">SGMember</a>。</li>
                 </ul>
             </div>
             <div class="col-sm-3">
@@ -255,7 +255,7 @@
     <section id="VerifySession">
         <h1>Session ID 登入驗證</h1>
         <span class="badge badge-ttl">函式</span>
-        <p><pre>VerifySession(appId: String, session: String, uid: String, signature: String)</pre></p>
+        <p><pre>VerifySession(gameKey: String, sessionId: String, openId: String, sign: String)</pre></p>
 
         <span class="badge badge-ttl">説明</span>
         <p>使用 SessionID 取得登入帳號資訊。</p>
@@ -270,19 +270,19 @@
                 <th>描述</th>
             </tr>
             <tr>
-                <td>appId</td>
+                <td>gameKey</td>
                 <td>Game key</td>
             </tr>
             <tr>
-                <td>session</td>
+                <td>sessionId</td>
                 <td>Login後可用<a href="#GetSessionID">GetSessionID()</a>取得。</td>
             </tr>
             <tr>
-                <td>uid</td>
+                <td>openId</td>
                 <td>Login後可用<a href="#GetOpenID">GetOpenID()</a>取得。</td>
             </tr>
             <tr>
-                <td>signature</td>
+                <td>sign</td>
                 <td>server返回的簽名。</td>
             </tr>
         </table>
@@ -291,91 +291,8 @@
         <p>
         <ul>
             <li>請參看【<a href="/swift-init#listener">回調監聽</a>】的設定，以及回傳的代碼與定義<a href="/webapi-init#section5">對照表</a>。</li>
-            <li>回調監聽的 Data 參數：<a href="#SGMember">SGMember</a>。</li>
+            <li>回調監聽的 Data 參數：<a target="_blank" href="/webapi-init#SGMember">SGMember</a>。</li>
         </ul>
-        <h3>SGMember 結構</h3>
-        <table id="SGMember" class="table table-striped">
-            <col width="15%">
-            <col width="85%">
-            <tr>
-                <th>參數名稱</th>
-                <th>描述</th>
-            </tr>
-            <tr>
-                <td>Code</td>
-                <td>狀態代碼</td>
-            </tr>
-            <tr>
-                <td>Msg</td>
-                <td>狀態描述</td>
-            </tr>
-            <tr>
-                <td>Account</td>
-                <td>帳號</td>
-            </tr>
-            <tr>
-                <td>OpenID</td>
-                <td>Open ID</td>
-            </tr>
-            <tr>
-                <td>CreateTime</td>
-                <td>創帳號時間</td>
-            </tr>
-            <tr>
-                <td>LoginTime</td>
-                <td>登入時間</td>
-            </tr>
-            <tr>
-                <td>Language</td>
-                <td>語言</td>
-            </tr>
-            <tr>
-                <td>Channel</td>
-                <td>平台</td>
-            </tr>
-            <tr>
-                <td>Phone</td>
-                <td>創帳號時填的帳號</td>
-            </tr>
-            <tr>
-                <td>EMail</td>
-                <td>創帳號時填的帳號</td>
-            </tr>
-            <tr>
-                <td>SessionID</td>
-                <td>Session ID</td>
-            </tr>
-            <tr>
-                <td><a href="#Children">Children</a></td>
-                <td>小孩資訊列表 創幾個小孩就有幾筆資料</td>
-            </tr>
-        </table>
-
-        <h3>SGChild 結構</h3>
-        <table id="Children" class="table table-striped">
-            <col width="15%">
-            <col width="85%">
-            <tr>
-                <th>參數名稱</th>
-                <th>描述</th>
-            </tr>
-            <tr>
-                <td>Name</td>
-                <td>姓名</td>
-            </tr>
-            <tr>
-                <td>Sex</td>
-                <td>性別</td>
-            </tr>
-            <tr>
-                <td>Face</td>
-                <td>角色頭圖</td>
-            </tr>
-            <tr>
-                <td>Birthday</td>
-                <td>生日</td>
-            </tr>
-        </table>
         </p>
     </section>
 
@@ -392,7 +309,7 @@
         <span class="badge badge-ttl">回傳</span>
         <ul>
             <li>請參看【<a href="/swift-init#listener">回調監聽</a>】的設定，以及回傳的代碼與定義<a href="/webapi-init#section5">對照表</a>。</li>
-            <li>回調監聽的 Data 參數：<a href="#SGMember">SGMember</a>。</li>
+            <li>回調監聽的 Data 參數：<a target="_blank" href="/webapi-init#SGMember">SGMember</a>。</li>
         </ul>
     </section>
 
