@@ -450,20 +450,8 @@
     "class": ""
   },
   {
-    "api": "select-kid",
-    "code": 1501,
-    "msg": "ok",
-    "class": "active"
-  },
-  {
-    "api": "",
-    "code": 1502,
-    "msg": "Index error.",
-    "class": ""
-  },
-  {
     "api": "logout",
-    "code": 1601,
+    "code": 1501,
     "msg": "ok",
     "class": "active"
   },
