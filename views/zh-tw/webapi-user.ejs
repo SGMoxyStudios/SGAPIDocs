@@ -8,11 +8,12 @@
         <li><a href="#section5">變更密碼</a></li>
         <li><a href="#section6">家長安全操作</a></li>
         <li><a href="#section7">設置孩童資料</a></li>
-        <li><a href="#section8">帳號資訊</a></li>
-        <li><a href="#section9">取得用戶 Open ID</a></li>
-        <li><a href="#section10">Token 登入驗證</a></li>
-        <li><a href="#section11">Session ID 登入驗證</a></li>
-        <li><a href="#section12">登出</a></li>
+        <li><a href="#section8">設定正在進行遊戲的孩童</a></li>
+        <li><a href="#section9">帳號資訊</a></li>
+        <li><a href="#section10">取得用戶 Open ID</a></li>
+        <li><a href="#section11">Token 快速登入</a></li>
+        <li><a href="#section12">Session ID 登入驗證</a></li>
+        <li><a href="#section13">登出</a></li>
     </ul>
 
 </div>
@@ -291,6 +292,36 @@
     </section>
 
     <section id="section8">
+        <h1>設定正在進行遊戲的孩童</h1>
+
+        <div class="row">
+            <div class="col-sm-9">
+                <span class="badge badge-ttl">API</span>
+                <pre> <span class="label label-warning">GET</span> /select-kid</pre>
+
+                <span class="badge badge-ttl">説明</span>
+                <p>調用孩童列表頁面，家長可以標記一名正在進行遊戲的孩童。</p>
+
+                <span class="badge badge-ttl">範例</span>
+                <pre>http://gameapi.smartgamesltd.com/select-kid</pre>
+
+                <span class="badge badge-ttl">回傳</span>
+                <ul>
+                    <li>調用回傳頁面的 JavaScript 函式 <code>GetResult()</code> 來取得回傳結果，該函式回傳 JSON 字串。</li>
+                    <li>例如<code>{"Code": 1501, "Message": "ok"}</code>。</li>
+                    <li>完整 code 定義，<a target="_blank" href="/webapi-init#section5">請參看對照表</a>。</li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <span class="badge badge-ttl">UI</span>
+                <a href="<%= "assets/img/" + lang + "/pic14.png" %>" data-toggle="lightbox">
+                    <img src="<%= "assets/img/" + lang + "/pic14.png" %>" class="img-responsive"/>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="section9">
         <h1>帳號資訊</h1>
 
         <div class="row">
@@ -316,7 +347,7 @@
         </div>
     </section>
 
-    <section id="section9">
+    <section id="section10">
         <h1>取得用戶 Open ID</h1>
 
         <div class="row">
@@ -334,7 +365,7 @@
         </div>
     </section>
 
-    <section id="section10">
+    <section id="section11">
         <h1>Token 快速登入</h1>
 
         <div class="row">
@@ -358,7 +389,7 @@
         </div>
     </section>
 
-    <section id="section11">
+    <section id="section12">
         <h1>Session ID 登入驗證</h1>
 
         <div class="row">
@@ -428,7 +459,7 @@
         </div>
     </section>
 
-    <section id="section12">
+    <section id="section13">
         <h1>登出</h1>
 
         <div class="row">

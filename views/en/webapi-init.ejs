@@ -1,31 +1,31 @@
 <div class="left-side" id="myScrollspy">
 
     <ul class="nav nav-pills">
-        <li><a href="#section1">Web API Guide</a></li>
-        <li><a href="#section2">Call API WebView</a></li>
-        <li><a href="#section3">API Initialization</a></li>
-        <li><a href="#section4">Explain</a></li>
-        <li><a href="#section5">Return Code Define</a></li>
-        <li><a href="#section6">Struct Define</a></li>
+        <li><a href="#section1">Web API 使用指南</a></li>
+        <li><a href="#section2">調用 API 頁面</a></li>
+        <li><a href="#section3">API 初始化</a></li>
+        <li><a href="#section4">詳細說明</a></li>
+        <li><a href="#section5">回傳值定義</a></li>
+        <li><a href="#section6">結構定義</a></li>
     </ul>
 
 </div>
 
 <div class="right-side">
     <section id="section1">
-        <h1>Web API Guide</h1>
-        <p>Developers can use different functions by calling Web API when using SG API. This document details whole process of how to get into the client. Please read the document before accessing SG API so as to insure a smooth access.</p>
+        <h1>Web API 使用指南</h1>
+        <p>開發者在串接 SG API 時，可透過呼叫 Web API 的方式來完成各種功能。通過本文的介紹可以了解客戶端接入的整個流程。在接入之前請認真閱讀本文檔，以減少接入過程中遇到的問題。</p>
     </section>
 
     <section id="section2">
-        <h1>Call API WebView</h1>
-        <p>Developers can use the call URL
-            <a target="_blank" href="http://gameapi.smartgamesltd.com/">http://gameapi.smartgamesltd.com/</a> Call SG API web page.
+        <h1> 調用 API 頁面 </h1>
+        <p>開發者可透過呼叫網址
+            <a target="_blank" href="http://gameapi.smartgamesltd.com/">http://gameapi.smartgamesltd.com/</a> 調用 SG API 各個接口。
         </p>
     </section>
 
     <section id="section3">
-        <h1>API Initialization</h1>
+        <h1>API 初始化</h1>
 
         <span class="badge badge-ttl">API</span>
         <pre><span class="label label-warning">GET</span> <span class="label label-success">POST</span> /init </pre>
@@ -85,11 +85,11 @@
     </section>
 
     <section id="section4">
-        <h1>Explain</h1>
+        <h1> 詳細說明 </h1>
         <h3>1. 取得網頁回傳值</h3>
         <ul>
-        <li>在所有網頁執行完動作之後，都可透過解析該網頁的 Javascript 函式 <code>GetResult()</code> 來取得回傳結果。該函式回傳 JSON 字串，例如<code>{"code": 1, "msg": "ok"}</code>。</li>
-        <li>開發者可在 <a target="_blank" href="http://dashboard.smartgamesltd.com/my-game">SG Developer</a> 取得接入參數。</li>
+            <li>在所有網頁執行完動作之後，都可透過解析該網頁的 Javascript 函式 <code>GetResult()</code> 來取得回傳結果。該函式回傳 JSON 字串，例如<code>{"code": 1, "msg": "ok"}</code>。</li>
+            <li>開發者可在 <a target="_blank" href="http://dashboard.smartgamesltd.com/my-game">SG Developer</a> 取得接入參數。</li>
         </ul>
         <div class="well well-sm">
             <img src=<%= "assets/img/" + lang + "/pic06.png"%> class="img-responsive"/>
@@ -104,7 +104,7 @@
     </section>
 
     <section id="section5">
-        <h1>Return Code Define</h1>
+        <h1>回傳值定義</h1>
         <p>所有接口回傳值都包含<code>code, msg</code>。</p>
 
         <table class="table"> <!--Gem Start-->
@@ -123,51 +123,51 @@
             </thead>
             <tbody>
             <% for (var i = 0; i < ResultCode.length; i++) { %>
-                <tr class=<%=ResultCode[i].class%>>
-                    <td>
-                        <%=ResultCode[i].api%>
-                    </td>
-                    <td>
-                        <%=ResultCode[i].code%>
-                    </td>
-                    <td>
-                        <%=ResultCode[i].msg%>
-                    </td>
-                </tr>
+            <tr class=<%=ResultCode[i].class%>>
+                <td>
+                    <%=ResultCode[i].api%>
+                </td>
+                <td>
+                    <%=ResultCode[i].code%>
+                </td>
+                <td>
+                    <%=ResultCode[i].msg%>
+                </td>
+            </tr>
             <% } %>
             </tbody>
         </table>
     </section>
 
     <section id="section6">
-    <h1>Struct Define</h1>
-    <p>SG SDK 使用到以下幾個結構定義。注意 property 大小寫。</p>
+        <h1>結構定義</h1>
+        <p>SG SDK 使用到以下幾個結構定義。注意 property 大小寫。</p>
         <section id="SGListenResult">
             <h3>1.SGListenResult</h3>
             <ul>
                 <li>接收回調監聽結果結構。</li>
                 <table class="table table-striped">
-                        <tr>
-                            <th>property</th>
-                            <th>type</th>
-                            <th>描述</th>
-                        </tr>
-                        <tr>
-                            <td>code</td>
-                            <td>string</td>
-                            <td>調用結果代碼</td>
-                        </tr>
-                        <tr>
-                            <td>msg</td>
-                            <td>string</td>
-                            <td>回應訊息</td>
-                        </tr>
-                        <tr>
-                            <td>object</td>
-                            <td>class</td>
-                            <td>根據不同接口回應不同結構</td>
-                        </tr>
-                    </table>
+                    <tr>
+                        <th>property</th>
+                        <th>type</th>
+                        <th>描述</th>
+                    </tr>
+                    <tr>
+                        <td>code</td>
+                        <td>string</td>
+                        <td>調用結果代碼</td>
+                    </tr>
+                    <tr>
+                        <td>msg</td>
+                        <td>string</td>
+                        <td>回應訊息</td>
+                    </tr>
+                    <tr>
+                        <td>object</td>
+                        <td>class</td>
+                        <td>根據不同接口回應不同結構</td>
+                    </tr>
+                </table>
             </ul>
         </section>
 
