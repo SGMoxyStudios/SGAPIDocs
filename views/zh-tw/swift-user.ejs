@@ -3,18 +3,15 @@
         <li><a href="#section1">Swift 3 用戶系統</a></li>
         <li><a href="#Signup">創帳號</a></li>
         <li><a href="#Login">登入</a></li>
-        <li><a href="#GetOpenID">取得用戶 Open ID</a></li>
-        <li><a href="#GetSessionID">取得 Session ID</a></li>
-        <li><a href="#GetToken">取得 Token</a></li>
         <li><a href="#ForgotPassword">查詢密碼</a></li>
         <li><a href="#ChangePassword">變更密碼</a></li>
         <li><a href="#ParentalLock">家長安全操作</a></li>
         <li><a href="#MyKid">設置孩童資料</a></li>
+        <li><a href="#SelectKid">設定正在進行遊戲的孩童</a></li>
         <li><a href="#MyAccount">帳號資訊</a></li>
         <li><a href="#VerifySession">Session ID 登入驗證</a></li>
         <li><a href="#LoginByToken">Token 快速登入</a></li>
-        <li><a href="#IsLogin">取得登入狀態</a></li>
-        <li><a href="#GetChannelID">取得平台ID</a></li>
+        <li><a href="#OtherFunction">其他函式</a></li>
         <li><a href="#ShowFloatingButton">顯示懸浮按鈕</a></li>
         <li><a href="#HideFloatingButton">隱藏懸浮按鈕</a></li>
         <li><a href="#Logout">登出</a></li>
@@ -24,7 +21,7 @@
 <div class="right-side">
     <section id="section1">
         <h1>Swift 3 用戶系統</h1>
-        <p>透過 SgSDK 調用各個函式，例如創帳號，登入等等。某些函式調用後需要接收回傳值。客戶端再依據收到的回傳值進行對應處理。</p>
+        <p>透過 SGSDK 調用各個函式，例如創帳號，登入等等。某些函式調用後需要接收回傳值。客戶端再依據收到的回傳值進行對應處理。</p>
     </section>
 
     <section id="Signup">
@@ -35,7 +32,7 @@
                 <p><pre>Signup() -> Void</pre></p>
 
                 <span class="badge badge-ttl">説明</span>
-                <p>調用註冊頁面，註冊成功等同登入然後關閉WebView。</p>
+                <p>調用註冊頁面，註冊成功等同登入然後關閉 WebView。</p>
 
                 <span class="badge badge-ttl">回傳</span>
                 <ul>
@@ -60,7 +57,7 @@
                 <p><pre>Login() -> Void</pre></p>
 
                 <span class="badge badge-ttl">説明</span>
-                <p>調用登入頁面，登入成功後關閉WebView。</p>
+                <p>調用登入頁面，登入成功後關閉 WebView。</p>
 
                 <span class="badge badge-ttl">回傳</span>
                 <ul>
@@ -75,62 +72,6 @@
                 </a>
             </div>
         </div>
-    </section>
-
-    <section id="GetOpenID">
-        <h1>取得用戶 Open ID</h1>
-
-        <span class="badge badge-ttl">函式</span>
-        <p><pre>GetOpenID() -> String?</pre></p>
-
-        <span class="badge badge-ttl">説明</span>
-        <p>取得用戶唯一識別 ID (SG ID)，以此 ID 登入遊戲伺服器，登入後才可取得。</p>
-
-        <span class="badge badge-ttl">範例</span>
-        <p>
-            <% include ../code/swift-getOpenId.html %>
-        </p>
-
-        <span class="badge badge-ttl">回傳</span>
-        <p>成功： open id，失敗： nil。</p>
-        <br/>
-    </section>
-
-    <section id="GetSessionID">
-        <h1>取得 Session ID</h1>
-
-        <span class="badge badge-ttl">函式</span>
-        <p><pre>GetSessionID() -> String?</pre></p>
-
-        <span class="badge badge-ttl">説明</span>
-        <p>取得Session ID，登入後才可取得。</p>
-
-        <span class="badge badge-ttl">範例</span>
-        <p>
-            <% include ../code/swift-getSessionId.html %>
-        </p>
-
-        <span class="badge badge-ttl">回傳</span>
-        <p>成功： session id，失敗： nil。</p>
-        <br/>
-    </section>
-
-    <section id="GetToken">
-        <h1>取得 Token</h1>
-
-        <span class="badge badge-ttl">函式</span>
-        <p><pre>GetToken() -> String?</pre></p>
-
-        <span class="badge badge-ttl">説明</span>
-        <p>取得Token，登入後才可取得。</p>
-
-        <span class="badge badge-ttl">範例</span>
-        <p>
-            <% include ../code/swift-getToken.html %>
-        </p>
-
-        <span class="badge badge-ttl">回傳</span>
-        <p>成功： token，失敗： nil。</p>
     </section>
 
     <section id="ForgotPassword">
@@ -230,6 +171,32 @@
         </div>
     </section>
 
+    <section id="SelectKid">
+        <h1>設定正在進行遊戲的孩童</h1>
+        <div class="row">
+            <div class="col-sm-9">
+                <span class="badge badge-ttl">函式</span>
+                <p><pre>SelectKid() -> Void</pre></p>
+
+                <span class="badge badge-ttl">説明</span>
+                <p>調用孩童列表頁面，家長可以標記一名正在進行遊戲的孩童。</p>
+                <p>選擇成功後可以調用 <a href="#GetKidIndex">GetKidIndex()</a> 和 <a href="#GetKidFace">GetKidFace()</a> 取得該孩童的索引和頭圖</p>
+
+                <span class="badge badge-ttl">回傳</span>
+                <ul>
+                    <li>請參看【<a href="/swift-init#listener">回調監聽</a>】的設定，以及回傳的代碼與定義<a href="/webapi-init#section5">對照表</a>。</li>
+                    <li>回調監聽的 Data 參數：無。</li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <span class="badge badge-ttl">WebView 頁面</span>
+                <a href="<%= "assets/img/" + lang + "/pic14.png" %>" data-toggle="lightbox">
+                    <img src="<%= "assets/img/" + lang + "/pic14.png" %>" class="img-responsive"/>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <section id="MyAccount">
         <h1>帳號資訊</h1>
         <div class="row">
@@ -275,15 +242,15 @@
             </tr>
             <tr>
                 <td>sessionId</td>
-                <td>Login後可用<a href="#GetSessionID">GetSessionID()</a>取得。</td>
+                <td>Login 後可用 <a href="#GetSessionID">GetSessionID()</a> 取得。</td>
             </tr>
             <tr>
                 <td>openId</td>
-                <td>Login後可用<a href="#GetOpenID">GetOpenID()</a>取得。</td>
+                <td>Login 後可用 <a href="#GetOpenID">GetOpenID()</a> 取得。</td>
             </tr>
             <tr>
                 <td>sign</td>
-                <td>server返回的簽名。</td>
+                <td>server 返回的簽名。</td>
             </tr>
         </table>
         </p>
@@ -313,28 +280,100 @@
         </ul>
     </section>
 
-    <section id="IsLogin">
-        <h1>取得登入狀態</h1>
+    <section id="OtherFunction">
+        <h1>其他函式</h1>
+        <h3 id="GetOpenID">取得用戶 Open ID</h3>
+        <span class="badge badge-ttl">函式</span>
+        <p><pre>GetOpenID() -> String?</pre></p>
+        <span class="badge badge-ttl">説明</span>
+        <p>取得用戶唯一識別 ID (SG ID)，以此 ID 登入遊戲伺服器，登入後才可取得。</p>
+        <span class="badge badge-ttl">範例</span>
+        <p>
+            <% include ../code/swift-getOpenId.html %>
+        </p>
+        <span class="badge badge-ttl">回傳</span>
+        <p>成功： open id，失敗： nil。</p>
+        <br/>
+
+        <h3 id="GetSessionID">取得 Session ID</h3>
+        <span class="badge badge-ttl">函式</span>
+        <p><pre>GetSessionID() -> String?</pre></p>
+        <span class="badge badge-ttl">説明</span>
+        <p>取得 Session ID，登入後才可取得。</p>
+        <span class="badge badge-ttl">範例</span>
+        <p>
+            <% include ../code/swift-getSessionId.html %>
+        </p>
+        <span class="badge badge-ttl">回傳</span>
+        <p>成功： session id，失敗： nil。</p>
+        <br/>
+
+        <h3 id="GetToken">取得 Token</h3>
+        <span class="badge badge-ttl">函式</span>
+        <p><pre>GetToken() -> String?</pre></p>
+        <span class="badge badge-ttl">説明</span>
+        <p>取得 Token，登入後才可取得。</p>
+        <span class="badge badge-ttl">範例</span>
+        <p>
+            <% include ../code/swift-getToken.html %>
+        </p>
+        <span class="badge badge-ttl">回傳</span>
+        <p>成功： token，失敗： nil。</p>
+        <br/>
+
+        <h3 id="GetKidIndex">取得孩童索引</h3>
+        <span class="badge badge-ttl">函式</span>
+        <p><pre>GetKidIndex() -> Int?</pre></p>
+        <span class="badge badge-ttl">説明</span>
+        <p>取得正在遊玩的孩童索引。</p>
+        <span class="badge badge-ttl">回傳</span>
+        <p>成功： kid index，失敗： nil。</p>
+        <br/>
+
+        <h3 id="GetKidFace">取得孩童頭像</h3>
+        <span class="badge badge-ttl">函式</span>
+        <p><pre>GetKidFace() -> String?</pre></p>
+        <span class="badge badge-ttl">説明</span>
+        <p>取得正在遊玩的孩童頭像。</p>
+        <span class="badge badge-ttl">回傳</span>
+        <p>成功： kid face，失敗： nil。</p>
+        <br/>
+
+        <h3>取得登入狀態</h3>
         <span class="badge badge-ttl">函式</span>
         <p><pre>IsLogin() -> Bool</pre></p>
-
         <span class="badge badge-ttl">説明</span>
         <p>判斷是否為登入狀態。</p>
-
         <span class="badge badge-ttl">回傳</span>
         <p>登入：True ， 未登入：False。</p>
-    </section>
+        <br/>
 
-    <section id="GetChannelID">
-        <h1>取得平台ID</h1>
+        <h3>取得平台名稱</h3>
         <span class="badge badge-ttl">函式</span>
         <p><pre>GetChannelID() -> String</pre></p>
-
         <span class="badge badge-ttl">説明</span>
         <p>取得平台名稱。</p>
-
         <span class="badge badge-ttl">回傳</span>
         <p>平台名稱，例如：appstore。</p>
+    </section>
+
+
+    <section id="GetToken">
+        <h1>取得 Token</h1>
+
+        <span class="badge badge-ttl">函式</span>
+        <p><pre>GetToken() -> String?</pre></p>
+
+        <span class="badge badge-ttl">説明</span>
+        <p>取得 Token，登入後才可取得。</p>
+
+        <span class="badge badge-ttl">範例</span>
+        <p>
+            <% include ../code/swift-getToken.html %>
+        </p>
+
+        <span class="badge badge-ttl">回傳</span>
+        <p>成功： token，失敗： nil。</p>
     </section>
 
     <section id="ShowFloatingButton">
