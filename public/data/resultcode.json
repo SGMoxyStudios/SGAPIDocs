@@ -496,5 +496,23 @@
     "code": 8004,
     "msg": "Get open id ok.",
     "class": ""
+  },
+  {
+    "api": "Anroid SDK",
+    "code": 9900,
+    "msg": "Get manifest meta data Error.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 9910,
+    "msg": "WebAPI Call Error.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 9920,
+    "msg": "WebAPI Response Data Error.",
+    "class": ""
   }
 ]
