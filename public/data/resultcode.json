@@ -395,6 +395,75 @@
     "msg": "Purchasing...",
     "class": ""
   },
+
+  {
+    "api": "Google In App Purchase",
+    "code": 1151,
+    "msg": "Google IAP: init successful.",
+    "class": "active"
+  },
+  {
+    "api": "",
+    "code": 1152,
+    "msg": "Google IAP: init error: {message}",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 1161,
+    "msg": "Google IAP: subscribe successful.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 1162,
+    "msg": "Google IAP: subscribe failed: {message}",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 1171,
+    "msg": "Google IAP: purchase successful.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 1172,
+    "msg": "Google IAP: purchase failed: {message}",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 1173,
+    "msg": "Google IAP: consume successful.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 1174,
+    "msg": "Google IAP: consume failed: {message}",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 1180,
+    "msg": "Google IAP: nothing to restore.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 1181,
+    "msg": "Google IAP: purchase restored: {product SKU}",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 1190,
+    "msg": "Android SDK payment channel error. ",
+    "class": ""
+  },
+
+
   {
     "api": "getorder",
     "code": 1201,
@@ -501,7 +570,7 @@
     "api": "Anroid SDK",
     "code": 9900,
     "msg": "Get manifest meta data Error.",
-    "class": ""
+    "class": "active"
   },
   {
     "api": "",
