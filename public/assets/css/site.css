@@ -31,17 +31,28 @@ body {
   /* this somehow used as <p> so add line-height */
 }
 .right-side section {
-  padding-bottom: 30px;
+  padding: 0 12px 30px 12px;
   padding-top: 70px;
   margin-top: -70px;
 }
 .right-side h1 {
   border-bottom: 3px solid #c2d7ea;
-  padding-bottom: 15px;
-  margin: 10px 0 30px 0;
+  padding: 0 0 15px 5px;
+  margin: 10px -12px 30px -12px;
 }
 .right-side h3 {
-  margin: 15px 0;
+  margin: 0 -10px 20px -10px;
+  padding-left: 28px;
+  color: #0041c8;
+  position: relative;
+}
+.right-side h3:before {
+  content: "\f138";
+  font-family: FontAwesome;
+  text-decoration: inherit;
+  position: absolute;
+  top: -2px;
+  left: 0;
 }
 .right-side h4,
 .right-side p {
