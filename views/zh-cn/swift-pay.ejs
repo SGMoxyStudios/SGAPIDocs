@@ -35,10 +35,14 @@
     <section id="IAPInit">
         <h1>IAP 初始化</h1>
         <span class="badge badge-ttl">函式</span>
-        <p><pre>IAPInit(productIDs: [String]) -> Void</pre></p>
+        <p>
+        <pre>IAPInit(productIDs: [String]) -> Void</pre>
+        </p>
 
         <span class="badge badge-ttl">説明</span>
-        <p>In-App Purchase 初始化之後才能開始購買。</p>
+        <ul>
+            <li>In-App Purchase 初始化之後才能開始購買。</li>
+        </ul>
 
         <span class="badge badge-ttl">範例</span>
         <p>
@@ -46,7 +50,9 @@
         </p>
 
         <span class="badge badge-ttl">參數</span>
-        <p>productIDs 是在 iTunes Connect 設定的商品編號的字串陣列。</p>
+        <ul>
+            <li>productIDs 是在 iTunes Connect 設定的商品編號的字串陣列。</li>
+        </ul>
 
         <span class="badge badge-ttl">回傳</span>
         <ul>
@@ -58,10 +64,14 @@
     <section id="Pay">
         <h1>支付</h1>
         <span class="badge badge-ttl">函式</span>
-        <p><pre>Pay(payRequest: SGPayRequest) -> Void</pre></p>
+        <p>
+        <pre>Pay(payRequest: SGPayRequest) -> Void</pre>
+        </p>
 
         <span class="badge badge-ttl">説明</span>
-        <p>購買遊戲內付費商品時調用，向 app store 購買成功後會跟 SG Server 做驗證。</p>
+        <ul>
+            <li>購買遊戲內付費商品時調用，向 app store 購買成功後會跟 SG Server 做驗證。</li>
+        </ul>
 
         <span class="badge badge-ttl">範例</span>
         <p>
@@ -70,7 +80,9 @@
         </p>
 
         <span class="badge badge-ttl">參數</span>
-        <p>請參照結構定義 <a target="_blank" href="/webapi-init#SGPayRequest">SGPayRequest</a> 。</p>
+        <ul>
+            <li>請參照結構定義 <a target="_blank" href="/webapi-init#SGPayRequest">SGPayRequest</a> 。</li>
+        </ul>
 
         <span class="badge badge-ttl">回傳</span>
         <ul>
@@ -82,13 +94,16 @@
     <section id="GetOrder">
         <h1>查詢購買收據</h1>
         <span class="badge badge-ttl">函式</span>
-        <p><pre>GetOrder(orderId: String, gameKey: String, openId: String, sign: String) -> Void</pre></p>
+        <p>
+        <pre>GetOrder(orderId: String, gameKey: String, openId: String, sign: String) -> Void</pre>
+        </p>
 
         <span class="badge badge-ttl">説明</span>
-        <p>需傳送購買成功後的簽名(sign)，才能查詢訂單詳細內容。</p>
+        <ul>
+            <li>需傳送購買成功後的簽名(sign)，才能查詢訂單詳細內容。</li>
+        </ul>
 
         <span class="badge badge-ttl">參數</span>
-        <p>
         <table class="table table-striped">
             <tr>
                 <th>參數名稱</th>
@@ -111,7 +126,6 @@
                 <td><a target="_blank" href="/webapi-init#SGPayResponse">SGPayResponse</a> 的屬性。</td>
             </tr>
         </table>
-        </p>
 
         <span class="badge badge-ttl">回傳</span>
         <ul>
@@ -123,10 +137,14 @@
     <section id="RestorePurchase">
         <h1>恢復購買</h1>
         <span class="badge badge-ttl">函式</span>
-        <p><pre>RestorePurchase() -> Void</pre></p>
+        <p>
+        <pre>RestorePurchase() -> Void</pre>
+        </p>
 
         <span class="badge badge-ttl">説明</span>
-        <p>恢復購買，換手機時，只有在商品種類是 Non-Consumable, Auto-renewing subscription 這兩種商品會用到。</p>
+        <ul>
+            <li>恢復購買，換手機時，只有在商品種類是 Non-Consumable, Auto-renewing subscription 這兩種商品會用到。</li>
+        </ul>
 
         <span class="badge badge-ttl">回傳</span>
         <ul>

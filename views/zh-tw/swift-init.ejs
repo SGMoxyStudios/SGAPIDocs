@@ -69,10 +69,14 @@
         <h1>SGSDK 初始化</h1>
         <h3 id="listener">1.SGSDK 回調監聽</h3>
         <span class="badge badge-ttl">函式</span>
-        <p><pre>SetListener(listener: @escaping (SGListenResult) -> Void) -> Void</pre></p>
+        <p>
+        <pre>SetListener(listener: @escaping (SGListenResult) -> Void) -> Void</pre>
+        </p>
 
         <span class="badge badge-ttl">説明</span>
-        <p>SGSDK 所有非同步的函式，都透過回調監聽來得到結果。</p>
+        <ul>
+            <li>SGSDK 所有非同步的函式，都透過回調監聽來得到結果。</li>
+        </ul>
 
         <span class="badge badge-ttl">範例</span>
         <p>
@@ -83,18 +87,22 @@
         <span class="badge badge-ttl">參數</span>
         <ul>
             <li>
-                listener 是有一個 <a target="_blank" href="/webapi-init#SGListenerResult">SGListenerResult</a> 當參數的 delegate。
+                listener 是有一個 <a target="_blank" href="/webapi-init#SGListenerResult">SGListenerResult</a> 當參數的
+                delegate。
             </li>
         </ul>
-        <span class="badge badge-ttl">回傳</span>
-        <p>無。</p>
+        <br/>
 
         <h3>2.SGSDK 初始化</h3>
         <span class="badge badge-ttl">函式</span>
-        <p><pre>Init(GameKey: String, AppSecret: String) -> Void</pre></p>
+        <p>
+        <pre>Init(GameKey: String, AppSecret: String) -> Void</pre>
+        </p>
 
         <span class="badge badge-ttl">説明</span>
-        <p>初始化 SGSDK 才能使用之後的所有功能。</p>
+        <ul>
+            <li>初始化 SGSDK 才能使用之後的所有功能。</li>
+        </ul>
 
         <span class="badge badge-ttl">參數</span>
         <ul>
@@ -111,12 +119,13 @@
     <section id="section4">
         <h1>釋放 SGSDK 資源</h1>
         <span class="badge badge-ttl">函式</span>
-        <p><pre>Destroy() -> Void</pre></p>
+        <p>
+        <pre>Destroy() -> Void</pre>
+        </p>
 
         <span class="badge badge-ttl">説明</span>
-        <p>釋放 SGSDK 資源。</p>
-
-        <span class="badge badge-ttl">回傳</span>
-        <p>無。</p>
+        <ul>
+            <li>釋放 SGSDK 資源。</li>
+        </ul>
     </section>
 </div>
