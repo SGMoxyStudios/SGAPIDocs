@@ -405,7 +405,7 @@
   {
     "api": "",
     "code": 1152,
-    "msg": "Google IAP: init error: {message}",
+    "msg": "Google IAP: init error.",
     "class": ""
   },
   {
@@ -417,7 +417,7 @@
   {
     "api": "",
     "code": 1162,
-    "msg": "Google IAP: subscribe failed: {message}",
+    "msg": "Google IAP: subscribe failed.",
     "class": ""
   },
   {
@@ -429,7 +429,7 @@
   {
     "api": "",
     "code": 1172,
-    "msg": "Google IAP: purchase failed: {message}",
+    "msg": "Google IAP: purchase failed.",
     "class": ""
   },
   {
@@ -441,7 +441,7 @@
   {
     "api": "",
     "code": 1174,
-    "msg": "Google IAP: consume failed: {message}",
+    "msg": "Google IAP: consume failed.",
     "class": ""
   },
   {
