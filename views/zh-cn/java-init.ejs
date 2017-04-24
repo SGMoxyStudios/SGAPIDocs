@@ -23,25 +23,33 @@
 
     <section id="environment">
         <h1>開發環境設定</h1>
-        <h3>SGSDK 支援版本 : </h3>
+        <h3>1.SGSDK 支援版本 : </h3>
         <p>SGSDK 支援 Android 最低版本為 4.4 (KitKat, API Level 19)。建議使用 Android Studio 開發。</p>
         <img src=<%= "assets/img/" + lang + "/pic05.png"%> class="img-responsive"/>
         <br />
 
-        <h3>下載 SGSDK Android Library File</h3>
-        <p><a href="/sdk/android/SGSDK.aar">SGSDK Android Library File (SGSDK.AAR) 下載</a></p>
+        <h3>2.下載 SGSDK Android Library File</h3>
+        <ul>
+            <li><a href="/sdk/android/SGSDK.aar">SGSDK Android Library File (SGSDK.AAR) 下載</a></li>
+        </ul>
         <br />
         
-        <h3>SGSDK.AAR 會自動引用的權限 </h3>
+        <h3>3.範例程式</h3>
+        <ul>
+            <li><a href="https://github.com/SGMoxyStudios/SGSDK-Android-Sample">SGSDK Android Sample</a></li>
+        </ul>
+        <br />
+
+        <h3>4.SGSDK 自動引用的權限 </h3>
         <%- include ../code/java-user-permission.html -%>
 
     </section>
 
     <section id="import">
         <h1>引用 SGSDK.AAR</h1>
-        <h3>基本引用步驟</h3>
+        <h3>1.基本引用步驟</h3>
         <ul>
-            <li>從選單 <b>File &gt; New Module</b></li>
+            <li>從選單 <b>File > New Module</b></li>
             <li>選擇 <b>Import .JAR/.AAR Package</b> 之後選 <b>Next</b></li>
             <li>輸入 <b>SGSDK.AAR</b> 路徑，然後按 <b>Finish</b>.</li>
             <li>
@@ -56,7 +64,7 @@
 
         <br />
 
-        <h3>其他參考資料</h3>
+        <h3>2.其他參考資料</h3>
         <ul>
             <li>
                 <a href="https://developer.android.com/studio/projects/android-library.html#AddDependency" target="_blank">
@@ -77,7 +85,7 @@
     <section id="init">
         <h1>SGSDK 初始化</h1>
 
-        <h3>使用之前</h3>
+        <h3>1.使用之前</h3>
         <p>開始使用 SGSDK 之前，請確認於 AndroidManifest.xml 設置 SDK所需的 meta-data。</p>
         <%- include ../code/java-sdk-metadata.html -%>
         <ul>
@@ -95,7 +103,7 @@
         </ul>
         <br />
 
-        <h3>初始化函式</h3>
+        <h3>2.初始化函式</h3>
 
         <span class="badge badge-ttl">函式</span>
         <pre>void init(Context ctx, String gameKey, String appSecret)</pre>
@@ -152,7 +160,3 @@
     </section>
 
 </div>
-
-<script>
-  $(document).ready(()=>{ appUtil.translateBody('SC'); });
-</script>
