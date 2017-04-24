@@ -11,9 +11,8 @@
         <li><a href="#MyAccount">帳號資訊</a></li>
         <li><a href="#VerifySession">Session ID 登入驗證</a></li>
         <li><a href="#LoginByToken">Token 快速登入</a></li>
-        <li><a href="#OtherFunction">其他函式</a></li>
-        <li><a href="#ShowFloatingButton">顯示懸浮按鈕</a></li>
-        <li><a href="#HideFloatingButton">隱藏懸浮按鈕</a></li>
+        <li><a href="#OtherFunction">取值函式</a></li>
+        <li><a href="#FloatingButton">懸浮按鈕函式</a></li>
         <li><a href="#Logout">登出</a></li>
     </ul>
 </div>
@@ -159,7 +158,7 @@
                 <span class="badge badge-ttl">回傳</span>
                 <ul>
                     <li>請參看【<a href="/swift-init#listener">回調監聽</a>】的設定，以及回傳的代碼與定義<a href="/webapi-init#section5">對照表</a>。</li>
-                    <li>回調監聽的 Data 參數：無。</li>
+                    <li>回調監聽的 Data 參數：<a target="_blank" href="/webapi-init#SGMember">SGMember</a>。</li></li>
                 </ul>
             </div>
             <div class="col-sm-3">
@@ -185,7 +184,7 @@
                 <span class="badge badge-ttl">回傳</span>
                 <ul>
                     <li>請參看【<a href="/swift-init#listener">回調監聽</a>】的設定，以及回傳的代碼與定義<a href="/webapi-init#section5">對照表</a>。</li>
-                    <li>回調監聽的 Data 參數：無。</li>
+                    <li>回調監聽的 Data 參數：<a target="_blank" href="/webapi-init#SGMember">SGMember</a>。</li></li>
                 </ul>
             </div>
             <div class="col-sm-3">
@@ -230,8 +229,6 @@
         <span class="badge badge-ttl">參數</span>
         <p>
         <table class="table table-striped">
-            <col width="15%">
-            <col width="85%">
             <tr>
                 <th>參數名稱</th>
                 <th>描述</th>
@@ -258,7 +255,7 @@
         <p>
         <ul>
             <li>請參看【<a href="/swift-init#listener">回調監聽</a>】的設定，以及回傳的代碼與定義<a href="/webapi-init#section5">對照表</a>。</li>
-            <li>回調監聽的 Data 參數：<a target="_blank" href="/webapi-init#SGMember">SGMember</a>。</li>
+            <li>回調監聽的 Data 參數：無。</li>
         </ul>
         </p>
     </section>
@@ -281,8 +278,8 @@
     </section>
 
     <section id="OtherFunction">
-        <h1>其他函式</h1>
-        <h3 id="GetOpenID">取得用戶 Open ID</h3>
+        <h1>取值函式</h1>
+        <h3 id="GetOpenID">1.取得用戶 Open ID</h3>
         <span class="badge badge-ttl">函式</span>
         <p><pre>GetOpenID() -> String?</pre></p>
         <span class="badge badge-ttl">説明</span>
@@ -295,7 +292,7 @@
         <p>成功： open id，失敗： nil。</p>
         <br/>
 
-        <h3 id="GetSessionID">取得 Session ID</h3>
+        <h3 id="GetSessionID">2.取得 Session ID</h3>
         <span class="badge badge-ttl">函式</span>
         <p><pre>GetSessionID() -> String?</pre></p>
         <span class="badge badge-ttl">説明</span>
@@ -308,7 +305,7 @@
         <p>成功： session id，失敗： nil。</p>
         <br/>
 
-        <h3 id="GetToken">取得 Token</h3>
+        <h3 id="GetToken">3.取得 Token</h3>
         <span class="badge badge-ttl">函式</span>
         <p><pre>GetToken() -> String?</pre></p>
         <span class="badge badge-ttl">説明</span>
@@ -321,25 +318,27 @@
         <p>成功： token，失敗： nil。</p>
         <br/>
 
-        <h3 id="GetKidIndex">取得孩童索引</h3>
+        <h3 id="GetKidIndex">4.取得孩童索引</h3>
         <span class="badge badge-ttl">函式</span>
         <p><pre>GetKidIndex() -> Int?</pre></p>
         <span class="badge badge-ttl">説明</span>
         <p>取得正在遊玩的孩童索引。</p>
+        <p>使用以下函式會變更索引, <a href="#Login">Login()</a>, <a href="#Signup">Signup()</a>, <a href="#SelectKid">SelectKid()</a>, <a href="#MyKid">MyKid()</a>, <a href="#LoginByToken">LoginByToken()</a></p>
         <span class="badge badge-ttl">回傳</span>
         <p>成功： kid index，失敗： nil。</p>
         <br/>
 
-        <h3 id="GetKidFace">取得孩童頭像</h3>
+        <h3 id="GetKidFace">5.取得孩童頭像</h3>
         <span class="badge badge-ttl">函式</span>
         <p><pre>GetKidFace() -> String?</pre></p>
         <span class="badge badge-ttl">説明</span>
         <p>取得正在遊玩的孩童頭像。</p>
+        <p>使用以下函式會變更懸浮按鈕頭像, <a href="#Login">Login()</a>, <a href="#Signup">Signup()</a>, <a href="#SelectKid">SelectKid()</a>, <a href="#MyKid">MyKid()</a>, <a href="#LoginByToken">LoginByToken()</a></p>
         <span class="badge badge-ttl">回傳</span>
         <p>成功： kid face，失敗： nil。</p>
         <br/>
 
-        <h3>取得登入狀態</h3>
+        <h3>6.取得登入狀態</h3>
         <span class="badge badge-ttl">函式</span>
         <p><pre>IsLogin() -> Bool</pre></p>
         <span class="badge badge-ttl">説明</span>
@@ -348,7 +347,7 @@
         <p>登入：True ， 未登入：False。</p>
         <br/>
 
-        <h3>取得平台名稱</h3>
+        <h3>7.取得平台名稱</h3>
         <span class="badge badge-ttl">函式</span>
         <p><pre>GetChannelID() -> String</pre></p>
         <span class="badge badge-ttl">説明</span>
@@ -357,44 +356,27 @@
         <p>平台名稱，例如：appstore。</p>
     </section>
 
+    <section id="FloatingButton">
+        <h1>懸浮按鈕函式</h1>
 
-    <section id="GetToken">
-        <h1>取得 Token</h1>
-
+        <h3>1.顯示懸浮按鈕</h3>
         <span class="badge badge-ttl">函式</span>
-        <p><pre>GetToken() -> String?</pre></p>
+        <p><pre>ShowWidget(place: EWidgetLocation = .Left) -> Void</pre></p>
 
         <span class="badge badge-ttl">説明</span>
-        <p>取得 Token，登入後才可取得。</p>
-
-        <span class="badge badge-ttl">範例</span>
-        <p>
-            <% include ../code/swift-getToken.html %>
-        </p>
-
-        <span class="badge badge-ttl">回傳</span>
-        <p>成功： token，失敗： nil。</p>
-    </section>
-
-    <section id="ShowFloatingButton">
-        <h1>顯示懸浮按鈕</h1>
-        <span class="badge badge-ttl">函式</span>
-        <p><pre>ShowFloatingButton(place: eFloatingButtonPlace) -> Void</pre></p>
-
-        <span class="badge badge-ttl">説明</span>
-        <p>顯示懸浮按鈕，登入後自動顯示。</p>
+        <ul>
+            <li>顯示懸浮按鈕，圖像為正在遊玩的孩童頭像，登入後自動顯示。</li>
+            <li>點擊懸浮按鈕，會執行<a href="#MyAccount">帳號資訊</a>。</li>
+        </ul>
 
         <span class="badge badge-ttl">參數</span>
-        <p>
         <table class="table table-striped">
-            <col width="30%">
-            <col width="70%">
             <tr>
-                <th>eFloatingButtonPlace case</th>
+                <th>EWidgetLocation case</th>
                 <th>狀態描述</th>
             </tr>
             <tr>
-                <td>LeftTop</td>
+                <td>TopLeft</td>
                 <td>左上角</td>
             </tr>
             <tr>
@@ -402,7 +384,7 @@
                 <td>上方</td>
             </tr>
             <tr>
-                <td>RightTop</td>
+                <td>TopRight</td>
                 <td>右上角</td>
             </tr>
             <tr>
@@ -414,7 +396,7 @@
                 <td>右方</td>
             </tr>
             <tr>
-                <td>LeftBottom</td>
+                <td>BottomLeft</td>
                 <td>左下角</td>
             </tr>
             <tr>
@@ -422,26 +404,34 @@
                 <td>下方</td>
             </tr>
             <tr>
-                <td>RightBottom</td>
+                <td>BottomRight</td>
                 <td>右下角</td>
             </tr>
         </table>
-        </p>
+        <ul>
+            <li>若非上述值，預設值為中間左方。</li>
+        </ul>
 
         <span class="badge badge-ttl">回傳</span>
         <p>無。</p>
-    </section>
+        <br/>
 
-    <section id="HideFloatingButton">
-        <h1>隱藏懸浮按鈕</h1>
+        <h3>2.隱藏懸浮按鈕</h3>
         <span class="badge badge-ttl">函式</span>
-        <p><pre>HideFloatingButton() -> Void</pre></p>
-
+        <p><pre>HideWidget() -> Void</pre></p>
         <span class="badge badge-ttl">説明</span>
         <p>隱藏懸浮按鈕。</p>
-
         <span class="badge badge-ttl">回傳</span>
         <p>無。</p>
+        <br/>
+
+        <h3>3.檢查懸浮按鈕狀態</h3>
+        <span class="badge badge-ttl">函式</span>
+        <p><pre>IsWidgetVisible() -> Bool</pre></p>
+        <span class="badge badge-ttl">説明</span>
+        <ul><li>檢查懸浮按鈕狀態。</li></ul>
+        <span class="badge badge-ttl">回傳</span>
+        <ul><li>顯示：True，隱藏：False。</li></ul>
     </section>
 
     <section id="Logout">

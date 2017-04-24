@@ -1,115 +1,122 @@
 <div class="left-side" id="myScrollspy">
     <ul class="nav nav-pills">
         <li><a href="#section1">Swift 3 集成指南</a></li>
-        <li><a href="#section2">Xcode 开发环境设定</a></li>
-        <li><a href="#section3">SgSDK初始化</a></li>
-        <li><a href="#section4">释放SgSDK资源</a></li>
+        <li><a href="#section2">Xcode 開發環境設定</a></li>
+        <li><a href="#section3">SGSDK 初始化</a></li>
+        <li><a href="#section4">釋放 SGSDK 資源</a></li>
     </ul>
 </div>
 
 <div class="right-side">
-    <div id="section1">
+    <section id="section1">
         <h1>Swift 3 集成指南</h1>
-        <hr>
-        <h4>开发者可在 Xcode 环境透过调用 Web View 来串接 SG Game API。通过本文以 Swift 3
-            语言为范例，介绍客户端接入的整个流程。在接入之前请认真阅读本文档，以减少接入过程中遇到的问题。</h4>
-    </div>
-    <br>
-    <div id="section2">
-        <h1>Xcode 开发环境设定</h1>
-        <hr>
-        <h4>SDK 支援的最低iOS版本： 8.0<br>SDK Sample 支援的最低iOS版本： 9.0<br>Swift版本： 3</h4>
+        <p>開發者可在 Xcode 環境透過調用 Web View 來串接 SG Game API。通過本文以 Swift 3
+            語言為範例，介紹客戶端接入的整個流程。在接入之前請認真閱讀本文檔，以減少接入過程中遇到的問題。</p>
+    </section>
+
+    <section id="section2">
+        <h1>Xcode 開發環境設定</h1>
+        <h3>1.SDK 支援版本：</h3>
         <ul>
-            <li><a href="/sdk/ios/debug/SgSDK.framework.zip" download>SgSDK Farmework(debug, 用于模拟器)</a></li>
-            <li><a href="/sdk/ios/release/SgSDK.framework.zip" download>SgSDK Farmework(release, 用于真实装置)</a></li>
+            <li>最低 iOS 版本： 8.0</li>
+            <li>Swift 版本： 3</li>
+        </ul>
+        <h3>2.下載 SGSDK iOS framework</h3>
+        <ul>
+            <li><a href="/sdk/ios/debug/SGSDK.framework.zip" download>SGSDK Framework (debug, 用於模擬器)</a></li>
+            <li><a href="/sdk/ios/release/SGSDK.framework.zip" download>SGSDK Framework (release, 用於真實裝置)</a></li>
+        </ul>
+        <h3>3.範例程式</h3>
+        <ul>
             <li><a href="https://github.com/SGMoxyStudios/SGSDK-iOS-Sample">SGSDK iOS Sample</a></li>
         </ul>
-        <br>
+        <br/>
         <div id="section2-1">
-            <h4>SgSDK Farmework(swift)</h4>
+            <h3>4.SGSDK Framework(swift)</h3>
             <hr>
-            <p>将SgSDK.framework放入专案资料夹</p>
+            <p>將 SGSDK.framework 放入專案資料夾</p>
             <div class="well well-sm">
-                <img src=<%= "assets/img/" + lang + "/swiftpic01.png" %>>
+                <img src=<%= "assets/img/" + lang + "/swiftpic01.png" %> class="img-responsive"/>
             </div>
         </div>
         <div id="section2-2">
-            <h4>XCode设定</h4>
+            <h3>5.XCode 設定</h3>
             <hr>
             <ol>
-                <li>在navigator区点选专案</li>
-                <li>在editor区点选General</li>
-                <li>找到Embedded Binaries</li>
-                <li>点选＋</li>
-                <li>选择Add Other...</li>
-                <li>选择刚刚放入的SgSDK.framework</li>
-                <li>点选finish</li>
-                <li>会看到Embedded Binaries和Linded Frameworks and Binaries都出现SgSDK.framework</li>
+                <li>在 navigator 區點選專案。</li>
+                <li>在 editor 區點選 General。</li>
+                <li>找到 Embedded Binaries。</li>
+                <li>點選＋。</li>
+                <li>選擇 Add Other...。</li>
+                <li>選擇剛剛放入的 SGSDK.framework。</li>
+                <li>點選 finish。</li>
+                <li>會看到 Embedded Binaries 和 Linked Frameworks and Binaries 都出現 SGSDK.framework。</li>
             </ol>
             <div class="well well-sm">
-                <img src=<%= "assets/img/" + lang + "/swiftpic02.png" %>>
-                <img src=<%= "assets/img/" + lang + "/swiftpic03.png" %>>
-                <img src=<%= "assets/img/" + lang + "/swiftpic04.png" %>>
+                <img src=<%= "assets/img/" + lang + "/swiftpic02.png" %> class="img-responsive"/>
+                <img src=<%= "assets/img/" + lang + "/swiftpic03.png" %> class="img-responsive"/>
+                <img src=<%= "assets/img/" + lang + "/swiftpic04.png" %> class="img-responsive"/>
             </div>
         </div>
         <div id="section2-3">
-            <h4>客户端接入代码</h4>
+            <h3>6.客戶端接入代碼</h3>
             <hr>
-            在要接入的.swift里面加入<code>import SgSDK</code>
+            在要接入的 .swift 裡面加入<code>import SGSDK</code>
         </div>
-    </div>
-    <br>
-    <div id="section3">
-        <h1>SgSDK初始化</h1>
-        <hr>
-        接口名称：<code>SetListener</code><br/>
-        接口说明：SgSDK 所有非同步的函式，都透过回调监听来得到结果<br/>
-        参数列表：listener 是有一个SgSDKResult当参数的function<br/>
-        范例：
-        <pre>SgSDK.Instance.SetListener(listener: MsgListen)</pre>
-        <h4>SgSDKResult结构</h4>
-        <table class="table table-striped">
-            <col width="10%">
-            <col width="5%">
-            <col width="85%">
-            <tr>
-                <th>参数名称</th>
-                <th>型态</th>
-                <th>描述</th>
-            </tr>
-            <tr>
-                <td>Code</td>
-                <td>Int</td>
-                <td><a href="/webapi-init#section5">状态代码</a></td>
-            </tr>
-            <tr>
-                <td>Msg</td>
-                <td>String</td>
-                <td><a href="/webapi-init#section5">状态描述</a></td>
-            </tr>
-            <tr>
-                <td>Data</td>
-                <td>Any?</td>
-                <td>没有其他资讯的话会是nil，有资讯的话可以转换为任一结构</td>
-            </tr>
-        </table>
-        <% include ../code/swift-setListen.html %>
-        <br>
-        接口名称：<code>Init</code><br/>
-        接口说明：初始化SgSDK才能使用之后的所有功能<br/>
-        参数列表：GameKey, AppSecret<br/>
-        范例：
-        <pre>SgSDK.Instance.Init("YourGameKey", "YourAppSecret")</pre>
-        返回值：<a href="/webapi-init#section5"> <%= texts.LookCode %> </a>
-    </div>
-    <br>
-    <div id="section4">
-        <h1>释放SgSDK资源</h1>
-        <hr>
-        接口名称：<code>Destroy</code><br/>
-        接口说明：释放SgSDK资源<br/>
-        范例：
-        <pre>SgSDK.Instance.Destroy()</pre>
-        返回值：无
-    </div>
+    </section>
+
+    <section id="section3">
+        <h1>SGSDK 初始化</h1>
+        <h3 id="listener">1.SGSDK 回調監聽</h3>
+        <span class="badge badge-ttl">函式</span>
+        <p><pre>SetListener(listener: @escaping (SGListenResult) -> Void) -> Void</pre></p>
+
+        <span class="badge badge-ttl">説明</span>
+        <p>SGSDK 所有非同步的函式，都透過回調監聽來得到結果。</p>
+
+        <span class="badge badge-ttl">範例</span>
+        <p>
+        <pre>SGSDK.Instance.SetListener(listener: MsgListen)</pre>
+        <% include ../code/swift-setListener.html %>
+        </p>
+
+        <span class="badge badge-ttl">參數</span>
+        <ul>
+            <li>
+                listener 是有一個 <a target="_blank" href="/webapi-init#SGListenerResult">SGListenerResult</a> 當參數的 delegate。
+            </li>
+        </ul>
+        <span class="badge badge-ttl">回傳</span>
+        <p>無。</p>
+
+        <h3>2.SGSDK 初始化</h3>
+        <span class="badge badge-ttl">函式</span>
+        <p><pre>Init(GameKey: String, AppSecret: String) -> Void</pre></p>
+
+        <span class="badge badge-ttl">説明</span>
+        <p>初始化 SGSDK 才能使用之後的所有功能。</p>
+
+        <span class="badge badge-ttl">參數</span>
+        <ul>
+            <li>GameKey</li>
+            <li>AppSecret</li>
+        </ul>
+        <span class="badge badge-ttl">回傳</span>
+        <ul>
+            <li>請參看【<a href="/swift-init#listener">回調監聽</a>】的設定，以及回傳的代碼與定義<a href="/webapi-init#section5">對照表</a>。</li>
+            <li>回調監聽的 Data 參數：無。</li>
+        </ul>
+    </section>
+
+    <section id="section4">
+        <h1>釋放 SGSDK 資源</h1>
+        <span class="badge badge-ttl">函式</span>
+        <p><pre>Destroy() -> Void</pre></p>
+
+        <span class="badge badge-ttl">説明</span>
+        <p>釋放 SGSDK 資源。</p>
+
+        <span class="badge badge-ttl">回傳</span>
+        <p>無。</p>
+    </section>
 </div>
