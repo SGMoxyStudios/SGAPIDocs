@@ -222,7 +222,7 @@
     "class": ""
   },
   {
-    "api": "verifytoken",
+    "api": "loginbytoken",
     "code": 1001,
     "msg": "ok",
     "class": "active"

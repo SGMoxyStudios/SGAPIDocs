@@ -79,7 +79,7 @@
 
         <span class="badge badge-ttl">回傳</span>
         <ul>
-            <li>返回值以 JSON 格式回傳，例如<code>{"code": 1, "msg": "ok"}</code>。</li>
+            <li>返回值以 JSON 格式回傳，例如<code>{"Code": 1, "Message": "ok"}</code>。</li>
             <li><a href="#section5"> 查看回傳值定義 </a></li>
         </ul>
     </section>
@@ -105,19 +105,19 @@
 
     <section id="section5">
         <h1>回傳值定義</h1>
-        <p>所有接口回傳值都包含<code>code, msg</code>。</p>
+        <p>所有接口回傳值都包含<code>Code, Message</code>。</p>
 
         <table class="table"> <!--Gem Start-->
             <thead>
             <tr>
                 <th>
-                    api
+                    API
                 </th>
                 <th>
-                    code
+                    Code
                 </th>
                 <th>
-                    msg
+                    Message
                 </th>
             </tr>
             </thead>
@@ -142,8 +142,8 @@
     <section id="section6">
         <h1>結構定義</h1>
         <p>SG SDK 使用到以下幾個結構定義。注意 property 大小寫。</p>
-        <section id="SGListenResult">
-            <h3>1.SGListenResult</h3>
+        <section id="SGListenerResult">
+            <h3>1.SGListenerResult</h3>
             <ul>
                 <li>接收回調監聽結果結構。</li>
                 <table class="table table-striped">
@@ -153,17 +153,17 @@
                         <th>描述</th>
                     </tr>
                     <tr>
-                        <td>code</td>
-                        <td>string</td>
+                        <td>Code</td>
+                        <td>integer</td>
                         <td>調用結果代碼</td>
                     </tr>
                     <tr>
-                        <td>msg</td>
+                        <td>Message</td>
                         <td>string</td>
                         <td>回應訊息</td>
                     </tr>
                     <tr>
-                        <td>object</td>
+                        <td>Data</td>
                         <td>class</td>
                         <td>根據不同接口回應不同結構</td>
                     </tr>
@@ -234,6 +234,16 @@
                         <td>SessionID</td>
                         <td>string</td>
                         <td>登入後 Server 產生的 Session ID。</td>
+                    </tr>
+                    <tr>
+                        <td>KidIndex</td>
+                        <td>integer</td>
+                        <td>當前正在進行遊戲的孩童索引。</td>
+                    </tr>
+                    <tr>
+                        <td>KidFace</td>
+                        <td>string</td>
+                        <td>當前正在進行遊戲的孩童頭像。</td>
                     </tr>
                     <tr>
                         <td>Children</td>
@@ -362,7 +372,7 @@
                     </tr>
                     <tr>
                         <td>RoleLevel</td>
-                        <td>int</td>
+                        <td>integer</td>
                         <td></td>
                         <td>角色等級</td>
                     </tr>
@@ -399,12 +409,12 @@
                         <th>描述</th>
                     </tr>
                     <tr>
-                        <td>code</td>
-                        <td>int</td>
+                        <td>Code</td>
+                        <td>integer</td>
                         <td>狀態代碼</td>
                     </tr>
                     <tr>
-                        <td>msg</td>
+                        <td>Message</td>
                         <td>string</td>
                         <td>狀態描述</td>
                     </tr>
@@ -474,7 +484,7 @@
                     </tr>
                     <tr>
                         <td>RoleLevel</td>
-                        <td>int</td>
+                        <td>integer</td>
                         <td>角色等級</td>
                     </tr>
                     <tr>
