@@ -332,7 +332,7 @@
   {
     "api": "",
     "code": 1132,
-    "msg": "Can not perform In App Purchases.",
+    "msg": "Can not perform IAP.",
     "class": ""
   },
   {
@@ -344,7 +344,7 @@
   {
     "api": "",
     "code": 1134,
-    "msg": "Invalid Product IDs.",
+    "msg": "Invalid product IDs.",
     "class": ""
   },
   {
@@ -356,19 +356,19 @@
   {
     "api": "",
     "code": 1136,
-    "msg": "Transaction OK.",
+    "msg": "Purchase successful.",
     "class": ""
   },
   {
     "api": "",
     "code": 1137,
-    "msg": "Transaction failed.",
+    "msg": "Purchase failed.",
     "class": ""
   },
   {
     "api": "",
     "code": 1138,
-    "msg": "Unknown transaction state.",
+    "msg": "Unknown purchase state.",
     "class": ""
   },
   {
@@ -386,7 +386,7 @@
   {
     "api": "",
     "code": 1141,
-    "msg": "Purchase restore OK.",
+    "msg": "Purchase restore successful.",
     "class": ""
   },
   {
@@ -563,7 +563,7 @@
   {
     "api": "",
     "code": 8004,
-    "msg": "Get open id ok.",
+    "msg": "Get open ID ok.",
     "class": ""
   },
   {
