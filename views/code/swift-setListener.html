@@ -2,13 +2,60 @@
 <div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
     <table>
         <tr>
-            <td><pre style="margin: 0; line-height: 125%">1
-2
-3</pre>
+            <td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre>
             </td>
-            <td><pre style="margin: 0; line-height: 125%">func <span style="color: #0000FF">MsgListen</span><span
-                    style="color: #666666">(</span><span style="color: #A0A000">result:</span> SGListenerResult<span
-                    style="color: #666666">)</span> <span style="color: #666666">{</span>
+            <td><pre style="margin: 0; line-height: 125%">SGSDK<span style="color: #666666">.</span><span
+                    style="color: #7D9029">Instance</span><span style="color: #666666">.</span><span
+                    style="color: #7D9029">SetListener</span><span style="color: #666666">(</span><span
+                    style="color: #A0A000">listener:</span> MsgListener<span style="color: #666666">)</span>
+
+func <span style="color: #0000FF">MsgListener</span><span style="color: #666666">(</span><span style="color: #A0A000">result:</span> SGListenerResult<span
+                        style="color: #666666">)</span> <span style="color: #666666">{</span>
+    <span style="color: #008000; font-weight: bold">switch</span> result<span style="color: #666666">.</span><span
+                        style="color: #7D9029">Code</span> <span style="color: #666666">{</span>
+    <span style="color: #008000; font-weight: bold">case</span> <span style="color: #666666">201,</span> <span
+                        style="color: #666666">301,</span> <span style="color: #666666">1001,</span> <span
+                        style="color: #666666">801,</span> <span style="color: #666666">1501:</span> <span
+                        style="color: #408080; font-style: italic">// Login, Signup, Login by token</span>
+        <span style="color: #008000; font-weight: bold">break</span>
+    <span style="color: #008000; font-weight: bold">case</span> <span style="color: #666666">1101:</span>  <span
+                        style="color: #408080; font-style: italic">// SG server validating receipt ok</span>
+        <span style="color: #008000; font-weight: bold">break</span>
+    <span style="color: #008000; font-weight: bold">case</span> <span style="color: #666666">1136:</span>  <span
+                        style="color: #408080; font-style: italic">// appstore transaction ok</span>
+        <span style="color: #008000; font-weight: bold">break</span>
+    <span style="color: #008000; font-weight: bold">case</span> <span style="color: #666666">1141:</span>  <span
+                        style="color: #408080; font-style: italic">// Restore</span>
+        <span style="color: #008000; font-weight: bold">break</span>
+    <span style="color: #008000; font-weight: bold">case</span> <span style="color: #666666">1201:</span>  <span
+                        style="color: #408080; font-style: italic">// Get Order</span>
+        <span style="color: #008000; font-weight: bold">break</span>
+    <span style="color: #008000; font-weight: bold">case</span> <span style="color: #666666">8004:</span>  <span
+                        style="color: #408080; font-style: italic">// Open ID</span>
+        <span style="color: #008000; font-weight: bold">break</span>
+    <span style="color: #008000; font-weight: bold">default</span><span style="color: #666666">:</span>
+        <span style="color: #008000; font-weight: bold">break</span>
+    <span style="color: #666666">}</span>
     <span style="color: #408080; font-style: italic">//print(&quot;code: \(result.Code), msg: \(result.Msg)&quot;)</span>
 <span style="color: #666666">}</span>
 </pre>
