@@ -1,12 +1,12 @@
 <div class="left-side" id="myScrollspy">
 
     <ul class="nav nav-pills">
-        <li><a href="#summary">Introduction</a></li>
-        <li><a href="#environment">Development Environment</a></li>
-        <li><a href="#import">Using SGSDK</a></li>
-        <li><a href="#init">SGSDK Initialization</a></li>
-        <li><a href="#lifecycle">SGSDK Lifecycle Events</a></li>
-        <li><a href="#listener">SGSDK Callback Listener</a></li>
+        <li><a href="#summary">Android 集成指南</a></li>
+        <li><a href="#environment">開發環境設定</a></li>
+        <li><a href="#import">引用 SGSDK</a></li>
+        <li><a href="#init">SGSDK 初始化</a></li>
+        <li><a href="#lifecycle">SGSDK 生命周期事件</a></li>
+        <li><a href="#listener">SGSDK 回調監聽</a></li>
     </ul>
 
 </div>
@@ -14,7 +14,7 @@
 <div class="right-side">
 
     <section id="summary">
-        <h1>Introduction</h1>
+        <h1>Android 集成指南</h1>
         <p>
             通過本文的介紹可以了解 Android SDK 客戶端接入的整個流程。
             在接入之前請仔細閱讀本文檔，以減少接入過程中遇到的問題。
@@ -22,7 +22,7 @@
     </section>
 
     <section id="environment">
-        <h1>Development Environment</h1>
+        <h1>開發環境設定</h1>
         <h3>1.SGSDK 支援版本 : </h3>
         <p>SGSDK 支援 Android 最低版本為 4.4 (KitKat, API Level 19)。建議使用 Android Studio 開發。</p>
         <img src=<%= "assets/img/" + lang + "/pic05.png"%> class="img-responsive"/>
@@ -36,7 +36,7 @@
         
         <h3>3.範例程式</h3>
         <ul>
-            <li><a href="https://github.com/SGMoxyStudios/SGSDK-Android-Sample">SGSDK Android Sample</a></li>
+            <li><a href="https://github.com/SGMoxyStudios/SGSDK-Android-Sample" target="_blank">SGSDK Android Sample</a></li>
         </ul>
         <br />
 
@@ -46,7 +46,7 @@
     </section>
 
     <section id="import">
-        <h1>Using SGSDK</h1>
+        <h1>引用 SGSDK.AAR</h1>
         <h3>1.基本引用步驟</h3>
         <ul>
             <li>從選單 <b>File > New Module</b></li>
@@ -83,15 +83,15 @@
     </section>
 
     <section id="init">
-        <h1>SGSDK Initialization</h1>
+        <h1>SGSDK 初始化</h1>
 
-        <h3>1.Before Initialization</h3>
+        <h3>1.使用之前</h3>
         <p>開始使用 SGSDK 之前，請確認於 AndroidManifest.xml 設置 SDK所需的 meta-data。</p>
         <%- include ../code/java-sdk-metadata.html -%>
         <ul>
             <li>
                 <b>SDKChannel</b>：SDK 渠道設定。此參數為必設。
-                （<a target="_blank" href="/channel">渠道列表請參看此連結</a>）
+                （<a href="/channel">渠道列表請參看此連結</a>）
             </li>
             <li>
                 <b>Base64PublicKey</b>：只有當使用 Google IAP 的時候才需要設定此參數。
@@ -103,7 +103,7 @@
         </ul>
         <br />
 
-        <h3>2.Initialization</h3>
+        <h3>2.初始化函式</h3>
 
         <span class="badge badge-ttl">函式</span>
         <pre>void init(Context ctx, String gameKey, String appSecret)</pre>
@@ -120,12 +120,12 @@
         <span class="badge badge-ttl">參數</span>
         <ul>
             <li>Context 為 App 的 Activity 物件。</li>
-            <li>GameKey、AppSecret 可以在 <a target="_blank" href="http://dashboard.smartgamesltd.com">SG Developer</a> 申請開通遊戲後取。</li>
+            <li>GameKey、AppSecret 可以在 <a href="http://dashboard.smartgamesltd.com">SG Developer</a> 申請開通遊戲後取。</li>
         </ul>
 
         <span class="badge badge-ttl">回傳</span>
         <ul>
-            <li>請參看【<a href="/java-init#listener">回調監聽</a>】的設定，以及回傳的代碼與定義<a href="/webapi-init#section5">對照表</a>。</li>
+            <li>請參看【<a href="#listener">回調監聽</a>】的設定，以及回傳的代碼與定義<a href="/webapi-init#section5">對照表</a>。</li>
             <li>回調監聽的 Data 參數：無。</li>
         </ul>
         
@@ -133,7 +133,7 @@
     </section>
 
     <section id="lifecycle">
-        <h1>SGSDK Lifecycle Events</h1>
+        <h1>SGSDK 生命周期事件</h1>
         <p>請參照如下，在主 APP 的生命周期事件裏，呼叫 SGSDK 對應的生命周期函式。</p>
         <%- include ../code/java-sdk-lifecycle.html -%>
         <ul>
@@ -146,7 +146,7 @@
     </section>
 
     <section id="listener">
-        <h1>SGSDK Callback Listener</h1>
+        <h1>SGSDK 回調監聽</h1>
         <p>SGSDK 所有非同步的函式，都透過回調監聽來得到結果。範例如下：</p>
         <%- include ../code/java-sdk-listener.html -%>
         <ul>

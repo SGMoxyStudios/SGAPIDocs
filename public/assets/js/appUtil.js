@@ -68,8 +68,8 @@
             {
                 for (var i = 0; i < txt.length; i++)
                 {
-                    let char = txt.charAt(i);
-                    let charCode = txt.charCodeAt(i);
+                    var char = txt.charAt(i);
+                    var charCode = txt.charCodeAt(i);
 
                     if (charCode > 10000 && _TCList.indexOf(char) != -1)
                         str += _SCList.charAt(_TCList.indexOf(char));
@@ -85,8 +85,8 @@
 
             for (var i = 0; i < txt.length; i++)
             {
-                let char = txt.charAt(i);
-                let charCode = txt.charCodeAt(i);
+                var char = txt.charAt(i);
+                var charCode = txt.charCodeAt(i);
 
                 if (charCode > 10000 && _SCList.indexOf(char) != -1)
                     str += _TCList.charAt(_SCList.indexOf(char));

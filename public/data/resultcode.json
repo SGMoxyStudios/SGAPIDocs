@@ -56,13 +56,13 @@
   {
     "api": "",
     "code": 202,
-    "msg": "Not confirm yet.",
+    "msg": "Reset password.",
     "class": ""
   },
   {
     "api": "",
     "code": 203,
-    "msg": "Password error.",
+    "msg": "Account or password error.",
     "class": ""
   },
   {
@@ -110,14 +110,14 @@
   {
     "api": "",
     "code": 308,
-    "msg": "Confirm error.",
+    "msg": "Confirm code error.",
     "class": ""
   },
   {
-    "api": "forgot-password",
-    "code": 501,
-    "msg": "ok",
-    "class": "active"
+    "api": "",
+    "code": 309,
+    "msg": "Account error.",
+    "class": ""
   },
   {
     "api": "change-password",
@@ -170,7 +170,7 @@
   {
     "api": "",
     "code": 705,
-    "msg": "Please click email link again.",
+    "msg": "Can not reset password.",
     "class": ""
   },
   {
@@ -189,6 +189,12 @@
     "api": "",
     "code": 802,
     "msg": "Please fill all field.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 806,
+    "msg": "Index error.",
     "class": ""
   },
   {
@@ -236,7 +242,7 @@
   {
     "api": "",
     "code": 1003,
-    "msg": "Failed to authenticate token",
+    "msg": "Failed to authenticate token.",
     "class": ""
   },
   {
@@ -326,7 +332,7 @@
   {
     "api": "",
     "code": 1131,
-    "msg": "IAP init ok",
+    "msg": "IAP init ok.",
     "class": ""
   },
   {
@@ -537,15 +543,15 @@
     "class": "active"
   },
   {
-    "api": "ios",
+    "api": "iOS SDK Error",
     "code": 8000,
-    "msg": "GetResult() error.",
+    "msg": "Javascript call GetResult() error.",
     "class": "active"
   },
   {
     "api": "",
     "code": 8001,
-    "msg": "Json decode error.",
+    "msg": "JSON decode error.",
     "class": ""
   },
   {
@@ -563,11 +569,11 @@
   {
     "api": "",
     "code": 8004,
-    "msg": "Get open ID ok.",
+    "msg": "Get open id ok.",
     "class": ""
   },
   {
-    "api": "Anroid SDK",
+    "api": "Anroid SDK Error",
     "code": 9900,
     "msg": "Get manifest meta data Error.",
     "class": "active"

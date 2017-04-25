@@ -2,11 +2,11 @@
 
     <ul class="nav nav-pills">
         <li><a href="#section1">Web API 使用指南</a></li>
-        <li><a href="#section2">调用 API 页面</a></li>
+        <li><a href="#section2">調用 API 頁面</a></li>
         <li><a href="#section3">API 初始化</a></li>
-        <li><a href="#section4">详细说明</a></li>
-        <li><a href="#section5">回传值定义</a></li>
-        <li><a href="#section6">结构定义</a></li>
+        <li><a href="#section4">詳細說明</a></li>
+        <li><a href="#section5">回傳值定義</a></li>
+        <li><a href="#section6">結構定義</a></li>
     </ul>
 
 </div>
@@ -14,13 +14,13 @@
 <div class="right-side">
     <section id="section1">
         <h1>Web API 使用指南</h1>
-        <p>开发者在串接 SG API 时，可透过呼叫 Web API 的方式来完成各种功能。通过本文的介绍可以了解客户端接入的整个流程。在接入之前请认真阅读本文档，以减少接入过程中遇到的问题。</p>
+        <p>開發者在串接 SG API 時，可透過呼叫 Web API 的方式來完成各種功能。通過本文的介紹可以了解客戶端接入的整個流程。在接入之前請認真閱讀本文檔，以減少接入過程中遇到的問題。</p>
     </section>
 
     <section id="section2">
-        <h1> 调用 API 页面 </h1>
-        <p>开发者可透过呼叫网址
-            <a target="_blank" href="http://gameapi.smartgamesltd.com/">http://gameapi.smartgamesltd.com/</a> 调用 SG API 各个接口。
+        <h1> 調用 API 頁面 </h1>
+        <p>開發者可透過呼叫網址
+            <a target="_blank" href="http://gameapi.smartgamesltd.com/">http://gameapi.smartgamesltd.com/</a> 調用 SG API 各個接口。
         </p>
     </section>
 
@@ -30,21 +30,21 @@
         <span class="badge badge-ttl">API</span>
         <pre><span class="label label-warning">GET</span> <span class="label label-success">POST</span> /init </pre>
 
-        <span class="badge badge-ttl">说明</span>
-        <p>调用其他 SG API 之前需要先调用 <code>init</code>，通过验证进行初始化。</p>
+        <span class="badge badge-ttl">説明</span>
+        <p>調用其他 SG API 之前需要先調用 <code>init</code>，通過驗證進行初始化。</p>
 
-        <span class="badge badge-ttl">范例</span>
+        <span class="badge badge-ttl">範例</span>
         <pre>http://gameapi.smartgamesltd.com/init?gamekey=my_gamekey&appsecret=my_appsecret&channel=my_channel</pre>
 
-        <span class="badge badge-ttl">参数</span>
+        <span class="badge badge-ttl">參數</span>
         <table class="table table-striped">
             <thead>
             <tr>
                 <th>
-                    参数名称
+                    參數名稱
                 </th>
                 <th>
-                    参数说明
+                    參數說明
                 </th>
             </tr>
             </thead>
@@ -54,7 +54,7 @@
                     gamekey
                 </td>
                 <td>
-                    可以在 <a target="_blank" href="http://dashboard.smartgamesltd.com">SG Developer</a> 申请开通游戏后取。
+                    可以在 <a target="_blank" href="http://dashboard.smartgamesltd.com">SG Developer</a> 申請開通遊戲後取。
                 </td>
             </tr>
             <tr class>
@@ -62,7 +62,7 @@
                     appsecret
                 </td>
                 <td>
-                    可以在 <a target="_blank" href="http://dashboard.smartgamesltd.com">SG Developer</a> 申请开通游戏后取。
+                    可以在 <a target="_blank" href="http://dashboard.smartgamesltd.com">SG Developer</a> 申請開通遊戲後取。
                 </td>
             </tr>
             <tr>
@@ -70,42 +70,42 @@
                     channel
                 </td>
                 <td>
-                    发佈游戏的 <a target="_blank" href="/channel">渠道代码</a> 。
+                    發佈遊戲的 <a href="/channel">渠道代碼</a> 。
                 </td>
             </tr>
 
             </tbody>
         </table>
 
-        <span class="badge badge-ttl">回传</span>
+        <span class="badge badge-ttl">回傳</span>
         <ul>
-            <li>返回值以 JSON 格式回传，例如<code>{"Code": 1, "Message": "ok"}</code>。</li>
-            <li><a href="#section5"> 查看回传值定义 </a></li>
+            <li>返回值以 JSON 格式回傳，例如<code>{"Code": 1, "Message": "ok"}</code>。</li>
+            <li><a href="#section5"> 查看回傳值定義 </a></li>
         </ul>
     </section>
 
     <section id="section4">
-        <h1> 详细说明 </h1>
-        <h3>1. 取得网页回传值</h3>
+        <h1> 詳細說明 </h1>
+        <h3>1. 取得網頁回傳值</h3>
         <ul>
-            <li>在所有网页执行完动作之后，都可透过解析该网页的 Javascript 函式 <code>GetResult()</code> 来取得回传结果。该函式回传 JSON 字串，例如<code>{"code": 1, "msg": "ok"}</code>。</li>
-            <li>开发者可在 <a target="_blank" href="http://dashboard.smartgamesltd.com/my-game">SG Developer</a> 取得接入参数。</li>
+        <li>在所有網頁執行完動作之後，都可透過解析該網頁的 Javascript 函式 <code>GetResult()</code> 來取得回傳結果。該函式回傳 JSON 字串。</li>
+        <li>開發者可在 <a target="_blank" href="http://dashboard.smartgamesltd.com/my-game">SG Developer</a> 取得接入參數。</li>
         </ul>
         <div class="well well-sm">
             <img src=<%= "assets/img/" + lang + "/pic06.png"%> class="img-responsive"/>
         </div>
         <br>
 
-        <h3>2. Cookie设定</h3>
+        <h3>2. Cookie設定</h3>
         <ul>
-            <li>以 Http Get 调用 init 之后需保存 Header 的 Set-Cookie 参数，之后所有调用的接口都必须加上此参数。</li>
+            <li>以 Http Get 調用 init 之後需保存 Header 的 Set-Cookie 參數，之後所有調用的接口都必須加上此參數。</li>
             <li><code>webViewCookie.put("Cookie", response.headers.get("Set-Cookie"));</code></li>
         </ul>
     </section>
 
     <section id="section5">
-        <h1>回传值定义</h1>
-        <p>所有接口回传值都包含<code>Code, Message</code>。</p>
+        <h1>回傳值定義</h1>
+        <p>所有接口回傳值都包含<code>Code, Message</code>。</p>
 
         <table class="table"> <!--Gem Start-->
             <thead>
@@ -123,58 +123,58 @@
             </thead>
             <tbody>
             <% for (var i = 0; i < ResultCode.length; i++) { %>
-            <tr class=<%=ResultCode[i].class%>>
-                <td>
-                    <%=ResultCode[i].api%>
-                </td>
-                <td>
-                    <%=ResultCode[i].code%>
-                </td>
-                <td>
-                    <%=ResultCode[i].msg%>
-                </td>
-            </tr>
+                <tr class=<%=ResultCode[i].class%>>
+                    <td>
+                        <%=ResultCode[i].api%>
+                    </td>
+                    <td>
+                        <%=ResultCode[i].code%>
+                    </td>
+                    <td>
+                        <%=ResultCode[i].msg%>
+                    </td>
+                </tr>
             <% } %>
             </tbody>
         </table>
     </section>
 
     <section id="section6">
-        <h1>结构定义</h1>
-        <p>SG SDK 使用到以下几个结构定义。注意 property 大小写。</p>
+    <h1>結構定義</h1>
+    <p>SG SDK 使用到以下幾個結構定義。注意 property 大小寫。</p>
         <section id="SGListenerResult">
             <h3>1.SGListenerResult</h3>
             <ul>
-                <li>接收回调监听结果结构。</li>
+                <li>接收回調監聽結果結構。</li>
                 <table class="table table-striped">
-                    <tr>
-                        <th>property</th>
-                        <th>type</th>
-                        <th>描述</th>
-                    </tr>
-                    <tr>
-                        <td>Code</td>
-                        <td>integer</td>
-                        <td>调用结果代码</td>
-                    </tr>
-                    <tr>
-                        <td>Message</td>
-                        <td>string</td>
-                        <td>回应讯息</td>
-                    </tr>
-                    <tr>
-                        <td>Data</td>
-                        <td>class</td>
-                        <td>根据不同接口回应不同结构</td>
-                    </tr>
-                </table>
+                        <tr>
+                            <th>property</th>
+                            <th>type</th>
+                            <th>描述</th>
+                        </tr>
+                        <tr>
+                            <td>Code</td>
+                            <td>integer</td>
+                            <td>調用結果代碼</td>
+                        </tr>
+                        <tr>
+                            <td>Message</td>
+                            <td>string</td>
+                            <td>回應訊息</td>
+                        </tr>
+                        <tr>
+                            <td>Data</td>
+                            <td>class</td>
+                            <td>根據不同接口回應不同結構</td>
+                        </tr>
+                    </table>
             </ul>
         </section>
 
         <section id="SGMember">
             <h3>2.SGMember</h3>
             <ul>
-                <li>SG 会员资料结构。</li>
+                <li>SG 會員資料結構。</li>
                 <table class="table table-striped">
                     <tr>
                         <th>property</th>
@@ -184,71 +184,71 @@
                     <tr>
                         <td>Account</td>
                         <td>string</td>
-                        <td>会员帐号。</td>
+                        <td>會員帳號。</td>
                     </tr>
                     <tr>
                         <td>OpenID</td>
                         <td>string</td>
-                        <td>SG 会员 ID。</td>
+                        <td>SG 會員 ID。</td>
                     </tr>
                     <tr>
                         <td>Token</td>
                         <td>string</td>
-                        <td>登入后取得的 token，7天有效期限。</td>
+                        <td>登入後取得的 token，7天有效期限。</td>
                     </tr>
                     <tr>
                         <td>CreateTime</td>
                         <td>DateTime</td>
-                        <td>创帐号时间。</td>
+                        <td>創帳號時間。</td>
                     </tr>
                     <tr>
                         <td>LoginTime</td>
                         <td>DateTime</td>
-                        <td>登入时间。</td>
+                        <td>登入時間。</td>
                     </tr>
                     <tr>
                         <td>Language</td>
                         <td>string</td>
-                        <td>用户使用手机的语系。</td>
+                        <td>用戶使用手機的語系。</td>
                     </tr>
                     <tr>
                         <td>Channel</td>
                         <td>string</td>
-                        <td>发佈游戏的 <a target="_blank" href="/channel">渠道代码</a> 。</td>
+                        <td>發佈遊戲的 <a href="/channel">渠道代碼</a> 。</td>
                     </tr>
                     <tr>
                         <td>Phone</td>
                         <td>string</td>
                         <td>
-                            创帐号时填写的手机号。
+                            創帳號時填寫的手機號。
                         </td>
                     </tr>
                     <tr>
                         <td>EMail</td>
                         <td>string</td>
                         <td>
-                            创帐号时填写的 EMail。
+                            創帳號時填寫的 EMail。
                         </td>
                     </tr>
                     <tr>
                         <td>SessionID</td>
                         <td>string</td>
-                        <td>登入后 Server 产生的 Session ID。</td>
+                        <td>登入後 Server 產生的 Session ID。</td>
                     </tr>
                     <tr>
                         <td>KidIndex</td>
                         <td>integer</td>
-                        <td>当前正在进行游戏的孩童索引。</td>
+                        <td>當前正在進行遊戲的孩童索引。</td>
                     </tr>
                     <tr>
                         <td>KidFace</td>
                         <td>string</td>
-                        <td>当前正在进行游戏的孩童头像。</td>
+                        <td>當前正在進行遊戲的孩童頭像。</td>
                     </tr>
                     <tr>
                         <td>Children</td>
                         <td><a href="#SGChild">SGChild</a></td>
-                        <td>孩童资料阵列。</td>
+                        <td>孩童資料陣列。</td>
                     </tr>
                 </table>
             </ul>
@@ -257,7 +257,7 @@
         <section id="SGChild">
             <h3>3.SGChild</h3>
             <ul>
-                <li>SG 孩童资料结构。</li>
+                <li>SG 孩童資料結構。</li>
                 <table class="table table-striped">
                     <tr>
                         <th>property</th>
@@ -277,7 +277,7 @@
                     <tr>
                         <td>Face</td>
                         <td>string</td>
-                        <td>角色头图。</td>
+                        <td>角色頭圖。</td>
                     </tr>
                     <tr>
                         <td>Birthday</td>
@@ -291,7 +291,7 @@
         <section id="SGPayRequest">
             <h3>4.SGPayRequest</h3>
             <ul>
-                <li>调用支付接口 <code>pay</code> 参数结构。</li>
+                <li>調用支付接口 <code>pay</code> 參數結構。</li>
                 <table class="table table-striped">
                     <tr>
                         <th>property</th>
@@ -303,27 +303,27 @@
                         <td>ProductID</td>
                         <td>string</td>
                         <td><i class="fa fa-check"></i></td>
-                        <td>填写 Google Play 或 iTunes Connect 上的产品 ID</td>
+                        <td>填寫 Google Play 或 iTunes Connect 上的產品 ID</td>
                     </tr>
                     <tr>
                         <td>ProductName</td>
                         <td>string</td>
                         <td><i class="fa fa-check"></i></td>
-                        <td>产品名称</td>
+                        <td>產品名稱</td>
                     </tr>
                     <tr>
                         <td>ProductDesc</td>
                         <td>string</td>
                         <td></td>
-                        <td>产品描述</td>
+                        <td>產品描述</td>
                     </tr>
                     <tr>
                         <td>PaymentMethod</td>
                         <td>string</td>
                         <td></td>
                         <td>
-                            产品种类：<br />
-                            <p>google pay 必填
+                            產品種類：<br />
+                            <p>google IAP 必填
                                 <span class="label label-primary">managed</span>
                                 <span class="label label-primary">subscription</span>
                             </p>
@@ -344,55 +344,55 @@
                         <td>Price</td>
                         <td>float</td>
                         <td><i class="fa fa-check"></i></td>
-                        <td>产品价格（单位美元 USD）</td>
+                        <td>產品價格（單位美元 USD）</td>
                     </tr>
                     <tr>
                         <td>ServerID</td>
                         <td>string</td>
                         <td></td>
-                        <td>伺服器代号</td>
+                        <td>伺服器代號</td>
                     </tr>
                     <tr>
                         <td>ServerName</td>
                         <td>string</td>
                         <td></td>
-                        <td>伺服器名称</td>
+                        <td>伺服器名稱</td>
                     </tr>
                     <tr>
                         <td>RoleID</td>
                         <td>string</td>
                         <td></td>
-                        <td>角色代号</td>
+                        <td>角色代號</td>
                     </tr>
                     <tr>
                         <td>RoleName</td>
                         <td>string</td>
                         <td></td>
-                        <td>角色名称</td>
+                        <td>角色名稱</td>
                     </tr>
                     <tr>
                         <td>RoleLevel</td>
                         <td>integer</td>
                         <td></td>
-                        <td>角色等级</td>
+                        <td>角色等級</td>
                     </tr>
                     <tr>
                         <td>NotifyUrl</td>
                         <td>string</td>
                         <td></td>
-                        <td>验证地址。用以通知Game Server，验证后发送道具。</td>
+                        <td>驗證地址。用以通知Game Server，驗證後發送道具。</td>
                     </tr>
                     <tr>
                         <td>OrderID</td>
                         <td>string</td>
                         <td></td>
-                        <td>订单编号</td>
+                        <td>訂單編號</td>
                     </tr>
                     <tr>
                         <td>ReceiptData</td>
                         <td>string</td>
                         <td></td>
-                        <td>IAP Vender 收据</td>
+                        <td>IAP Vender 收據</td>
                     </tr>
                 </table>
             </ul>
@@ -401,7 +401,7 @@
         <section id="SGPayResponse">
             <h3>5.SGPayResponse</h3>
             <ul>
-                <li>支付接口 <code>pay</code> 回应结构。</li>
+                <li>支付接口 <code>pay</code> 回應結構。</li>
                 <table class="table table-striped">
                     <tr>
                         <th>property</th>
@@ -411,38 +411,38 @@
                     <tr>
                         <td>Code</td>
                         <td>integer</td>
-                        <td>状态代码</td>
+                        <td>狀態代碼</td>
                     </tr>
                     <tr>
                         <td>Message</td>
                         <td>string</td>
-                        <td>状态描述</td>
+                        <td>狀態描述</td>
                     </tr>
                     <tr>
                         <td>Sign</td>
                         <td>string</td>
-                        <td>由SG Server产生的簽名</td>
+                        <td>由SG Server產生的簽名</td>
                     </tr>
                     <tr>
                         <td>ProductID</td>
                         <td>string</td>
-                        <td>Google Play 或 iTunes Connect 上的产品 ID</td>
+                        <td>Google Play 或 iTunes Connect 上的產品 ID</td>
                     </tr>
                     <tr>
                         <td>ProductName</td>
                         <td>string</td>
-                        <td>产品名称</td>
+                        <td>產品名稱</td>
                     </tr>
                     <tr>
                         <td>ProductDesc</td>
                         <td>string</td>
-                        <td>产品描述</td>
+                        <td>產品描述</td>
                     </tr>
                     <tr>
                         <td>PaymentMethod</td>
                         <td>string</td>
                         <td>
-                            产品种类：<br />
+                            產品種類：<br />
                             <span class="label label-primary">managed</span>
                             <span class="label label-primary">subscription</span>
                         </td>
@@ -460,47 +460,47 @@
                     <tr>
                         <td>Price</td>
                         <td>float</td>
-                        <td>产品价格（单位美元 USD）</td>
+                        <td>產品價格（單位美元 USD）</td>
                     </tr>
                     <tr>
                         <td>ServerID</td>
                         <td>string</td>
-                        <td>伺服器代号</td>
+                        <td>伺服器代號</td>
                     </tr>
                     <tr>
                         <td>ServerName</td>
                         <td>string</td>
-                        <td>伺服器名称</td>
+                        <td>伺服器名稱</td>
                     </tr>
                     <tr>
                         <td>RoleID</td>
                         <td>string</td>
-                        <td>角色代号</td>
+                        <td>角色代號</td>
                     </tr>
                     <tr>
                         <td>RoleName</td>
                         <td>string</td>
-                        <td>角色名称</td>
+                        <td>角色名稱</td>
                     </tr>
                     <tr>
                         <td>RoleLevel</td>
                         <td>integer</td>
-                        <td>角色等级</td>
+                        <td>角色等級</td>
                     </tr>
                     <tr>
                         <td>NotifyUrl</td>
                         <td>string</td>
-                        <td>验证地址。用以通知Game Server，验证后发送道具。</td>
+                        <td>驗證地址。用以通知Game Server，驗證後發送道具。</td>
                     </tr>
                     <tr>
                         <td>OrderID</td>
                         <td>string</td>
-                        <td>订单编号</td>
+                        <td>訂單編號</td>
                     </tr>
                     <tr>
                         <td>ReceiptData</td>
                         <td>string</td>
-                        <td>IAP Vender 收据</td>
+                        <td>IAP Vender 收據</td>
                     </tr>
                 </table>
             </ul>

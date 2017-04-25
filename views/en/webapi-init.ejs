@@ -1,31 +1,31 @@
 <div class="left-side" id="myScrollspy">
 
     <ul class="nav nav-pills">
-        <li><a href="#section1">Web API 使用指南</a></li>
-        <li><a href="#section2">調用 API 頁面</a></li>
-        <li><a href="#section3">API 初始化</a></li>
-        <li><a href="#section4">詳細說明</a></li>
-        <li><a href="#section5">回傳值定義</a></li>
-        <li><a href="#section6">結構定義</a></li>
+        <li><a href="#section1">Web View Using Guide</a></li>
+        <li><a href="#section2">Call API Page</a></li>
+        <li><a href="#section3">API Initialization</a></li>
+        <li><a href="#section4">Explain</a></li>
+        <li><a href="#section5">Return Code Define</a></li>
+        <li><a href="#section6">Struct Define</a></li>
     </ul>
 
 </div>
 
 <div class="right-side">
     <section id="section1">
-        <h1>Web API 使用指南</h1>
-        <p>開發者在串接 SG API 時，可透過呼叫 Web API 的方式來完成各種功能。通過本文的介紹可以了解客戶端接入的整個流程。在接入之前請認真閱讀本文檔，以減少接入過程中遇到的問題。</p>
+        <h1>Web View Using Guide</h1>
+        <p>Developers can use different functions by calling Web SDK when get into SG Game SDK. This document details the whole process of how to get into the client. Please read the document before accessing into SG Game SDK so as to insure a smooth access.</p>
     </section>
 
     <section id="section2">
-        <h1> 調用 API 頁面 </h1>
-        <p>開發者可透過呼叫網址
-            <a target="_blank" href="http://gameapi.smartgamesltd.com/">http://gameapi.smartgamesltd.com/</a> 調用 SG API 各個接口。
+        <h1> Call API Page </h1>
+        <p>Developers can use this URL
+            <a target="_blank" href="http://gameapi.smartgamesltd.com/">http://gameapi.smartgamesltd.com/</a> to call each SG API.
         </p>
     </section>
 
     <section id="section3">
-        <h1>API 初始化</h1>
+        <h1>API Initialization</h1>
 
         <span class="badge badge-ttl">API</span>
         <pre><span class="label label-warning">GET</span> <span class="label label-success">POST</span> /init </pre>
@@ -70,7 +70,7 @@
                     channel
                 </td>
                 <td>
-                    發佈遊戲的 <a target="_blank" href="/channel">渠道代碼</a> 。
+                    發佈遊戲的 <a href="/channel">渠道代碼</a> 。
                 </td>
             </tr>
 
@@ -88,23 +88,23 @@
         <h1> 詳細說明 </h1>
         <h3>1. 取得網頁回傳值</h3>
         <ul>
-            <li>在所有網頁執行完動作之後，都可透過解析該網頁的 Javascript 函式 <code>GetResult()</code> 來取得回傳結果。該函式回傳 JSON 字串，例如<code>{"code": 1, "msg": "ok"}</code>。</li>
-            <li>開發者可在 <a target="_blank" href="http://dashboard.smartgamesltd.com/my-game">SG Developer</a> 取得接入參數。</li>
+        <li>After page loaded you can get the return result by parsing Javascript function <code>GetResult()</code> to get result by JSON string.</li>
+        <li>開發者可在 <a target="_blank" href="http://dashboard.smartgamesltd.com/my-game">SG Developer</a> 取得接入參數。</li>
         </ul>
         <div class="well well-sm">
             <img src=<%= "assets/img/" + lang + "/pic06.png"%> class="img-responsive"/>
         </div>
         <br>
 
-        <h3>2. Cookie設定</h3>
+        <h3>2. Cookie Setting</h3>
         <ul>
-            <li>以 Http Get 調用 init 之後需保存 Header 的 Set-Cookie 參數，之後所有調用的接口都必須加上此參數。</li>
+            <li>After Http Get call init you need to save Header's Set-Cookie parameter. Other calls must be added this parameter.</li>
             <li><code>webViewCookie.put("Cookie", response.headers.get("Set-Cookie"));</code></li>
         </ul>
     </section>
 
     <section id="section5">
-        <h1>回傳值定義</h1>
+        <h1>Return Code Define</h1>
         <p>所有接口回傳值都包含<code>Code, Message</code>。</p>
 
         <table class="table"> <!--Gem Start-->
@@ -123,51 +123,51 @@
             </thead>
             <tbody>
             <% for (var i = 0; i < ResultCode.length; i++) { %>
-            <tr class=<%=ResultCode[i].class%>>
-                <td>
-                    <%=ResultCode[i].api%>
-                </td>
-                <td>
-                    <%=ResultCode[i].code%>
-                </td>
-                <td>
-                    <%=ResultCode[i].msg%>
-                </td>
-            </tr>
+                <tr class=<%=ResultCode[i].class%>>
+                    <td>
+                        <%=ResultCode[i].api%>
+                    </td>
+                    <td>
+                        <%=ResultCode[i].code%>
+                    </td>
+                    <td>
+                        <%=ResultCode[i].msg%>
+                    </td>
+                </tr>
             <% } %>
             </tbody>
         </table>
     </section>
 
     <section id="section6">
-        <h1>結構定義</h1>
-        <p>SG SDK 使用到以下幾個結構定義。注意 property 大小寫。</p>
+    <h1>Struct Define</h1>
+    <p>SG SDK 使用到以下幾個結構定義。注意 property 大小寫。</p>
         <section id="SGListenerResult">
             <h3>1.SGListenerResult</h3>
             <ul>
                 <li>接收回調監聽結果結構。</li>
                 <table class="table table-striped">
-                    <tr>
-                        <th>property</th>
-                        <th>type</th>
-                        <th>描述</th>
-                    </tr>
-                    <tr>
-                        <td>Code</td>
-                        <td>integer</td>
-                        <td>調用結果代碼</td>
-                    </tr>
-                    <tr>
-                        <td>Message</td>
-                        <td>string</td>
-                        <td>回應訊息</td>
-                    </tr>
-                    <tr>
-                        <td>Data</td>
-                        <td>class</td>
-                        <td>根據不同接口回應不同結構</td>
-                    </tr>
-                </table>
+                        <tr>
+                            <th>property</th>
+                            <th>type</th>
+                            <th>描述</th>
+                        </tr>
+                        <tr>
+                            <td>Code</td>
+                            <td>integer</td>
+                            <td>調用結果代碼</td>
+                        </tr>
+                        <tr>
+                            <td>Message</td>
+                            <td>string</td>
+                            <td>回應訊息</td>
+                        </tr>
+                        <tr>
+                            <td>Data</td>
+                            <td>class</td>
+                            <td>根據不同接口回應不同結構</td>
+                        </tr>
+                    </table>
             </ul>
         </section>
 
@@ -214,7 +214,7 @@
                     <tr>
                         <td>Channel</td>
                         <td>string</td>
-                        <td>發佈遊戲的 <a target="_blank" href="/channel">渠道代碼</a> 。</td>
+                        <td>發佈遊戲的 <a href="/channel">渠道代碼</a> 。</td>
                     </tr>
                     <tr>
                         <td>Phone</td>
@@ -323,7 +323,7 @@
                         <td></td>
                         <td>
                             產品種類：<br />
-                            <p>google pay 必填
+                            <p>google IAP 必填
                                 <span class="label label-primary">managed</span>
                                 <span class="label label-primary">subscription</span>
                             </p>

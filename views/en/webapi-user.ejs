@@ -1,31 +1,31 @@
 <div class="left-side" id="myScrollspy">
 
     <ul class="nav nav-pills">
-        <li><a href="#section1">Web API 用戶系統接口</a></li>
-        <li><a href="#section2">創帳號</a></li>
-        <li><a href="#section3">登入</a></li>
-        <li><a href="#section4">查詢密碼</a></li>
-        <li><a href="#section5">變更密碼</a></li>
-        <li><a href="#section6">家長安全操作</a></li>
-        <li><a href="#section7">設置孩童資料</a></li>
-        <li><a href="#section8">設定正在進行遊戲的孩童</a></li>
-        <li><a href="#section9">帳號資訊</a></li>
-        <li><a href="#section10">取得用戶 Open ID</a></li>
-        <li><a href="#section11">Token 快速登入</a></li>
-        <li><a href="#section12">Session ID 登入驗證</a></li>
-        <li><a href="#section13">登出</a></li>
+        <li><a href="#section1">User System API</a></li>
+        <li><a href="#section2">Signup</a></li>
+        <li><a href="#section3">Login</a></li>
+        <li><a href="#section4">Forgot Password</a></li>
+        <li><a href="#section5">Change Password</a></li>
+        <li><a href="#section6">Parental Lock</a></li>
+        <li><a href="#section7">My Kid</a></li>
+        <li><a href="#section8">Select Kid</a></li>
+        <li><a href="#section9">My Account</a></li>
+        <li><a href="#section10">Get Open ID</a></li>
+        <li><a href="#section11">Login By Token</a></li>
+        <li><a href="#section12">Verify Session ID</a></li>
+        <li><a href="#section13">Logout</a></li>
     </ul>
 
 </div>
 
 <div class="right-side">
     <section id="section1">
-        <h1>Web API 用戶系統接口</h1>
-        <h4>用戶系統接口包含創帳號、登入、查詢密碼、家長安全鎖、設置孩童資料、帳號總覽、登出等跟 SG 會員帳號相關等功能。</h4>
+        <h1>User System API</h1>
+        <p>The user system API includes signup, login, forgot password, change password, parental lock, my kid, select kid, my account and logout. All about SG member system function etc.</p>
     </section>
 
     <section id="section2">
-        <h1>創帳號</h1>
+        <h1>Signup</h1>
 
         <div class="row">
             <div class="col-sm-9">
@@ -42,58 +42,12 @@
                 <ul>
                     <li>調用回傳頁面的 JavaScript 函式 <code>GetResult()</code> 來取得回傳結果，該函式回傳 JSON 字串。</li>
                     <li>例如<code>{"Code": 301, "Message": "ok"}</code>。</li>
-                    <li>完整 code 定義，<a target="_blank" href="/webapi-init#section5">請參看對照表</a>。</li>
-                    <table class="table table-striped">
-                        <thead>
-                        <tr>
-                            <th>
-                                回傳值
-                            </th>
-                            <th>
-                                詳細說明
-                            </th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>
-                                code
-                            </td>
-                            <td>
-                                code = 301 為成功，其他都是失敗。
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                openid
-                            </td>
-                            <td>
-                                登入帳號的 SG 平台識別 ID，登入成功後以此 ID 登入遊戲伺服器。
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                sessionid
-                            </td>
-                            <td>
-                                連線的 SessionID，用以二次登入驗證。
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                token
-                            </td>
-                            <td>
-                                成功登入之後可以此 token 進行快速登入，時效7天。
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
+                    <li>完整 Code 定義，<a href="/webapi-init#section5">請參看對照表</a>。</li>
+                    <li>回傳 <a href="/webapi-init#SGMember">SGMember</a> 結構。</li>
                 </ul>
             </div>
             <div class="col-sm-3">
-                <span class="badge badge-ttl">UI</span>
+                <span class="badge badge-ttl">WebView 頁面</span>
                 <a href="<%= "assets/img/" + lang + "/pic08.png" %>" data-toggle="lightbox">
                     <img src="<%= "assets/img/" + lang + "/pic08.png" %>" class="img-responsive"/>
                 </a>
@@ -102,7 +56,7 @@
     </section>
 
     <section id="section3">
-        <h1>登入</h1>
+        <h1>Login</h1>
 
         <div class="row">
             <div class="col-sm-9">
@@ -119,58 +73,12 @@
                 <ul>
                     <li>調用回傳頁面的 JavaScript 函式 <code>GetResult()</code> 來取得回傳結果，該函式回傳 JSON 字串。</li>
                     <li>例如<code>{"Code": 201, "Message": "ok"}</code>。</li>
-                    <li>完整 code 定義，<a target="_blank" href="/webapi-init#section5">請參看對照表</a>。</li>
-                    <table class="table table-striped">
-                        <thead>
-                        <tr>
-                            <th>
-                                回傳值
-                            </th>
-                            <th>
-                                詳細說明
-                            </th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>
-                                code
-                            </td>
-                            <td>
-                                code = 201 為成功，其他都是失敗。
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                openid
-                            </td>
-                            <td>
-                                登入帳號的 SG 平台識別 ID，登入成功後以此 ID 登入遊戲伺服器。
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                sessionid
-                            </td>
-                            <td>
-                                連線的 SessionID，用以二次登入驗證。
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                token
-                            </td>
-                            <td>
-                                成功登入之後可以此 token 進行快速登入，時效7天。
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
+                    <li>完整 Code 定義，<a href="/webapi-init#section5">請參看對照表</a>。</li>
+                    <li>回傳 <a href="/webapi-init#SGMember">SGMember</a> 結構。</li>
                 </ul>
             </div>
             <div class="col-sm-3">
-                <span class="badge badge-ttl">UI</span>
+                <span class="badge badge-ttl">WebView 頁面</span>
                 <a href="<%= "assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
                     <img src="<%= "assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
                 </a>
@@ -179,7 +87,7 @@
     </section>
 
     <section id="section4">
-        <h1>查詢密碼</h1>
+        <h1>Forgot Password</h1>
 
         <div class="row">
             <div class="col-sm-9">
@@ -199,7 +107,7 @@
                 </ul>
             </div>
             <div class="col-sm-3">
-                <span class="badge badge-ttl">UI</span>
+                <span class="badge badge-ttl">WebView 頁面</span>
                 <a href="<%= "assets/img/" + lang + "/pic09.png" %>" data-toggle="lightbox">
                     <img src="<%= "assets/img/" + lang + "/pic09.png" %>" class="img-responsive"/>
                 </a>
@@ -208,7 +116,7 @@
     </section>
 
     <section id="section5">
-        <h1>變更密碼</h1>
+        <h1>Change Password</h1>
 
         <div class="row">
             <div class="col-sm-9">
@@ -228,7 +136,7 @@
                 </ul>
             </div>
             <div class="col-sm-3">
-                <span class="badge badge-ttl">UI</span>
+                <span class="badge badge-ttl">WebView 頁面</span>
                 <a href="<%= "assets/img/" + lang + "/pic10.png" %>" data-toggle="lightbox">
                     <img src="<%= "assets/img/" + lang + "/pic10.png" %>" class="img-responsive"/>
                 </a>
@@ -237,7 +145,7 @@
     </section>
 
     <section id="section6">
-        <h1>家長安全鎖</h1>
+        <h1>Parental Lock</h1>
         <div class="row">
             <div class="col-sm-9">
                 <span class="badge badge-ttl">API</span>
@@ -253,7 +161,7 @@
                 <p>正確輸入安全碼後會自動轉跳至 my-account 頁面。若尚未建立任何孩童資料則會轉跳至 my-kid 頁面。</p>
             </div>
             <div class="col-sm-3">
-                <span class="badge badge-ttl">UI</span>
+                <span class="badge badge-ttl">WebView 頁面</span>
                 <a href="<%= "assets/img/" + lang + "/pic11.png" %>" data-toggle="lightbox">
                     <img src="<%= "assets/img/" + lang + "/pic11.png" %>" class="img-responsive"/>
                 </a>
@@ -262,7 +170,7 @@
     </section>
 
     <section id="section7">
-        <h1>設置孩童資料</h1>
+        <h1>My Kid</h1>
 
         <div class="row">
             <div class="col-sm-9">
@@ -279,11 +187,11 @@
                 <ul>
                     <li>調用回傳頁面的 JavaScript 函式 <code>GetResult()</code> 來取得回傳結果，該函式回傳 JSON 字串。</li>
                     <li>例如<code>{"Code": 801, "Message": "ok"}</code>。</li>
-                    <li>完整 code 定義，<a target="_blank" href="/webapi-init#section5">請參看對照表</a>。</li>
+                    <li>完整 Code 定義，<a href="/webapi-init#section5">請參看對照表</a>。</li>
                 </ul>
             </div>
             <div class="col-sm-3">
-                <span class="badge badge-ttl">UI</span>
+                <span class="badge badge-ttl">WebView 頁面</span>
                 <a href="<%= "assets/img/" + lang + "/pic12.png" %>" data-toggle="lightbox">
                     <img src="<%= "assets/img/" + lang + "/pic12.png" %>" class="img-responsive"/>
                 </a>
@@ -292,7 +200,7 @@
     </section>
 
     <section id="section8">
-        <h1>設定正在進行遊戲的孩童</h1>
+        <h1>Select Kid</h1>
 
         <div class="row">
             <div class="col-sm-9">
@@ -309,11 +217,11 @@
                 <ul>
                     <li>調用回傳頁面的 JavaScript 函式 <code>GetResult()</code> 來取得回傳結果，該函式回傳 JSON 字串。</li>
                     <li>例如<code>{"Code": 1501, "Message": "ok"}</code>。</li>
-                    <li>完整 code 定義，<a target="_blank" href="/webapi-init#section5">請參看對照表</a>。</li>
+                    <li>完整 Code 定義，<a href="/webapi-init#section5">請參看對照表</a>。</li>
                 </ul>
             </div>
             <div class="col-sm-3">
-                <span class="badge badge-ttl">UI</span>
+                <span class="badge badge-ttl">WebView 頁面</span>
                 <a href="<%= "assets/img/" + lang + "/pic14.png" %>" data-toggle="lightbox">
                     <img src="<%= "assets/img/" + lang + "/pic14.png" %>" class="img-responsive"/>
                 </a>
@@ -322,7 +230,7 @@
     </section>
 
     <section id="section9">
-        <h1>帳號資訊</h1>
+        <h1>My Account</h1>
 
         <div class="row">
             <div class="col-sm-9">
@@ -339,7 +247,7 @@
                 <p>返回帳號資訊頁面。</p>
             </div>
             <div class="col-sm-3">
-                <span class="badge badge-ttl">UI</span>
+                <span class="badge badge-ttl">WebView 頁面</span>
                 <a href="<%= "assets/img/" + lang + "/pic13.png" %>" data-toggle="lightbox">
                     <img src="<%= "assets/img/" + lang + "/pic13.png" %>" class="img-responsive"/>
                 </a>
@@ -348,7 +256,7 @@
     </section>
 
     <section id="section10">
-        <h1>取得用戶 Open ID</h1>
+        <h1>Get Open ID</h1>
 
         <div class="row">
             <span class="badge badge-ttl">API</span>
@@ -366,11 +274,11 @@
     </section>
 
     <section id="section11">
-        <h1>Token 快速登入</h1>
+        <h1>Login By Token</h1>
 
         <div class="row">
             <span class="badge badge-ttl">API</span>
-            <pre> <span class="label label-success">POST</span> /loginbytoken</pre>
+            <pre> <span class="label label-warning">GET</span> <span class="label label-success">POST</span> /loginbytoken</pre>
 
             <span class="badge badge-ttl">説明</span>
             <p>使用 Token 快速登入，同時取得帳號資訊。</p>
@@ -383,18 +291,17 @@
 
             <span class="badge badge-ttl">回傳</span>
             <ul>
-                <li>回傳 <a target="_blank" href="/webapi-init#SGMember">SGMember</a> 格式JSON 字串。code 1001 為登入成功，其它則為登入失敗。</li>
-                <li>例如<code>{"Code" : "1001", "Message" : "ok", "Account" : "abc@gmail.com", "OpenID" : 1000000000, "EMail" : "abc@gmail.com"}</code>。</li>
+                <li>回傳 <a href="/webapi-init#SGMember">SGMember</a> 格式JSON 字串。Code 1001 為登入成功，其它則為登入失敗。</li>
             </ul>
         </div>
     </section>
 
     <section id="section12">
-        <h1>Session ID 登入驗證</h1>
+        <h1>Verify Session ID</h1>
 
         <div class="row">
             <span class="badge badge-ttl">API</span>
-            <pre> <span class="label label-success">POST</span> /verifysession</pre>
+            <pre> <span class="label label-warning">GET</span> <span class="label label-success">POST</span> /verifysession</pre>
 
             <span class="badge badge-ttl">説明</span>
             <p>以 SessionID 取得登入帳號資訊。串接其他渠道二次登入驗證使用。</p>
@@ -420,7 +327,7 @@
                         gamekey
                     </td>
                     <td>
-                        開發者申請開通遊戲後取得的gamekey。
+                        開發者申請開通遊戲後取得的 gamekey。
                     </td>
                 </tr>
                 <tr class>
@@ -453,14 +360,14 @@
 
             <span class="badge badge-ttl">回傳</span>
             <ul>
-                <li>回傳 <a target="_blank" href="/webapi-init#SGMember">SGMember</a> 格式JSON 字串。</li>
-                <li>例如<code>{"Account" : "abc@gmail.com", "OpenID" : 1000000000, "EMail" : "abc@gmail.com"}</code>。</li>
+                <li>完整 Code 定義，<a href="/webapi-init#section5">請參看對照表</a>。</li>
+                <li>回傳 <a href="/webapi-init#SGMember">SGMember</a> 結構。</li>
             </ul>
         </div>
     </section>
 
     <section id="section13">
-        <h1>登出</h1>
+        <h1>Logout</h1>
 
         <div class="row">
             <span class="badge badge-ttl">API</span>
@@ -475,7 +382,7 @@
             <span class="badge badge-ttl">回傳</span>
             <ul>
                 <li>調用回傳頁面的 JavaScript 函式 <code>GetResult()</code> 來取得回傳結果，該函式回傳 JSON 字串。</li>
-                <li>例如<code>{"Code": 1501, "Message": "ok"}</code>。</li>
+                <li>例如<code>{"Code": 1601, "Message": "ok"}</code>。</li>
             </ul>
         </div>
     </section>

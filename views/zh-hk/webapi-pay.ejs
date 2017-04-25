@@ -19,7 +19,7 @@
         <p>購買遊戲內購商品(IAP)成功後，必須上傳商品收據，用作後台統計。</p>
         <div class="row">
             <span class="badge badge-ttl">API</span>
-            <pre> <span class="label label-success">POST</span> /pay</pre>
+            <pre> <span class="label label-warning">GET</span> <span class="label label-success">POST</span> /pay</pre>
 
             <span class="badge badge-ttl">説明</span>
             <p>成功購買遊戲內付費商品後調用，上傳商品數據。</p>
@@ -28,10 +28,10 @@
             <pre>http://gameapi.smartgamesltd.com/pay?productId=com.smartgamesltd.diamond1&productName=diamond&price=1.99</pre>
 
             <span class="badge badge-ttl">參數</span>
-            <p>請參照結構定義 <a target="_blank" href="/webapi-init#SGPayRequest">SGPayRequest</a> 。</p>
+            <p>請參照結構定義 <a href="/webapi-init#SGPayRequest">SGPayRequest</a> 。</p>
 
             <span class="badge badge-ttl">回傳</span>
-            <p>請參照結構定義 <a target="_blank" href="/webapi-init#SGPayResponse">SGPayResponse</a> 。</p>
+            <p>請參照結構定義 <a href="/webapi-init#SGPayResponse">SGPayResponse</a> 。</p>
         </div>
     </section>
 
@@ -40,7 +40,7 @@
         <p>查詢已購買商品收據。</p>
         <div class="row">
             <span class="badge badge-ttl">API</span>
-            <pre> <span class="label label-success">POST</span> /getorder</pre>
+            <pre> <span class="label label-warning">GET</span> <span class="label label-success">POST</span> /getorder</pre>
 
             <span class="badge badge-ttl">説明</span>
             <p>需傳送購買成功後的簽名(sign)，才能查詢訂單詳細內容。</p>
@@ -83,7 +83,7 @@
                         <i class="fa fa-check"></i>
                     </td>
                     <td>
-                        開發者申請開通遊戲後取得的gamekey。
+                        開發者申請開通遊戲後取得的 gamekey。
                     </td>
                 </tr>
                 <tr>
@@ -94,7 +94,7 @@
                         <i class="fa fa-check"></i>
                     </td>
                     <td>
-                        登入成功後取得的OpenID。
+                        登入成功後取得的 OpenID。
                     </td>
                 </tr>
                 <tr>
@@ -112,7 +112,7 @@
             </table>
 
             <span class="badge badge-ttl">回傳</span>
-            <p>以JSON格式回購買商品收據。</p>
+            <p>以JSON格式回購買商品收據 <a href="/webapi-init#SGPayResponse">SGPayResponse</a> 。</p>
         </div>
     </section>
 </div>

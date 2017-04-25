@@ -1,175 +1,179 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>SG Docs</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="education game">
-    <meta name="author" content="neoxu@smartgamesltd.com">
+    <head>
+        <title>SG Docs</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="education game">
+        <meta name="author" content="neoxu@smartgamesltd.com">
 
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.1.1/ekko-lightbox.min.css"> 
-    <link href="assets/css/site.min.css" rel="stylesheet">
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.1.1/ekko-lightbox.min.css">
+        <link href="assets/css/site.min.css" rel="stylesheet">
 
-    <script type="text/javascript" src="assets/js/jquery-3.1.1.min.js"></script>
-    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.1.1/ekko-lightbox.min.js"></script>
-    <script type="text/javascript" src="assets/js/appUtil.js"></script>
-    <style type="text/css">
+        <script type="text/javascript" src="assets/js/jquery-3.1.1.min.js"></script>
+        <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.1.1/ekko-lightbox.min.js"></script>
+        <script type="text/javascript" src="assets/js/appUtil.js"></script>
+        <style type="text/css">
 
-      .well {
-        background: white;
-      }
-      .li{
-          display: inline-block;
-          max-width:90%; /* limit width */
-          word-break:break-all; /* wrap extended text*/
-          border:1px solid red /* demo */
-      }
-      .dropdown-submenu {
-          position:relative;
-      }
-      .dropdown-submenu>.dropdown-menu {
-          top:0;
-          left:100%;
-          margin-top:-6px;
-          margin-left:-1px;
-          -webkit-border-radius:0 6px 6px 6px;
-          -moz-border-radius:0 6px 6px 6px;
-          border-radius:0 6px 6px 6px;
-      }
-      .dropdown-submenu:hover>.dropdown-menu {
-          display:block;
-      }
-      .dropdown-submenu>a:after {
-          display:block;
-          content:" ";
-          float:right;
-          width:0;
-          height:0;
-          border-color:transparent;
-          border-style:solid;
-          border-width:5px 0 5px 5px;
-          border-left-color:#cccccc;
-          margin-top:5px;
-          margin-right:-10px;
-      }
-      .dropdown-submenu:hover>a:after {
-          border-left-color:#ffffff;
-      }
-      .dropdown-submenu.pull-left {
-          float:none;
-      }
-      .dropdown-submenu.pull-left>.dropdown-menu {
-          left:-100%;
-          margin-left:10px;
-          -webkit-border-radius:6px 0 6px 6px;
-          -moz-border-radius:6px 0 6px 6px;
-          border-radius:6px 0 6px 6px;
-      }
+            .well {
+                background: white;
+            }
+            .li{
+                display: inline-block;
+                max-width:90%; /* limit width */
+                word-break:break-all; /* wrap extended text*/
+                border:1px solid red /* demo */
+            }
+            .dropdown-submenu {
+                position:relative;
+            }
+            .dropdown-submenu>.dropdown-menu {
+                top:0;
+                left:100%;
+                margin-top:-6px;
+                margin-left:-1px;
+                -webkit-border-radius:0 6px 6px 6px;
+                -moz-border-radius:0 6px 6px 6px;
+                border-radius:0 6px 6px 6px;
+            }
+            .dropdown-submenu:hover>.dropdown-menu {
+                display:block;
+            }
+            .dropdown-submenu>a:after {
+                display:block;
+                content:" ";
+                float:right;
+                width:0;
+                height:0;
+                border-color:transparent;
+                border-style:solid;
+                border-width:5px 0 5px 5px;
+                border-left-color:#cccccc;
+                margin-top:5px;
+                margin-right:-10px;
+            }
+            .dropdown-submenu:hover>a:after {
+                border-left-color:#ffffff;
+            }
+            .dropdown-submenu.pull-left {
+                float:none;
+            }
+            .dropdown-submenu.pull-left>.dropdown-menu {
+                left:-100%;
+                margin-left:10px;
+                -webkit-border-radius:6px 0 6px 6px;
+                -moz-border-radius:6px 0 6px 6px;
+                border-radius:6px 0 6px 6px;
+            }
 
-    </style>
-  </head>
+        </style>
+    </head>
 
-  <body data-spy="scroll" data-target="#myScrollspy" data-offset="70">
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <body data-spy="scroll" data-target="#myScrollspy" data-offset="70">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">SG Docs</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown"><%=texts.Quick%> <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/api-open"><%=texts.APIOpen%></a></li>
+                                <li><a href="/api-verification"><%=texts.APIVerification%></a></li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown"><%=texts.Tutorial%> <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <!--  =========  Web API  =========  -->
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-toggle" data-toggle="dropdown"><%=texts.Client%>(Web API)</a>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li><a href="/webapi-init"><%=texts.ClientWebAPIQuick%></a></li>
+                                        <li><a href="/webapi-user"><%=texts.ClientWebAPIUser%></a></li>
+                                        <li><a href="/webapi-pay"><%=texts.ClientWebAPIPay%></a></li>
+                                        <li><a href="/webapi-analytics"><%=texts.ClientWebAPIAnalysis%></a></li>
+                                    </ul>
+                                </li>
+
+                                <!--  =========  Java  =========  -->
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-toggle" data-toggle="dropdown"><%=texts.Client%>(Java)</a>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li><a href="/java-init"><%=texts.ClientWebAPIQuick%></a></li>
+                                        <li><a href="/java-user"><%=texts.ClientWebAPIUser%></a></li>
+                                        <li><a href="/java-pay"><%=texts.ClientWebAPIPay%></a></li>
+                                        <li><a href="/java-analytics"><%=texts.ClientWebAPIAnalysis%></a></li>
+                                    </ul>
+                                </li>
+
+                                <!--  =========  Swift 3  =========  -->
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-toggle" data-toggle="dropdown"><%=texts.Client%>(Swift 3)</a>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li><a href="/swift-init"><%=texts.ClientWebAPIQuick%></a></li>
+                                        <li><a href="/swift-user"><%=texts.ClientWebAPIUser%></a></li>
+                                        <li><a href="/swift-pay"><%=texts.ClientWebAPIPay%></a></li>
+                                        <li><a href="/swift-analytics"><%=texts.ClientWebAPIAnalysis%></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li><a href="/channel"><%=texts.Channel%></a></li>
+
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown"><%=texts.Language%> <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a class="<%=(lang=="zh-tw"?"active":"")%>" href="/?clang=zh-tw">繁體中文(台灣)</a></li>
+                                <li><a class="<%=(lang=="zh-hk"?"active":"")%>" href="/?clang=zh-hk">繁體中文(香港)</a></li>
+                                <li><a class="<%=(lang=="zh-cn"?"active":"")%>" href="/?clang=zh-cn">簡體中文</a></li>
+                                <li><a class="<%=(lang=="en"?"active":"")%>" href="/?clang=en">English</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
         <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/">SG Docs</a>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown"><%=texts.Quick%> <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/api-open"><%=texts.APIOpen%></a></li>
-                            <li><a href="/api-verification"><%=texts.APIVerification%></a></li>
-                        </ul>
-                    </li>
-
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown"><%=texts.Tutorial%> <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <!--  =========  Web API  =========  -->
-                            <li class="dropdown-submenu">
-                                <a class="dropdown-toggle" data-toggle="dropdown"><%=texts.Client%>(Web API)</a>
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    <li><a href="/webapi-init"><%=texts.ClientWebAPIQuick%></a></li>
-                                    <li><a href="/webapi-user"><%=texts.ClientWebAPIUser%></a></li>
-                                    <li><a href="/webapi-pay"><%=texts.ClientWebAPIPay%></a></li>
-                                    <li><a href="/webapi-analytics"><%=texts.ClientWebAPIAnalysis%></a></li>
-                                </ul>
-                            </li>
-
-                            <!--  =========  Java  =========  -->
-                            <li class="dropdown-submenu">
-                                <a class="dropdown-toggle" data-toggle="dropdown"><%=texts.Client%>(Java)</a>
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    <li><a href="/java-init"><%=texts.ClientWebAPIQuick%></a></li>
-                                    <li><a href="/java-user"><%=texts.ClientWebAPIUser%></a></li>
-                                    <li><a href="/java-pay"><%=texts.ClientWebAPIPay%></a></li>
-                                    <li><a href="/java-analytics"><%=texts.ClientWebAPIAnalysis%></a></li>
-                                </ul>
-                            </li>
-
-                            <!--  =========  Swift 3  =========  -->
-                            <li class="dropdown-submenu">
-                                <a class="dropdown-toggle" data-toggle="dropdown"><%=texts.Client%>(Swift 3)</a>
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    <li><a href="/swift-init"><%=texts.ClientWebAPIQuick%></a></li>
-                                    <li><a href="/swift-user"><%=texts.ClientWebAPIUser%></a></li>
-                                    <li><a href="/swift-pay"><%=texts.ClientWebAPIPay%></a></li>
-                                    <li><a href="/swift-analytics"><%=texts.ClientWebAPIAnalysis%></a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li><a href="/channel"><%=texts.Channel%></a></li>
-
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown"><%=texts.Language%> <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a class="<%=(lang=="zh-tw"?"active":"")%>" href="/?clang=zh-tw">繁體中文(台灣)</a></li>
-                            <li><a class="<%=(lang=="zh-hk"?"active":"")%>" href="/?clang=zh-hk">繁體中文(香港)</a></li>
-                            <li><a class="<%=(lang=="zh-cn"?"active":"")%>" href="/?clang=zh-cn">簡體中文</a></li>
-                            <li><a class="<%=(lang=="en"?"active":"")%>" href="/?clang=en">English</a></li>
-                        </ul>
-                    </li>
-                </ul>
+            <div class="row-fluid">
+                <%- body %>
             </div>
         </div>
-    </nav>
 
-    <div class="container-fluid">
-        <div class="row-fluid">
-            <%- body %>
-        </div>
-    </div>
+        <hr>
+        <%- partial('footer') %>
 
-    <hr>
-    <%- partial('footer') %>
+        <script>
+            $(document).ready(() => {
+                <% if (lang == 'zh-cn') { %>
+                    appUtil.translateBody('SC');
+                <% } %>
 
-  <script>
-      $(document).ready(() => {
-          $('.dropdown-submenu>a').click((e) => {
-            e.preventDefault();
-            return false;
-          });
+                $('.dropdown-submenu>a').click((e) => {
+                    e.preventDefault();
+                    return false;
+                });
 
-          $(document).on('click', '[data-toggle="lightbox"]', function (event)
-          {
-              event.preventDefault();
-              $(this).ekkoLightbox();
-          });
-      });
-  </script>
-  </body>
+                $(document).on('click', '[data-toggle="lightbox"]', function (event)
+                {
+                    event.preventDefault();
+                    $(this).ekkoLightbox();
+                });
+            });
+        </script>
+    </body>
 </html>
