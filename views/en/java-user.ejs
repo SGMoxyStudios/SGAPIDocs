@@ -37,7 +37,7 @@
                 <span class="badge badge-ttl">Description</span>
                 <ul>
                     <li>Signup view.  </li>
-                    <li>After signup, user will login automatically, and <a href="#FloatingButton">widget</a> is shown.</li>
+                    <li>After signup, system logs user in automatically, and <a href="#FloatingButton">widget button</a> is shown.</li>
                 </ul>
 
                 <span class="badge badge-ttl">Response</span>
@@ -68,7 +68,7 @@
                 <span class="badge badge-ttl">Description</span>
                 <ul>
                     <li>Login view.  </li>
-                    <li>After login successful, <a href="#FloatingButton">widget</a> is shown.</li>
+                    <li>After successful login, <a href="#FloatingButton">widget button</a> is shown.</li>
                 </ul>
 
                 <span class="badge badge-ttl">Response</span>
@@ -341,7 +341,7 @@
             <span class="badge badge-ttl">Description</span>
             <ul><li>Obtain Open ID (SG ID) after login.</li></ul>
             <span class="badge badge-ttl">Response</span>
-            <ul><li>Open ID or NULL</li></ul>
+            <ul><li>Return Open ID if successful, or NULL if failed.</li></ul>
             <br />
         </section>
 
@@ -352,7 +352,7 @@
             <span class="badge badge-ttl">Description</span>
             <ul><li>Obtain Session ID after login.</li></ul>
             <span class="badge badge-ttl">Response</span>
-            <ul><li>Session ID or NULL</li></ul>
+            <ul><li>Return Session ID if successful, or NULL if failed.</li></ul>
             <br />
         </section>
 
@@ -365,66 +365,71 @@
                 <li>Obtain Token after login.</li>
             </ul>
             <span class="badge badge-ttl">Response</span>
-            <ul><li>Token or NULL</li></ul>
+            <ul><li>Return Token if successful, or NULL if failed.</li></ul>
             <br />
         </section>
 
         <section id="GetKidIndex">
-            <h3>4.Get kid index</h3>
+            <h3>4.Get index of selected kid</h3>
             <span class="badge badge-ttl">Function</span>
             <p><pre>int getKidIndex()</pre></p>
             <span class="badge badge-ttl">Description</span>
             <ul><li>Obtain index of selected kid.</li></ul>
             <span class="badge badge-ttl">Response</span>
-            <ul><li>成功：Value of kid index，失敗：NULL。</li></ul>
+            <ul><li>Return index number if successful, or 0 if failed.</li></ul>
             <br />
         </section>
 
         <section id="GetKidFace">
-            <h3>5.取得孩童頭像</h3>
+            <h3>5.Get face icon of selected kid</h3>
             <span class="badge badge-ttl">Function</span>
             <p><pre>String getKidFace()</pre></p>
             <span class="badge badge-ttl">Description</span>
-            <ul><li>取得正在遊玩的孩童頭像。</li></ul>
+            <ul><li>Obtain face icon of selected kid.</li></ul>
             <span class="badge badge-ttl">Response</span>
-            <ul><li>成功：Value of kid face，失敗：NULL。</li></ul>
+            <ul><li>Return face icon if successful, or NULL if failed.</li></ul>
             <br />
         </section>
 
         <section id="GetLoginState">
-            <h3>6.取得登入狀態</h3>
+            <h3>6.Check login status</h3>
             <span class="badge badge-ttl">Function</span>
             <p><pre>boolean isLogin()</pre></p>
             <span class="badge badge-ttl">Description</span>
-            <ul><li>判斷是否為登入狀態。</li></ul>
+            <ul>
+                <li>Check login status.</li>
+            </ul>
             <span class="badge badge-ttl">Response</span>
-            <ul><li>登入：True，未登入：False。</li></ul>
+            <ul><li>Return true if login, or false if not.</li></ul>
             <br />
         </section>
 
         <section id="GetChannel">
-            <h3>7.取得平台名稱</h3>
+            <h3>7.Get Channel ID</h3>
             <span class="badge badge-ttl">Function</span>
             <p><pre>String getChannelID()</pre></p>
             <span class="badge badge-ttl">Description</span>
-            <ul><li>取得平台名稱。</li></ul>
+            <ul><li>Obtain Channel ID</li></ul>
             <span class="badge badge-ttl">Response</span>
-            <ul><li>平台名稱，例如：googleplay, appstore...。</li></ul>
+            <ul>
+                <li>Return Channel ID if successful, or NULL if failed.</li>
+                <li>Please refer to  <a href="/channel">Channel List table</a>.</li>
+            </ul>
             <br />
         </section>
     </section>
 
     <section id="FloatingButton">
-        <h1>懸浮按鈕函式</h1>
+        <h1>Widget</h1>
 
-        <h3>1.顯示懸浮按鈕</h3>
+        <h3>1.Show widget button</h3>
         <span class="badge badge-ttl">Function</span>
         <p><pre>void showWidget(EWidgetLocation location)</pre></p>
 
         <span class="badge badge-ttl">Description</span>
         <ul>
-            <li>顯示懸浮按鈕，登入後自動顯示。</li>
-            <li>點擊懸浮按鈕，會執行<a href="#MyAccount">帳號資訊</a>。</li>
+            <li>Widget button is shown automatically after successful login.</li>
+            <li>Click on widget button will launch <a href="#MyAccount">My Account</a> view.</li>
         </ul>
 
         <span class="badge badge-ttl">Parameters</span>
@@ -432,69 +437,69 @@
         <table class="table table-striped">
             <tr>
                 <th>Case</th>
-                <th style="width:50%">狀態描述</th>
+                <th style="width:50%">Description</th>
             </tr>
             <tr>
                 <td>TopLeft</td>
-                <td>左上角</td>
+                <td>Top left of the screen</td>
             </tr>
             <tr>
                 <td>Top</td>
-                <td>中間上方</td>
+                <td>Top of the screen</td>
             </tr>
             <tr>
                 <td>TopRight</td>
-                <td>右上角</td>
+                <td>Top right of the screen</td>
             </tr>
             <tr>
                 <td>Left</td>
-                <td>中間左方</td>
+                <td>Left side of the screen</td>
             </tr>
             <tr>
                 <td>Right</td>
-                <td>中間右方</td>
+                <td>Right side of the screen</td>
             </tr>
             <tr>
                 <td>BottomLeft</td>
-                <td>左下角</td>
+                <td>Bottom left of the screen</td>
             </tr>
             <tr>
                 <td>Bottom</td>
-                <td>中間下方</td>
+                <td>Bottom of the screen</td>
             </tr>
             <tr>
                 <td>BottomRight</td>
-                <td>右下角</td>
+                <td>Bottom right of the screen</td>
             </tr>
         </table>
         
         <br />
 
-        <h3>2.隱藏懸浮按鈕</h3>
+        <h3>2.Hide widget button</h3>
         <span class="badge badge-ttl">Function</span>
         <p><pre>void hideWidget()</pre></p>
         <span class="badge badge-ttl">Description</span>
-        <ul><li>隱藏懸浮按鈕。</li></ul>
+        <ul><li>Hide widget button.</li></ul>
         <br />
 
-        <h3>3.檢查懸浮按鈕狀態</h3>
+        <h3>3.Check widget visibility</h3>
         <span class="badge badge-ttl">Function</span>
         <p><pre>boolean isWidgetVisible()</pre></p>
         <span class="badge badge-ttl">Description</span>
-        <ul><li>檢查懸浮按鈕狀態。</li></ul>
+        <ul><li>Check widget visibility.</li></ul>
         <span class="badge badge-ttl">Response</span>
-        <ul><li>顯示：True，隱藏：False。</li></ul>
+        <ul><li>True if visible, or false if not.</li></ul>
     </section>
 
     <section id="Logout">
-        <h1>登出</h1>
+        <h1>Logout</h1>
         <span class="badge badge-ttl">Function</span>
         <p><pre>void logout()</pre></p>
 
         <span class="badge badge-ttl">Description</span>
         <ul>
-            <li>帳號登出。</li>
-            <li>登出成功後，自動隱藏<a href="#FloatingButton">懸浮按鈕</a>。</li>
+            <li>Log user out.</li>
+            <li>After successful logout, <a href="#FloatingButton">widget button</a> is hidden automatically.</li>
         </ul>
 
         <span class="badge badge-ttl">Response</span>
