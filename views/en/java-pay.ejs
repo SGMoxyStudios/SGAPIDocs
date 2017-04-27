@@ -84,10 +84,6 @@
                 <th>描述</th>
             </tr>
             <tr>
-                <td>orderId</td>
-                <td>購買時傳入的訂單編號。</td>
-            </tr>
-            <tr>
                 <td>gameKey</td>
                 <td>您的開發驗證。</td>
             </tr>
@@ -96,8 +92,12 @@
                 <td>SG 會員 ID，Login 後可用 <a href="/java-user#GetOpenID">GetOpenID()</a> 取得。</td>
             </tr>
             <tr>
+                <td>orderId</td>
+                <td>商品收據單號 OrderID。</td>
+            </tr>
+            <tr>
                 <td>sign</td>
-                <td>購買成功後，SG Server 返回的簽名。</td>
+                <td>以參數 orderid, gamekey, openid 製作簽名字串。詳見 <a href="/server-sign#section2">簽名演算法</a>。</td>
             </tr>
         </table>
 

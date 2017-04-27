@@ -6,6 +6,8 @@
   "APIVerification": "SDK 串接验证",
   "Client": "客户端",
   "Server": "服务端",
+  "ServerPay": "支付通知",
+  "ServerSign": "签名演算法",
   "MustRead": "接入必读",
   "Tutorial": "接入指南",
   "ClientWebAPIQuick": "快速集成指南",

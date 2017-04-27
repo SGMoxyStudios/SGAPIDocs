@@ -284,16 +284,16 @@
                 <td>Game key</td>
             </tr>
             <tr>
-                <td>sessionId</td>
-                <td>Login 後可用 <a href="#GetSessionID">GetSessionID()</a> 取得。</td>
-            </tr>
-            <tr>
                 <td>openId</td>
                 <td>Login 後可用 <a href="#GetOpenID">GetOpenID()</a> 取得。</td>
             </tr>
             <tr>
+                <td>sessionId</td>
+                <td>Login 後可用 <a href="#GetSessionID">GetSessionID()</a> 取得。</td>
+            </tr>
+            <tr>
                 <td>sign</td>
-                <td>server 返回的簽名。</td>
+                <td>以參數 gamekey, openid, sessionid 製作簽名字串。詳見 <a href="/server-sign#section2">簽名演算法</a>。</td>
             </tr>
         </table>
         </p>
@@ -406,8 +406,7 @@
             <ul>
                 <li>取得正在遊玩的孩童索引。</li>
                 <li>使用以下函式會變更索引, <a href="#Login">Login()</a>, <a href="#Signup">Signup()</a>, <a
-                            href="#SelectKid">SelectKid()</a>, <a href="#MyKid">MyKid()</a>, <a href="#LoginByToken">LoginByToken()</a>
-                    。
+                    href="#SelectKid">SelectKid()</a>, <a href="#MyKid">MyKid()</a>, <a href="#LoginByToken">LoginByToken()</a>。
                 </li>
             </ul>
             <span class="badge badge-ttl">回傳</span>
