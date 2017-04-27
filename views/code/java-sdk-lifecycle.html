@@ -31,28 +31,26 @@
 31
 32
 33
-34</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008000; font-weight: bold">private</span> SGSDK _sdk <span style="color: #666666">=</span> SGSDK<span style="color: #666666">.</span><span style="color: #7D9029">getInstance</span><span style="color: #666666">();</span>
-
+34</pre></td><td>
+    <pre style="margin: 0; line-height: 125%"><span style="color: #008000; font-weight: bold">private</span> SGSDK _sdk <span style="color: #666666">=</span> SGSDK<span style="color: #666666">.</span><span style="color: #7D9029">getInstance</span><span style="color: #666666">();</span>
 <span style="color: #AA22FF">@Override</span>
 <span style="color: #008000; font-weight: bold">protected</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onResume</span><span style="color: #666666">()</span>
 <span style="color: #666666">{</span>
     _sdk<span style="color: #666666">.</span><span style="color: #7D9029">onResume</span><span style="color: #666666">();</span>
     <span style="color: #008000; font-weight: bold">super</span><span style="color: #666666">.</span><span style="color: #7D9029">onResume</span><span style="color: #666666">();</span>
 <span style="color: #666666">}</span>
-
 <span style="color: #AA22FF">@Override</span>
 <span style="color: #008000; font-weight: bold">protected</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onActivityResult</span><span style="color: #666666">(</span><span style="color: #B00040">int</span> requestCode<span style="color: #666666">,</span> <span style="color: #B00040">int</span> resultCode<span style="color: #666666">,</span> Intent data<span style="color: #666666">)</span>
-<span style="color: #666666">{</span>   _sdk<span style="color: #666666">.</span><span style="color: #7D9029">onActivityResult</span><span style="color: #666666">(</span>requestCode<span style="color: #666666">,</span>resultCode<span style="color: #666666">,</span>data<span style="color: #666666">);</span>
+<span style="color: #666666">{</span>
+   _sdk<span style="color: #666666">.</span><span style="color: #7D9029">onActivityResult</span><span style="color: #666666">(</span>requestCode<span style="color: #666666">,</span>resultCode<span style="color: #666666">,</span>data<span style="color: #666666">);</span>
     <span style="color: #008000; font-weight: bold">super</span><span style="color: #666666">.</span><span style="color: #7D9029">onActivityResult</span><span style="color: #666666">(</span>requestCode<span style="color: #666666">,</span> resultCode<span style="color: #666666">,</span> data<span style="color: #666666">);</span>
 <span style="color: #666666">}</span>
-
 <span style="color: #AA22FF">@Override</span>
 <span style="color: #008000; font-weight: bold">protected</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onDestroy</span><span style="color: #666666">()</span>
 <span style="color: #666666">{</span>
     _sdk<span style="color: #666666">.</span><span style="color: #7D9029">onDestroy</span><span style="color: #666666">();</span>
     <span style="color: #008000; font-weight: bold">super</span><span style="color: #666666">.</span><span style="color: #7D9029">onDestroy</span><span style="color: #666666">();</span>
 <span style="color: #666666">}</span>
-
 <span style="color: #AA22FF">@Override</span>
 <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onBackPressed</span><span style="color: #666666">()</span>
 <span style="color: #666666">{</span>
@@ -65,4 +63,5 @@
         <span style="color: #008000; font-weight: bold">super</span><span style="color: #666666">.</span><span style="color: #7D9029">onBackPressed</span><span style="color: #666666">();</span>
     <span style="color: #666666">}</span>
 <span style="color: #666666">}</span>
-</pre></td></tr></table></div>
+</pre>
+</td></tr></table></div>

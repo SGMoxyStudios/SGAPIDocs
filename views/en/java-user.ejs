@@ -1,46 +1,56 @@
 ﻿<div class="left-side" id="myScrollspy">
     <ul class="nav nav-pills">
-        <li><a href="#MemberSystem">用戶系統</a></li>
-        <li><a href="#Signup">創帳號</a></li>
-        <li><a href="#Login">登入</a></li>
-        <li><a href="#ForgotPassword">查詢密碼</a></li>
-        <li><a href="#ChangePassword">變更密碼</a></li>
-        <li><a href="#ParentalLock">家長安全操作</a></li>
-        <li><a href="#MyKid">設置孩童資料</a></li>
-        <li><a href="#SelectKid">設定正在進行遊戲的孩童</a></li>
-        <li><a href="#MyAccount">帳號資訊</a></li>
-        <li><a href="#VerifySession">Session ID 登入驗證</a></li>
-        <li><a href="#LoginByToken">Token 快速登入</a></li>
-        <li><a href="#OtherFunction">取值函式</a></li>
-        <li><a href="#FloatingButton">懸浮按鈕函式</a></li>
-        <li><a href="#Logout">登出</a></li>
+        <li><a href="#MemberSystem">Member System</a></li>
+        <li><a href="#Signup">Signup</a></li>
+        <li><a href="#Login">Login</a></li>
+        <li><a href="#ForgotPassword">Forget Password</a></li>
+        <li><a href="#ChangePassword">Change Password</a></li>
+        <li><a href="#ParentalLock">Parental Lock</a></li>
+        <li><a href="#MyKid">My Kid</a></li>
+        <li><a href="#SelectKid">Select Kid</a></li>
+        <li><a href="#MyAccount">My Account</a></li>
+        <li><a href="#VerifySession">Verify Session</a></li>
+        <li><a href="#LoginByToken">Login by Token</a></li>
+        <li><a href="#OtherFunction">Other Functions</a></li>
+        <li><a href="#FloatingButton">Widget</a></li>
+        <li><a href="#Logout">Logout</a></li>
     </ul>
 </div>
 <div class="right-side">
     <section id="MemberSystem">
-        <h1>用戶系統</h1>
-        <p>透過 SGSDK 調用各個函式，例如創帳號，登入等等。某些函式調用後需要接收回傳值。客戶端再依據收到的回傳值進行對應處理。</p>
+        <h1>Member System</h1>
+        <p>
+            Member system is used for signup, login and manage family members (kids). 
+            Most of the functions launch <b>WebView</b> control as part of the process flow.
+            You should register a callback listener to handle response.
+        </p>
     </section>
 
 
     <section id="Signup">
-        <h1>創帳號</h1>
+        <h1>Signup</h1>
         <div class="row">
             <div class="col-sm-9">
-                <span class="badge badge-ttl">函式</span>
+                <span class="badge badge-ttl">Function</span>
                 <p><pre>void signup()</pre></p>
 
-                <span class="badge badge-ttl">説明</span>
-                <ul><li>調用註冊頁面，註冊成功等同登入然後關閉 WebView。</li></ul>
-
-                <span class="badge badge-ttl">回傳</span>
+                <span class="badge badge-ttl">Description</span>
                 <ul>
-                    <li>請參看【<a href="/java-init#listener">回調監聽</a>】的設定，以及回傳的代碼與定義<a href="/webapi-init#section5">對照表</a>。</li>
-                    <li>回調監聽的 Data 參數：<a href="/webapi-init#SGMember">SGMember</a>。</li>
+                    <li>Signup view.  </li>
+                    <li>After signup, user will login automatically, and <a href="#FloatingButton">widget</a> is shown.</li>
+                </ul>
+
+                <span class="badge badge-ttl">Response</span>
+                <ul>
+                    <li>
+                        Please refer to 【<a href="#listener">SDK Callback Listener</a>】
+                        and 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
+                    </li>
+                    <li>Listener result data: <a href="/webapi-init#SGMember">SGMember</a>. </li>
                 </ul>
             </div>
             <div class="col-sm-3">
-                <span class="badge badge-ttl">WebView 頁面</span>
+                <span class="badge badge-ttl">WebView UI</span>
                 <a href="<%= " assets/img/" + lang + "/pic08.png" %>" data-toggle="lightbox">
                 <img src="<%= " assets/img/" + lang + "/pic08.png" %>" class="img-responsive"/>
                 </a>
@@ -49,26 +59,29 @@
     </section>
 
     <section id="Login">
-        <h1>登入</h1>
+        <h1>Login</h1>
         <div class="row">
             <div class="col-sm-9">
-                <span class="badge badge-ttl">函式</span>
+                <span class="badge badge-ttl">Function</span>
                 <p><pre>void login()</pre></p>
 
-                <span class="badge badge-ttl">説明</span>
+                <span class="badge badge-ttl">Description</span>
                 <ul>
-                    <li>調用登入頁面，登入成功後關閉 WebView。</li>
-                    <li>登入成功後，自動顯示<a href="#FloatingButton">懸浮按鈕</a>。</li>
+                    <li>Login view.  </li>
+                    <li>After login successful, <a href="#FloatingButton">widget</a> is shown.</li>
                 </ul>
 
-                <span class="badge badge-ttl">回傳</span>
+                <span class="badge badge-ttl">Response</span>
                 <ul>
-                    <li>請參看【<a href="/java-init#listener">回調監聽</a>】的設定，以及回傳的代碼與定義<a href="/webapi-init#section5">對照表</a>。</li>
-                    <li>回調監聽的 Data 參數：<a href="/webapi-init#SGMember">SGMember</a>。</li>
+                    <li>
+                        Please refer to 【<a href="#listener">SDK Callback Listener</a>】
+                        and 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
+                    </li>
+                    <li>Listener result data: <a href="/webapi-init#SGMember">SGMember</a>. </li>
                 </ul>
             </div>
             <div class="col-sm-3">
-                <span class="badge badge-ttl">WebView 頁面</span>
+                <span class="badge badge-ttl">WebView UI</span>
                 <a href="<%= " assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
                 <img src="<%= " assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
                 </a>
@@ -77,23 +90,26 @@
     </section>
 
     <section id="ForgotPassword">
-        <h1>查詢密碼</h1>
+        <h1>Forget Password</h1>
         <div class="row">
             <div class="col-sm-9">
-                <span class="badge badge-ttl">函式</span>
-                <p><pre>void forgotPassword()</pre></p>
+                <span class="badge badge-ttl">Function</span>
+                <p><pre>void forgetPassword()</pre></p>
 
-                <span class="badge badge-ttl">説明</span>
-                <ul><li>調用找回密碼頁面進行重設密碼。</li></ul>
+                <span class="badge badge-ttl">Description</span>
+                <ul><li>Forget password view.</li></ul>
 
-                <span class="badge badge-ttl">回傳</span>
+                <span class="badge badge-ttl">Response</span>
                 <ul>
-                    <li>請參看【<a href="/java-init#listener">回調監聽</a>】的設定，以及回傳的代碼與定義<a href="/webapi-init#section5">對照表</a>。</li>
-                    <li>回調監聽的 Data 參數：無。</li>
+                    <li>
+                        Please refer to 【<a href="#listener">SDK Callback Listener</a>】
+                        and 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
+                    </li>
+                    <li>Listener result data: NULL. </li>
                 </ul>
             </div>
             <div class="col-sm-3">
-                <span class="badge badge-ttl">WebView 頁面</span>
+                <span class="badge badge-ttl">WebView UI</span>
                 <a href="<%= " assets/img/" + lang + "/pic09.png" %>" data-toggle="lightbox">
                 <img src="<%= " assets/img/" + lang + "/pic09.png" %>" class="img-responsive"/>
                 </a>
@@ -102,23 +118,26 @@
     </section>
 
     <section id="ChangePassword">
-        <h1>變更密碼</h1>
+        <h1>Change Password</h1>
         <div class="row">
             <div class="col-sm-9">
-                <span class="badge badge-ttl">函式</span>
+                <span class="badge badge-ttl">Function</span>
                 <p><pre>void changePassword()</pre></p>
 
-                <span class="badge badge-ttl">説明</span>
-                <ul><li>調用變更密碼頁面。</li></ul>
+                <span class="badge badge-ttl">Description</span>
+                <ul><li>Change password view.</li></ul>
 
-                <span class="badge badge-ttl">回傳</span>
+                <span class="badge badge-ttl">Response</span>
                 <ul>
-                    <li>請參看【<a href="/java-init#listener">回調監聽</a>】的設定，以及回傳的代碼與定義<a href="/webapi-init#section5">對照表</a>。</li>
-                    <li>回調監聽的 Data 參數：無。</li>
+                    <li>
+                        Please refer to 【<a href="#listener">SDK Callback Listener</a>】
+                        and 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
+                    </li>
+                    <li>Listener result data: NULL. </li>
                 </ul>
             </div>
             <div class="col-sm-3">
-                <span class="badge badge-ttl">WebView 頁面</span>
+                <span class="badge badge-ttl">WebView UI</span>
                 <a href="<%= " assets/img/" + lang + "/pic10.png" %>" data-toggle="lightbox">
                 <img src="<%= " assets/img/" + lang + "/pic10.png" %>" class="img-responsive"/>
                 </a>
@@ -127,23 +146,28 @@
     </section>
 
     <section id="ParentalLock">
-        <h1>家長安全操作</h1>
+        <h1>Parental Lock</h1>
         <div class="row">
             <div class="col-sm-9">
-                <span class="badge badge-ttl">函式</span>
+                <span class="badge badge-ttl">Function</span>
                 <p><pre>void parentalLock()</pre></p>
 
-                <span class="badge badge-ttl">説明</span>
-                <ul><li>在呼叫帳號設置前需要先呼叫家長安全操作頁面以防孩童誤擊重要功能。</li></ul>
-
-                <span class="badge badge-ttl">回傳</span>
+                <span class="badge badge-ttl">Description</span>
                 <ul>
-                    <li>請參看【<a href="/java-init#listener">回調監聽</a>】的設定，以及回傳的代碼與定義<a href="/webapi-init#section5">對照表</a>。</li>
-                    <li>回調監聽的 Data 參數：無。</li>
+                    <li>You can use parental lock utility view to before important actions.</li>
+                </ul>
+
+                <span class="badge badge-ttl">Response</span>
+                <ul>
+                    <li>
+                        Please refer to 【<a href="#listener">SDK Callback Listener</a>】
+                        and 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
+                    </li>
+                    <li>Listener result data: NULL. </li>
                 </ul>
             </div>
             <div class="col-sm-3">
-                <span class="badge badge-ttl">WebView 頁面</span>
+                <span class="badge badge-ttl">WebView UI</span>
                 <a href="<%= " assets/img/" + lang + "/pic11.png" %>" data-toggle="lightbox">
                 <img src="<%= " assets/img/" + lang + "/pic11.png" %>" class="img-responsive"/>
                 </a>
@@ -152,25 +176,28 @@
     </section>
 
     <section id="MyKid">
-        <h1>設置孩童資料</h1>
+        <h1>My Kid</h1>
         <div class="row">
             <div class="col-sm-9">
-                <span class="badge badge-ttl">函式</span>
+                <span class="badge badge-ttl">Function</span>
                 <p><pre>void myKid()</pre></p>
 
-                <span class="badge badge-ttl">説明</span>
+                <span class="badge badge-ttl">Description</span>
                 <ul>
-                    <li>調用新增孩童資料頁面。</li>
+                    <li>Use to create new kid (family member).</li>
                 </ul>
 
-                <span class="badge badge-ttl">回傳</span>
+                <span class="badge badge-ttl">Response</span>
                 <ul>
-                    <li>請參看【<a href="/java-init#listener">回調監聽</a>】的設定，以及回傳的代碼與定義<a href="/webapi-init#section5">對照表</a>。</li>
-                    <li>回調監聽的 Data 參數：無。</li>
+                    <li>
+                        Please refer to 【<a href="#listener">SDK Callback Listener</a>】
+                        and 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
+                    </li>
+                    <li>Listener result data: NULL. </li>
                 </ul>
             </div>
             <div class="col-sm-3">
-                <span class="badge badge-ttl">WebView 頁面</span>
+                <span class="badge badge-ttl">WebView UI</span>
                 <a href="<%= " assets/img/" + lang + "/pic12.png" %>" data-toggle="lightbox">
                 <img src="<%= " assets/img/" + lang + "/pic12.png" %>" class="img-responsive"/>
                 </a>
@@ -179,26 +206,29 @@
     </section>
 
     <section id="SelectKid">
-        <h1>設定正在進行遊戲的孩童</h1>
+        <h1>Select Kid</h1>
         <div class="row">
             <div class="col-sm-9">
-                <span class="badge badge-ttl">函式</span>
+                <span class="badge badge-ttl">Function</span>
                 <p><pre>void selectKid()</pre></p>
 
-                <span class="badge badge-ttl">説明</span>
+                <span class="badge badge-ttl">Description</span>
                 <ul>
-                    <li>調用孩童列表頁面，家長可以標記一名正在進行遊戲的孩童。</li>
-                    <li>選擇成功後可以調用 <a href="#GetKidIndex">GetKidIndex()</a> 和 <a href="#GetKidFace">GetKidFace()</a> 取得該孩童的索引和頭圖</li>
+                    <li>Use to select a kid who is currently playing</li>
+                    <li>After selection, you can use <a href="#GetKidIndex">GetKidIndex()</a> and <a href="#GetKidFace">GetKidFace()</a> to get selected kid index and face icon number.</li>
                 </ul>
 
-                <span class="badge badge-ttl">回傳</span>
+                <span class="badge badge-ttl">Response</span>
                 <ul>
-                    <li>請參看【<a href="/java-init#listener">回調監聽</a>】的設定，以及回傳的代碼與定義<a href="/webapi-init#section5">對照表</a>。</li>
-                    <li>回調監聽的 Data 參數：無。</li>
+                    <li>
+                        Please refer to 【<a href="#listener">SDK Callback Listener</a>】
+                        and 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
+                    </li>
+                    <li>Listener result data: NULL. </li>
                 </ul>
             </div>
             <div class="col-sm-3">
-                <span class="badge badge-ttl">WebView 頁面</span>
+                <span class="badge badge-ttl">WebView UI</span>
                 <a href="<%= " assets/img/" + lang + "/pic14.png" %>" data-toggle="lightbox">
                 <img src="<%= " assets/img/" + lang + "/pic14.png" %>" class="img-responsive"/>
                 </a>
@@ -207,25 +237,28 @@
     </section>
 
     <section id="MyAccount">
-        <h1>帳號資訊</h1>
+        <h1>My Account</h1>
         <div class="row">
             <div class="col-sm-9">
-                <span class="badge badge-ttl">函式</span>
+                <span class="badge badge-ttl">Function</span>
                 <p><pre>void myAccount()</pre></p>
 
-                <span class="badge badge-ttl">説明</span>
+                <span class="badge badge-ttl">Description</span>
                 <ul>
-                    <li>調用帳號總覽頁面，以瀏覽孩童遊戲紀錄。</li>
+                    <li>My account main view.</li>
                 </ul>
 
-                <span class="badge badge-ttl">回傳</span>
+                <span class="badge badge-ttl">Response</span>
                 <ul>
-                    <li>請參看【<a href="/java-init#listener">回調監聽</a>】的設定，以及回傳的代碼與定義<a href="/webapi-init#section5">對照表</a>。</li>
-                    <li>回調監聽的 Data 參數：無。</li>
+                    <li>
+                        Please refer to 【<a href="#listener">SDK Callback Listener</a>】
+                        and 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
+                    </li>
+                    <li>Listener result data: NULL. </li>
                 </ul>
             </div>
             <div class="col-sm-3">
-                <span class="badge badge-ttl">WebView 頁面</span>
+                <span class="badge badge-ttl">WebView UI</span>
                 <a href="<%= " assets/img/" + lang + "/pic13.png" %>" data-toggle="lightbox">
                 <img src="<%= " assets/img/" + lang + "/pic13.png" %>" class="img-responsive"/>
                 </a>
@@ -234,146 +267,148 @@
     </section>
 
     <section id="VerifySession">
-        <h1>Session ID 登入驗證</h1>
-        <span class="badge badge-ttl">函式</span>
+        <h1>Verify Session</h1>
+        <span class="badge badge-ttl">Function</span>
         <p><pre>verifySession(String gameKey, String sessionId, String openId, Stirng sign)</pre></p>
 
-        <span class="badge badge-ttl">説明</span>
+        <span class="badge badge-ttl">Description</span>
         <ul>
-            <li>使用 SessionID 取得登入帳號資訊。</li>
+            <li>Verify session data.</li>
         </ul>
 
-        <span class="badge badge-ttl">參數</span>
+        <span class="badge badge-ttl">Parameters</span>
         <table class="table table-striped">
-            <tr>
-                <th>參數名稱</th>
-                <th>描述</th>
-            </tr>
             <tr>
                 <td>gameKey</td>
                 <td>Game key</td>
             </tr>
             <tr>
                 <td>sessionId</td>
-                <td>Login 後可用 <a href="#GetSessionID">GetSessionID()</a> 取得。</td>
+                <td>Use <a href="#GetSessionID">GetSessionID()</a> function to get value after login.</td>
             </tr>
             <tr>
                 <td>openId</td>
-                <td>Login 後可用 <a href="#GetOpenID">GetOpenID()</a> 取得。</td>
+                <td>User <a href="#GetOpenID">GetOpenID()</a> function to get value after login.</td>
             </tr>
             <tr>
                 <td>sign</td>
-                <td>server 返回的簽名。</td>
+                <td>Signature return by server.</td>
             </tr>
         </table>
 
-        <span class="badge badge-ttl">回傳</span>
+        <span class="badge badge-ttl">Response</span>
         <p>
             <ul>
-                <li>請參看【<a href="/java-init#listener">回調監聽</a>】的設定，以及回傳的代碼與定義<a href="/webapi-init#section5">對照表</a>。</li>
-                <li>回調監聽的 Data 參數：無。</li>
+                <li>
+                    Please refer to 【<a href="#listener">SDK Callback Listener</a>】
+                    and 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
+                </li>
+                <li>Listener result data: NULL. </li>
             </ul>
         </p>
     </section>
 
     <section id="LoginByToken">
-        <h1>Token 快速登入</h1>
-        <span class="badge badge-ttl">函式</span>
+        <h1>Login by Token</h1>
+        <span class="badge badge-ttl">Function</span>
         <p><pre>void loginByToken(String token)</pre></p>
 
-        <span class="badge badge-ttl">説明</span>
-        <ul><li>使用 Token 快速登入。</li></ul>
+        <span class="badge badge-ttl">Description</span>
+        <ul><li>Login into the system by token.</li></ul>
 
-        <span class="badge badge-ttl">參數</span>
+        <span class="badge badge-ttl">Parameters</span>
         <ul>
-            <li>token, Login 後可用 <a href="#GetToken">GetToken()</a> 取得。</li>
+            <li>token use for login.</li>
         </ul>
 
-        <span class="badge badge-ttl">回傳</span>
+        <span class="badge badge-ttl">Response</span>
         <ul>
-            <li>請參看【<a href="/java-init#listener">回調監聽</a>】的設定，以及回傳的代碼與定義<a href="/webapi-init#section5">對照表</a>。</li>
-            <li>回調監聽的 Data 參數：<a href="/webapi-init#SGMember">SGMember</a>。</li>
+            <li>
+                Please refer to 【<a href="#listener">SDK Callback Listener</a>】
+                and 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
+            </li>
+            <li>Listener result data: <a href="/webapi-init#SGMember">SGMember</a>. </li>
         </ul>
     </section>
 
     <section id="OtherFunction">
-        <h1>取值函式</h1>
+        <h1>Other Functions</h1>
 
         <section id="GetOpenID">
-            <h3>1.取得用戶 Open ID</h3>
-            <span class="badge badge-ttl">函式</span>
+            <h3>1.Get Open ID</h3>
+            <span class="badge badge-ttl">Function</span>
             <p><pre>String getOpenID()</pre></p>
-            <span class="badge badge-ttl">説明</span>
-            <ul><li>取得用戶唯一識別 ID (SG ID)，以此 ID 登入遊戲伺服器，登入後才可取得。</li></ul>
-            <span class="badge badge-ttl">回傳</span>
-            <ul><li>成功：Open ID，失敗：NULL。</li></ul>
+            <span class="badge badge-ttl">Description</span>
+            <ul><li>Obtain Open ID (SG ID) after login.</li></ul>
+            <span class="badge badge-ttl">Response</span>
+            <ul><li>Open ID or NULL</li></ul>
             <br />
         </section>
 
         <section id="GetSessionID">
-            <h3>2.取得 Session ID</h3>
-            <span class="badge badge-ttl">函式</span>
+            <h3>2.Get Session ID</h3>
+            <span class="badge badge-ttl">Function</span>
             <p><pre>String getSessionID()</pre></p>
-            <span class="badge badge-ttl">説明</span>
-            <ul><li>取得 Session ID，登入後才可取得。</li></ul>
-            <span class="badge badge-ttl">回傳</span>
-            <ul><li>成功：Session ID，失敗：NULL。</li></ul>
+            <span class="badge badge-ttl">Description</span>
+            <ul><li>Obtain Session ID after login.</li></ul>
+            <span class="badge badge-ttl">Response</span>
+            <ul><li>Session ID or NULL</li></ul>
             <br />
         </section>
 
         <section id="GetToken">
-            <h3>3.取得 Token</h3>
-            <span class="badge badge-ttl">函式</span>
+            <h3>3.Get Token</h3>
+            <span class="badge badge-ttl">Function</span>
             <p><pre>void getToken()</pre></p>
-            <span class="badge badge-ttl">説明</span>
+            <span class="badge badge-ttl">Description</span>
             <ul>
-                <li>取得 Token，登入後才可取得。</li>
+                <li>Obtain Token after login.</li>
             </ul>
-            <span class="badge badge-ttl">回傳</span>
-            <ul><li>成功：Token，失敗：NULL。</li></ul>
+            <span class="badge badge-ttl">Response</span>
+            <ul><li>Token or NULL</li></ul>
             <br />
         </section>
 
         <section id="GetKidIndex">
-            <h3>4.取得孩童索引</h3>
-            <span class="badge badge-ttl">函式</span>
+            <h3>4.Get kid index</h3>
+            <span class="badge badge-ttl">Function</span>
             <p><pre>int getKidIndex()</pre></p>
-            <span class="badge badge-ttl">説明</span>
-            <ul><li>取得正在遊玩的孩童索引。</li></ul>
-            <span class="badge badge-ttl">回傳</span>
+            <span class="badge badge-ttl">Description</span>
+            <ul><li>Obtain index of selected kid.</li></ul>
+            <span class="badge badge-ttl">Response</span>
             <ul><li>成功：Value of kid index，失敗：NULL。</li></ul>
             <br />
         </section>
 
         <section id="GetKidFace">
             <h3>5.取得孩童頭像</h3>
-            <span class="badge badge-ttl">函式</span>
+            <span class="badge badge-ttl">Function</span>
             <p><pre>String getKidFace()</pre></p>
-            <span class="badge badge-ttl">説明</span>
+            <span class="badge badge-ttl">Description</span>
             <ul><li>取得正在遊玩的孩童頭像。</li></ul>
-            <span class="badge badge-ttl">回傳</span>
+            <span class="badge badge-ttl">Response</span>
             <ul><li>成功：Value of kid face，失敗：NULL。</li></ul>
             <br />
         </section>
 
         <section id="GetLoginState">
             <h3>6.取得登入狀態</h3>
-            <span class="badge badge-ttl">函式</span>
+            <span class="badge badge-ttl">Function</span>
             <p><pre>boolean isLogin()</pre></p>
-            <span class="badge badge-ttl">説明</span>
+            <span class="badge badge-ttl">Description</span>
             <ul><li>判斷是否為登入狀態。</li></ul>
-            <span class="badge badge-ttl">回傳</span>
+            <span class="badge badge-ttl">Response</span>
             <ul><li>登入：True，未登入：False。</li></ul>
             <br />
         </section>
 
         <section id="GetChannel">
             <h3>7.取得平台名稱</h3>
-            <span class="badge badge-ttl">函式</span>
+            <span class="badge badge-ttl">Function</span>
             <p><pre>String getChannelID()</pre></p>
-            <span class="badge badge-ttl">説明</span>
+            <span class="badge badge-ttl">Description</span>
             <ul><li>取得平台名稱。</li></ul>
-            <span class="badge badge-ttl">回傳</span>
+            <span class="badge badge-ttl">Response</span>
             <ul><li>平台名稱，例如：googleplay, appstore...。</li></ul>
             <br />
         </section>
@@ -383,16 +418,16 @@
         <h1>懸浮按鈕函式</h1>
 
         <h3>1.顯示懸浮按鈕</h3>
-        <span class="badge badge-ttl">函式</span>
+        <span class="badge badge-ttl">Function</span>
         <p><pre>void showWidget(EWidgetLocation location)</pre></p>
 
-        <span class="badge badge-ttl">説明</span>
+        <span class="badge badge-ttl">Description</span>
         <ul>
             <li>顯示懸浮按鈕，登入後自動顯示。</li>
             <li>點擊懸浮按鈕，會執行<a href="#MyAccount">帳號資訊</a>。</li>
         </ul>
 
-        <span class="badge badge-ttl">參數</span>
+        <span class="badge badge-ttl">Parameters</span>
         <p>Enum : EWidgetLocation</p>
         <table class="table table-striped">
             <tr>
@@ -436,36 +471,39 @@
         <br />
 
         <h3>2.隱藏懸浮按鈕</h3>
-        <span class="badge badge-ttl">函式</span>
+        <span class="badge badge-ttl">Function</span>
         <p><pre>void hideWidget()</pre></p>
-        <span class="badge badge-ttl">説明</span>
+        <span class="badge badge-ttl">Description</span>
         <ul><li>隱藏懸浮按鈕。</li></ul>
         <br />
 
         <h3>3.檢查懸浮按鈕狀態</h3>
-        <span class="badge badge-ttl">函式</span>
+        <span class="badge badge-ttl">Function</span>
         <p><pre>boolean isWidgetVisible()</pre></p>
-        <span class="badge badge-ttl">説明</span>
+        <span class="badge badge-ttl">Description</span>
         <ul><li>檢查懸浮按鈕狀態。</li></ul>
-        <span class="badge badge-ttl">回傳</span>
+        <span class="badge badge-ttl">Response</span>
         <ul><li>顯示：True，隱藏：False。</li></ul>
     </section>
 
     <section id="Logout">
         <h1>登出</h1>
-        <span class="badge badge-ttl">函式</span>
+        <span class="badge badge-ttl">Function</span>
         <p><pre>void logout()</pre></p>
 
-        <span class="badge badge-ttl">説明</span>
+        <span class="badge badge-ttl">Description</span>
         <ul>
             <li>帳號登出。</li>
             <li>登出成功後，自動隱藏<a href="#FloatingButton">懸浮按鈕</a>。</li>
         </ul>
 
-        <span class="badge badge-ttl">回傳</span>
+        <span class="badge badge-ttl">Response</span>
         <ul>
-            <li>請參看【<a href="/java-init#listener">回調監聽</a>】的設定，以及回傳的代碼與定義<a href="/webapi-init#section5">對照表</a>。</li>
-            <li>回調監聽的 Data 參數：無。</li>
+            <li>
+                Please refer to 【<a href="#listener">SDK Callback Listener</a>】
+                and 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
+            </li>
+            <li>Listener result data: NULL. </li>
         </ul>
     </section>
 
