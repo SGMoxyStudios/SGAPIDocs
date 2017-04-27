@@ -313,6 +313,12 @@
   },
   {
     "api": "",
+    "code": 1123,
+    "msg": "WeChat prepare order fail.",
+    "class": ""
+  },
+  {
+    "api": "",
     "code": 1124,
     "msg": "Post payment response empty.",
     "class": ""
