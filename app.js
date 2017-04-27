@@ -61,6 +61,10 @@ app.get('/must-read', function(req, res){res.render('must-read')});
 app.get('/channel', function(req, res) {
     res.render('channel', {Channels: Channels});
 });
+//server
+app.get('/server-pay', function(req, res){res.render(req.i18n_lang+'/server-pay')});
+app.get('/server-sign', function(req, res){res.render(req.i18n_lang+'/server-sign')});
+
 //web api
 app.get('/webapi-init', function(req, res){
     res.render(req.i18n_lang+'/webapi-init', {ResultCode: ResultCode})
