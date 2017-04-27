@@ -30,12 +30,12 @@
 30
 31
 32
-33</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008000; font-weight: bold">private</span> SgSDK _sdk <span style="color: #666666">=</span> SgSDK<span style="color: #666666">.</span><span style="color: #7D9029">getInstance</span><span style="color: #666666">();</span>
+33</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008000; font-weight: bold">private</span> SGSDK _sdk <span style="color: #666666">=</span> SGSDK<span style="color: #666666">.</span><span style="color: #7D9029">getInstance</span><span style="color: #666666">();</span>
 
-_sdk<span style="color: #666666">.</span><span style="color: #7D9029">setListener</span><span style="color: #666666">(</span><span style="color: #008000; font-weight: bold">new</span> SgSDKListener<span style="color: #666666">()</span>
+_sdk<span style="color: #666666">.</span><span style="color: #7D9029">setListener</span><span style="color: #666666">(</span><span style="color: #008000; font-weight: bold">new</span> SGListener<span style="color: #666666">()</span>
 <span style="color: #666666">{</span>
     <span style="color: #AA22FF">@Override</span>
-    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onCallBack</span><span style="color: #666666">(</span>SgSDKResult result<span style="color: #666666">)</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onCallBack</span><span style="color: #666666">(</span>SGListenerResult result<span style="color: #666666">)</span>
     <span style="color: #666666">{</span>
         Log<span style="color: #666666">.</span><span style="color: #7D9029">i</span><span style="color: #666666">(</span>result<span style="color: #666666">.</span><span style="color: #7D9029">toString</span><span style="color: #666666">());</span>
 
