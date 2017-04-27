@@ -48,6 +48,12 @@
     "class": ""
   },
   {
+    "api": "",
+    "code": 105,
+    "msg": "Channel error.",
+    "class": ""
+  },
+  {
     "api": "login",
     "code": 201,
     "msg": "ok",

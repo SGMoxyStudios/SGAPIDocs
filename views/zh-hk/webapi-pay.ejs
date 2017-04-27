@@ -43,7 +43,7 @@
             <pre> <span class="label label-warning">GET</span> <span class="label label-success">POST</span> /getorder</pre>
 
             <span class="badge badge-ttl">説明</span>
-            <p>需傳送購買成功後的簽名(sign)，才能查詢訂單詳細內容。</p>
+            <p>查詢購買商品收據詳細內容。</p>
 
             <span class="badge badge-ttl">範例</span>
             <pre>http://gameapi.smartgamesltd.com/getorder?orderid=my_orderid&gamekey=my_gamekey&openid=my_openid&sign=my_sign</pre>
@@ -52,61 +52,26 @@
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th>
-                        參數名稱
-                    </th>
-                    <th>
-                        必傳
-                    </th>
-                    <th>
-                        參數說明
-                    </th>
+                    <th>參數名稱</th>
+                    <th>參數說明</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                    <td>
-                        orderid
-                    </td>
-                    <td>
-                        <i class="fa fa-check"></i>
-                    </td>
-                    <td>
-                        提交 pay 購買資料後回傳的訂單編號 OrderID。
-                    </td>
+                    <td>gamekey</td>
+                    <td>開發者申請開通遊戲後取得的 gamekey。</td>
                 </tr>
                 <tr>
-                    <td>
-                        gamekey
-                    </td>
-                    <td>
-                        <i class="fa fa-check"></i>
-                    </td>
-                    <td>
-                        開發者申請開通遊戲後取得的 gamekey。
-                    </td>
+                    <td>openid</td>
+                    <td>登入成功後取得的 OpenID。</td>
                 </tr>
                 <tr>
-                    <td>
-                        openid
-                    </td>
-                    <td>
-                        <i class="fa fa-check"></i>
-                    </td>
-                    <td>
-                        登入成功後取得的 OpenID。
-                    </td>
+                    <td>orderid</td>
+                    <td>商品收據單號 OrderID。</td>
                 </tr>
                 <tr>
-                    <td>
-                        sign
-                    </td>
-                    <td>
-                        <i class="fa fa-check"></i>
-                    </td>
-                    <td>
-                        提交 pay 購買資料後回傳的簽名 sign。
-                    </td>
+                    <td>sign</td>
+                    <td>以參數 orderid, gamekey, openid 製作簽名字串。詳見 <a href="/server-sign#section2">簽名演算法</a>。</td>
                 </tr>
                 </tbody>
             </table>

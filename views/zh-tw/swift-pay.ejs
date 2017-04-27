@@ -110,10 +110,6 @@
                 <th>描述</th>
             </tr>
             <tr>
-                <td>orderId</td>
-                <td><a href="/webapi-init#SGPayResponse">SGPayResponse</a> 的屬性。</td>
-            </tr>
-            <tr>
                 <td>gameKey</td>
                 <td>Game key</td>
             </tr>
@@ -122,8 +118,12 @@
                 <td>Login 後可用 <a href="/swift-user#GetOpenID">GetOpenID()</a> 取得。</td>
             </tr>
             <tr>
+                <td>orderId</td>
+                <td>商品收據單號 OrderID。</td>
+            </tr>
+            <tr>
                 <td>sign</td>
-                <td><a href="/webapi-init#SGPayResponse">SGPayResponse</a> 的屬性。</td>
+                <td>以參數 orderid, gamekey, openid 製作簽名字串。詳見 <a href="/server-sign#section2">簽名演算法</a>。</td>
             </tr>
         </table>
 

@@ -1,38 +1,24 @@
 <div class="left-side" id="myScrollspy">
 
     <ul class="nav nav-pills">
-        <li><a href="#section1">支付系統接口</a></li>
-        <li><a href="#section2">上傳商品收據</a></li>
-        <li><a href="#section3">查詢購買收據</a></li>
+        <li><a href="#section1">支付流程</a></li>
+        <li><a href="#section2">支付通知地址設定</a></li>
+        <li><a href="#section3">訂單查詢</a></li>
     </ul>
 
 </div>
 
 <div class="right-side">
     <section id="section1">
-        <h1>支付系統接口</h1>
-        <p>與遊戲內購相關接口。</p>
+        <h1>支付流程</h1>
+        <p>開發者在串接 SG API 時，可透過呼叫 Web API 的方式來完成各種功能。通過本文的介紹可以了解客戶端接入的整個流程。在接入之前請認真閱讀本文檔，以減少接入過程中遇到的問題。</p>
     </section>
 
     <section id="section2">
-        <h1>上傳商品收據</h1>
-        <p>購買遊戲內購商品(IAP)成功後，必須上傳商品收據，用作後台統計。</p>
-        <div class="row">
-            <span class="badge badge-ttl">API</span>
-            <pre> <span class="label label-warning">GET</span> <span class="label label-success">POST</span> /pay</pre>
-
-            <span class="badge badge-ttl">説明</span>
-            <p>成功購買遊戲內付費商品後調用，上傳商品數據。</p>
-
-            <span class="badge badge-ttl">範例</span>
-            <pre>http://gameapi.smartgamesltd.com/pay?productId=com.smartgamesltd.diamond1&productName=diamond&price=1.99</pre>
-
-            <span class="badge badge-ttl">參數</span>
-            <p>請參照結構定義 <a href="/webapi-init#SGPayRequest">SGPayRequest</a> 。</p>
-
-            <span class="badge badge-ttl">回傳</span>
-            <p>請參照結構定義 <a href="/webapi-init#SGPayResponse">SGPayResponse</a> 。</p>
-        </div>
+        <h1>支付通知地址設定</h1>
+        <p>開發者可透過呼叫網址
+            <a target="_blank" href="http://gameapi.smartgamesltd.com/">http://gameapi.smartgamesltd.com/</a> 調用 SG API 各個接口。
+        </p>
     </section>
 
     <section id="section3">
