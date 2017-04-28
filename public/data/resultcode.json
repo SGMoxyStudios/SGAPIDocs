@@ -300,6 +300,18 @@
     "class": ""
   },
   {
+    "api": "",
+    "code": 1109,
+    "msg": "Illegal receipt.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 1110,
+    "msg": "Game server return fail.",
+    "class": ""
+  },
+  {
     "api": "WeChat Payment",
     "code": 1120,
     "msg": "WeChat paid success.",
