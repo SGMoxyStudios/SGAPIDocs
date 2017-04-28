@@ -44,6 +44,12 @@
         <ul>
             <li>購買遊戲內付費商品並上傳商品數據。</li>
             <li>
+                SGPayRequest.PaymentChannel 設為 "WeChat" 可調用微信支付。
+            </li>
+            <li>
+                SGPayRequest.PaymentChannel 設為 "GooglePay" 可調用 Google 支付。
+            </li>
+            <li>
                 使用 Google IAP 時，呼叫此函式 SDK 會自動 init Google IAP（只有第一次），並且於付款成功之後，
                 自動 conume 商品（Google IAP 對於 concumable 的需求）。
             </li>
