@@ -308,7 +308,13 @@
   {
     "api": "",
     "code": 1110,
-    "msg": "Game server return fail.",
+    "msg": "Payment callback from game server failure.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 1111,
+    "msg": "Send to game server error.",
     "class": ""
   },
   {
