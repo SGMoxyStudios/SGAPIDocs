@@ -59,11 +59,13 @@ body {
   font-size: 1.6rem;
   line-height: 2.5rem;
 }
+.right-side ol,
 .right-side ul {
   font-size: 1.6rem;
   margin: 12px 0;
   padding-left: 25px;
 }
+.right-side ol li,
 .right-side ul li {
   margin: 0 0 4px 0;
   line-height: 2.4rem;
