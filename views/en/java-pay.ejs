@@ -1,11 +1,11 @@
 ﻿<div class="left-side" id="myScrollspy">
 
     <ul class="nav nav-pills">
-        <li><a href="#summary">支付系統</a></li>
-        <li><a href="#environment">IAP 開發設定</a></li>
-        <li><a href="#pay">付款與上傳訂單</a></li>
-        <li><a href="#checkOrder">查詢訂單</a></li>
-        <li><a href="#consumeOrder">Consume 之前訂單</a></li>
+        <li><a href="#summary">Payment System</a></li>
+        <li><a href="#environment">Development Setting</a></li>
+        <li><a href="#pay">Pay</a></li>
+        <li><a href="#checkOrder">Get Order</a></li>
+        <li><a href="#consumeOrder">Consume Purchased Items</a></li>
     </ul>
 
 </div>
@@ -13,121 +13,133 @@
 <div class="right-side">
 
     <section id="summary">
-        <h1>支付系統</h1>
-        <p>購買遊戲內購商品（IAP）成功後，必須上傳商品訂單，用作後台統計。</p>
+        <h1>Payment System</h1>
+        <p>
+            SG Payment system incorporates third-party vendors billing system to help you implement in-app purchasing (IAP) function easier.
+        </p>
     </section>
 
     <section id="environment">
-        <h1>IAP 開發設定</h1>
-        <p>使用 IAP 相關功能前，請確認於 AndroidManifest.xml 設置所需的 meta-data。</p>
+        <h1>Development Setting</h1>
+        <p>Please add following <code>meta-data</code> setting in <b>AndroidManifest.xml</b> before using IAP functions:</p>
         <div class="code-block"><%- include ../code/java-sdk-metadata.html -%></div>
         <ul>
             <li>
-                <b>Base64PublicKey</b>：只有使用 Google IAP 的時候才需要設定此參數。
-                （關於 Google IAP 使用，請參考
+                <b>SDKChannel (required)</b>：SDK channel setting.
+                （<a href="/channel">Please refer to Channel List table</a>）
+            </li>
+            <li>
+                <b>Base64PublicKey</b>：Only required when using Google IAP service.
+                (Please refer to
                 <a href="https://developer.android.com/google/play/billing/index.html" target="_blank">
-                    Google 開發者文件的詳細説明
-                </a>）
+                    Google In-app Billing development document
+                </a>)
             </li>
         </ul>
     </section>
 
     <section id="pay">
-        <h1>付款與上傳訂單</h1>
+        <h1>Pay</h1>
 
-        <span class="badge badge-ttl">函式</span>
+        <span class="badge badge-ttl">Function</span>
         <p>
             <pre>void pay(SGPayRequest req)</pre>
         </p>
 
-        <span class="badge badge-ttl">説明</span>
+        <span class="badge badge-ttl">Description</span>
         <ul>
-            <li>購買遊戲內付費商品並上傳商品數據。</li>
             <li>
-                使用 Google IAP 時，呼叫此函式 SDK 會自動 init Google IAP（只有第一次），並且於付款成功之後，
-                自動 conume 商品（Google IAP 對於 concumable 的需求）。
+                Launches third-party vendor IAP flow, and uploads order information to SG server.
+            </li>
+            <li>
+                Note on Google IAP: when using Google IAP, the <code>pay</code> function initializes (once) Google IAP service automatically.  
+                It also consumes the product automatically, after purchased successfully.
             </li>
         </ul>
 
-        <span class="badge badge-ttl">參數</span>
+        <span class="badge badge-ttl">Parameters</span>
         <ul>
             <li>
-                <a href="/webapi-init#SGPayRequest"><b>SGPayRequest</b></a>: 付款參數的資料結構。
+                <a href="/webapi-init#SGPayRequest"><b>SGPayRequest</b></a>
             </li>
         </ul>
 
-        <span class="badge badge-ttl">回傳</span>
+        <span class="badge badge-ttl">Response</span>
         <ul>
-            <li>請參看【<a href="/java-init#listener">回調監聽</a>】的設定，以及回傳的代碼與定義<a href="/webapi-init#section5">對照表</a>。</li>
             <li>
-                回調監聽的 Data 參數： <a href="/webapi-init#SGPayResponse"><b>SGPayResponse</b></a>
+                Please refer to 【<a href="/java-init#listener">SDK Callback Listener</a>】
+                and 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
             </li>
+            <li>Listener result data: <a href="/webapi-init#SGPayResponse"><b>SGPayResponse</b></a>. </li>
         </ul>
 
     </section>
 
     <section id="checkOrder">
-        <h1>查詢訂單</h1>
+        <h1>Get Order</h1>
 
-        <span class="badge badge-ttl">函式</span>
+        <span class="badge badge-ttl">Function</span>
         <pre>void getOrder(String orderId, String gameKey, String openId, String sign)</pre>
 
-        <span class="badge badge-ttl">説明</span>
+        <span class="badge badge-ttl">Description</span>
         <ul>
-            <li>購買成功後，查詢訂單詳細內容。</li>
+            <li>Obtain detailed order and receipt information of previous successful orders.</li>
         </ul>
 
-        <span class="badge badge-ttl">參數</span>
+        <span class="badge badge-ttl">Parameters</span>
         <table class="table table-striped">
             <tr>
-                <th>參數名稱</th>
-                <th>描述</th>
-            </tr>
-            <tr>
                 <td>gameKey</td>
-                <td>您的開發驗證。</td>
+                <td>Your developer identification.</td>
             </tr>
             <tr>
                 <td>openId</td>
-                <td>SG 會員 ID，Login 後可用 <a href="/java-user#GetOpenID">GetOpenID()</a> 取得。</td>
+                <td>SG member ID.  You can obtain it through <a href="/java-user#GetOpenID">GetOpenID()</a> after user login.</td>
             </tr>
             <tr>
                 <td>orderId</td>
-                <td>商品收據單號 OrderID。</td>
+                <td>Order ID you passed in when making the purchase.</td>
             </tr>
             <tr>
                 <td>sign</td>
-                <td>以參數 orderid, gamekey, openid 製作簽名字串。詳見 <a href="/server-sign#section2">簽名演算法</a>。</td>
+                <td>
+                    Signature generated from above three parameters.<br />
+                    Please refer to <a href="/server-sign#section2">signature generation algorithm</a>.
+                </td>
             </tr>
         </table>
 
-        <span class="badge badge-ttl">回傳</span>
+        <span class="badge badge-ttl">Response</span>
         <ul>
-            <li>請參看【<a href="/java-init#listener">回調監聽</a>】的設定，以及回傳的代碼與定義<a href="/webapi-init#section5">對照表</a>。</li>
             <li>
-                回調監聽的 Data 參數：<a href="/webapi-init#SGPayResponse"><b>SGPayResponse</b></a>
+                Please refer to 【<a href="/java-init#listener">SDK Callback Listener</a>】
+                and 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
             </li>
+            <li>Listener result data: <a href="/webapi-init#SGPayResponse"><b>SGPayResponse</b></a>. </li>
         </ul>
     </section>
 
     <section id="consumeOrder">
-        <h1>Consume 之前訂單</h1>
+        <h1>Consume Purchased Items</h1>
 
-        <span class="badge badge-ttl">函式</span>
+        <span class="badge badge-ttl">Function</span>
         <pre>void consumePurchasedItems()</pre>
 
-        <span class="badge badge-ttl">説明</span>
-        <ul>
+        <span class="badge badge-ttl">Description</span>
+        <ul>            
             <li>
-                基本上，開發者不需要呼叫此函式。只有當 Google IAP 付款成功但卻 consume 失敗 <code>Code:1174</code> 之後，
-                可以呼叫此函式，consume 所有尚未 consume 的訂單。
+                The function is only needed when you using Google IAP and encounter <code>reponse code 1174</code> (purchase successful yet consume failed).  It consumes all previous purchased but not consumed items.
             </li>
+            <li>The function is also called automatically in <b>Activity</b> <code>onResume</code> event. </li>
         </ul>
 
-        <span class="badge badge-ttl">回傳</span>
+        <span class="badge badge-ttl">Response</span>
         <ul>
-            <li>請參看【<a href="/java-init#listener">回調監聽</a>】的設定，以及回傳的代碼與定義<a href="/webapi-init#section5">對照表</a>。</li>
-            <li>回調監聽的 Data 參數：無。</li>
+            <li>
+                Please refer to 【<a href="/java-init#listener">SDK Callback Listener</a>】
+                and 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
+            </li>
+            <li>Listener result data: NULL. </li>
         </ul>
 
     </section>

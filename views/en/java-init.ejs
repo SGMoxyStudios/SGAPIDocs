@@ -16,7 +16,7 @@
     <section id="summary">
         <h1>Introduction</h1>
         <p>
-            SG Android SDK allows you to connect to SG backend services easily using Java.
+            SG Android SDK allows you to connect to SG backend services easily when develeping Android App using Java.
         </p>
         <p>
             It's important for you to read through and understand the document before starting development.
@@ -36,18 +36,20 @@
         </ul>
         <br />
         
-        <h3>3.Sample App</h3>
+        <h3>3.Sample application</h3>
         <ul>
-            <li>To understand how to use SGSDK, please refer to
-                <a href="https://github.com/SGMoxyStudios/SGSDK-Android-Sample" target="_blank"> sample app on GitHub</a>.
-                
+            <li>Please refer to our
+                <a href="https://github.com/SGMoxyStudios/SGSDK-Android-Sample" target="_blank"> sample application on GitHub</a> to understand how to use SDK.                
             </li>
         </ul>
         <br />
 
-        <h3>4.SGSDK permissions</h3>
+        <h3>4.Android app permissions</h3>
         <ul>
-            <li>SGSDK.AAR will request following App permissions automatically:</li>
+            <li>
+                SGSDK requires following permissions to function.
+                It will request app permission automatically.
+            </li>
         </ul>
         <%- include ../code/java-user-permission.html -%>
 
@@ -122,11 +124,11 @@
 
         <span class="badge badge-ttl">Description</span>
         <ul>
-            <li>Initialize SDK.  You need to call init() function before you can continue any other functions. </li>
+            <li>Initialize SDK.  You have to call <code>init</code> function once before any other functions. </li>
+            <li>You should call <code>init</code> functions inside <b>Activity</b> <code>onCreate()</code> event.</li>
         </ul>
 
         <span class="badge badge-ttl">Sample</span>
-        <p>You should call <code>init()</code> functions inside <b>Activity</b> <code>onCreate()</code> event.</p>
         <div class="code-block"><%- include ../code/java-sdk-init.html -%></div>
 
         <span class="badge badge-ttl">Parameters</span>
@@ -150,29 +152,37 @@
 
     <section id="lifecycle">
         <h1>SDK Lifecycle Events</h1>
-        <p>SGSDK has its own lifecycle events.  Please follow sample codes below to invoke SDK lifecycle event functions related to the <b>Activity</b> lifecycle events:
+        <p>
+            For certain functions to work properly, SGSDK needs to aware the lifecycle events of an Android app.
+        </p>
+        <p>
+            Please follow sample codes below to invoke SDK lifecycle functions
+            <code>onResume</code>, <code>onBackPressed</code>,
+            <code>onActivityResult</code>, <code>onDestroy</code>
+            corresponding to the <b>Activity</b> lifecycle events:
         </p>
         <%- include ../code/java-sdk-lifecycle.html -%>
         <ul>
             <li>
                 Special note on <b>onBackPressed()</b>:
                 <br /><br />
-                Certain SDK functions launch <b>WebView</b> control as part of the process flow.  SDK itself needs to handle the Back button when <b>WebView</b> is appeared.
-                In the main Activity <code>onBackPressed()</code> event, you should check return value of <code>_sdk.onBackPressed()</code>, and decide if <code>super.onBackPressed()</code> should be called.  
+                Some SDK functions launch <b>WebView</b> control as part of the process flow.  In order to handle those functions properly, it needs to aware the back button click event.
+                <br /><br />
+                Inside <b>Activity</b> <code>onBackPressed()</code> event, you should check return value of <code>_sdk.onBackPressed()</code>, and decide if the parent <code>super.onBackPressed()</code> event should be called.
             </li>
         </ul>
     </section>
 
     <section id="listener">
         <h1>SDK Callback Listener</h1>
-        <p> In order to get the result of SDK asynchronized functions, you need to setup a Listener to handle the response data.  Here is the sample:
+        <p> In order to get the result of many SDK asynchronized functions, you need to register a Listener to handle the response data.  Here is the sample:
         </p>
         <%- include ../code/java-sdk-listener.html -%>
         <ul>
-            <li>SDK returns result through <a href="/webapi-init#SGListenerResult"><b>SGListenerResult</b></a> object, which contains three members: <code>Code</code>，<code>Message</code> 和 <code>Data</code>.
-              Based on different situation, <code>Data</code> might return NULL or object.  Please refer to each function for more detail.
+            <li>SDK responses through a <a href="/webapi-init#SGListenerResult"><b>SGListenerResult</b></a> object, which contains three members: <code>Code</code>，<code>Message</code> 和 <code>Data</code>.
+              Based on different situation, <code>Data</code> might be NULL or an object.  Please refer to each function for more detail.
             </li>
-            <li>For code and message, refer to 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.</li>
+            <li>For code and message, please refer to 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.</li>
         </ul>
     </section>
 

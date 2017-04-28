@@ -1,6 +1,6 @@
 ﻿<div class="left-side" id="myScrollspy">
     <ul class="nav nav-pills">
-        <li><a href="#MemberSystem">Member System</a></li>
+        <li><a href="#MemberSystem">User System</a></li>
         <li><a href="#Signup">Signup</a></li>
         <li><a href="#Login">Login</a></li>
         <li><a href="#ForgotPassword">Forget Password</a></li>
@@ -18,11 +18,12 @@
 </div>
 <div class="right-side">
     <section id="MemberSystem">
-        <h1>Member System</h1>
+        <h1>User System</h1>
         <p>
-            Member system is used for signup, login and manage family members (kids). 
-            Most of the functions launch <b>WebView</b> control as part of the process flow.
-            You should register a callback listener to handle response.
+            User system is used to manage users of SG, including
+            signup, login and family members (kids) management.
+            Most of the functions use <b>WebView</b> control as part of the process flow.
+            To handle response of these functions, you need to register a <a href="/java-init#listener">callback listener</a> to SGSDK.
         </p>
     </section>
 
@@ -36,14 +37,14 @@
 
                 <span class="badge badge-ttl">Description</span>
                 <ul>
-                    <li>Signup view.  </li>
-                    <li>After signup, system logs user in automatically, and <a href="#FloatingButton">widget button</a> is shown.</li>
+                    <li>Launch [Signup] view.  </li>
+                    <li>After signning up, system logs user in automatically, and <a href="#FloatingButton">widget button</a> is shown.</li>
                 </ul>
 
                 <span class="badge badge-ttl">Response</span>
                 <ul>
                     <li>
-                        Please refer to 【<a href="#listener">SDK Callback Listener</a>】
+                        Please refer to 【<a href="/java-init#listener">SDK Callback Listener</a>】
                         and 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
                     </li>
                     <li>Listener result data: <a href="/webapi-init#SGMember">SGMember</a>. </li>
@@ -67,14 +68,14 @@
 
                 <span class="badge badge-ttl">Description</span>
                 <ul>
-                    <li>Login view.  </li>
+                    <li>Launch [Login] view.  </li>
                     <li>After successful login, <a href="#FloatingButton">widget button</a> is shown.</li>
                 </ul>
 
                 <span class="badge badge-ttl">Response</span>
                 <ul>
                     <li>
-                        Please refer to 【<a href="#listener">SDK Callback Listener</a>】
+                        Please refer to 【<a href="/java-init#listener">SDK Callback Listener</a>】
                         and 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
                     </li>
                     <li>Listener result data: <a href="/webapi-init#SGMember">SGMember</a>. </li>
@@ -97,12 +98,12 @@
                 <p><pre>void forgetPassword()</pre></p>
 
                 <span class="badge badge-ttl">Description</span>
-                <ul><li>Forget password view.</li></ul>
+                <ul><li>Launch [Forget Password] view.</li></ul>
 
                 <span class="badge badge-ttl">Response</span>
                 <ul>
                     <li>
-                        Please refer to 【<a href="#listener">SDK Callback Listener</a>】
+                        Please refer to 【<a href="/java-init#listener">SDK Callback Listener</a>】
                         and 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
                     </li>
                     <li>Listener result data: NULL. </li>
@@ -125,12 +126,14 @@
                 <p><pre>void changePassword()</pre></p>
 
                 <span class="badge badge-ttl">Description</span>
-                <ul><li>Change password view.</li></ul>
+                <ul>
+                    <li>Launch [Change Password] view.</li>
+                </ul>
 
                 <span class="badge badge-ttl">Response</span>
                 <ul>
                     <li>
-                        Please refer to 【<a href="#listener">SDK Callback Listener</a>】
+                        Please refer to 【<a href="/java-init#listener">SDK Callback Listener</a>】
                         and 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
                     </li>
                     <li>Listener result data: NULL. </li>
@@ -154,13 +157,14 @@
 
                 <span class="badge badge-ttl">Description</span>
                 <ul>
-                    <li>You can use parental lock utility view to before important actions.</li>
+                    <li>Launch [Parental Lock] view.</li>
+                    <li>You can use parental lock utility view before important actions.</li>
                 </ul>
 
                 <span class="badge badge-ttl">Response</span>
                 <ul>
                     <li>
-                        Please refer to 【<a href="#listener">SDK Callback Listener</a>】
+                        Please refer to 【<a href="/java-init#listener">SDK Callback Listener</a>】
                         and 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
                     </li>
                     <li>Listener result data: NULL. </li>
@@ -184,13 +188,14 @@
 
                 <span class="badge badge-ttl">Description</span>
                 <ul>
-                    <li>Use to create new kid (family member).</li>
+                    <li>Launch [My Kid] view.</li>
+                    <li>The flow is for creating new kid (family member) of the user.</li>
                 </ul>
 
                 <span class="badge badge-ttl">Response</span>
                 <ul>
                     <li>
-                        Please refer to 【<a href="#listener">SDK Callback Listener</a>】
+                        Please refer to 【<a href="/java-init#listener">SDK Callback Listener</a>】
                         and 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
                     </li>
                     <li>Listener result data: NULL. </li>
@@ -214,14 +219,17 @@
 
                 <span class="badge badge-ttl">Description</span>
                 <ul>
-                    <li>Use to select a kid who is currently playing</li>
-                    <li>After selection, you can use <a href="#GetKidIndex">GetKidIndex()</a> and <a href="#GetKidFace">GetKidFace()</a> to get selected kid index and face icon number.</li>
+                    <li>Launch [Select Kid] view.</li>
+                    <li>
+                        The flow is used to select a kid to play.
+                        After selection, you can use <a href="#GetKidIndex">GetKidIndex()</a> and <a href="#GetKidFace">GetKidFace()</a> to get selected kid index and face icon number.
+                    </li>
                 </ul>
 
                 <span class="badge badge-ttl">Response</span>
                 <ul>
                     <li>
-                        Please refer to 【<a href="#listener">SDK Callback Listener</a>】
+                        Please refer to 【<a href="/java-init#listener">SDK Callback Listener</a>】
                         and 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
                     </li>
                     <li>Listener result data: NULL. </li>
@@ -245,13 +253,14 @@
 
                 <span class="badge badge-ttl">Description</span>
                 <ul>
-                    <li>My account main view.</li>
+                    <li>Launch [My Account] view.</li>
+                    <li>The flow is the entry page for managing kids (family members).</li>
                 </ul>
 
                 <span class="badge badge-ttl">Response</span>
                 <ul>
                     <li>
-                        Please refer to 【<a href="#listener">SDK Callback Listener</a>】
+                        Please refer to 【<a href="/java-init#listener">SDK Callback Listener</a>】
                         and 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
                     </li>
                     <li>Listener result data: NULL. </li>
@@ -273,26 +282,35 @@
 
         <span class="badge badge-ttl">Description</span>
         <ul>
-            <li>Verify session data.</li>
+            <li>Verify if current session ID is valid.</li>
         </ul>
 
         <span class="badge badge-ttl">Parameters</span>
         <table class="table table-striped">
             <tr>
                 <td>gameKey</td>
-                <td>Game key</td>
+                <td>Your developer identification.</td>
             </tr>
             <tr>
                 <td>sessionId</td>
-                <td>Use <a href="#GetSessionID">GetSessionID()</a> function to get value after login.</td>
+                <td>
+                    Current session ID.<br />
+                    You can obtain it through <a href="#GetSessionID">GetSessionID()</a> after user login.
+                </td>
             </tr>
             <tr>
                 <td>openId</td>
-                <td>User <a href="#GetOpenID">GetOpenID()</a> function to get value after login.</td>
+                <td>
+                    SG member ID. <br />
+                    You can obtain it through <a href="#GetOpenID">GetOpenID()</a> after user login.
+                </td>
             </tr>
             <tr>
                 <td>sign</td>
-                <td>Signature return by server.</td>
+                <td>
+                    Signature generated from above three parameters.<br />
+                    Please refer to <a href="/server-sign#section2">signature generation algorithm</a>.
+                </td>
             </tr>
         </table>
 
@@ -300,7 +318,7 @@
         <p>
             <ul>
                 <li>
-                    Please refer to 【<a href="#listener">SDK Callback Listener</a>】
+                    Please refer to 【<a href="/java-init#listener">SDK Callback Listener</a>】
                     and 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
                 </li>
                 <li>Listener result data: NULL. </li>
@@ -314,17 +332,22 @@
         <p><pre>void loginByToken(String token)</pre></p>
 
         <span class="badge badge-ttl">Description</span>
-        <ul><li>Login into the system by token.</li></ul>
+        <ul>
+            <li>Login into the system by previously saved token.</li>
+        </ul>
 
         <span class="badge badge-ttl">Parameters</span>
         <ul>
-            <li>token use for login.</li>
+            <li>
+                Token used for login.<br />
+                You can obtain it through <a href="#GetToken">GetToken()</a> after user login.
+            </li>
         </ul>
 
         <span class="badge badge-ttl">Response</span>
         <ul>
             <li>
-                Please refer to 【<a href="#listener">SDK Callback Listener</a>】
+                Please refer to 【<a href="/java-init#listener">SDK Callback Listener</a>】
                 and 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
             </li>
             <li>Listener result data: <a href="/webapi-init#SGMember">SGMember</a>. </li>
@@ -339,7 +362,7 @@
             <span class="badge badge-ttl">Function</span>
             <p><pre>String getOpenID()</pre></p>
             <span class="badge badge-ttl">Description</span>
-            <ul><li>Obtain Open ID (SG ID) after login.</li></ul>
+            <ul><li>Obtain Open ID (SG ID) after user login.</li></ul>
             <span class="badge badge-ttl">Response</span>
             <ul><li>Return Open ID if successful, or NULL if failed.</li></ul>
             <br />
@@ -350,7 +373,7 @@
             <span class="badge badge-ttl">Function</span>
             <p><pre>String getSessionID()</pre></p>
             <span class="badge badge-ttl">Description</span>
-            <ul><li>Obtain Session ID after login.</li></ul>
+            <ul><li>Obtain Session ID after user login.</li></ul>
             <span class="badge badge-ttl">Response</span>
             <ul><li>Return Session ID if successful, or NULL if failed.</li></ul>
             <br />
@@ -362,7 +385,7 @@
             <p><pre>void getToken()</pre></p>
             <span class="badge badge-ttl">Description</span>
             <ul>
-                <li>Obtain Token after login.</li>
+                <li>Obtain Token after user login.</li>
             </ul>
             <span class="badge badge-ttl">Response</span>
             <ul><li>Return Token if successful, or NULL if failed.</li></ul>
@@ -428,7 +451,7 @@
 
         <span class="badge badge-ttl">Description</span>
         <ul>
-            <li>Widget button is shown automatically after successful login.</li>
+            <li>Widget button is shown automatically after successful login or signup.</li>
             <li>Click on widget button will launch <a href="#MyAccount">My Account</a> view.</li>
         </ul>
 
@@ -505,7 +528,7 @@
         <span class="badge badge-ttl">Response</span>
         <ul>
             <li>
-                Please refer to 【<a href="#listener">SDK Callback Listener</a>】
+                Please refer to 【<a href="/java-init#listener">SDK Callback Listener</a>】
                 and 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
             </li>
             <li>Listener result data: NULL. </li>
