@@ -24,6 +24,12 @@
     "class": ""
   },
   {
+    "api": "",
+    "code": 41,
+    "msg": "Close web page.",
+    "class": ""
+  },
+  {
     "api": "init",
     "code": 101,
     "msg": "ok",
