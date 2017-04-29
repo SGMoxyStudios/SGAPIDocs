@@ -1,34 +1,42 @@
 <div class="left-side" id="myScrollspy">
 
     <ul class="nav nav-pills">
-        <li><a href="#section1">統計系統接口</a></li>
-        <li><a href="#section2">統計遊戲時間</a></li>
+        <li><a href="#section1">Statistical System</a></li>
+        <li><a href="#section2">Measure Game Time</a></li>
     </ul>
 
 </div>
 
 <div class="right-side">
     <section id="section1">
-        <h1>統計系統接口</h1>
-        <p>各種統計相關接口，用以統計遊戲數據。</p>
+        <h1>Statistical System</h1>
+        <p>Statistical functions are used to measure game status for analytical reports.</p>
     </section>
 
     <section id="section2">
-        <h1>統計遊戲時間</h1>
-        <h3>1.開始統計遊戲時間</h3>
+        <h1>Measure Game Time</h1>
+        <h3>1.Game start</h3>
 
         <div class="row">
             <span class="badge badge-ttl">API</span>
             <pre> <span class="label label-warning">GET</span> /gamestart</pre>
 
-            <span class="badge badge-ttl">説明</span>
-            <p>在遊戲啟動和遊戲從後台切到前台的時候調用。</p>
+            <span class="badge badge-ttl">Description</span>
+            <p>When game started, call this function to notify server to start recording.</p>
 
-            <span class="badge badge-ttl">範例</span>
+            <span class="badge badge-ttl">Example</span>
             <pre>http://gameapi.smartgamesltd.com/gamestart</pre>
 
-            <span class="badge badge-ttl">回傳</span>
-            <p>回傳 JSON 字串。例如 <code>{"Code": 1301, "Message": "ok"}</code>。</p>
+            <span class="badge badge-ttl">Response</span>
+            <ul>
+                <li>
+                    Response is in JSON format.
+                    Ex: <code>{"Code": xxx, "Message": "ok"} </code>.
+                </li>
+                <li>
+                    Please refer to 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
+                </li>
+            </ul>
         </div>
         <br>
 
@@ -39,16 +47,21 @@
             <span class="badge badge-ttl">API</span>
             <pre> <span class="label label-warning">GET</span> /gamestop</pre>
 
-            <span class="badge badge-ttl">説明</span>
-            <p>在遊戲退出和遊戲從前台切到後台的時候調用，用以統計玩家進行遊戲的時間。</p>
+            <span class="badge badge-ttl">Description</span>
+            <p>When game stopped, call this function to notify server to stop recording.</p>
 
-            <span class="badge badge-ttl">範例</span>
+            <span class="badge badge-ttl">Example</span>
             <pre>http://gameapi.smartgamesltd.com/gamestop</pre>
 
-            <span class="badge badge-ttl">回傳</span>
+            <span class="badge badge-ttl">Response</span>
             <ul>
-                <li>回傳 JSON 字串。例如 <code>{"Code": 1401, "Message": "ok"}</code>。</li>
-                <li>完整 code 定義，<a href="/webapi-init#section5">請參看對照表</a>。</li>
+                <li>
+                    Response is in JSON format.
+                    Ex: <code>{"Code": xxx, "Message": "ok"} </code>.
+                </li>
+                <li>
+                    Please refer to 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
+                </li>
             </ul>
         </div>
     </section>
