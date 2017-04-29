@@ -1,38 +1,40 @@
 <div class="left-side" id="myScrollspy">
 
     <ul class="nav nav-pills">
-        <li><a href="#section1">支付流程</a></li>
-        <li><a href="#section2">設定支付通知地址</a></li>
-        <li><a href="#section3">Game Server 回應支付結果範例</a></li>
+        <li><a href="#section1">Payment Flow</a></li>
+        <li><a href="#section2">Paid Notify URL</a></li>
+        <li><a href="#section3">Game Server Response Example</a></li>
     </ul>
 
 </div>
 
 <div class="right-side">
     <section id="section1">
-        <h1>支付流程</h1>
+        <h1>Payment Flow</h1>
         <ol>
-            <li>調用 <code>SGSDK.pay(<a href="/webapi-init#SGPayRequest"><b>SGPayRequest</b></a> req)</code>
-            <li>根據 <code><a href="/webapi-init#SGPayRequest"><b>SGPayRequest</b></a>.PaymentChannel</code> 設定，調用apple支付，google支付或是微信支付。</li>
-            <li>原生支付付款成功後 SG SDK 會向 SG Server 驗證收據是否合法。若收據合法將回傳 Code 1101 其他例外原因<a href="/webapi-init#section5">請參看對照表</a>。</li>
-            <li>需要 Game Server 驗證的遊戲必須設定該遊戲的<a target="_blank" href="#section2">支付通知地址</a>。</li>
-            <li>設定支付通知地址的遊戲 Game Server 收到收據驗證過後須回應 Status = 'ok'，SG Server 才會回應 Code = 1101 給 SG SDK。</li>
+            <li>Call <code>SGSDK.pay(<a href="/webapi-init#SGPayRequest"><b>SGPayRequest</b></a> req) function.</code>
+            <li>Based on setting of <code><a href="/webapi-init#SGPayRequest"><b>SGPayRequest</b></a>.PaymentChannel</code>, SDK launches third party vendor (google, applpe or wechat) IAP flow.</li>
+            <li>
+                After successfully purchasing the item, SGSDK upload order and receipt information to SG server for validation.  If valid, it returns <code>Code:1101</code>, otherwise please refer to 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
+            </li>
+            <li>If you need to vildate orders thorugh your own Game server, before SG server returns a valid message, you have to setup <a target="_blank" href="#section2">Paid Notify URL</a> in developer console.</li>
+            <li>After your own validation, you need to send Status = 'ok' to SG server for it to return <code>Code:1101</code>. to the SGSDK.</li>
         </ol>
     </section>
 
     <section id="section2">
-        <h1>設定支付通知地址</h1>
+        <h1>Paid Notify URL</h1>
         <ul>
-            <li>設定支付通知地址後，支付結果就必須等候 Game Server 回應。</li>
-            <li>開發者可至 <a target="_blank" href="http://dashboard.smartgamesltd.com/my-game">SG Developer</a> ，點選進行開發的遊戲。</li>
+            <li>If you need your own order validation before SG server returns a valid message, you have to setup <b>Paid Notify URL</b> value.</li>
+            <li>In <a target="_blank" href="http://dashboard.smartgamesltd.com/my-game">SG Developer</a> console, click on the game you want to validate payment.</li>
             <img src=<%= "assets/img/" + lang + "/pic15.png"%> class="img-responsive"/>
-            <li>設定支付通知地址。</li>
+            <li>Enter your Paid Notify URL.</li>
             <img src=<%= "assets/img/" + lang + "/pic16.png"%> class="img-responsive"/>
         </ul>
     </section>
 
     <section id="section3">
-        <h1>Game Server 回應支付結果範例</h1>
+        <h1>Game Server Response Example</h1>
         <ul>
             <li>為防止外掛建議設置支付通知地址設定，由開發商的 Game Server 接收 SG Server 通知商品收據。</li>
             <li>當支付通知地址接收到商品收據 Code = 1101，再回應 Status = 'ok' 給 SG Server。</li>

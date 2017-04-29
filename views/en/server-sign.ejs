@@ -1,43 +1,41 @@
 <div class="left-side" id="myScrollspy">
 
     <ul class="nav nav-pills">
-        <li><a href="#section1">簽名演算法</a></li>
-        <li><a href="#section2">簽名範例</a></li>
+        <li><a href="#section1">Signature Algorithm</a></li>
+        <li><a href="#section2">Sample Codes </a></li>
     </ul>
 
 </div>
 
 <div class="right-side">
     <section id="section1">
-        <h1>簽名演算法</h1>
-        <p>SG API 簽名參數以下列簽名演算法取得。</p>
+        <h1>Signature Algorithm</h1>
+        <p>Here are the steps of how to generate a signature:</p>
         <ol>
             <li>
-                對所有不為空的參數按照參數名字母升序排列，sign 參數不參與簽名。
+                Sort all non-empty parameters by name ascendingly (exclude <b>sign</b> parameter).
             </li>
             <li>
-                將排序後的參數名對應的參數值字符串方式按順序拼接在一起。
+                Combine above parameters with its name and value sequentially into a string.
             </li>
             <li>
-                做一次md5處理並轉換成小寫，得到的加密字串 s1。
+                Hash the string with MD5 algorithm, and then make lowercase of it.
             </li>
             <li>
-                在 s1 字串末尾追加 PrivateKey，做一次 md5 加密並轉換成小寫，得到的字符串就是簽名 sign 的值。
+                Append PrivateKey to the string, and repeat the step above.  There is your signaures.
             </li>
         </ol>
     </section>
     <section id="section2">
-        <h1>簽名範例</h1>
+        <h1>Sample Codes </h1>
         <ul>
             <li>
-                以 <a href="/webapi-pay#section3">查詢購買收據</a> 簽名為例，
-            </li>
-
-            <li>
-                將 gamekey, openid, orderid 參數按升序排列後字串相加，先做一次 md5 加密，結果為 s1。
+                Take <a href="/webapi-pay#section3">GetOrder</a> as an example,
+                combine <b>gamekey</b>, <b>openid</b>, <b>orderid</b> parameters name-value into a string, hash with MD5 algoritm, and make lowercase of it.
             </li>
             <li>
-                s1 與 <a href="/api-open#section5">PrivateKey</a> 相加，再做一次 md5，即為簽名字串。
+                Append <a href="/api-open#section5">PrivateKey</a> to the string, hash with MD5 algoritm, and make lowercase of it.
+                There is your signaures.
             </li>
             <li>
                 node.js sample code :
