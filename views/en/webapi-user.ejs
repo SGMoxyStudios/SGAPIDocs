@@ -1,7 +1,7 @@
 <div class="left-side" id="myScrollspy">
 
     <ul class="nav nav-pills">
-        <li><a href="#section1">User System API</a></li>
+        <li><a href="#section1">User System</a></li>
         <li><a href="#section2">Signup</a></li>
         <li><a href="#section3">Login</a></li>
         <li><a href="#section4">Forgot Password</a></li>
@@ -20,8 +20,10 @@
 
 <div class="right-side">
     <section id="section1">
-        <h1>User System API</h1>
-        <p>The user system API includes signup, login, forgot password, change password, parental lock, my kid, select kid, my account and logout. All about SG member system function etc.</p>
+        <h1>User System</h1>
+        <p>
+            User system is used to manage SG users, including signup, login and kids (family members ) management, etc. Most of the functions use web pages control as part of the process flow. To handle response of these functions, you need to register a listener in your <b>WebView</b> event inside an App.
+        </p>
     </section>
 
     <section id="section2">
@@ -32,22 +34,23 @@
                 <span class="badge badge-ttl">API</span>
                 <pre> <span class="label label-warning">GET</span> /signup</pre>
 
-                <span class="badge badge-ttl">説明</span>
-                <p>調用創帳號頁面創建 SG 會員帳號。帳號創建成功後，自動登入。</p>
+                <span class="badge badge-ttl">Description</span>
+                <p>After signning up, system logs user in automatically.</p>
 
-                <span class="badge badge-ttl">範例</span>
+                <span class="badge badge-ttl">Example</span>
                 <pre>http://gameapi.smartgamesltd.com/signup</pre>
 
-                <span class="badge badge-ttl">回傳</span>
+                <span class="badge badge-ttl">Response</span>
                 <ul>
-                    <li>調用回傳頁面的 JavaScript 函式 <code>GetResult()</code> 來取得回傳結果，該函式回傳 JSON 字串。</li>
-                    <li>例如<code>{"Code": 301, "Message": "ok"}</code>。</li>
-                    <li>完整 Code 定義，<a href="/webapi-init#section5">請參看對照表</a>。</li>
-                    <li>回傳 <a href="/webapi-init#SGMember">SGMember</a> 結構。</li>
+                    <li>In <b>WebView</b> page load finished event, you can get the JSON result by parsing Javascript function <code>GetResult()</code>.</li>
+                    <li>Return JSON string of <a href="/webapi-init#SGMember">SGMember</a>.</li>
+                    <li>
+                        Please refer to 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
+                    </li>                    
                 </ul>
             </div>
             <div class="col-sm-3">
-                <span class="badge badge-ttl">WebView 頁面</span>
+                <span class="badge badge-ttl">WebPage</span>
                 <a href="<%= "assets/img/" + lang + "/pic08.png" %>" data-toggle="lightbox">
                     <img src="<%= "assets/img/" + lang + "/pic08.png" %>" class="img-responsive"/>
                 </a>
@@ -63,22 +66,23 @@
                 <span class="badge badge-ttl">API</span>
                 <pre> <span class="label label-warning">GET</span> /login</pre>
 
-                <span class="badge badge-ttl">説明</span>
-                <p>調用登入頁面進行登入。</p>
+                <span class="badge badge-ttl">Description</span>
+                <p>Login page.</p>
 
-                <span class="badge badge-ttl">範例</span>
+                <span class="badge badge-ttl">Example</span>
                 <pre>http://gameapi.smartgamesltd.com/login</pre>
 
-                <span class="badge badge-ttl">回傳</span>
+                <span class="badge badge-ttl">Response</span>
                 <ul>
-                    <li>調用回傳頁面的 JavaScript 函式 <code>GetResult()</code> 來取得回傳結果，該函式回傳 JSON 字串。</li>
-                    <li>例如<code>{"Code": 201, "Message": "ok"}</code>。</li>
-                    <li>完整 Code 定義，<a href="/webapi-init#section5">請參看對照表</a>。</li>
-                    <li>回傳 <a href="/webapi-init#SGMember">SGMember</a> 結構。</li>
+                    <li>In <b>WebView</b> page load finished event, you can get the JSON result by parsing Javascript function <code>GetResult()</code>.</li>
+                    <li>Return JSON string of <a href="/webapi-init#SGMember">SGMember</a>.</li>
+                    <li>
+                        Please refer to 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
+                    </li>
                 </ul>
             </div>
             <div class="col-sm-3">
-                <span class="badge badge-ttl">WebView 頁面</span>
+                <span class="badge badge-ttl">WebPage</span>
                 <a href="<%= "assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
                     <img src="<%= "assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
                 </a>
@@ -94,20 +98,22 @@
                 <span class="badge badge-ttl">API</span>
                 <pre> <span class="label label-warning">GET</span> /forgot-password</pre>
 
-                <span class="badge badge-ttl">説明</span>
-                <p>調用找回密碼頁面進行重設密碼。</p>
+                <span class="badge badge-ttl">Description</span>
+                <p>Forget password page.</p>
 
-                <span class="badge badge-ttl">範例</span>
+                <span class="badge badge-ttl">Example</span>
                 <pre>http://gameapi.smartgamesltd.com/forgot-password</pre>
 
-                <span class="badge badge-ttl">回傳</span>
+                <span class="badge badge-ttl">Response</span>
                 <ul>
-                    <li>調用回傳頁面的 JavaScript 函式 <code>GetResult()</code> 來取得回傳結果，該函式回傳 JSON 字串。</li>
-                    <li>例如<code>{"Code": 501, "Message": "ok"}</code>。</li>
+                    <li>In <b>WebView</b> page load finished event, you can get the JSON result by parsing Javascript function <code>GetResult()</code>.</li>
+                    <li>
+                        Please refer to 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
+                    </li>
                 </ul>
             </div>
             <div class="col-sm-3">
-                <span class="badge badge-ttl">WebView 頁面</span>
+                <span class="badge badge-ttl">WebPage</span>
                 <a href="<%= "assets/img/" + lang + "/pic09.png" %>" data-toggle="lightbox">
                     <img src="<%= "assets/img/" + lang + "/pic09.png" %>" class="img-responsive"/>
                 </a>
@@ -123,20 +129,22 @@
                 <span class="badge badge-ttl">API</span>
                 <pre> <span class="label label-warning">GET</span> /change-password</pre>
 
-                <span class="badge badge-ttl">説明</span>
-                <p>調用變更密碼頁面。</p>
+                <span class="badge badge-ttl">Description</span>
+                <p>Change password page.</p>
 
-                <span class="badge badge-ttl">範例</span>
+                <span class="badge badge-ttl">Example</span>
                 <pre>http://gameapi.smartgamesltd.com/change-password</pre>
 
-                <span class="badge badge-ttl">回傳</span>
+                <span class="badge badge-ttl">Response</span>
                 <ul>
-                    <li>調用回傳頁面的 JavaScript 函式 <code>GetResult()</code> 來取得回傳結果，該函式回傳 JSON 字串。</li>
-                    <li>例如<code>{"Code": 601, "Message": "ok"}</code>。</li>
+                    <li>In <b>WebView</b> page load finished event, you can get the JSON result by parsing Javascript function <code>GetResult()</code>.</li>
+                    <li>
+                        Please refer to 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
+                    </li>
                 </ul>
             </div>
             <div class="col-sm-3">
-                <span class="badge badge-ttl">WebView 頁面</span>
+                <span class="badge badge-ttl">WebPage</span>
                 <a href="<%= "assets/img/" + lang + "/pic10.png" %>" data-toggle="lightbox">
                     <img src="<%= "assets/img/" + lang + "/pic10.png" %>" class="img-responsive"/>
                 </a>
@@ -151,19 +159,22 @@
                 <span class="badge badge-ttl">API</span>
                 <pre> <span class="label label-warning">GET</span> /parental-lock</pre>
 
-                <span class="badge badge-ttl">説明</span>
-                <p>在呼叫帳號設置前需要先呼叫家長安全鎖，以防孩童誤擊重要功能。</p>
+                <span class="badge badge-ttl">Description</span>
+                <p>You can use parental lock utility view before important actions.</p>
 
-                <span class="badge badge-ttl">範例</span>
+                <span class="badge badge-ttl">Example</span>
                 <pre>http://gameapi.smartgamesltd.com/parental-lock</pre>
 
-                <span class="badge badge-ttl">回傳</span>
-                <p>正確輸入安全碼後會自動轉跳至 my-account 頁面。若尚未建立任何孩童資料則會轉跳至 my-kid 頁面。</p>
+                <span class="badge badge-ttl">Response</span>
+                <ul>
+                    <li>After successfully enter the code, it redirects to [My Account] page.</li>
+                    <li>If the user haven't created any kid (family member), , it redirects to [My Kid] page. </li>
+                </ul>
             </div>
             <div class="col-sm-3">
-                <span class="badge badge-ttl">WebView 頁面</span>
-                <a href="<%= "assets/img/" + lang + "/pic11.png" %>" data-toggle="lightbox">
-                    <img src="<%= "assets/img/" + lang + "/pic11.png" %>" class="img-responsive"/>
+                <span class="badge badge-ttl">WebPage</span>
+                <a href="<%= " assets/img/" + lang + "/pic11.png" %>" data-toggle="lightbox">
+                <img src="<%= " assets/img/" + lang + "/pic11.png" %>" class="img-responsive"/>
                 </a>
             </div>
         </div>
@@ -177,21 +188,22 @@
                 <span class="badge badge-ttl">API</span>
                 <pre> <span class="label label-warning">GET</span> /my-kid</pre>
 
-                <span class="badge badge-ttl">説明</span>
-                <p>調用新增孩童資料頁面。</p>
+                <span class="badge badge-ttl">Description</span>
+                <p>The flow is for creating new kid (family member) of the user.</p>
 
-                <span class="badge badge-ttl">範例</span>
+                <span class="badge badge-ttl">Example</span>
                 <pre>http://gameapi.smartgamesltd.com/my-kid</pre>
 
-                <span class="badge badge-ttl">回傳</span>
+                <span class="badge badge-ttl">Response</span>
                 <ul>
-                    <li>調用回傳頁面的 JavaScript 函式 <code>GetResult()</code> 來取得回傳結果，該函式回傳 JSON 字串。</li>
-                    <li>例如<code>{"Code": 801, "Message": "ok"}</code>。</li>
-                    <li>完整 Code 定義，<a href="/webapi-init#section5">請參看對照表</a>。</li>
+                    <li>In <b>WebView</b> page load finished event, you can get the JSON result by parsing Javascript function <code>GetResult()</code>.</li>
+                    <li>
+                        Please refer to 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
+                    </li>
                 </ul>
             </div>
             <div class="col-sm-3">
-                <span class="badge badge-ttl">WebView 頁面</span>
+                <span class="badge badge-ttl">WebPage</span>
                 <a href="<%= "assets/img/" + lang + "/pic12.png" %>" data-toggle="lightbox">
                     <img src="<%= "assets/img/" + lang + "/pic12.png" %>" class="img-responsive"/>
                 </a>
@@ -207,21 +219,22 @@
                 <span class="badge badge-ttl">API</span>
                 <pre> <span class="label label-warning">GET</span> /select-kid</pre>
 
-                <span class="badge badge-ttl">説明</span>
-                <p>調用孩童列表頁面，家長可以標記一名正在進行遊戲的孩童。</p>
+                <span class="badge badge-ttl">Description</span>
+                <p>The flow is used to select a kid to play.</p>
 
-                <span class="badge badge-ttl">範例</span>
+                <span class="badge badge-ttl">Example</span>
                 <pre>http://gameapi.smartgamesltd.com/select-kid</pre>
 
-                <span class="badge badge-ttl">回傳</span>
+                <span class="badge badge-ttl">Response</span>
                 <ul>
-                    <li>調用回傳頁面的 JavaScript 函式 <code>GetResult()</code> 來取得回傳結果，該函式回傳 JSON 字串。</li>
-                    <li>例如<code>{"Code": 1501, "Message": "ok"}</code>。</li>
-                    <li>完整 Code 定義，<a href="/webapi-init#section5">請參看對照表</a>。</li>
+                    <li>In <b>WebView</b> page load finished event, you can get the JSON result by parsing Javascript function <code>GetResult()</code>.</li>
+                    <li>
+                        Please refer to 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
+                    </li>
                 </ul>
             </div>
             <div class="col-sm-3">
-                <span class="badge badge-ttl">WebView 頁面</span>
+                <span class="badge badge-ttl">WebPage</span>
                 <a href="<%= "assets/img/" + lang + "/pic14.png" %>" data-toggle="lightbox">
                     <img src="<%= "assets/img/" + lang + "/pic14.png" %>" class="img-responsive"/>
                 </a>
@@ -237,17 +250,17 @@
                 <span class="badge badge-ttl">API</span>
                 <pre> <span class="label label-warning">GET</span> /my-account</pre>
 
-                <span class="badge badge-ttl">説明</span>
-                <p>調用帳號總覽頁面，以瀏覽帳號與孩童遊戲紀錄。</p>
+                <span class="badge badge-ttl">Description</span>
+                <p>My account main entry page.</p>
 
-                <span class="badge badge-ttl">範例</span>
+                <span class="badge badge-ttl">Example</span>
                 <pre>http://gameapi.smartgamesltd.com/my-account</pre>
 
-                <span class="badge badge-ttl">回傳</span>
-                <p>返回帳號資訊頁面。</p>
+                <!--<span class="badge badge-ttl">Response</span>
+                <p>返回帳號資訊頁面。</p>-->
             </div>
             <div class="col-sm-3">
-                <span class="badge badge-ttl">WebView 頁面</span>
+                <span class="badge badge-ttl">WebPage</span>
                 <a href="<%= "assets/img/" + lang + "/pic13.png" %>" data-toggle="lightbox">
                     <img src="<%= "assets/img/" + lang + "/pic13.png" %>" class="img-responsive"/>
                 </a>
@@ -262,14 +275,16 @@
             <span class="badge badge-ttl">API</span>
             <pre> <span class="label label-warning">GET</span> /openid</pre>
 
-            <span class="badge badge-ttl">説明</span>
-            <p>登入成功後才可調用，取得用戶 ID (SG ID)。可以此 ID 登入遊戲伺服器。</p>
+            <span class="badge badge-ttl">Description</span>
+            <p>Obtain Open ID (SG ID) after user login.</p>
 
-            <span class="badge badge-ttl">範例</span>
+            <span class="badge badge-ttl">Example</span>
             <pre>http://gameapi.smartgamesltd.com/openid</pre>
 
-            <span class="badge badge-ttl">回傳</span>
-            <p>取得用戶 Open ID 返回值以 JSON 格式回傳，例如<code>{"OpenID": 100001}</code>。</p>
+            <span class="badge badge-ttl">Response</span>
+            <ul>
+                <li>Return JSON string of <code>{"OpenID": 100001}</code>.</li>
+            </ul>
         </div>
     </section>
 
@@ -280,18 +295,26 @@
             <span class="badge badge-ttl">API</span>
             <pre> <span class="label label-warning">GET</span> <span class="label label-success">POST</span> /loginbytoken</pre>
 
-            <span class="badge badge-ttl">説明</span>
-            <p>使用 Token 快速登入，同時取得帳號資訊。</p>
+            <span class="badge badge-ttl">Description</span>
+            <p>Login into the system by previously saved token.</p>
 
-            <span class="badge badge-ttl">範例</span>
+            <span class="badge badge-ttl">Example</span>
             <pre>http://gameapi.smartgamesltd.com/loginbytoken?token=my_token</pre>
 
-            <span class="badge badge-ttl">參數</span>
-            <p>token：登入成功後取得。</p>
-
-            <span class="badge badge-ttl">回傳</span>
+            <span class="badge badge-ttl">Parameters</span>
             <ul>
-                <li>回傳 <a href="/webapi-init#SGMember">SGMember</a> 格式JSON 字串。Code 1001 為登入成功，其它則為登入失敗。</li>
+                <li>
+                    Previous saved token.
+                </li>
+            </ul>
+
+            <span class="badge badge-ttl">Response</span>
+            <ul>
+                <li>In <b>WebView</b> page load finished event, you can get the JSON result by parsing Javascript function <code>GetResult()</code>.</li>
+                <li>Return JSON string of <a href="/webapi-init#SGMember">SGMember</a>.</li>
+                <li>
+                    Please refer to 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
+                </li>
             </ul>
         </div>
     </section>
@@ -303,45 +326,48 @@
             <span class="badge badge-ttl">API</span>
             <pre> <span class="label label-warning">GET</span> <span class="label label-success">POST</span> /verifysession</pre>
 
-            <span class="badge badge-ttl">説明</span>
-            <p>以 SessionID 取得登入帳號資訊。串接其他渠道二次登入驗證使用。</p>
+            <span class="badge badge-ttl">Description</span>
+            <p>Verify if current session ID is valid. </p>
 
-            <span class="badge badge-ttl">範例</span>
+            <span class="badge badge-ttl">Example</span>
             <pre>http://gameapi.smartgamesltd.com/verifysession?gamekey=my_gamekey&sessionid=my_sessionid&openid=my_openid&sign=my_sign</pre>
 
-            <span class="badge badge-ttl">參數</span>
+            <span class="badge badge-ttl">Parameters</span>
             <table class="table table-striped">
-                <thead>
                 <tr>
-                    <th>參數名稱</th>
-                    <th>參數說明</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>gamekey</td>
-                    <td>開發者申請開通遊戲後取得的 gamekey。</td>
+                    <td>gameKey</td>
+                    <td>Your developer identification.</td>
                 </tr>
                 <tr>
-                    <td>openid</td>
-                    <td>登入成功後取得的 openid。</td>
+                    <td>sessionId</td>
+                    <td>
+                        Current session ID.<br />
+                        You can obtain it after login.
+                    </td>
                 </tr>
-                <tr class>
-                    <td>sessionid</td>
-                    <td>登入成功後取得的 sessionID。</td>
+                <tr>
+                    <td>openId</td>
+                    <td>
+                        SG member ID. <br />
+                        You can obtain it after login.
+                    </td>
                 </tr>
                 <tr>
                     <td>sign</td>
-                    <td>以參數 gamekey, openid, sessionid 製作簽名字串。詳見 <a href="/server-sign#section2">簽名演算法</a>。</td>
+                    <td>
+                        Signature generated from above three parameters.<br />
+                        Please refer to <a href="/server-sign#section2">signature generation algorithm</a>.
+                    </td>
                 </tr>
-
-                </tbody>
             </table>
 
-            <span class="badge badge-ttl">回傳</span>
+            <span class="badge badge-ttl">Response</span>
             <ul>
-                <li>完整 Code 定義，<a href="/webapi-init#section5">請參看對照表</a>。</li>
-                <li>回傳 <a href="/webapi-init#SGMember">SGMember</a> 結構。</li>
+                <li>In <b>WebView</b> page load finished event, you can get the JSON result by parsing Javascript function <code>GetResult()</code>.</li>
+                <li>Return JSON string of <a href="/webapi-init#SGMember">SGMember</a>.</li>
+                <li>
+                    Please refer to 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
+                </li>
             </ul>
         </div>
     </section>
@@ -353,16 +379,17 @@
             <span class="badge badge-ttl">API</span>
             <pre> <span class="label label-warning">GET</span> /logout</pre>
 
-            <span class="badge badge-ttl">説明</span>
-            <p>帳號登出</p>
+            <span class="badge badge-ttl">Description</span>
+            <p>Log user out.</p>
 
-            <span class="badge badge-ttl">範例</span>
+            <span class="badge badge-ttl">Example</span>
             <pre>http://gameapi.smartgamesltd.com/logout</pre>
 
-            <span class="badge badge-ttl">回傳</span>
+            <span class="badge badge-ttl">Response</span>
             <ul>
-                <li>調用回傳頁面的 JavaScript 函式 <code>GetResult()</code> 來取得回傳結果，該函式回傳 JSON 字串。</li>
-                <li>例如<code>{"Code": 1601, "Message": "ok"}</code>。</li>
+                <li>
+                    Please refer to 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
+                </li>
             </ul>
         </div>
     </section>
