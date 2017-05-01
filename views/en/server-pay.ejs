@@ -36,9 +36,9 @@
     <section id="section3">
         <h1>Game Server Response Example</h1>
         <ul>
-            <li>為防止外掛建議設置支付通知地址設定，由開發商的 Game Server 接收 SG Server 通知商品收據。</li>
-            <li>當支付通知地址接收到商品收據 Code = 1101，再回應 Status = 'ok' 給 SG Server。</li>
-            <li>SG Server 再將 Game Server 回應的結果通知 SG SDK。</li>
+            <li>To prevent 外掛, we recommend you set up Paid Notify URL to receive SG server response in your Game server.</li>
+            <li>Return [Status = 'ok'] to SG server after your Game server reveives Code = 1101 response from SG server.</li>
+            <li>SG Server will then notify SG SDK with the result of Game server.</li>
             <li>
                 node.js Game Server sample code :
                 <% include ../code/server-pay.html %>
