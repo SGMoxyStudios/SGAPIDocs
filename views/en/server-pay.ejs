@@ -17,12 +17,12 @@
 
         <ol>
             <li>Invoke SDK <code>pay(<a href="/webapi-init#SGPayRequest"><b>SGPayRequest</b></a> req)</code> function in you App.
-            <li>Based on setting of <code><a href="/webapi-init#SGPayRequest"><b>SGPayRequest</b></a>.PaymentChannel</code>, SDK launches third party vendor (google, applpe or wechat) IAP flow.</li>
+            <li>Based on setting of <code><a href="/webapi-init#SGPayRequest"><b>SGPayRequest</b></a>.PaymentChannel</code>, SDK launches third party vendor (google, apple or wechat) IAP flow.</li>
             <li>
-                After successfully purchasing the item, SDK upload order and receipt information to SG server for validation.  If valid, it returns <code>Code = 1101</code> to SDK.  Otherwise, refer to 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
+                After successfully purchasing the item, SDK upload order and receipt information to SG server for validation. If valid, it returns <code>Code = 1101</code> to SDK. Otherwise, refer to 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
             </li>
-            <li>If you need to validate orders through your own backend server before SG server returns a valid message to SDK, you can setup <a target="_blank" href="#section2">Paid Notify URL</a> in developer console.  SG server will invoke the URL and wait for ok status before return to SDK.</li>
-            <li>After your own validation, you need to send [Status = 'ok'] to SG server, in order for it to return <code>Code:1101</code> to the SDK.</li>
+            <li>If you need to validate orders through your own backend server before SG server returns a valid message to SDK, you can setup <a target="_blank" href="#section2">Paid Notify URL</a> in developer console. SG server will invoke the URL and wait for ok status before return to SDK.</li>
+            <li>After your own validation, you need to send "ok" to SG server, in order for it to return <code>Code:1101</code> to the SDK.</li>
         </ol>
     </section>
 

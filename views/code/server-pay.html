@@ -20,73 +20,27 @@
 20
 21
 22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008000; font-weight: bold">var</span> crypto <span style="color: #666666">=</span> require(<span style="color: #BA2121">&#39;crypto&#39;</span>);
+23</pre></td><td><pre style="margin: 0; line-height: 125%">exports.SGPay <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">function</span>(req, res) {
+    <span style="color: #008000; font-weight: bold">var</span> receivedData <span style="color: #666666">=</span><span style="color: #BA2121">&#39;&#39;</span>;
+    req.addListener(<span style="color: #BA2121">&#39;data&#39;</span>, <span style="color: #008000; font-weight: bold">function</span>(chunk){
+        receivedData <span style="color: #666666">+=</span> chunk;
+    });
 
-<span style="color: #008000; font-weight: bold">var</span> myPrivateKey <span style="color: #666666">=</span> <span style="color: #BA2121">&#39;my_private_key&#39;</span>;
-<span style="color: #008000; font-weight: bold">var</span> signData <span style="color: #666666">=</span> {
-    orderid<span style="color: #666666">:</span> <span style="color: #BA2121">&#39;my_orderid&#39;</span>,
-    gamekey<span style="color: #666666">:</span> <span style="color: #BA2121">&#39;my_gamekey&#39;</span>,
-    openid<span style="color: #666666">:</span> <span style="color: #BA2121">&#39;my_openid&#39;</span>
-};
+    req.addListener(<span style="color: #BA2121">&#39;end&#39;</span>, <span style="color: #008000; font-weight: bold">function</span>() {
+        <span style="color: #008000; font-weight: bold">try</span> {
+            console.log(<span style="color: #BA2121">&#39;SG paid received.\n&#39;</span>);
+            console.log(info);
 
-<span style="color: #008000; font-weight: bold">var</span> sign <span style="color: #666666">=</span> get_sign(signData, myPrivateKey);
-
-<span style="color: #008000; font-weight: bold">function</span> get_md5(data) {
-    data <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> Buffer(data).toString(<span style="color: #BA2121">&quot;binary&quot;</span>);
-    <span style="color: #008000; font-weight: bold">return</span> crypto.createHash(<span style="color: #BA2121">&#39;md5&#39;</span>).update(data).digest(<span style="color: #BA2121">&#39;hex&#39;</span>).toLowerCase();
-}
-
-<span style="color: #008000; font-weight: bold">function</span> get_sign(post, privateKey) {
-    <span style="color: #008000; font-weight: bold">var</span> keys <span style="color: #666666">=</span> [];
-
-    <span style="color: #008000; font-weight: bold">for</span> (key <span style="color: #008000; font-weight: bold">in</span> post) {
-        keys.push(key);
-    }
-
-    keys <span style="color: #666666">=</span> keys.sort();
-    <span style="color: #008000; font-weight: bold">var</span> paramString <span style="color: #666666">=</span> <span style="color: #BA2121">&#39;&#39;</span>;
-    <span style="color: #008000; font-weight: bold">for</span> (i <span style="color: #008000; font-weight: bold">in</span> keys) {
-        paramString <span style="color: #666666">+=</span> post[keys[i]];
-    }
-
-    <span style="color: #008000; font-weight: bold">var</span> s1 <span style="color: #666666">=</span> get_md5(paramString);
-    <span style="color: #008000; font-weight: bold">var</span> p2 <span style="color: #666666">=</span> s1 <span style="color: #666666">+</span> privateKey;
-    <span style="color: #008000; font-weight: bold">var</span> s2 <span style="color: #666666">=</span> get_md5(p2);
-    <span style="color: #008000; font-weight: bold">return</span>  s2;
-}
-
-<span style="color: #008000; font-weight: bold">function</span> check_sign (post, privateKey) {
-    <span style="color: #008000; font-weight: bold">var</span> source_sign <span style="color: #666666">=</span> post.Sign;
-    <span style="color: #008000; font-weight: bold">delete</span> post.Sign;
-    <span style="color: #008000; font-weight: bold">var</span> new_sign <span style="color: #666666">=</span> get_sign(post, privateKey);
-
-    <span style="color: #008000; font-weight: bold">if</span> (source_sign <span style="color: #666666">==</span> new_sign) {
-        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">true</span>;
-    }
-
-    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">false</span>;
+            <span style="color: #008000; font-weight: bold">if</span> (receivedData <span style="color: #666666">==</span> <span style="color: #BA2121">&#39;ok&#39;</span>) {
+                <span style="color: #408080; font-style: italic">//check if order illegal in game server</span>
+                res.json(<span style="color: #BA2121">&#39;ok.&#39;</span>);
+                <span style="color: #408080; font-style: italic">//send game item</span>
+            } <span style="color: #008000; font-weight: bold">else</span> {
+                res.json(<span style="color: #BA2121">&#39;Order status error.&#39;</span>);
+            }
+        } <span style="color: #008000; font-weight: bold">catch</span> (e) {
+            res.json(<span style="color: #BA2121">&#39;Try error &#39;</span> <span style="color: #666666">+</span> e);
+        }
+    });
 }
 </pre></td></tr></table></div>
