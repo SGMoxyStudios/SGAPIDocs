@@ -136,11 +136,11 @@
                 <span class="badge badge-ttl">説明</span>
                 <ul><li>在呼叫帳號設置前需要先呼叫家長安全操作頁面以防孩童誤擊重要功能。</li></ul>
 
-                <span class="badge badge-ttl">回傳</span>
+                <!--<span class="badge badge-ttl">回傳</span>
                 <ul>
                     <li>請參看【<a href="/java-init#listener">回調監聽</a>】的設定，以及回傳的代碼與定義<a href="/webapi-init#section5">對照表</a>。</li>
                     <li>回調監聽的 Data 參數：無。</li>
-                </ul>
+                </ul>-->
             </div>
             <div class="col-sm-3">
                 <span class="badge badge-ttl">WebView 頁面</span>
@@ -218,11 +218,11 @@
                     <li>調用帳號總覽頁面，以瀏覽孩童遊戲紀錄。</li>
                 </ul>
 
-                <span class="badge badge-ttl">回傳</span>
+                <!--<span class="badge badge-ttl">回傳</span>
                 <ul>
                     <li>請參看【<a href="/java-init#listener">回調監聽</a>】的設定，以及回傳的代碼與定義<a href="/webapi-init#section5">對照表</a>。</li>
                     <li>回調監聽的 Data 參數：無。</li>
-                </ul>
+                </ul>-->
             </div>
             <div class="col-sm-3">
                 <span class="badge badge-ttl">WebView 頁面</span>
@@ -339,7 +339,14 @@
             <span class="badge badge-ttl">函式</span>
             <p><pre>int getKidIndex()</pre></p>
             <span class="badge badge-ttl">説明</span>
-            <ul><li>取得正在遊玩的孩童索引。</li></ul>
+            <ul>
+                <li>取得正在遊玩的孩童索引。</li>
+                <li>
+                    請注意：呼叫
+                    <code>login</code>, <code>signup</code>, <code>selectKid</code>, <code>myKid</code>,
+                    和 <code>loginByToken</code> 這些函式會變更孩童索引的值。
+                </li>
+            </ul>
             <span class="badge badge-ttl">回傳</span>
             <ul><li>成功：Value of kid index，失敗：NULL。</li></ul>
             <br />

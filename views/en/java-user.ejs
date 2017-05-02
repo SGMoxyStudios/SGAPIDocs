@@ -106,7 +106,7 @@
                         Please refer to 【<a href="/java-init#listener">SDK Callback Listener</a>】
                         and 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
                     </li>
-                    <li>Listener result data: NULL. </li>
+                    <li>Listener result data: None. </li>
                 </ul>
             </div>
             <div class="col-sm-3">
@@ -136,7 +136,7 @@
                         Please refer to 【<a href="/java-init#listener">SDK Callback Listener</a>】
                         and 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
                     </li>
-                    <li>Listener result data: NULL. </li>
+                    <li>Listener result data: None. </li>
                 </ul>
             </div>
             <div class="col-sm-3">
@@ -161,14 +161,14 @@
                     <li>You can use parental lock utility view before important actions.</li>
                 </ul>
 
-                <span class="badge badge-ttl">Response</span>
+                <!--<span class="badge badge-ttl">Response</span>
                 <ul>
                     <li>
                         Please refer to 【<a href="/java-init#listener">SDK Callback Listener</a>】
                         and 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
                     </li>
-                    <li>Listener result data: NULL. </li>
-                </ul>
+                    <li>Listener result data: None. </li>
+                </ul>-->
             </div>
             <div class="col-sm-3">
                 <span class="badge badge-ttl">WebView UI</span>
@@ -198,7 +198,7 @@
                         Please refer to 【<a href="/java-init#listener">SDK Callback Listener</a>】
                         and 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
                     </li>
-                    <li>Listener result data: NULL. </li>
+                    <li>Listener result data: None. </li>
                 </ul>
             </div>
             <div class="col-sm-3">
@@ -232,7 +232,7 @@
                         Please refer to 【<a href="/java-init#listener">SDK Callback Listener</a>】
                         and 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
                     </li>
-                    <li>Listener result data: NULL. </li>
+                    <li>Listener result data: None. </li>
                 </ul>
             </div>
             <div class="col-sm-3">
@@ -257,14 +257,14 @@
                     <li>The flow is the entry page for managing kids (family members).</li>
                 </ul>
 
-                <span class="badge badge-ttl">Response</span>
+                <!--<span class="badge badge-ttl">Response</span>
                 <ul>
                     <li>
                         Please refer to 【<a href="/java-init#listener">SDK Callback Listener</a>】
                         and 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
                     </li>
-                    <li>Listener result data: NULL. </li>
-                </ul>
+                    <li>Listener result data: None. </li>
+                </ul>-->
             </div>
             <div class="col-sm-3">
                 <span class="badge badge-ttl">WebView UI</span>
@@ -321,7 +321,7 @@
                     Please refer to 【<a href="/java-init#listener">SDK Callback Listener</a>】
                     and 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
                 </li>
-                <li>Listener result data: NULL. </li>
+                <li>Listener result data: None. </li>
             </ul>
         </p>
     </section>
@@ -397,9 +397,18 @@
             <span class="badge badge-ttl">Function</span>
             <p><pre>int getKidIndex()</pre></p>
             <span class="badge badge-ttl">Description</span>
-            <ul><li>Obtain index of selected kid.</li></ul>
+            <ul>
+                <li>Obtain index of selected kid.</li>
+                <li>
+                    Note: invoking following functions might change kid index:
+                    <code>login</code>, <code>signup</code>, <code>selectKid</code>, <code>myKid</code>,
+                    and <code>loginByToken</code>.
+                </li>
+            </ul>
             <span class="badge badge-ttl">Response</span>
-            <ul><li>Return index number if successful, or 0 if failed.</li></ul>
+            <ul>
+                <li>Return index number if successful, or 0 if failed.</li>
+            </ul>
             <br />
         </section>
 
@@ -531,7 +540,7 @@
                 Please refer to 【<a href="/java-init#listener">SDK Callback Listener</a>】
                 and 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
             </li>
-            <li>Listener result data: NULL. </li>
+            <li>Listener result data: None. </li>
         </ul>
     </section>
 
