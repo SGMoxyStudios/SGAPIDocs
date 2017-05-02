@@ -3,7 +3,7 @@
     <ul class="nav nav-pills">
         <li><a href="#section1">Payment Flow</a></li>
         <li><a href="#section2">Paid Notify URL</a></li>
-        <li><a href="#section3">Game Server Response Example</a></li>
+        <li><a href="#section3">Server Response Example</a></li>
     </ul>
 
 </div>
@@ -11,21 +11,25 @@
 <div class="right-side">
     <section id="section1">
         <h1>Payment Flow</h1>
+        <p>
+            Here is the process flow of a payment, from SDK to Server and back to SDK.
+        </p>
+
         <ol>
-            <li>Call <code>SGSDK.pay(<a href="/webapi-init#SGPayRequest"><b>SGPayRequest</b></a> req) function.</code>
+            <li>Invoke SDK <code>pay(<a href="/webapi-init#SGPayRequest"><b>SGPayRequest</b></a> req)</code> function in you App.
             <li>Based on setting of <code><a href="/webapi-init#SGPayRequest"><b>SGPayRequest</b></a>.PaymentChannel</code>, SDK launches third party vendor (google, applpe or wechat) IAP flow.</li>
             <li>
-                After successfully purchasing the item, SGSDK upload order and receipt information to SG server for validation.  If valid, it returns <code>Code:1101</code>, otherwise please refer to 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
+                After successfully purchasing the item, SDK upload order and receipt information to SG server for validation.  If valid, it returns <code>Code = 1101</code> to SDK.  Otherwise, refer to 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
             </li>
-            <li>If you need to vildate orders thorugh your own Game server, before SG server returns a valid message, you have to setup <a target="_blank" href="#section2">Paid Notify URL</a> in developer console.</li>
-            <li>After your own validation, you need to send Status = 'ok' to SG server for it to return <code>Code:1101</code>. to the SGSDK.</li>
+            <li>If you need to validate orders through your own backend server before SG server returns a valid message to SDK, you can setup <a target="_blank" href="#section2">Paid Notify URL</a> in developer console.  SG server will invoke the URL and wait for ok status before return to SDK.</li>
+            <li>After your own validation, you need to send [Status = 'ok'] to SG server, in order for it to return <code>Code:1101</code> to the SDK.</li>
         </ol>
     </section>
 
     <section id="section2">
         <h1>Paid Notify URL</h1>
         <ul>
-            <li>If you need your own order validation before SG server returns a valid message, you have to setup <b>Paid Notify URL</b> value.</li>
+            <li>If you need to validate orders through your own backend server before SG server returns a valid message to SDK, you have to setup <b>Paid Notify URL</b> value.</li>
             <li>In <a target="_blank" href="http://dashboard.smartgamesltd.com/my-game">SG Developer</a> console, click on the game you want to validate payment.</li>
             <img src=<%= "assets/img/" + lang + "/pic15.png"%> class="img-responsive"/>
             <li>Enter your Paid Notify URL.</li>
@@ -34,11 +38,13 @@
     </section>
 
     <section id="section3">
-        <h1>Game Server Response Example</h1>
+        <h1>Server Response Example</h1>
         <ul>
-            <li>To prevent 外掛, we recommend you set up Paid Notify URL to receive SG server response in your Game server.</li>
-            <li>Return [Status = 'ok'] to SG server after your Game server reveives Code = 1101 response from SG server.</li>
-            <li>SG Server will then notify SG SDK with the result of Game server.</li>
+            <li>
+                If you have a backend server for your games, we strongly recommend you set up Paid Notify URL and receive SG server payment response through your backend server.
+            </li>
+            <li>Return [Status = 'ok'] to SG server after your backend server receives <code>Code = 1101</code> response from SG server.</li>
+            <li>SG server will then return result from your backend server to SGSDK.</li>
             <li>
                 node.js Game Server sample code :
                 <% include ../code/server-pay.html %>
