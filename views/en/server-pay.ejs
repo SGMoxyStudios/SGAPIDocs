@@ -3,7 +3,7 @@
     <ul class="nav nav-pills">
         <li><a href="#section1">Payment Flow</a></li>
         <li><a href="#section2">Paid Notify URL</a></li>
-        <li><a href="#section3">Server Response Example</a></li>
+        <li><a href="#section3">Paid Notify URL Example</a></li>
     </ul>
 
 </div>
@@ -38,7 +38,7 @@
     </section>
 
     <section id="section3">
-        <h1>Server Response Example</h1>
+        <h1>Paid Notify URL Example</h1>
         <ul>
             <li>
                 If you have a backend server for your games, we strongly recommend you set up Paid Notify URL and receive SG server payment response through your backend server.
@@ -46,7 +46,7 @@
             <li>Return [Status = 'ok'] to SG server after your backend server receives <code>Code = 1101</code> response from SG server.</li>
             <li>SG server will then return result from your backend server to SGSDK.</li>
             <li>
-                node.js Game Server sample code :
+                node.js backend server sample code :
                 <% include ../code/server-pay.html %>
             </li>
         </ul>
