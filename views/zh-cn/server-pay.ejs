@@ -15,8 +15,8 @@
             <li>調用 <code>SGSDK.pay(<a href="/webapi-init#SGPayRequest"><b>SGPayRequest</b></a> req)</code>
             <li>根據 <code><a href="/webapi-init#SGPayRequest"><b>SGPayRequest</b></a>.PaymentChannel</code> 設定，調用apple支付，google支付或是微信支付。</li>
             <li>原生支付付款成功後 SG SDK 會向 SG Server 驗證收據是否合法。若收據合法將回傳 Code 1101 其他例外原因<a href="/webapi-init#section5">請參看對照表</a>。</li>
-            <li>需要 Game Server 驗證的遊戲必須設定該遊戲的<a target="_blank" href="#section2">支付通知地址</a>。</li>
-            <li>設定支付通知地址的遊戲 Game Server 收到收據驗證過後須回應 Status = 'ok'，SG Server 才會回應 Code = 1101 給 SG SDK。</li>
+            <li>開發商的 Game Server 需要驗證收據的遊戲必須設定該遊戲的<a target="_blank" href="#section2">支付通知地址</a>。</li>
+            <li>設定支付通知地址的遊戲，開發商的 Game Server 收到收據驗證過後須回應 "ok" 給 SG Server。 SG Server 才會回應 Code = 1101 給 SG SDK。</li>
         </ol>
     </section>
 
@@ -34,9 +34,8 @@
     <section id="section3">
         <h1>Game Server 回應支付結果範例</h1>
         <ul>
-            <li>為防止外掛建議設置支付通知地址設定，由開發商的 Game Server 接收 SG Server 通知商品收據。</li>
-            <li>當支付通知地址接收到商品收據 Code = 1101，再回應 Status = 'ok' 給 SG Server。</li>
-            <li>SG Server 再將 Game Server 回應的結果通知 SG SDK。</li>
+            <li>為提高安全性建議設置支付通知地址，當開發商的 Game Server 接收 SG Server 通知商品收據，驗證通過後再發送商品到遊戲中。</li>
+
             <li>
                 node.js Game Server sample code :
                 <% include ../code/server-pay.html %>
