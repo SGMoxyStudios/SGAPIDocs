@@ -71,7 +71,7 @@
     }
 
     func Init() {
-        let aStr <span style="color: #666666">=</span> String(format<span style="color: #666666">:</span> <span style="color: #BA2121">&quot;http://gameapi.smartgamesltd.com/init?gamekey=%@&amp;appsecret=%@&amp;privatekey=%@&quot;</span>, GameKey, AppSecret, PrivateKey)
+        let aStr <span style="color: #666666">=</span> String(format<span style="color: #666666">:</span> <span style="color: #BA2121">&quot;https://gameapi.smartgamesltd.com/init?gamekey=%@&amp;appsecret=%@&amp;privatekey=%@&quot;</span>, GameKey, AppSecret, PrivateKey)
         let url <span style="color: #666666">=</span> NSURL(string<span style="color: #666666">:</span> aStr)
         let urlRequest <span style="color: #666666">=</span> NSURLRequest(url<span style="color: #666666">:</span> url<span style="color: #666666">!</span> as URL)
         myWebView.loadRequest(urlRequest as URLRequest)
