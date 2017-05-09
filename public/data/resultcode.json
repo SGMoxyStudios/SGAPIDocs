@@ -60,6 +60,12 @@
     "class": ""
   },
   {
+    "api": "",
+    "code": 106,
+    "msg": "Version error. Please upgrade SG SDK.",
+    "class": ""
+  },
+  {
     "api": "login",
     "code": 201,
     "msg": "ok",
@@ -357,6 +363,12 @@
     "api": "",
     "code": 1126,
     "msg": "WeChat paid fail.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 1127,
+    "msg": "WeChat sign error.",
     "class": ""
   },
   {
