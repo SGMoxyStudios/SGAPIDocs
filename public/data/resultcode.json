@@ -637,5 +637,23 @@
     "code": 9920,
     "msg": "WebAPI Response Data Error.",
     "class": ""
+  },
+  {
+    "api": "",
+    "code": 9930,
+    "msg": "Unity SDK call error.",
+    "class": "active"
+  },
+  {
+    "api": "",
+    "code": 9931,
+    "msg": "Payment channel error.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 9932,
+    "msg": "Unity listener callback error",
+    "class": ""
   }
 ]

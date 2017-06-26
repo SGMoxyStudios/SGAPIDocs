@@ -82,6 +82,11 @@ app.get('/swift-init', function(req, res){res.render(req.i18n_lang+'/swift-init'
 app.get('/swift-user', function(req, res){res.render(req.i18n_lang+'/swift-user')});
 app.get('/swift-pay', function(req, res){res.render(req.i18n_lang+'/swift-pay')});
 app.get('/swift-analytics', function(req, res){res.render(req.i18n_lang+'/swift-analytics')});
+//unity
+app.get('/unity-init', function(req, res){res.render(req.i18n_lang+'/unity-init')});
+app.get('/unity-user', function(req, res){res.render(req.i18n_lang+'/unity-user')});
+app.get('/unity-pay', function(req, res){res.render(req.i18n_lang+'/unity-pay')});
+app.get('/unity-analytics', function(req, res){res.render(req.i18n_lang+'/unity-analytics')});
 
 app.listen(port);
 console.log('Express server listening on port ' + port);
