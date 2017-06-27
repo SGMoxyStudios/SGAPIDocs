@@ -14,6 +14,8 @@
   "ClientWebAPIUser": "用户系统",
   "ClientWebAPIPay": "支付系统",
   "ClientWebAPIAnalysis": "统计系统",
+  "Integrat": "串接指南",
+  "Page-Channel": "================================",
   "Channel": "渠道列表",
   "ChannelHint": "针对不同渠道上架，需要载入各渠道SDK。在进行游戏初始化时还需要传递渠道Key，供后台统计用。",
   "Page-api-open": "================================",

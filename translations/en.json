@@ -15,6 +15,7 @@
   "ClientWebAPIUser": "User System",
   "ClientWebAPIPay": "Payment System",
   "ClientWebAPIAnalysis": "Statistical System",
+  "Integrat": "Integration Guide",
   "Page-Channel": "================================",
   "Channel": "Channel List",
   "ChannelHint": "Loading each channel SDK for different channels. Passing the channel Key for background statistics when game initialization.",
