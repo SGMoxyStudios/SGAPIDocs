@@ -1,0 +1,254 @@
+<style type="text/css">
+pre > div { color:red; font-weight: bold }
+pre > span { color:red; font-weight: bold }
+</style>
+<div class="left-side" id="myScrollspy">
+
+    <ul class="nav nav-pills">
+        <li><a href="#summary">Android集成指南</a></li>
+        <li><a href="#environment">开发环境设定</a></li>
+        <li><a href="#import">引用SGUtil</a></li>
+        <li><a href="#init">SGUtil初始化</a></li>
+        <li><a href="#lifecycle">SGUtil生命周期事件</a></li>
+        <li><a href="#listener">SGUtil回调监听</a></li>
+    </ul>
+
+</div>
+
+<div class="right-side">
+
+    <section id="summary">
+        <h1>Android 集成指南</h1>
+        <p>
+            在中国大陆有很多应用（游戏）渠道，如 UC、小米、华为等，各家渠道都有自己的规范，而且他们
+            的规范也在不断地变化。因此将自己的应用接入多家渠道是一个非常艰巨的工作。针对这个问题，
+            SG Studios 提供了一个统一的解决方案，将各家渠道的客户端和服务器端两个方面的接口都加以抽
+            象。开发者不再需要了解各家规范的不同细节了。
+            对客记端来说，开发者只要接入 SGUtil 软件包，并提供应用的 APK 文件，就可由 SG Studios 来针对
+            某一渠道进行二次打包，大大减轻了开发者的接入工作量。
+            对服务器端来说，开发者只要实现一个简单的游戏服务器（如果您不需要高级的功能，也可以用
+            SG Studios 提供的服务器）就可以了。
+        </p>
+        <p>
+            为了达到这个目的，开发者必须在具体的渠道和 SG Studios 都注册自己的应用，并将渠道为您生成
+            的各种信息共享给 SG Studios。
+        </p>
+        <p>
+            本文介绍接入 SGUtil 的接入流程。详细资料请看<a href=<%= "assets/html/" + lang + "/android/jdoc/index.html"%>> SGUtil 文档。</a>
+        </p>
+    </section>
+
+    <section id="environment">
+        <h1>开发环境设定</h1>
+        <h3>1. SGUtil 支持的 Android 版本 : </h3>
+        <p>SGUtil 支持的 Android 最低版本为 4.4 (KitKat, API Level 19)。建议使用 Android Studio 开发。</p>
+        <img src=<%= "assets/img/" + lang + "/android/hl_android_kitkat.png"%> class="img-responsive"/>
+        <br />
+
+        <h3>2.下载 SGUtil 软件库</h3>
+        <ul>
+            <li><a href="/sdk/android/sgutil.aar">SGUtil Library (sgutil.aar) 下载</a></li>
+        </ul>
+        <br />
+        
+    </section>
+
+    <section id="import">
+
+        <h1>引用 SGUtil</h1>
+        
+		<h3>1. 启动 Android Studios ，新建一个项目</h3>
+
+		<p>示例中使用的名字为 "HappyLearning" ，目录名为 "hl" ，组织名为 "cp.com "。</p>
+		
+        <img src=<%= "assets/img/" + lang + "/android/hl_new_project.png"%> class="img-responsive"/>
+        <br/>
+
+		<h3>2. 选择目标设备</h3>
+        <img src=<%= "assets/img/" + lang + "/android/hl_target_dev.png"%> class="img-responsive"/>
+        <br/>
+
+		<h3>3. 添加 MainActivity</h3>
+        <img src=<%= "assets/img/" + lang + "/android/hl_add_activity.png"%> class="img-responsive"/>
+        <br/>
+
+		<h3>4. 定制 MainActivity</h3>
+
+		<p>请根据需要选择合适的特性。</p>
+
+        <img src=<%= "assets/img/" + lang + "/android/hl_customize_activity.png"%> class="img-responsive"/>
+        <br/>
+        
+        <p>这一步结束后 Android Studios 就会显示项目界面。你会看到两个 build.gradle 文件，一个是项目 hl 的，一个是模块 app 的。</p>
+
+		<h3>5. 引入 sgutil.aar</h3>
+		
+		<p>首先将下载的 sgutil.aar 文件放到模块 app 的 libs 目录下。</p>
+		
+		<pre style="font-size: 1.6rem; line-height: 2.5rem;">
+cp sgutil.aar ~/hl/app/libs
+</pre>
+		
+        <p>接下来修改模块 app 的 build.gradle 文件。如下所示，添加对 sgutil.aar 的依赖，并指定 libs 目录为本地仓库，以便 gradle 能找到 sgutil.aar。</p>
+
+		<pre style="font-size: 1.6rem; line-height: 2.5rem;">
+dependencies {
+    ...
+    <span>compile(name:"sgutil", ext:"aar")</span>
+}
+<div>
+repositories {
+    flatDir { dirs 'libs' }
+}        
+</div></pre>
+<br/>
+		<h3>6. 修改 AndroidManifest.xml</h3>
+
+		<p>如下所示，将 application 的名字改为 "com.sg.util.SGApplication" 。</p>
+
+		<pre style="font-size: 1.6rem; line-height: 2.5rem;">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.cp.happylearning"&gt;
+
+    &lt;application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        <span>android:name="com.sg.util.SGApplication"</span>
+        android:theme="@style/AppTheme"&gt;
+        &lt;activity android:name=".MainActivity"&gt;
+            &lt;intent-filter&gt;
+                &lt;action android:name="android.intent.action.MAIN"/&gt;
+
+                &lt;category android:name="android.intent.category.LAUNCHER"/&gt;
+            &lt;/intent-filter&gt;
+        &lt;/activity&gt;
+    &lt;/application&gt;
+
+&lt;/manifest&gt;
+</pre>
+        <br />
+
+    </section>
+
+    <section id="init">
+        <h1>SGUtil 初始化</h1>
+        
+        <p>为了使用 SGUtil ，你必须首先创建一个 SGAgent 的实例。建议在 MainActivity 的 onCreate 方法中做这件事。</p>
+<pre>
+public class MainActivity extends AppCompatActivity implements SGAgent.SGClient {
+
+    <span>private SGAgent agent;</span>
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        <span>agent = new SGAgent();</span>
+        ...
+    }
+</pre>
+    </section>
+
+    <section id="lifecycle">
+
+        <h1>SGUtil 生命周期事件</h1>
+        
+        <p>您在 MainActivity 中必须把 Android 系统对 MainActivity 的生命周期回调分发给 SGAgent。特别地，
+        在 onCreate 方法中，您必须先准备好 UI ，因为 SGAgent 可能希望向UI上打印日志。如果您不希望这样，
+        就将下述的 appendLog 方法实现为空，这样的话您也可以在 SGAgent.onCreate 之后来做。</p>
+
+<pre>
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        agent = new SGAgent();
+        <span>agent.onCreate(this, this);</span>
+    }
+
+    protected void onStart() {
+        super.onStart();
+        <span>agent.onStart();</span>
+    }
+
+    protected void onRestart() {
+        super.onRestart();
+        <span>agent.onRestart();</span>
+    }
+
+    protected void onResume() {
+        super.onResume();
+        <span>agent.onResume();</span>
+    }
+
+    protected void onPause() {
+        <span>agent.onPause();</span>
+        super.onPause();
+    }
+
+    protected void onStop() {
+        <span>agent.onStop();</span>
+        super.onStop();
+    }
+
+    protected void onDestroy() {
+        <span>agent.onDestroy();</span>
+        super.onDestroy();
+        System.exit(0);
+    }
+
+    public void onNewIntent(Intent newIntent) {
+        <span>agent.onNewIntent(newIntent);</span>
+        super.onNewIntent(newIntent);
+    }
+
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        return <span>agent.onKeyDown(keyCode, event) || </span>super.onKeyDown(keyCode, event);
+    }
+
+    public void onBackPressed() {
+        <span>agent.onBackPressed();</span>
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        <span>agent.onActivityResult(requestCode, resultCode, data);</span>
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @TargetApi(23)
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        <span>agent.onRequestPermissionsResult(requestCode, permissions, grantResults);</span>
+    }
+</pre>
+    </section>
+
+    <section id="listener">
+        <h1>SGUtil 回调监听</h1>
+        <p> SGAgent 的很多功能是异步实现的，在您调用这些功能后， SGAgent 将会通过您提供的接口通知操作结果。所以在
+        您调用 SGAgent.onCreate 的时候必须提供一个 SGAgent.SGClient 接口的实现。你必须在这个接口的方法中处理 SGAgent
+        的通知。这个接口的定义如下（参见<a href=<%= "assets/html/" + lang + "/android/jdoc/com/sg/util/SGAgent.SGClient.html"%>> SGAgent.SGClient </a>）。
+		</p>
+
+<pre>
+    public interface SGClient {
+        void appendLog(String var1);
+        void appendLog(String var1, String var2);
+        boolean onProductBegin(int var1);
+        void onProductFound(UProduct var1);
+        void onProductEnd();
+        void onProductStateChange(UProduct var1);
+        boolean onOrderInfoBegin(int var1);
+        void onOrderInfoFound(UOrderInfo var1);
+        void onOrderInfoEnd();
+        void onStateChange(int var1, int var2, int var3, int var4);
+    }
+</pre>
+
+    </section>
+
+</div>

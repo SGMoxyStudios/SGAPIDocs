@@ -77,6 +77,12 @@ app.get('/java-init', function(req, res){res.render(req.i18n_lang+'/java-init')}
 app.get('/java-user', function (req, res) { res.render(req.i18n_lang + '/java-user') });
 app.get('/java-pay', function (req, res) { res.render(req.i18n_lang + '/java-pay') });
 app.get('/java-analytics', function (req, res) { res.render(req.i18n_lang + '/java-analytics') });
+//java china
+app.get('/java-china-init', function(req, res){res.render(req.i18n_lang+'/java-china-init')});
+app.get('/java-china-user', function (req, res) { res.render(req.i18n_lang + '/java-china-user') });
+app.get('/java-china-pay', function (req, res) { res.render(req.i18n_lang + '/java-china-pay') });
+app.get('/java-china-analytics', function (req, res) { res.render(req.i18n_lang + '/java-china-analytics') });
+app.get('/java-china-aux', function (req, res) { res.render(req.i18n_lang + '/java-china-aux') });
 //swift
 app.get('/swift-init', function(req, res){res.render(req.i18n_lang+'/swift-init')});
 app.get('/swift-user', function(req, res){res.render(req.i18n_lang+'/swift-user')});
