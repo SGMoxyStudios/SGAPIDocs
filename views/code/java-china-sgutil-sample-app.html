@@ -1,0 +1,421 @@
+<!-- HTML generated using hilite.me --><div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008000; font-weight: bold">package</span> com<span style="color: #666666">.</span><span style="color: #7D9029">sg</span><span style="color: #666666">.</span><span style="color: #7D9029">sgutiltest</span><span style="color: #666666">;</span>
+
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">java.util.ArrayList</span><span style="color: #666666">;</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">java.util.List</span><span style="color: #666666">;</span>
+
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">android.graphics.Color</span><span style="color: #666666">;</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">android.os.Bundle</span><span style="color: #666666">;</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">android.text.Layout</span><span style="color: #666666">;</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">android.text.method.ScrollingMovementMethod</span><span style="color: #666666">;</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">android.util.Log</span><span style="color: #666666">;</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">android.view.LayoutInflater</span><span style="color: #666666">;</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">android.view.View</span><span style="color: #666666">;</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">android.view.ViewGroup</span><span style="color: #666666">;</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">android.widget.AdapterView</span><span style="color: #666666">;</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">android.widget.BaseAdapter</span><span style="color: #666666">;</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">android.widget.Button</span><span style="color: #666666">;</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">android.widget.ListView</span><span style="color: #666666">;</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">android.widget.TextView</span><span style="color: #666666">;</span>
+
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">com.sg.util.SGActivity</span><span style="color: #666666">;</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">com.sg.util.SGAgent</span><span style="color: #666666">;</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">com.sg.util.UOrderInfo</span><span style="color: #666666">;</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">com.sg.util.UProduct</span><span style="color: #666666">;</span>
+
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">static</span> android<span style="color: #666666">.</span><span style="color: #7D9029">view</span><span style="color: #666666">.</span><span style="color: #7D9029">View</span><span style="color: #666666">.</span><span style="color: #7D9029">TEXT_ALIGNMENT_CENTER</span><span style="color: #666666">;</span>
+
+<span style="color: #408080; font-style: italic">/**</span>
+<span style="color: #408080; font-style: italic"> * SGTutorialActivity is a main activity that extends SGActivity to utilize its</span>
+<span style="color: #408080; font-style: italic"> * lifecycle callback forwarding. SGActivity has a protected field</span>
+<span style="color: #408080; font-style: italic"> *</span>
+<span style="color: #408080; font-style: italic"> * The activity has following content view layout.</span>
+<span style="color: #408080; font-style: italic"> *</span>
+<span style="color: #408080; font-style: normal"> * +-----------------------------------+</span>
+<span style="color: #408080; font-style: normal"> * |                                   |</span>
+<span style="color: #408080; font-style: normal"> * | <i>product list view</i>                 |</span>
+<span style="color: #408080; font-style: normal"> * |                                   |</span>
+<span style="color: #408080; font-style: normal"> * +-----------------------------------+</span>
+<span style="color: #408080; font-style: normal"> * | <i>btnUsr</i> | <i>btnJob</i> | <i>btnPay</i> | <i>btnExt</i> |</span>
+<span style="color: #408080; font-style: normal"> * +-----------------------------------+</span>
+<span style="color: #408080; font-style: normal"> * |                                   |</span>
+<span style="color: #408080; font-style: normal"> * | <i>log view</i>                          |</span>
+<span style="color: #408080; font-style: normal"> * |                                   |</span>
+<span style="color: #408080; font-style: normal"> * +-----------------------------------+</span>
+<span style="color: #408080; font-style: italic"> */</span>
+<span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">SGTutorialActivity</span> <span style="color: #008000; font-weight: bold">extends</span> SGActivity <span style="color: #666666">{</span>
+
+    <span style="color: #408080; font-style: italic">// an list adapter to manage products</span>
+    <span style="color: #008000; font-weight: bold">private</span> ProductListAdapter mProductListAdapter<span style="color: #666666">;</span>
+    <span style="color: #408080; font-style: italic">// button for login/logout</span>
+    <span style="color: #008000; font-weight: bold">private</span> Button mBtnUsr<span style="color: #666666">;</span>
+    <span style="color: #408080; font-style: italic">// button for get product list</span>
+    <span style="color: #008000; font-weight: bold">private</span> Button mBtnJob<span style="color: #666666">;</span>
+    <span style="color: #408080; font-style: italic">// button for purchasing product</span>
+    <span style="color: #008000; font-weight: bold">private</span> Button mBtnPay<span style="color: #666666">;</span>
+    <span style="color: #408080; font-style: italic">// button for exit program</span>
+    <span style="color: #008000; font-weight: bold">private</span> Button mBtnExt<span style="color: #666666">;</span>
+
+    <span style="color: #408080; font-style: italic">// enable/disable buttons, change button captions according to latest states</span>
+    <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">updateButtons</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+
+        <span style="color: #B00040">int</span> usrState <span style="color: #666666">=</span> agent<span style="color: #666666">.</span><span style="color: #7D9029">getUsrState</span><span style="color: #666666">();</span>
+        <span style="color: #B00040">int</span> payState <span style="color: #666666">=</span> agent<span style="color: #666666">.</span><span style="color: #7D9029">getPayState</span><span style="color: #666666">();</span>
+        <span style="color: #B00040">int</span> jobState <span style="color: #666666">=</span> agent<span style="color: #666666">.</span><span style="color: #7D9029">getJobState</span><span style="color: #666666">();</span>
+
+		<span style="color: #408080; font-style: italic">/* mBtnUsr */</span>
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(</span>usrState <span style="color: #666666">&lt;</span> SGAgent<span style="color: #666666">.</span><span style="color: #7D9029">USRSTATE_LOGINEDGAME</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            setButtonText<span style="color: #666666">(</span>mBtnUsr<span style="color: #666666">,</span> R<span style="color: #666666">.</span><span style="color: #7D9029">string</span><span style="color: #666666">.</span><span style="color: #7D9029">btn_main_login</span><span style="color: #666666">);</span>
+        <span style="color: #666666">}</span> <span style="color: #008000; font-weight: bold">else</span> <span style="color: #666666">{</span>
+            setButtonText<span style="color: #666666">(</span>mBtnUsr<span style="color: #666666">,</span> R<span style="color: #666666">.</span><span style="color: #7D9029">string</span><span style="color: #666666">.</span><span style="color: #7D9029">btn_main_logout</span><span style="color: #666666">);</span>
+        <span style="color: #666666">}</span>
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">((</span>usrState <span style="color: #666666">==</span> SGAgent<span style="color: #666666">.</span><span style="color: #7D9029">USRSTATE_INITIALIZED</span> <span style="color: #666666">||</span> usrState <span style="color: #666666">==</span> SGAgent<span style="color: #666666">.</span><span style="color: #7D9029">USRSTATE_LOGINEDGAME</span><span style="color: #666666">)</span> <span style="color: #666666">&amp;&amp;</span> jobState <span style="color: #666666">==</span> SGAgent<span style="color: #666666">.</span><span style="color: #7D9029">JOBSTATE_IDLE</span> <span style="color: #666666">&amp;&amp;</span> payState <span style="color: #666666">==</span> SGAgent<span style="color: #666666">.</span><span style="color: #7D9029">PAYSTATE_IDLE</span> <span style="color: #666666">&amp;&amp;</span> <span style="color: #666666">(</span>usrState <span style="color: #666666">&lt;</span> SGAgent<span style="color: #666666">.</span><span style="color: #7D9029">USRSTATE_LOGINEDGAME</span> <span style="color: #666666">||</span> agent<span style="color: #666666">.</span><span style="color: #7D9029">isLogoutSupported</span><span style="color: #666666">()))</span>
+            mBtnUsr<span style="color: #666666">.</span><span style="color: #7D9029">setEnabled</span><span style="color: #666666">(</span><span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">);</span>
+        <span style="color: #008000; font-weight: bold">else</span>
+            mBtnUsr<span style="color: #666666">.</span><span style="color: #7D9029">setEnabled</span><span style="color: #666666">(</span><span style="color: #008000; font-weight: bold">false</span><span style="color: #666666">);</span>
+
+        <span style="color: #B00040">boolean</span> idle <span style="color: #666666">=</span> usrState <span style="color: #666666">==</span> SGAgent<span style="color: #666666">.</span><span style="color: #7D9029">USRSTATE_LOGINEDGAME</span> <span style="color: #666666">&amp;&amp;</span> jobState <span style="color: #666666">==</span> SGAgent<span style="color: #666666">.</span><span style="color: #7D9029">JOBSTATE_IDLE</span> <span style="color: #666666">&amp;&amp;</span> payState <span style="color: #666666">==</span> SGAgent<span style="color: #666666">.</span><span style="color: #7D9029">PAYSTATE_IDLE</span><span style="color: #666666">;</span>
+
+		<span style="color: #408080; font-style: italic">/* mBtnJob */</span>
+        setButtonText<span style="color: #666666">(</span>mBtnJob<span style="color: #666666">,</span> R<span style="color: #666666">.</span><span style="color: #7D9029">string</span><span style="color: #666666">.</span><span style="color: #7D9029">btn_main_products</span><span style="color: #666666">);</span>
+        mBtnJob<span style="color: #666666">.</span><span style="color: #7D9029">setEnabled</span><span style="color: #666666">(</span>idle <span style="color: #666666">&amp;&amp;</span> mProductListAdapter<span style="color: #666666">.</span><span style="color: #7D9029">getHighlightProduct</span><span style="color: #666666">()</span> <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span><span style="color: #666666">);</span>
+
+		<span style="color: #408080; font-style: italic">/* mBtnPay */</span>
+        UProduct p <span style="color: #666666">=</span> mProductListAdapter<span style="color: #666666">.</span><span style="color: #7D9029">getHighlightProduct</span><span style="color: #666666">();</span>
+        String state <span style="color: #666666">=</span> p <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span> <span style="color: #666666">?</span> <span style="color: #BA2121">&quot;&quot;</span> <span style="color: #666666">:</span> p<span style="color: #666666">.</span><span style="color: #7D9029">getState</span><span style="color: #666666">();</span>
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(</span>state<span style="color: #666666">.</span><span style="color: #7D9029">equals</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;&quot;</span><span style="color: #666666">))</span> <span style="color: #666666">{</span>
+            setButtonText<span style="color: #666666">(</span>mBtnPay<span style="color: #666666">,</span> R<span style="color: #666666">.</span><span style="color: #7D9029">string</span><span style="color: #666666">.</span><span style="color: #7D9029">btn_main_oops</span><span style="color: #666666">);</span>
+        <span style="color: #666666">}</span> <span style="color: #008000; font-weight: bold">else</span> <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(</span>state<span style="color: #666666">.</span><span style="color: #7D9029">equals</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;delivered&quot;</span><span style="color: #666666">)</span> <span style="color: #666666">||</span> state<span style="color: #666666">.</span><span style="color: #7D9029">equals</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;succeeded&quot;</span><span style="color: #666666">)</span> <span style="color: #666666">||</span> state<span style="color: #666666">.</span><span style="color: #7D9029">equals</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;cheated&quot;</span><span style="color: #666666">))</span> <span style="color: #666666">{</span>
+            setButtonText<span style="color: #666666">(</span>mBtnPay<span style="color: #666666">,</span> R<span style="color: #666666">.</span><span style="color: #7D9029">string</span><span style="color: #666666">.</span><span style="color: #7D9029">btn_main_info</span><span style="color: #666666">);</span>
+        <span style="color: #666666">}</span> <span style="color: #008000; font-weight: bold">else</span> <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(</span>state<span style="color: #666666">.</span><span style="color: #7D9029">equals</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;accepted&quot;</span><span style="color: #666666">))</span> <span style="color: #666666">{</span>
+            setButtonText<span style="color: #666666">(</span>mBtnPay<span style="color: #666666">,</span> R<span style="color: #666666">.</span><span style="color: #7D9029">string</span><span style="color: #666666">.</span><span style="color: #7D9029">btn_main_check</span><span style="color: #666666">);</span>
+        <span style="color: #666666">}</span> <span style="color: #008000; font-weight: bold">else</span> <span style="color: #666666">{</span>
+            setButtonText<span style="color: #666666">(</span>mBtnPay<span style="color: #666666">,</span> R<span style="color: #666666">.</span><span style="color: #7D9029">string</span><span style="color: #666666">.</span><span style="color: #7D9029">btn_main_buy</span><span style="color: #666666">);</span>
+        <span style="color: #666666">}</span>
+        mBtnPay<span style="color: #666666">.</span><span style="color: #7D9029">setEnabled</span><span style="color: #666666">(</span>idle <span style="color: #666666">&amp;&amp;</span> <span style="color: #666666">!</span>state<span style="color: #666666">.</span><span style="color: #7D9029">equals</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;&quot;</span><span style="color: #666666">));</span>
+
+		<span style="color: #408080; font-style: italic">/* mBtnExt */</span>
+        setButtonText<span style="color: #666666">(</span>mBtnExt<span style="color: #666666">,</span> R<span style="color: #666666">.</span><span style="color: #7D9029">string</span><span style="color: #666666">.</span><span style="color: #7D9029">btn_main_exit</span><span style="color: #666666">);</span>
+        mBtnExt<span style="color: #666666">.</span><span style="color: #7D9029">setEnabled</span><span style="color: #666666">(</span>idle <span style="color: #666666">||</span> usrState <span style="color: #666666">&lt;=</span> SGAgent<span style="color: #666666">.</span><span style="color: #7D9029">USRSTATE_INITIALIZED</span><span style="color: #666666">);</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #408080; font-style: italic">// internal class to hold product information and views</span>
+    <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">static</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">ProductViewHolder</span> <span style="color: #666666">{</span>
+        TextView name<span style="color: #666666">;</span>          <span style="color: #408080; font-style: italic">// TextView to show product name</span>
+        TextView price<span style="color: #666666">;</span>         <span style="color: #408080; font-style: italic">// TextView to product price</span>
+        TextView value<span style="color: #666666">;</span>         <span style="color: #408080; font-style: italic">// TextView to product value</span>
+        TextView state<span style="color: #666666">;</span>         <span style="color: #408080; font-style: italic">// TextView to product state</span>
+        UProduct productRef<span style="color: #666666">;</span>    <span style="color: #408080; font-style: italic">// product information</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #408080; font-style: italic">// list adapter to manage products</span>
+    <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">ProductListAdapter</span> <span style="color: #008000; font-weight: bold">extends</span> BaseAdapter <span style="color: #666666">{</span>
+        <span style="color: #008000; font-weight: bold">private</span> LayoutInflater mInflator<span style="color: #666666">;</span>
+        <span style="color: #008000; font-weight: bold">private</span> List<span style="color: #666666">&lt;</span>UProduct<span style="color: #666666">&gt;</span> mList<span style="color: #666666">;</span>
+        <span style="color: #008000; font-weight: bold">private</span> UProduct mHighlightProduct<span style="color: #666666">;</span> <span style="color: #408080; font-style: italic">// highlighted product (current, active)</span>
+
+        <span style="color: #008000; font-weight: bold">public</span> <span style="color: #0000FF">ProductListAdapter</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+            <span style="color: #008000; font-weight: bold">super</span><span style="color: #666666">();</span>
+            <span style="color: #408080; font-style: italic">// initialize list to empty</span>
+            mInflator <span style="color: #666666">=</span> SGTutorialActivity<span style="color: #666666">.</span><span style="color: #7D9029">this</span><span style="color: #666666">.</span><span style="color: #7D9029">getLayoutInflater</span><span style="color: #666666">();</span>
+            mList <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> ArrayList<span style="color: #666666">&lt;</span>UProduct<span style="color: #666666">&gt;();</span>
+            mHighlightProduct <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">null</span><span style="color: #666666">;</span>
+        <span style="color: #666666">}</span>
+
+        <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">boolean</span> <span style="color: #0000FF">addProduct</span><span style="color: #666666">(</span>UProduct product<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(!</span>mList<span style="color: #666666">.</span><span style="color: #7D9029">contains</span><span style="color: #666666">(</span>product<span style="color: #666666">))</span> <span style="color: #666666">{</span>
+                mList<span style="color: #666666">.</span><span style="color: #7D9029">add</span><span style="color: #666666">(</span>product<span style="color: #666666">);</span>
+                <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(</span>mHighlightProduct <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span><span style="color: #666666">)</span>
+                    mHighlightProduct <span style="color: #666666">=</span> product<span style="color: #666666">;</span>
+                <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">;</span>
+            <span style="color: #666666">}</span>
+            <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">false</span><span style="color: #666666">;</span>
+        <span style="color: #666666">}</span>
+
+        <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">clear</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+            mList<span style="color: #666666">.</span><span style="color: #7D9029">clear</span><span style="color: #666666">();</span>
+            mHighlightProduct <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">null</span><span style="color: #666666">;</span>
+        <span style="color: #666666">}</span>
+
+        <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">setHighlightProduct</span><span style="color: #666666">(</span>UProduct product<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(</span>mHighlightProduct <span style="color: #666666">!=</span> product<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                mHighlightProduct <span style="color: #666666">=</span> product<span style="color: #666666">;</span>
+            <span style="color: #666666">}</span>
+        <span style="color: #666666">}</span>
+
+        <span style="color: #008000; font-weight: bold">public</span> UProduct <span style="color: #0000FF">getHighlightProduct</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+            <span style="color: #008000; font-weight: bold">return</span> mHighlightProduct<span style="color: #666666">;</span>
+        <span style="color: #666666">}</span>
+
+        <span style="color: #AA22FF">@Override</span>
+        <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">int</span> <span style="color: #0000FF">getCount</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+            <span style="color: #008000; font-weight: bold">return</span> mList<span style="color: #666666">.</span><span style="color: #7D9029">size</span><span style="color: #666666">();</span>
+        <span style="color: #666666">}</span>
+
+        <span style="color: #AA22FF">@Override</span>
+        <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">long</span> <span style="color: #0000FF">getItemId</span><span style="color: #666666">(</span><span style="color: #B00040">int</span> i<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            <span style="color: #008000; font-weight: bold">return</span> i<span style="color: #666666">;</span>
+        <span style="color: #666666">}</span>
+
+        <span style="color: #AA22FF">@Override</span>
+        <span style="color: #008000; font-weight: bold">public</span> Object <span style="color: #0000FF">getItem</span><span style="color: #666666">(</span><span style="color: #B00040">int</span> i<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            <span style="color: #008000; font-weight: bold">return</span> mList<span style="color: #666666">.</span><span style="color: #7D9029">get</span><span style="color: #666666">(</span>i<span style="color: #666666">);</span>
+        <span style="color: #666666">}</span>
+
+        <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">setTextViewHighlight</span><span style="color: #666666">(</span>TextView <span style="color: #666666">...</span> views<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            <span style="color: #B00040">int</span> n <span style="color: #666666">=</span> views<span style="color: #666666">.</span><span style="color: #7D9029">length</span><span style="color: #666666">;</span>
+            <span style="color: #008000; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #B00040">int</span> i<span style="color: #666666">=0;</span> i<span style="color: #666666">&lt;</span>n<span style="color: #666666">;</span> i<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+                views<span style="color: #666666">[</span>i<span style="color: #666666">].</span><span style="color: #7D9029">setBackgroundColor</span><span style="color: #666666">(</span>Color<span style="color: #666666">.</span><span style="color: #7D9029">parseColor</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;#c0c080&quot;</span><span style="color: #666666">));</span>
+                views<span style="color: #666666">[</span>i<span style="color: #666666">].</span><span style="color: #7D9029">setTextColor</span><span style="color: #666666">(</span>Color<span style="color: #666666">.</span><span style="color: #7D9029">parseColor</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;#ffffff&quot;</span><span style="color: #666666">));</span>
+            <span style="color: #666666">}</span>
+        <span style="color: #666666">}</span>
+
+        <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">setTextViewNormal</span><span style="color: #666666">(</span>TextView <span style="color: #666666">...</span> views<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            <span style="color: #B00040">int</span> n <span style="color: #666666">=</span> views<span style="color: #666666">.</span><span style="color: #7D9029">length</span><span style="color: #666666">;</span>
+            <span style="color: #008000; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #B00040">int</span> i<span style="color: #666666">=0;</span> i<span style="color: #666666">&lt;</span>n<span style="color: #666666">;</span> i<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+                views<span style="color: #666666">[</span>i<span style="color: #666666">].</span><span style="color: #7D9029">setBackgroundColor</span><span style="color: #666666">(</span>Color<span style="color: #666666">.</span><span style="color: #7D9029">parseColor</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;#70b040&quot;</span><span style="color: #666666">));</span>
+                views<span style="color: #666666">[</span>i<span style="color: #666666">].</span><span style="color: #7D9029">setTextColor</span><span style="color: #666666">(</span>Color<span style="color: #666666">.</span><span style="color: #7D9029">parseColor</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;#000000&quot;</span><span style="color: #666666">));</span>
+            <span style="color: #666666">}</span>
+        <span style="color: #666666">}</span>
+
+        <span style="color: #AA22FF">@Override</span>
+        <span style="color: #008000; font-weight: bold">public</span> View <span style="color: #0000FF">getView</span><span style="color: #666666">(</span><span style="color: #B00040">int</span> idx<span style="color: #666666">,</span> View view<span style="color: #666666">,</span> ViewGroup viewGroup<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            ProductViewHolder vh<span style="color: #666666">;</span>
+            <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(</span>view <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                view <span style="color: #666666">=</span> mInflator<span style="color: #666666">.</span><span style="color: #7D9029">inflate</span><span style="color: #666666">(</span>R<span style="color: #666666">.</span><span style="color: #7D9029">layout</span><span style="color: #666666">.</span><span style="color: #7D9029">product_list_item</span><span style="color: #666666">,</span> <span style="color: #008000; font-weight: bold">null</span><span style="color: #666666">);</span>
+                vh <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> ProductViewHolder<span style="color: #666666">();</span>
+                vh<span style="color: #666666">.</span><span style="color: #7D9029">name</span> <span style="color: #666666">=</span> <span style="color: #666666">(</span>TextView<span style="color: #666666">)</span>view<span style="color: #666666">.</span><span style="color: #7D9029">findViewById</span><span style="color: #666666">(</span>R<span style="color: #666666">.</span><span style="color: #7D9029">id</span><span style="color: #666666">.</span><span style="color: #7D9029">product_list_item_name</span><span style="color: #666666">);</span>
+                vh<span style="color: #666666">.</span><span style="color: #7D9029">price</span> <span style="color: #666666">=</span> <span style="color: #666666">(</span>TextView<span style="color: #666666">)</span>view<span style="color: #666666">.</span><span style="color: #7D9029">findViewById</span><span style="color: #666666">(</span>R<span style="color: #666666">.</span><span style="color: #7D9029">id</span><span style="color: #666666">.</span><span style="color: #7D9029">product_list_item_price</span><span style="color: #666666">);</span>
+                vh<span style="color: #666666">.</span><span style="color: #7D9029">value</span> <span style="color: #666666">=</span> <span style="color: #666666">(</span>TextView<span style="color: #666666">)</span>view<span style="color: #666666">.</span><span style="color: #7D9029">findViewById</span><span style="color: #666666">(</span>R<span style="color: #666666">.</span><span style="color: #7D9029">id</span><span style="color: #666666">.</span><span style="color: #7D9029">product_list_item_value</span><span style="color: #666666">);</span>
+                vh<span style="color: #666666">.</span><span style="color: #7D9029">state</span> <span style="color: #666666">=</span> <span style="color: #666666">(</span>TextView<span style="color: #666666">)</span>view<span style="color: #666666">.</span><span style="color: #7D9029">findViewById</span><span style="color: #666666">(</span>R<span style="color: #666666">.</span><span style="color: #7D9029">id</span><span style="color: #666666">.</span><span style="color: #7D9029">product_list_item_state</span><span style="color: #666666">);</span>
+                view<span style="color: #666666">.</span><span style="color: #7D9029">setTag</span><span style="color: #666666">(</span>vh<span style="color: #666666">);</span>
+            <span style="color: #666666">}</span> <span style="color: #008000; font-weight: bold">else</span> <span style="color: #666666">{</span>
+                vh <span style="color: #666666">=</span> <span style="color: #666666">(</span>ProductViewHolder<span style="color: #666666">)</span>view<span style="color: #666666">.</span><span style="color: #7D9029">getTag</span><span style="color: #666666">();</span>
+            <span style="color: #666666">}</span>
+            vh<span style="color: #666666">.</span><span style="color: #7D9029">productRef</span> <span style="color: #666666">=</span> mList<span style="color: #666666">.</span><span style="color: #7D9029">get</span><span style="color: #666666">(</span>idx<span style="color: #666666">);</span>
+            vh<span style="color: #666666">.</span><span style="color: #7D9029">name</span><span style="color: #666666">.</span><span style="color: #7D9029">setText</span><span style="color: #666666">(</span>vh<span style="color: #666666">.</span><span style="color: #7D9029">productRef</span><span style="color: #666666">.</span><span style="color: #7D9029">getProductName</span><span style="color: #666666">());</span>
+            vh<span style="color: #666666">.</span><span style="color: #7D9029">price</span><span style="color: #666666">.</span><span style="color: #7D9029">setText</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;&quot;</span> <span style="color: #666666">+</span> vh<span style="color: #666666">.</span><span style="color: #7D9029">productRef</span><span style="color: #666666">.</span><span style="color: #7D9029">getPrice</span><span style="color: #666666">());</span>
+            vh<span style="color: #666666">.</span><span style="color: #7D9029">value</span><span style="color: #666666">.</span><span style="color: #7D9029">setText</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;&quot;</span> <span style="color: #666666">+</span> vh<span style="color: #666666">.</span><span style="color: #7D9029">productRef</span><span style="color: #666666">.</span><span style="color: #7D9029">getCoins</span><span style="color: #666666">());</span>
+            vh<span style="color: #666666">.</span><span style="color: #7D9029">state</span><span style="color: #666666">.</span><span style="color: #7D9029">setText</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;&quot;</span> <span style="color: #666666">+</span> vh<span style="color: #666666">.</span><span style="color: #7D9029">productRef</span><span style="color: #666666">.</span><span style="color: #7D9029">getState</span><span style="color: #666666">());</span>
+            <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(</span>vh<span style="color: #666666">.</span><span style="color: #7D9029">productRef</span> <span style="color: #666666">==</span> mHighlightProduct<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                setTextViewHighlight<span style="color: #666666">(</span>vh<span style="color: #666666">.</span><span style="color: #7D9029">name</span><span style="color: #666666">,</span> vh<span style="color: #666666">.</span><span style="color: #7D9029">price</span><span style="color: #666666">,</span> vh<span style="color: #666666">.</span><span style="color: #7D9029">value</span><span style="color: #666666">,</span> vh<span style="color: #666666">.</span><span style="color: #7D9029">state</span><span style="color: #666666">);</span>
+            <span style="color: #666666">}</span> <span style="color: #008000; font-weight: bold">else</span> <span style="color: #666666">{</span>
+                setTextViewNormal<span style="color: #666666">(</span>vh<span style="color: #666666">.</span><span style="color: #7D9029">name</span><span style="color: #666666">,</span> vh<span style="color: #666666">.</span><span style="color: #7D9029">price</span><span style="color: #666666">,</span> vh<span style="color: #666666">.</span><span style="color: #7D9029">value</span><span style="color: #666666">,</span> vh<span style="color: #666666">.</span><span style="color: #7D9029">state</span><span style="color: #666666">);</span>
+            <span style="color: #666666">}</span>
+            <span style="color: #008000; font-weight: bold">return</span> view<span style="color: #666666">;</span>
+        <span style="color: #666666">}</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">disableButtons</span><span style="color: #666666">(</span>Button <span style="color: #666666">...</span> btns<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #008000; font-weight: bold">for</span> <span style="color: #666666">(</span>Button btn <span style="color: #666666">:</span> btns<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            btn<span style="color: #666666">.</span><span style="color: #7D9029">setEnabled</span><span style="color: #666666">(</span><span style="color: #008000; font-weight: bold">false</span><span style="color: #666666">);</span>
+        <span style="color: #666666">}</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">setTextViewText</span><span style="color: #666666">(</span>TextView tv<span style="color: #666666">,</span> <span style="color: #B00040">int</span> resid<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        tv<span style="color: #666666">.</span><span style="color: #7D9029">setText</span><span style="color: #666666">(</span>resid<span style="color: #666666">);</span>
+        tv<span style="color: #666666">.</span><span style="color: #7D9029">setTextAlignment</span><span style="color: #666666">(</span>TEXT_ALIGNMENT_CENTER<span style="color: #666666">);</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">setButtonText</span><span style="color: #666666">(</span>Button btn<span style="color: #666666">,</span> <span style="color: #B00040">int</span> resid<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        btn<span style="color: #666666">.</span><span style="color: #7D9029">setTag</span><span style="color: #666666">(</span>resid<span style="color: #666666">);</span>
+        btn<span style="color: #666666">.</span><span style="color: #7D9029">setText</span><span style="color: #666666">(</span>resid<span style="color: #666666">);</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #408080; font-style: italic">/**</span>
+<span style="color: #408080; font-style: italic">     * Override initializeUI of parent class SGActivity. This method is called before agent.onCreate is called.</span>
+<span style="color: #408080; font-style: italic">     */</span>
+    <span style="color: #AA22FF">@Override</span>
+    <span style="color: #008000; font-weight: bold">protected</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">initializeUI</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+        setContentView<span style="color: #666666">(</span>R<span style="color: #666666">.</span><span style="color: #7D9029">layout</span><span style="color: #666666">.</span><span style="color: #7D9029">main_activity</span><span style="color: #666666">);</span>
+
+        <span style="color: #666666">((</span>TextView<span style="color: #666666">)</span>findViewById<span style="color: #666666">(</span>R<span style="color: #666666">.</span><span style="color: #7D9029">id</span><span style="color: #666666">.</span><span style="color: #7D9029">main_logs</span><span style="color: #666666">)).</span><span style="color: #7D9029">setMovementMethod</span><span style="color: #666666">(</span><span style="color: #008000; font-weight: bold">new</span> ScrollingMovementMethod<span style="color: #666666">());</span>
+        <span style="color: #408080; font-style: italic">// find product list view</span>
+        ListView v <span style="color: #666666">=</span> <span style="color: #666666">(</span>ListView<span style="color: #666666">)</span>findViewById<span style="color: #666666">(</span>R<span style="color: #666666">.</span><span style="color: #7D9029">id</span><span style="color: #666666">.</span><span style="color: #7D9029">main_product_list</span><span style="color: #666666">);</span>
+        <span style="color: #408080; font-style: italic">// create a header bar</span>
+        LayoutInflater inflater <span style="color: #666666">=</span> getLayoutInflater<span style="color: #666666">();</span>
+        ViewGroup header <span style="color: #666666">=</span> <span style="color: #666666">(</span>ViewGroup<span style="color: #666666">)</span>inflater<span style="color: #666666">.</span><span style="color: #7D9029">inflate</span><span style="color: #666666">(</span>R<span style="color: #666666">.</span><span style="color: #7D9029">layout</span><span style="color: #666666">.</span><span style="color: #7D9029">product_list_item</span><span style="color: #666666">,</span> v<span style="color: #666666">,</span> <span style="color: #008000; font-weight: bold">false</span><span style="color: #666666">);</span>
+        header<span style="color: #666666">.</span><span style="color: #7D9029">setBackgroundColor</span><span style="color: #666666">(</span>Color<span style="color: #666666">.</span><span style="color: #7D9029">parseColor</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;#f0c080&quot;</span><span style="color: #666666">));</span>
+        <span style="color: #408080; font-style: italic">// set names of columns shown in header bar</span>
+        setTextViewText<span style="color: #666666">((</span>TextView<span style="color: #666666">)</span>header<span style="color: #666666">.</span><span style="color: #7D9029">findViewById</span><span style="color: #666666">(</span>R<span style="color: #666666">.</span><span style="color: #7D9029">id</span><span style="color: #666666">.</span><span style="color: #7D9029">product_list_item_name</span><span style="color: #666666">),</span> R<span style="color: #666666">.</span><span style="color: #7D9029">string</span><span style="color: #666666">.</span><span style="color: #7D9029">product_list_item_name_cap</span><span style="color: #666666">);</span>
+        setTextViewText<span style="color: #666666">((</span>TextView<span style="color: #666666">)</span>header<span style="color: #666666">.</span><span style="color: #7D9029">findViewById</span><span style="color: #666666">(</span>R<span style="color: #666666">.</span><span style="color: #7D9029">id</span><span style="color: #666666">.</span><span style="color: #7D9029">product_list_item_price</span><span style="color: #666666">),</span> R<span style="color: #666666">.</span><span style="color: #7D9029">string</span><span style="color: #666666">.</span><span style="color: #7D9029">product_list_item_price_cap</span><span style="color: #666666">);</span>
+        setTextViewText<span style="color: #666666">((</span>TextView<span style="color: #666666">)</span>header<span style="color: #666666">.</span><span style="color: #7D9029">findViewById</span><span style="color: #666666">(</span>R<span style="color: #666666">.</span><span style="color: #7D9029">id</span><span style="color: #666666">.</span><span style="color: #7D9029">product_list_item_value</span><span style="color: #666666">),</span> R<span style="color: #666666">.</span><span style="color: #7D9029">string</span><span style="color: #666666">.</span><span style="color: #7D9029">product_list_item_value_cap</span><span style="color: #666666">);</span>
+        setTextViewText<span style="color: #666666">((</span>TextView<span style="color: #666666">)</span>header<span style="color: #666666">.</span><span style="color: #7D9029">findViewById</span><span style="color: #666666">(</span>R<span style="color: #666666">.</span><span style="color: #7D9029">id</span><span style="color: #666666">.</span><span style="color: #7D9029">product_list_item_state</span><span style="color: #666666">),</span> R<span style="color: #666666">.</span><span style="color: #7D9029">string</span><span style="color: #666666">.</span><span style="color: #7D9029">product_list_item_state_cap</span><span style="color: #666666">);</span>
+        <span style="color: #408080; font-style: italic">// add the header bar to the top of product list</span>
+        v<span style="color: #666666">.</span><span style="color: #7D9029">addHeaderView</span><span style="color: #666666">(</span>header<span style="color: #666666">,</span> <span style="color: #008000; font-weight: bold">null</span><span style="color: #666666">,</span> <span style="color: #008000; font-weight: bold">false</span><span style="color: #666666">);</span>
+        <span style="color: #408080; font-style: italic">// create list adapter</span>
+        mProductListAdapter <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> ProductListAdapter<span style="color: #666666">();</span>
+        v<span style="color: #666666">.</span><span style="color: #7D9029">setAdapter</span><span style="color: #666666">(</span>mProductListAdapter<span style="color: #666666">);</span>
+        <span style="color: #408080; font-style: italic">// set up click handler</span>
+        v<span style="color: #666666">.</span><span style="color: #7D9029">setOnItemClickListener</span><span style="color: #666666">(</span><span style="color: #008000; font-weight: bold">new</span> AdapterView<span style="color: #666666">.</span><span style="color: #7D9029">OnItemClickListener</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+            <span style="color: #AA22FF">@Override</span>
+            <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onItemClick</span><span style="color: #666666">(</span>AdapterView<span style="color: #666666">&lt;?&gt;</span> parent<span style="color: #666666">,</span> View view<span style="color: #666666">,</span> <span style="color: #B00040">int</span> position<span style="color: #666666">,</span> <span style="color: #B00040">long</span> id<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                <span style="color: #408080; font-style: italic">// if agent is idle, highlight clicked product and update buttons according to its state</span>
+                <span style="color: #B00040">int</span> usrState <span style="color: #666666">=</span> agent<span style="color: #666666">.</span><span style="color: #7D9029">getUsrState</span><span style="color: #666666">();</span>
+                <span style="color: #B00040">int</span> payState <span style="color: #666666">=</span> agent<span style="color: #666666">.</span><span style="color: #7D9029">getPayState</span><span style="color: #666666">();</span>
+                <span style="color: #B00040">int</span> jobState <span style="color: #666666">=</span> agent<span style="color: #666666">.</span><span style="color: #7D9029">getJobState</span><span style="color: #666666">();</span>
+                <span style="color: #B00040">boolean</span> idle <span style="color: #666666">=</span> usrState <span style="color: #666666">==</span> SGAgent<span style="color: #666666">.</span><span style="color: #7D9029">USRSTATE_LOGINEDGAME</span> <span style="color: #666666">&amp;&amp;</span> jobState <span style="color: #666666">==</span> SGAgent<span style="color: #666666">.</span><span style="color: #7D9029">JOBSTATE_IDLE</span> <span style="color: #666666">&amp;&amp;</span> payState <span style="color: #666666">==</span> SGAgent<span style="color: #666666">.</span><span style="color: #7D9029">PAYSTATE_IDLE</span><span style="color: #666666">;</span>
+                <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(</span>idle<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                    ProductViewHolder vh <span style="color: #666666">=</span> <span style="color: #666666">(</span>ProductViewHolder<span style="color: #666666">)</span> view<span style="color: #666666">.</span><span style="color: #7D9029">getTag</span><span style="color: #666666">();</span>
+                    <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(</span>vh<span style="color: #666666">.</span><span style="color: #7D9029">productRef</span> <span style="color: #666666">!=</span> mProductListAdapter<span style="color: #666666">.</span><span style="color: #7D9029">getHighlightProduct</span><span style="color: #666666">())</span> <span style="color: #666666">{</span>
+                        <span style="color: #408080; font-style: italic">// highlight product if not highlighted</span>
+                        mProductListAdapter<span style="color: #666666">.</span><span style="color: #7D9029">setHighlightProduct</span><span style="color: #666666">(</span>vh<span style="color: #666666">.</span><span style="color: #7D9029">productRef</span><span style="color: #666666">);</span>
+                        <span style="color: #408080; font-style: italic">// and show in highlighted color</span>
+                        mProductListAdapter<span style="color: #666666">.</span><span style="color: #7D9029">notifyDataSetChanged</span><span style="color: #666666">();</span>
+                        <span style="color: #408080; font-style: italic">// and update buttons</span>
+                        updateButtons<span style="color: #666666">();</span>
+                    <span style="color: #666666">}</span>
+                <span style="color: #666666">}</span>
+            <span style="color: #666666">}</span>
+        <span style="color: #666666">});</span>
+
+        mBtnUsr <span style="color: #666666">=</span> <span style="color: #666666">(</span>Button<span style="color: #666666">)</span>findViewById<span style="color: #666666">(</span>R<span style="color: #666666">.</span><span style="color: #7D9029">id</span><span style="color: #666666">.</span><span style="color: #7D9029">main_btn_usr</span><span style="color: #666666">);</span>
+        mBtnJob <span style="color: #666666">=</span> <span style="color: #666666">(</span>Button<span style="color: #666666">)</span>findViewById<span style="color: #666666">(</span>R<span style="color: #666666">.</span><span style="color: #7D9029">id</span><span style="color: #666666">.</span><span style="color: #7D9029">main_btn_job</span><span style="color: #666666">);</span>
+        mBtnPay <span style="color: #666666">=</span> <span style="color: #666666">(</span>Button<span style="color: #666666">)</span>findViewById<span style="color: #666666">(</span>R<span style="color: #666666">.</span><span style="color: #7D9029">id</span><span style="color: #666666">.</span><span style="color: #7D9029">main_btn_pay</span><span style="color: #666666">);</span>
+        mBtnExt <span style="color: #666666">=</span> <span style="color: #666666">(</span>Button<span style="color: #666666">)</span>findViewById<span style="color: #666666">(</span>R<span style="color: #666666">.</span><span style="color: #7D9029">id</span><span style="color: #666666">.</span><span style="color: #7D9029">main_btn_exit</span><span style="color: #666666">);</span>
+
+        <span style="color: #408080; font-style: italic">// disable job button and purchase button as user is not logined yet</span>
+        disableButtons<span style="color: #666666">(</span>mBtnJob<span style="color: #666666">,</span> mBtnPay<span style="color: #666666">);</span>
+
+        <span style="color: #408080; font-style: italic">// initialize button captions and set up click handler</span>
+        setButtonText<span style="color: #666666">(</span>mBtnUsr<span style="color: #666666">,</span> R<span style="color: #666666">.</span><span style="color: #7D9029">string</span><span style="color: #666666">.</span><span style="color: #7D9029">btn_main_login</span><span style="color: #666666">);</span>
+        mBtnUsr<span style="color: #666666">.</span><span style="color: #7D9029">setOnClickListener</span><span style="color: #666666">(</span><span style="color: #008000; font-weight: bold">new</span> View<span style="color: #666666">.</span><span style="color: #7D9029">OnClickListener</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+            <span style="color: #AA22FF">@Override</span>
+            <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onClick</span><span style="color: #666666">(</span>View v<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                <span style="color: #B00040">int</span> tag <span style="color: #666666">=</span> <span style="color: #666666">(</span><span style="color: #B00040">int</span><span style="color: #666666">)</span>v<span style="color: #666666">.</span><span style="color: #7D9029">getTag</span><span style="color: #666666">();</span>
+                <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(</span>tag <span style="color: #666666">==</span> R<span style="color: #666666">.</span><span style="color: #7D9029">string</span><span style="color: #666666">.</span><span style="color: #7D9029">btn_main_login</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                    agent<span style="color: #666666">.</span><span style="color: #7D9029">login</span><span style="color: #666666">();</span>
+                <span style="color: #666666">}</span> <span style="color: #008000; font-weight: bold">else</span> <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(</span>tag <span style="color: #666666">==</span> R<span style="color: #666666">.</span><span style="color: #7D9029">string</span><span style="color: #666666">.</span><span style="color: #7D9029">btn_main_logout</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                    agent<span style="color: #666666">.</span><span style="color: #7D9029">logout</span><span style="color: #666666">();</span>
+                <span style="color: #666666">}</span>
+            <span style="color: #666666">}</span>
+        <span style="color: #666666">});</span>
+        setButtonText<span style="color: #666666">(</span>mBtnJob<span style="color: #666666">,</span> R<span style="color: #666666">.</span><span style="color: #7D9029">string</span><span style="color: #666666">.</span><span style="color: #7D9029">btn_main_products</span><span style="color: #666666">);</span>
+        mBtnJob<span style="color: #666666">.</span><span style="color: #7D9029">setOnClickListener</span><span style="color: #666666">(</span><span style="color: #008000; font-weight: bold">new</span> View<span style="color: #666666">.</span><span style="color: #7D9029">OnClickListener</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+            <span style="color: #AA22FF">@Override</span>
+            <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onClick</span><span style="color: #666666">(</span>View v<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                <span style="color: #B00040">int</span> tag <span style="color: #666666">=</span> <span style="color: #666666">(</span><span style="color: #B00040">int</span><span style="color: #666666">)</span>v<span style="color: #666666">.</span><span style="color: #7D9029">getTag</span><span style="color: #666666">();</span>
+                <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(</span>tag <span style="color: #666666">==</span> R<span style="color: #666666">.</span><span style="color: #7D9029">string</span><span style="color: #666666">.</span><span style="color: #7D9029">btn_main_products</span><span style="color: #666666">)</span>
+                    agent<span style="color: #666666">.</span><span style="color: #7D9029">getProducts</span><span style="color: #666666">(</span><span style="color: #008000; font-weight: bold">null</span><span style="color: #666666">,</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">);</span>
+                <span style="color: #008000; font-weight: bold">else</span> <span style="color: #0000FF">if</span> <span style="color: #666666">(</span>tag <span style="color: #666666">==</span> R<span style="color: #666666">.</span><span style="color: #7D9029">string</span><span style="color: #666666">.</span><span style="color: #7D9029">btn_main_orders</span><span style="color: #666666">)</span>
+                    agent<span style="color: #666666">.</span><span style="color: #7D9029">getOrderList</span><span style="color: #666666">(</span><span style="color: #008000; font-weight: bold">null</span><span style="color: #666666">);</span>
+            <span style="color: #666666">}</span>
+        <span style="color: #666666">});</span>
+        setButtonText<span style="color: #666666">(</span>mBtnPay<span style="color: #666666">,</span> R<span style="color: #666666">.</span><span style="color: #7D9029">string</span><span style="color: #666666">.</span><span style="color: #7D9029">btn_main_buy</span><span style="color: #666666">);</span>
+        mBtnPay<span style="color: #666666">.</span><span style="color: #7D9029">setOnClickListener</span><span style="color: #666666">(</span><span style="color: #008000; font-weight: bold">new</span> View<span style="color: #666666">.</span><span style="color: #7D9029">OnClickListener</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+            <span style="color: #AA22FF">@Override</span>
+            <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onClick</span><span style="color: #666666">(</span>View v<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                <span style="color: #B00040">int</span> tag <span style="color: #666666">=</span> <span style="color: #666666">(</span><span style="color: #B00040">int</span><span style="color: #666666">)</span>v<span style="color: #666666">.</span><span style="color: #7D9029">getTag</span><span style="color: #666666">();</span>
+                <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(</span>tag <span style="color: #666666">==</span> R<span style="color: #666666">.</span><span style="color: #7D9029">string</span><span style="color: #666666">.</span><span style="color: #7D9029">btn_main_buy</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                    agent<span style="color: #666666">.</span><span style="color: #7D9029">buyProduct</span><span style="color: #666666">(</span>mProductListAdapter<span style="color: #666666">.</span><span style="color: #7D9029">getHighlightProduct</span><span style="color: #666666">());</span>
+                <span style="color: #666666">}</span> <span style="color: #008000; font-weight: bold">else</span> <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(</span>tag <span style="color: #666666">==</span> R<span style="color: #666666">.</span><span style="color: #7D9029">string</span><span style="color: #666666">.</span><span style="color: #7D9029">btn_main_check</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                    agent<span style="color: #666666">.</span><span style="color: #7D9029">getProductState</span><span style="color: #666666">(</span>mProductListAdapter<span style="color: #666666">.</span><span style="color: #7D9029">getHighlightProduct</span><span style="color: #666666">());</span>
+                <span style="color: #666666">}</span> <span style="color: #008000; font-weight: bold">else</span> <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(</span>tag <span style="color: #666666">==</span> R<span style="color: #666666">.</span><span style="color: #7D9029">string</span><span style="color: #666666">.</span><span style="color: #7D9029">btn_main_info</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                    <span style="color: #666666">;</span>
+                <span style="color: #666666">}</span> <span style="color: #008000; font-weight: bold">else</span> <span style="color: #666666">{</span>
+                    <span style="color: #666666">;</span>
+                <span style="color: #666666">}</span>
+            <span style="color: #666666">}</span>
+        <span style="color: #666666">});</span>
+        mBtnExt<span style="color: #666666">.</span><span style="color: #7D9029">setOnClickListener</span><span style="color: #666666">(</span><span style="color: #008000; font-weight: bold">new</span> View<span style="color: #666666">.</span><span style="color: #7D9029">OnClickListener</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+            <span style="color: #AA22FF">@Override</span>
+            <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onClick</span><span style="color: #666666">(</span>View v<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                agent<span style="color: #666666">.</span><span style="color: #7D9029">exit</span><span style="color: #666666">();</span>
+            <span style="color: #666666">}</span>
+        <span style="color: #666666">});</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #408080; font-style: italic">/**</span>
+<span style="color: #408080; font-style: italic">     * Should override onCreate to do more jobs than SGActivity.onCreate. Note that initializeUI is</span>
+<span style="color: #408080; font-style: italic">     * called by SGActivity.onCreate.</span>
+<span style="color: #408080; font-style: italic">     */</span>
+    <span style="color: #AA22FF">@Override</span>
+    <span style="color: #008000; font-weight: bold">protected</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onCreate</span><span style="color: #666666">(</span>Bundle savedInstanceState<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #008000; font-weight: bold">super</span><span style="color: #666666">.</span><span style="color: #7D9029">onCreate</span><span style="color: #666666">(</span>savedInstanceState<span style="color: #666666">);</span>
+        <span style="color: #408080; font-style: italic">// Set order state checking intervals to null to disable auto state query after payment UI</span>
+        <span style="color: #408080; font-style: italic">// operation is completed. That is, you need to click purchase button (caption changed to</span>
+        <span style="color: #408080; font-style: italic">// &quot;Check&quot; in this case) to query the order state manually.</span>
+        agent<span style="color: #666666">.</span><span style="color: #7D9029">setOrderStateCheckingIntervals</span><span style="color: #666666">(</span><span style="color: #008000; font-weight: bold">null</span><span style="color: #666666">);</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #408080; font-style: italic">// SGUtil may print visual logs via this method.</span>
+    <span style="color: #AA22FF">@Override</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">appendLog</span><span style="color: #666666">(</span>String text<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+
+        TextView logView <span style="color: #666666">=</span> <span style="color: #666666">(</span>TextView<span style="color: #666666">)</span>findViewById<span style="color: #666666">(</span>R<span style="color: #666666">.</span><span style="color: #7D9029">id</span><span style="color: #666666">.</span><span style="color: #7D9029">main_logs</span><span style="color: #666666">);</span>
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(</span>logView <span style="color: #666666">!=</span> <span style="color: #008000; font-weight: bold">null</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(!</span>text<span style="color: #666666">.</span><span style="color: #7D9029">endsWith</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;\n&quot;</span><span style="color: #666666">))</span> <span style="color: #666666">{</span>
+                text <span style="color: #666666">+=</span> <span style="color: #BA2121">&quot;\n&quot;</span><span style="color: #666666">;</span>
+            <span style="color: #666666">}</span>
+            logView<span style="color: #666666">.</span><span style="color: #7D9029">append</span><span style="color: #666666">(</span>text<span style="color: #666666">);</span>
+            Layout layout <span style="color: #666666">=</span> logView<span style="color: #666666">.</span><span style="color: #7D9029">getLayout</span><span style="color: #666666">();</span>
+            <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(</span>layout <span style="color: #666666">!=</span> <span style="color: #008000; font-weight: bold">null</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                <span style="color: #B00040">int</span> n <span style="color: #666666">=</span> logView<span style="color: #666666">.</span><span style="color: #7D9029">getLineCount</span><span style="color: #666666">();</span>
+                <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(</span>n <span style="color: #666666">&gt;</span> <span style="color: #666666">0)</span> <span style="color: #666666">{</span>
+                    <span style="color: #B00040">int</span> bottom <span style="color: #666666">=</span> layout<span style="color: #666666">.</span><span style="color: #7D9029">getLineBottom</span><span style="color: #666666">(</span>n <span style="color: #666666">-</span> <span style="color: #666666">1);</span>
+                    <span style="color: #B00040">int</span> top <span style="color: #666666">=</span> logView<span style="color: #666666">.</span><span style="color: #7D9029">getScrollY</span><span style="color: #666666">();</span>
+                    <span style="color: #B00040">int</span> height <span style="color: #666666">=</span> logView<span style="color: #666666">.</span><span style="color: #7D9029">getHeight</span><span style="color: #666666">();</span>
+                    <span style="color: #B00040">int</span> delta <span style="color: #666666">=</span> <span style="color: #666666">(</span>bottom <span style="color: #666666">-</span> top<span style="color: #666666">)</span> <span style="color: #666666">-</span> height<span style="color: #666666">;</span>
+                    <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(</span>delta <span style="color: #666666">&gt;</span> <span style="color: #666666">0)</span>
+                        logView<span style="color: #666666">.</span><span style="color: #7D9029">scrollBy</span><span style="color: #666666">(0,</span> delta<span style="color: #666666">);</span>
+                <span style="color: #666666">}</span>
+            <span style="color: #666666">}</span>
+        <span style="color: #666666">}</span>
+
+        Log<span style="color: #666666">.</span><span style="color: #7D9029">d</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;SGUtil&quot;</span><span style="color: #666666">,</span> text<span style="color: #666666">);</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #408080; font-style: italic">// SGUtil may print visual logs via this method.</span>
+    <span style="color: #AA22FF">@Override</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">appendLog</span><span style="color: #666666">(</span>String text<span style="color: #666666">,</span> String postfix<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        appendLog<span style="color: #666666">(</span>text <span style="color: #666666">+</span> <span style="color: #666666">(</span>postfix <span style="color: #666666">!=</span> <span style="color: #008000; font-weight: bold">null</span> <span style="color: #666666">?</span> postfix <span style="color: #666666">:</span> <span style="color: #BA2121">&quot;&quot;</span><span style="color: #666666">));</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #AA22FF">@Override</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">boolean</span> <span style="color: #0000FF">onProductBegin</span><span style="color: #666666">(</span><span style="color: #B00040">int</span> num<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #408080; font-style: italic">// clear product list view</span>
+        mProductListAdapter<span style="color: #666666">.</span><span style="color: #7D9029">clear</span><span style="color: #666666">();</span>
+        <span style="color: #408080; font-style: italic">// return true to let SGUtil notify us product information right now</span>
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">;</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #AA22FF">@Override</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onProductFound</span><span style="color: #666666">(</span>UProduct product<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #408080; font-style: italic">// add new product</span>
+        mProductListAdapter<span style="color: #666666">.</span><span style="color: #7D9029">addProduct</span><span style="color: #666666">(</span>product<span style="color: #666666">);</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #AA22FF">@Override</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onProductEnd</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+        <span style="color: #408080; font-style: italic">// all products notified, redraw product list view</span>
+        mProductListAdapter<span style="color: #666666">.</span><span style="color: #7D9029">notifyDataSetChanged</span><span style="color: #666666">();</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #AA22FF">@Override</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">boolean</span> <span style="color: #0000FF">onOrderInfoBegin</span><span style="color: #666666">(</span><span style="color: #B00040">int</span> num<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">;</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #AA22FF">@Override</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onOrderInfoFound</span><span style="color: #666666">(</span>UOrderInfo orderInfo<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #AA22FF">@Override</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onOrderInfoEnd</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #AA22FF">@Override</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onProductStateChange</span><span style="color: #666666">(</span>UProduct product<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #408080; font-style: italic">// update product view when its state changes</span>
+        mProductListAdapter<span style="color: #666666">.</span><span style="color: #7D9029">notifyDataSetChanged</span><span style="color: #666666">();</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #AA22FF">@Override</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onStateChange</span><span style="color: #666666">(</span><span style="color: #B00040">int</span> type<span style="color: #666666">,</span> <span style="color: #B00040">int</span> orgState<span style="color: #666666">,</span> <span style="color: #B00040">int</span> newState<span style="color: #666666">,</span> <span style="color: #B00040">int</span> reason<span style="color: #666666">,</span> <span style="color: #B00040">int</span> op<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #408080; font-style: italic">// A state changed. Update buttons</span>
+        updateButtons<span style="color: #666666">();</span>
+        <span style="color: #408080; font-style: italic">// You may use passed parameters to judge what to do at present.</span>
+        appendLog<span style="color: #666666">(</span><span style="color: #BA2121">&quot;State change: &quot;</span> <span style="color: #666666">+</span> agent<span style="color: #666666">.</span><span style="color: #7D9029">getStateName</span><span style="color: #666666">(</span>type<span style="color: #666666">,</span> orgState<span style="color: #666666">)</span> <span style="color: #666666">+</span> <span style="color: #BA2121">&quot; -&gt; &quot;</span> <span style="color: #666666">+</span> agent<span style="color: #666666">.</span><span style="color: #7D9029">getStateName</span><span style="color: #666666">(</span>type<span style="color: #666666">,</span> newState<span style="color: #666666">)</span> <span style="color: #666666">+</span> <span style="color: #BA2121">&quot; # &quot;</span> <span style="color: #666666">+</span> agent<span style="color: #666666">.</span><span style="color: #7D9029">getStateChangeReasonName</span><span style="color: #666666">(</span>reason<span style="color: #666666">)</span> <span style="color: #666666">+</span> <span style="color: #BA2121">&quot;\n&quot;</span><span style="color: #666666">);</span>
+    <span style="color: #666666">}</span>
+
+<span style="color: #666666">}</span>
+</pre></div>
