@@ -14,6 +14,7 @@
   "ClientWebAPIUser": "用戶系統",
   "ClientWebAPIPay": "支付系統",
   "ClientWebAPIAnalysis": "統計系統",
+  "ClientWebAPIAux": "輔助系統",
   "Integrat": "串接指南",
   "Page-Channel": "================================",
   "Channel": "渠道列表",

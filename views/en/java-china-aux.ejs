@@ -1,0 +1,29 @@
+﻿<div class="left-side" id="myScrollspy">
+    <ul class="nav nav-pills">
+        <li><a href="#MemberSystem">Auxiliary System</a></li>
+    </ul>
+</div>
+<div class="right-side">
+    <section id="MemberSystem">
+        <h1>Auxiliary System</h1>
+        
+        <p>The auxiliary system of SGAgent provides following methods.</p>
+
+Get current implementation of game server
+<pre>SGGameServerInterface getGameServer()
+</pre>
+
+Get name of specified state-change reason
+<pre>java.lang.String getStateChangeReasonName(int reason)
+</pre>
+
+Get name of specified state-change
+<pre>java.lang.String getStateName(int type, int state)
+</pre>
+
+Specify implementation of game server
+<pre>void setGameServer(SGGameServerInterface gs)
+</pre>
+
+<p>Please refer to <a href=<%= "assets/html/" + lang + "/android/jdoc/com/sg/util/SGAgent.html"%>> SGAgent Document</a> for details.</p>
+</div>

@@ -15,6 +15,7 @@
   "ClientWebAPIUser": "User System",
   "ClientWebAPIPay": "Payment System",
   "ClientWebAPIAnalysis": "Statistical System",
+  "ClientWebAPIAux": "Auxiliary System",
   "Integrat": "Integration Guide",
   "Page-Channel": "================================",
   "Channel": "Channel List",

@@ -1,0 +1,49 @@
+﻿<div class="left-side" id="myScrollspy">
+    <ul class="nav nav-pills">
+        <li><a href="#MemberSystem">Payment System</a></li>
+    </ul>
+</div>
+<div class="right-side">
+    <section id="MemberSystem">
+        <h1>Payment System</h1>
+        
+        <p>The payment system of SGAgent provides following APIs.</p>
+
+Start product purchase process
+<pre>boolean buyProduct(UProduct product)
+</pre>
+
+Get job state of information retrieval
+<pre>int getJobState()
+</pre>
+
+Start process of order infomation list retrieval
+<pre>boolean getOrderList(java.lang.String filter)
+</pre>
+
+Get state of product purchase
+<pre>int getPayState()
+</pre>
+
+Get job state of product list retrieval
+<pre>boolean getProducts(java.lang.String filter, boolean sorting)
+</pre>
+
+Get state of payment
+<pre>boolean getProductState(UProduct product)
+</pre>
+
+Set time intervals to wait before send order state query
+<pre>void setOrderStateCheckingIntervals(int[] intervals)
+</pre>
+
+Ask SGAgent to send next order information via onOrderInfoFound
+<pre>void wantOrderInfo()
+</pre>
+
+Ask SGAgent to send next product information via onProductFound
+<pre>void wantProduct()
+</pre>
+
+<p>Please refer to <a href=<%= "assets/html/" + lang + "/android/jdoc/com/sg/util/SGAgent.html"%>> SGAgent Document</a> for details.</p>
+</div>
