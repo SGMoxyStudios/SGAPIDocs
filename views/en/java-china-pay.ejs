@@ -13,24 +13,28 @@ Start product purchase process
 <pre>boolean buyProduct(UProduct product)
 </pre>
 
-Get job state of information retrieval
+Get job state of information retrieval state machine
 <pre>int getJobState()
 </pre>
 
 Start process of order infomation list retrieval
-<pre>boolean getOrderList(java.lang.String filter)
+<pre>boolean getOrderInfoList(String filter)
 </pre>
 
-Get state of product purchase
+Start process of getting order state
+<pre>boolean getOrderState(String orderID)
+</pre>
+
+Get state of product purchase state machine
 <pre>int getPayState()
 </pre>
 
-Get job state of product list retrieval
-<pre>boolean getProducts(java.lang.String filter, boolean sorting)
+Look up product by orderID
+<pre>UProduct getProductByOrderID(String orderID)
 </pre>
 
-Get state of payment
-<pre>boolean getProductState(UProduct product)
+Get job state of product list retrieval
+<pre>boolean getProducts(String filter, boolean sorting)
 </pre>
 
 Set time intervals to wait before send order state query

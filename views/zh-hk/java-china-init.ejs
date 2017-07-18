@@ -239,16 +239,16 @@ public class MainActivity extends AppCompatActivity implements SGAgent.SGClient 
 
 <pre>
     public interface SGClient {
-        void appendLog(String var1);
-        void appendLog(String var1, String var2);
-        boolean onProductBegin(int var1);
-        void onProductFound(UProduct var1);
+        void appendLog(String text);
+        void appendLog(String text, String postfix);
+        boolean onProductBegin(int num);
+        void onProductFound(UProduct product);
         void onProductEnd();
-        void onProductStateChange(UProduct var1);
-        boolean onOrderInfoBegin(int var1);
-        void onOrderInfoFound(UOrderInfo var1);
+        void onOrderStateChange(String productID, String orderID, String state);
+        boolean onOrderInfoBegin(int num);
+        void onOrderInfoFound(UOrder order);
         void onOrderInfoEnd();
-        void onStateChange(int var1, int var2, int var3, int var4);
+        void onStateChange(int type, int orgState, int newState, int reason, int op);
     }
 </pre>
 

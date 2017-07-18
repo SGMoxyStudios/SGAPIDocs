@@ -13,24 +13,28 @@
 <pre>boolean buyProduct(UProduct product)
 </pre>
 
-获取信息获取工作状态
+获取信息获取状态机状态
 <pre>int getJobState()
 </pre>
 
 启动获取订单信息列表过程
-<pre>boolean getOrderList(java.lang.String filter)
+<pre>boolean getOrderInfoList(String filter)
 </pre>
 
-获取产品购买状态
+启动获取支付结果的过程
+<pre>boolean getOrderState(String orderID)
+</pre>
+
+获取产品购买状态机的状态
 <pre>int getPayState()
 </pre>
 
-启动获取产品列表过程
-<pre>boolean getProducts(java.lang.String filter, boolean sorting)
+根据订单号查找所购买的产品
+<pre>UProduct getProductByOrderID(String orderID)
 </pre>
 
-获取产品购买的支付结果
-<pre>boolean getProductState(UProduct product)
+启动获取产品列表过程
+<pre>boolean getProducts(String filter, boolean sorting)
 </pre>
 
 指定订单支付提交成功后自动查询订单支付结果所需要等待的时间。
