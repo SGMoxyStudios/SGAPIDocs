@@ -1,0 +1,74 @@
+﻿<div class="left-side" id="myScrollspy">
+
+    <ul class="nav nav-pills">
+        <li><a href="#summary">辅助系统</a></li>
+        <li><a href="#init">初始化</a></li>
+    </ul>
+
+</div>
+
+<div class="right-side">
+
+    <section id="summary">
+        <h1>辅助系统</h1>
+        <p>SGUtil For Unity 的辅助系统提供了下列方法供应用使用。</p>
+    </section>
+
+    <section id="init">
+        <h1>初始化</h1>
+        <div class="row">
+            <div class="col-sm-9">
+                <span class="badge badge-ttl">方法</span>
+                <p><pre>void Init(string gameServerClassName, bool autoDeliverProduct)</pre></p>
+
+        		<span class="badge badge-ttl">参数</span>
+        		<ul>
+		            <li>gameServerClassName - 游服接口对象，需要CP根据自己的业务来实现。关于游服接口的细节请参看
+					<a href=<%= "assets/html/" + lang + "/android/jdoc/com/sg/util/SGGameServerInterface.html"%>> SGGameServerInterface </a>。</li>
+                    <li>autoDeliverProduct - 指定在用户购买某商品（道具）并且购买的 UI 操作成功后，是否自动查询订单的状态，并在支付成功的情况下把商品（道具）标记为
+		已发货。如果这个参数为 false，那么您需要在购买 UI 操作成功后通过用户的后续操作或其他手段在合适的时机发起查询。</li>
+				</ul>
+
+                <span class="badge badge-ttl">说明</span>
+                <ul>
+                    <li>初始化 SGUtil For Unity。</li>
+                    <li>初始化结果通过回调 OnInit 来通知给调用者。</li>
+                </ul>
+
+            </div>
+            <div class="col-sm-3">
+                <!--<span class="badge badge-ttl">WebView 頁面</span>
+                <a href="<%= " assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
+                <img src="<%= " assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
+                </a>-->
+            </div>
+        </div>
+    </section>
+
+    <section id="InitCallback">
+        <h1>初始化结果回调</h1>
+        <div class="row">
+            <div class="col-sm-9">
+                <span class="badge badge-ttl">方法</span>
+                <p><pre>void OnInit(SGUStateChangeReason reason)</pre></p>
+
+                <span class="badge badge-ttl">参数</span>
+                <ul>
+                    <li>reason - STATE_CHANGE_REASON_OP_SUCCESS（操作成功）、STATE_CHANGE_REASON_OP_FAILURE（操作失败）之一</li>
+                </ul>
+
+                <span class="badge badge-ttl">说明</span>
+                <ul>
+                    <li>如果初始化失败，则后续一切操作都不能进行，也不能再次尝试初始化。</li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <!--<span class="badge badge-ttl">WebView 頁面</span>
+                <a href="<%= " assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
+                <img src="<%= " assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
+                </a>-->
+            </div>
+        </div>
+    </section>
+
+</div>

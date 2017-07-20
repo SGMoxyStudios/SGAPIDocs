@@ -1,0 +1,112 @@
+<!-- HTML generated using hilite.me --><div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008000; font-weight: bold">using</span> <span style="color: #0000FF; font-weight: bold">UnityEngine</span>;
+<span style="color: #008000; font-weight: bold">using</span> <span style="color: #0000FF; font-weight: bold">System.Collections</span>;
+<span style="color: #008000; font-weight: bold">using</span> <span style="color: #0000FF; font-weight: bold">System.Collections.Generic</span>;
+<span style="color: #008000; font-weight: bold">using</span> <span style="color: #0000FF; font-weight: bold">UnityEngine.UI</span>;
+
+<span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">SGUCallbackEntityObject</span> : MonoBehaviour, SGUCallbackEntity {
+
+    <span style="color: #008000; font-weight: bold">void</span> <span style="color: #0000FF">Start</span> () {
+        SGU.initialize(<span style="color: #008000; font-weight: bold">this</span>);   <span style="color: #408080; font-style: italic">// SGU class initialization</span>
+        <span style="color: #408080; font-style: italic">// call Init interface</span>
+        SGU.Init(<span style="color: #BA2121">&quot;com.sg.util.SGUtilUnityGameServer&quot;</span>, <span style="color: #008000; font-weight: bold">false</span>);
+    }
+
+    <span style="color: #008000; font-weight: bold">void</span> <span style="color: #0000FF">Update</span>()
+    {
+    }
+
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">void</span> <span style="color: #0000FF">OnInit</span>(SGUStateChangeReason reason)
+    {
+        <span style="color: #008000; font-weight: bold">if</span> (reason == SGUStateChangeReason.STATE_CHANGE_REASON_OP_SUCCESS)
+        {
+            <span style="color: #408080; font-style: italic">// initialization succeeded, show a button &#39;login&#39; to login</span>
+        }
+        <span style="color: #008000; font-weight: bold">else</span>
+        {
+            <span style="color: #408080; font-style: italic">// initialization failed, should terminate program</span>
+        }
+    }
+
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">void</span> <span style="color: #0000FF">OnLogin</span>(SGUOp action, SGUStateChangeReason reason)
+    {
+        <span style="color: #008000; font-weight: bold">if</span> (action == SGUOp.OP_LOGIN)
+        {
+            <span style="color: #008000; font-weight: bold">if</span> (reason == SGUStateChangeReason.STATE_CHANGE_REASON_OP_SUCCESS)
+            {
+                <span style="color: #408080; font-style: italic">// channel login succeeded, wait</span>
+            }
+            <span style="color: #008000; font-weight: bold">else</span> <span style="color: #0000FF">if</span> (reason == SGUStateChangeReason.STATE_CHANGE_REASON_OP_FAILURE)
+            {
+                <span style="color: #408080; font-style: italic">// channel login failed, should not continue</span>
+            }
+        }
+        <span style="color: #008000; font-weight: bold">else</span> <span style="color: #0000FF">if</span> (action == SGUOp.OP_AUTH)
+        {
+            <span style="color: #008000; font-weight: bold">if</span> (reason == SGUStateChangeReason.STATE_CHANGE_REASON_OP_SUCCESS)
+            {
+                <span style="color: #408080; font-style: italic">// channel login confirmation succeeded, wait</span>
+            }
+            <span style="color: #008000; font-weight: bold">else</span> <span style="color: #0000FF">if</span> (reason == SGUStateChangeReason.STATE_CHANGE_REASON_OP_FAILURE)
+            {
+                <span style="color: #408080; font-style: italic">// channel login confirmation failed, should not continue</span>
+            }
+        }
+        <span style="color: #008000; font-weight: bold">else</span> <span style="color: #0000FF">if</span> (action == SGUOp.OP_LOGINGAME)
+        {
+            <span style="color: #008000; font-weight: bold">if</span> (reason == SGUStateChangeReason.STATE_CHANGE_REASON_OP_SUCCESS)
+            {
+                <span style="color: #408080; font-style: italic">// game server login succeeded, show game screen</span>
+            }
+            <span style="color: #008000; font-weight: bold">else</span> <span style="color: #0000FF">if</span> (reason == SGUStateChangeReason.STATE_CHANGE_REASON_OP_FAILURE)
+            {
+                <span style="color: #408080; font-style: italic">// game server login failed, should not continue</span>
+            }
+        }
+    }
+
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">void</span> <span style="color: #0000FF">OnPay</span>(SGUStateChangeReason reason)
+    {
+        <span style="color: #008000; font-weight: bold">if</span> (reason == SGUStateChangeReason.STATE_CHANGE_REASON_OP_SUCCESS)
+        {
+            <span style="color: #408080; font-style: italic">// payment operation (UI only) succeeded, should call SGU.GetOrderState and wait for state change notification</span>
+        }
+        <span style="color: #008000; font-weight: bold">else</span> <span style="color: #0000FF">if</span> (reason == SGUStateChangeReason.STATE_CHANGE_REASON_OP_FAILURE)
+        {
+            <span style="color: #408080; font-style: italic">// payment operation (UI only) failed</span>
+        }
+        <span style="color: #008000; font-weight: bold">else</span> <span style="color: #0000FF">if</span> (reason == SGUStateChangeReason.STATE_CHANGE_REASON_OP_CANCELED)
+        {
+            <span style="color: #408080; font-style: italic">// payment operation (UI only) cancelled</span>
+        }
+    }
+
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">void</span> <span style="color: #0000FF">OnOrderState</span>(SGUOrderState order_state)
+    {
+        <span style="color: #408080; font-style: italic">// order state change notification, should check order_state to judge whether unlock product</span>
+    }
+
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">void</span> <span style="color: #0000FF">OnLogout</span>(SGUStateChangeReason reason)
+    {
+        <span style="color: #008000; font-weight: bold">if</span> (reason == SGUStateChangeReason.STATE_CHANGE_REASON_OP_SUCCESS)
+        {
+            <span style="color: #408080; font-style: italic">// logout succeeded</span>
+        }
+        <span style="color: #008000; font-weight: bold">else</span>
+        {
+            <span style="color: #408080; font-style: italic">// logout failed</span>
+        }
+    }
+
+
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">void</span> <span style="color: #0000FF">OnProductFound</span>(SGUProduct product)
+    {
+        <span style="color: #408080; font-style: italic">// found a product</span>
+    }
+
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">void</span> <span style="color: #0000FF">OnDebugInfo</span>(<span style="color: #B00040">string</span> info)
+    {
+        <span style="color: #408080; font-style: italic">// show debug info &#39;info&#39; somewhere</span>
+    }
+
+}
+</pre></div>

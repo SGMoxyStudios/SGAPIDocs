@@ -1,0 +1,147 @@
+﻿<div class="left-side" id="myScrollspy">
+
+    <ul class="nav nav-pills">
+        <li><a href="#summary">支付系统</a></li>
+        <li><a href="#getproducts">获取产品列表</a></li>
+        <li><a href="#buy">购买产品</a></li>
+        <li><a href="#getorderstate">查询订单</a></li>
+    </ul>
+
+</div>
+
+<div class="right-side">
+
+    <section id="summary">
+        <h1>支付系统</h1>
+        <p>SGUtil For Unity 的支付系统提供了下列方法供应用使用。支付功能和手段取决于渠道商。</p>
+    </section>
+
+    <section id="getproducts">
+        <h1>获取产品列表</h1>
+
+        <span class="badge badge-ttl">方法</span>
+        <p>
+            <pre>void GetProductList(string filter)</pre>
+        </p>
+
+        <span class="badge badge-ttl">参数</span>
+        <ul>
+            <li>filter - 传给游服接口方法 getProductList 的参数，用来告知服获对列表进行过滤或其他控制。</li>
+        </ul>
+
+        <span class="badge badge-ttl">说明</span>
+        <ul>
+            <li>从游服获取应用的产品（道具）列表。</li>
+            <li>产品（道具）列表通过回调 OnProduct 来通知给调用者。</li>
+        </ul>
+
+    </section>
+
+    <section id="getproductscallback">
+        <h1>获取产品列表回调</h1>
+
+        <span class="badge badge-ttl">方法</span>
+        <p>
+            <pre>void OnProductFound(SGUProduct product)</pre>
+        </p>
+
+        <span class="badge badge-ttl">参数</span>
+        <ul>
+            <li>product - 产品信息。参看<a href=<%= "assets/html/" + lang + "/android/jdoc/com/sg/util/UProduct.html"%>> UProduct</a>。</li>
+        </ul>
+
+        <span class="badge badge-ttl">说明</span>
+        <ul>
+            <li>如果 product 为 null 表明已没有产品。</li>
+        </ul>
+
+    </section>
+
+    <section id="buy">
+        <h1>购买产品</h1>
+
+        <span class="badge badge-ttl">方法</span>
+        <p>
+            <pre>void Buy(string product_id)</pre>
+        </p>
+
+        <span class="badge badge-ttl">参数</span>
+        <ul>
+            <li>product_id - 产品 ID</li>
+        </ul>
+
+        <span class="badge badge-ttl">说明</span>
+        <ul>
+            <li>发起购买产品流程。</li>
+			<li>订单的生成和状态变化会通过 OnOrderState 来通知给调用者，调用者应该保存通知的订单号。</li>
+            <li>购买的 UI 操作结果会通过回调 OnPay 来通知给调用者。</li>
+			<li>在 OnPay 到来之前会有 OnOrderState 来通知订单状态变化。</li>
+        </ul>
+
+    </section>
+
+    <section id="buycallback">
+        <h1>购买 UI 操作结果回调</h1>
+
+        <span class="badge badge-ttl">方法</span>
+        <p>
+            <pre>void OnPay(SGUStateChangeReason reason)</pre>
+        </p>
+
+        <span class="badge badge-ttl">参数</span>
+        <ul>
+            <li>reason - STATE_CHANGE_REASON_OP_SUCCESS（操作成功）、STATE_CHANGE_REASON_OP_FAILURE（操作失败）、STATE_CHANGE_REASON_OP_CANCELED（操作取消）之一</li>
+        </ul>
+
+        <span class="badge badge-ttl">说明</span>
+        <ul>
+            <li>如果 reason 为 STATE_CHANGE_REASON_OP_SUCCESS，表明用户已经确认支付所需金额，并且渠道已经受理此订单。之后调用者可以调用 GetOrderState 来确认支付是否最终成功。</li>
+        </ul>
+
+    </section>
+
+    <section id="getorderstate">
+        <h1>查询订单</h1>
+
+        <span class="badge badge-ttl">方法</span>
+        <p>
+            <pre>void GetOrderState(string order_id)</pre>
+        </p>
+
+        <span class="badge badge-ttl">参数</span>
+        <ul>
+            <li>order_id - 订单号</li>
+        </ul>
+
+        <span class="badge badge-ttl">说明</span>
+        <ul>
+            <li>获取订单的状态，用于在用户的购买 UI 操作成功后查询后台的支付是否成功。</li>
+			<li>注意：UI 操作成功不代表付款到账。</li>
+			<li>查询结果通过 OnOrderState 回调通知给调用者。</li>
+        </ul>
+
+    </section>
+
+    <section id="ordercallback">
+        <h1>订单状态通知回调</h1>
+
+        <span class="badge badge-ttl">方法</span>
+        <p>
+            <pre>void OnOrderState(SGUOrderState order_state)</pre>
+        </p>
+
+        <span class="badge badge-ttl">参数</span>
+        <ul>
+            <li>order_state - 订单状态</li>
+        </ul>
+
+        <span class="badge badge-ttl">说明</span>
+        <ul>
+            <li>此回调在 Buy 和 GetOrderState 被调用后引发。</li>
+			<li>SGUOrderState 的成员 OrderID 在 成员 State 为 "ordering" 时为 null，在 State 为 "ordered" 时才有意义。此时调用者应保存此订单号，以备将来查询和管理。
+			<li>有关 SGUOrderState 的成员 State，请参看 <a href=<%= "assets/html/" + lang + "/android/jdoc/com/sg/util/SGAgent.SGClient.html#onOrderStateChange-java.lang.String-java.lang.String-java.lang.String-"%>> SGAgent.SGClient.onOrderStateChange</a>。
+        </ul>
+
+    </section>
+
+</div>
