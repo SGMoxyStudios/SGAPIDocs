@@ -95,7 +95,9 @@ app.get('/unity-pay', function(req, res){res.render(req.i18n_lang+'/unity-pay')}
 app.get('/unity-analytics', function(req, res){res.render(req.i18n_lang+'/unity-analytics')});
 //unity china
 app.get('/unity-china-init', function(req, res){res.render(req.i18n_lang+'/unity-china-init')});
-app.get('/unity-china-doc', function(req, res){res.render(req.i18n_lang+'/unity-china-doc')});
+app.get('/unity-china-user', function(req, res){res.render(req.i18n_lang+'/unity-china-user')});
+app.get('/unity-china-pay', function(req, res){res.render(req.i18n_lang+'/unity-china-pay')});
+app.get('/unity-china-aux', function(req, res){res.render(req.i18n_lang+'/unity-china-aux')});
 
 app.listen(port);
 console.log('Express server listening on port ' + port);
