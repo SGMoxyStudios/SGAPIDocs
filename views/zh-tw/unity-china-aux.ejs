@@ -1,7 +1,7 @@
-﻿<div class="left-side" id="myScrollspy">
+<div class="left-side" id="myScrollspy">
 
     <ul class="nav nav-pills">
-        <li><a href="#summary">辅助系统</a></li>
+        <li><a href="#summary">輔助系統</a></li>
         <li><a href="#init">初始化</a></li>
     </ul>
 
@@ -10,8 +10,8 @@
 <div class="right-side">
 
     <section id="summary">
-        <h1>辅助系统</h1>
-        <p>SGUtil For Unity 的辅助系统提供了下列方法供应用使用。</p>
+        <h1>輔助系統</h1>
+        <p>SGUtil For Unity 的輔助系統提供了下列方法供應用使用。</p>
     </section>
 
     <section id="init">
@@ -21,18 +21,18 @@
                 <span class="badge badge-ttl">方法</span>
                 <p><pre>void Init(string gameServerClassName, bool autoDeliverProduct)</pre></p>
 
-        		<span class="badge badge-ttl">参数</span>
+        		<span class="badge badge-ttl">參數</span>
         		<ul>
-		            <li>gameServerClassName - 游服接口对象，需要CP根据自己的业务来实现。关于游服接口的细节请参看
+		            <li>gameServerClassName - 遊服介面對象，需要CP根據自己的業務來實現。關於遊服介面的細節請參看
 					<a href=<%= "assets/html/" + lang + "/android/jdoc/com/sg/util/SGGameServerInterface.html"%>> SGGameServerInterface </a>。</li>
-                    <li>autoDeliverProduct - 指定在用户购买某商品（道具）并且购买的 UI 操作成功后，是否自动查询订单的状态，并在支付成功的情况下把商品（道具）标记为
-		已发货。如果这个参数为 false，那么您需要在购买 UI 操作成功后通过用户的后续操作或其他手段在合适的时机发起查询。</li>
+                    <li>autoDeliverProduct - 指定在用戶購買某商品（道具）並且購買的 UI 操作成功後，是否自動查詢訂單的狀態，並在支付成功的情況下把商品（道具）標記爲
+		已發貨。如果這個參數爲 false，那麼您需要在購買 UI 操作成功後通過用戶的後續操作或其他手段在合適的時機發起查詢。</li>
 				</ul>
 
-                <span class="badge badge-ttl">说明</span>
+                <span class="badge badge-ttl">說明</span>
                 <ul>
                     <li>初始化 SGUtil For Unity。</li>
-                    <li>初始化结果通过回调 OnInit 来通知给调用者。</li>
+                    <li>初始化結果通過回調 OnInit 來通知給調用者。</li>
                 </ul>
 
             </div>
@@ -46,20 +46,20 @@
     </section>
 
     <section id="InitCallback">
-        <h1>初始化结果回调</h1>
+        <h1>初始化結果回調</h1>
         <div class="row">
             <div class="col-sm-9">
                 <span class="badge badge-ttl">方法</span>
                 <p><pre>void OnInit(SGUStateChangeReason reason)</pre></p>
 
-                <span class="badge badge-ttl">参数</span>
+                <span class="badge badge-ttl">參數</span>
                 <ul>
-                    <li>reason - STATE_CHANGE_REASON_OP_SUCCESS（操作成功）、STATE_CHANGE_REASON_OP_FAILURE（操作失败）之一</li>
+                    <li>reason - STATE_CHANGE_REASON_OP_SUCCESS（操作成功）、STATE_CHANGE_REASON_OP_FAILURE（操作失敗）之一</li>
                 </ul>
 
-                <span class="badge badge-ttl">说明</span>
+                <span class="badge badge-ttl">說明</span>
                 <ul>
-                    <li>如果初始化失败，则后续一切操作都不能进行，也不能再次尝试初始化。</li>
+                    <li>如果初始化失敗，則後續一切操作都不能進行，也不能再次嘗試初始化。</li>
                 </ul>
             </div>
             <div class="col-sm-3">

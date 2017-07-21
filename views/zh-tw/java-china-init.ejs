@@ -6,11 +6,12 @@ pre > span { color:red; font-weight: bold }
 
     <ul class="nav nav-pills">
         <li><a href="#summary">Android集成指南</a></li>
-        <li><a href="#environment">开发环境设定</a></li>
+        <li><a href="#environment">開發環境設定</a></li>
         <li><a href="#import">引用SGUtil</a></li>
         <li><a href="#init">SGUtil初始化</a></li>
-        <li><a href="#lifecycle">SGUtil生命周期事件</a></li>
-        <li><a href="#listener">SGUtil回调监听</a></li>
+        <li><a href="#lifecycle">SGUtil生命週期事件</a></li>
+        <li><a href="#listener">SGUtil回調監聽</a></li>
+        <li><a href="#repackage">重新打包</a></li>
     </ul>
 
 </div>
@@ -20,38 +21,38 @@ pre > span { color:red; font-weight: bold }
     <section id="summary">
         <h1>Android 集成指南</h1>
         <p>
-            在中国大陆有很多应用（游戏）渠道，如 UC、小米、华为等，各家渠道都有自己的规范，而且他们
-            的规范也在不断地变化。因此将自己的应用接入多家渠道是一个非常艰巨的工作。针对这个问题，
-            SG Studios 提供了一个统一的解决方案，将各家渠道的客户端和服务器端两个方面的接口都加以抽
-            象。开发者不再需要了解各家规范的不同细节了。
-            对客户端来说，开发者只要接入 SGUtil 软件包，并提供应用的 APK 文件，就可由 SG Studios 来针对
-            某一渠道进行二次打包，大大减轻了开发者的接入工作量。
-            对服务器端来说，开发者只要实现一个简单的游戏服务器（如果您不需要高级的功能，也可以用
-            SG Studios 提供的服务器）就可以了。
+            在中國大陸有很多應用（遊戲）渠道，如 UC、小米、華爲等，各家渠道都有自己的規範，而且他們
+            的規範也在不斷地變化。因此將自己的應用接入多家渠道是一個非常艱鉅的工作。針對這個問題，
+            SG Studios 提供了一個統一的解決方案，將各家渠道的客戶端和服務器端兩個方面的介面都加以抽
+            象。開發者不再需要瞭解各家規範的不同細節了。
+            對客戶端來說，開發者只要接入 SGUtil 軟件包，並提供應用的 APK 檔案，就可由 SG Studios 來針對
+            某一渠道進行二次打包，大大減輕了開發者的接入工作量。
+            對服務器端來說，開發者只要實現一個簡單的遊戲服務器（如果您不需要高級的功能，也可以用
+            SG Studios 提供的服務器）就可以了。
         </p>
         <p>
-            为了达到这个目的，开发者必须在具体的渠道和 SG Studios 都注册自己的应用，并将渠道为您生成
-            的各种信息共享给 SG Studios。
+            爲了達到這個目的，開發者必須在具體的渠道和 SG Studios 都註冊自己的應用，並將渠道爲您生成
+            的各種信息共享給 SG Studios。
         </p>
         <p>
-            本文介绍接入 SGUtil 的接入流程。详细资料请看<a href=<%= "assets/html/" + lang + "/android/jdoc/index.html"%>> SGUtil 文档。</a>
+            本文介紹接入 SGUtil 的接入流程。詳細資料請看<a href=<%= "assets/html/" + lang + "/android/jdoc/index.html"%>> SGUtil 文檔。</a>
         </p>
     </section>
 
     <section id="environment">
-        <h1>开发环境设定</h1>
+        <h1>開發環境設定</h1>
         <h3>1. SGUtil 支持的 Android 版本 : </h3>
-        <p>SGUtil 支持的 Android 最低版本为 4.4 (KitKat, API Level 19)。建议使用 Android Studio 开发。</p>
+        <p>SGUtil 支持的 Android 最低版本爲 4.4 (KitKat, API Level 19)。建議使用 Android Studio 開發。</p>
         <img src=<%= "assets/img/" + lang + "/android/hl_android_kitkat.png"%> class="img-responsive"/>
         <br />
 
-        <h3>2. 下载 SGUtil 软件库</h3>
+        <h3>2. 下載 SGUtil 軟件庫</h3>
         <ul>
-            <li><a href="/sdk/android/sgutil.aar">SGUtil Library (sgutil.aar) 下载</a></li>
+            <li><a href="/sdk/android/sgutil.aar">SGUtil Library (sgutil.aar) 下載</a></li>
         </ul>
         <br />
         
-        <h3>3. 示例程序</h3>
+        <h3>3. 示例程式</h3>
         <%- include ../code/java-china-sgutil-sample-app.html -%>
 
     </section>
@@ -60,14 +61,14 @@ pre > span { color:red; font-weight: bold }
 
         <h1>引用 SGUtil</h1>
         
-		<h3>1. 启动 Android Studios ，新建一个项目</h3>
+		<h3>1. 啓動 Android Studios ，新建一個項目</h3>
 
-		<p>示例中使用的名字为 "HappyLearning" ，目录名为 "hl" ，组织名为 "cp.com "。</p>
+		<p>示例中使用的名字爲 "HappyLearning" ，目錄名爲 "hl" ，組織名爲 "cp.com "。</p>
 		
         <img src=<%= "assets/img/" + lang + "/android/hl_new_project.png"%> class="img-responsive"/>
         <br/>
 
-		<h3>2. 选择目标设备</h3>
+		<h3>2. 選擇目標設備</h3>
         <img src=<%= "assets/img/" + lang + "/android/hl_target_dev.png"%> class="img-responsive"/>
         <br/>
 
@@ -75,24 +76,24 @@ pre > span { color:red; font-weight: bold }
         <img src=<%= "assets/img/" + lang + "/android/hl_add_activity.png"%> class="img-responsive"/>
         <br/>
 
-		<h3>4. 定制 MainActivity</h3>
+		<h3>4. 定製 MainActivity</h3>
 
-		<p>请根据需要选择合适的特性。</p>
+		<p>請根據需要選擇合適的特性。</p>
 
         <img src=<%= "assets/img/" + lang + "/android/hl_customize_activity.png"%> class="img-responsive"/>
         <br/>
         
-        <p>这一步结束后 Android Studios 就会显示项目界面。你会看到两个 build.gradle 文件，一个是项目 hl 的，一个是模块 app 的。</p>
+        <p>這一步結束後 Android Studios 就會顯示項目界面。你會看到兩個 build.gradle 檔案，一個是項目 hl 的，一個是模塊 app 的。</p>
 
 		<h3>5. 引入 sgutil.aar</h3>
 		
-		<p>首先将下载的 sgutil.aar 文件放到模块 app 的 libs 目录下。</p>
+		<p>首先將下載的 sgutil.aar 檔案放到模塊 app 的 libs 目錄下。</p>
 		
 		<pre style="font-size: 1.6rem; line-height: 2.5rem;">
 cp sgutil.aar ~/hl/app/libs
 </pre>
 		
-        <p>接下来修改模块 app 的 build.gradle 文件。如下所示，添加对 sgutil.aar 的依赖，并指定 libs 目录为本地仓库，以便 gradle 能找到 sgutil.aar。</p>
+        <p>接下來修改模塊 app 的 build.gradle 檔案。如下所示，添加對 sgutil.aar 的依賴，並指定 libs 目錄爲本地倉庫，以便 gradle 能找到 sgutil.aar。</p>
 
 		<pre style="font-size: 1.6rem; line-height: 2.5rem;">
 dependencies {
@@ -107,7 +108,7 @@ repositories {
 <br/>
 		<h3>6. 修改 AndroidManifest.xml</h3>
 
-		<p>如下所示，将 application 的名字改为 "com.sg.util.SGApplication" 。</p>
+		<p>如下所示，將 application 的名字改爲 "com.sg.util.SGApplication" 。</p>
 
 		<pre style="font-size: 1.6rem; line-height: 2.5rem;">
 &lt;?xml version="1.0" encoding="utf-8"?&gt;
@@ -140,7 +141,7 @@ repositories {
     <section id="init">
         <h1>SGUtil 初始化</h1>
         
-        <p>为了使用 SGUtil ，你必须首先创建一个 SGAgent 的实例。建议在 MainActivity 的 onCreate 方法中做这件事。</p>
+        <p>爲了使用 SGUtil ，你必須首先創建一個 SGAgent 的實例。建議在 MainActivity 的 onCreate 方法中做這件事。</p>
 <pre>
 public class MainActivity extends AppCompatActivity implements SGAgent.SGClient {
 
@@ -158,11 +159,11 @@ public class MainActivity extends AppCompatActivity implements SGAgent.SGClient 
 
     <section id="lifecycle">
 
-        <h1>SGUtil 生命周期事件</h1>
+        <h1>SGUtil 生命週期事件</h1>
         
-        <p>您在 MainActivity 中必须把 Android 系统对 MainActivity 的生命周期回调分发给 SGAgent。特别地，
-        在 onCreate 方法中，您必须先准备好 UI ，因为 SGAgent 可能希望向UI上打印日志。如果您不希望这样，
-        就将下述的 appendLog 方法实现为空，这样的话您也可以在 SGAgent.onCreate 之后来做。</p>
+        <p>您在 MainActivity 中必須把 Android 系統對 MainActivity 的生命週期回調分發給 SGAgent。特別地，
+        在 onCreate 方法中，您必須先準備好 UI ，因爲 SGAgent 可能希望向UI上打印日誌。如果您不希望這樣，
+        就將下述的 appendLog 方法實現爲空，這樣的話您也可以在 SGAgent.onCreate 之後來做。</p>
 
 <pre>
     @Override
@@ -231,10 +232,10 @@ public class MainActivity extends AppCompatActivity implements SGAgent.SGClient 
     </section>
 
     <section id="listener">
-        <h1>SGUtil 回调监听</h1>
-        <p> SGAgent 的很多功能是异步实现的，在您调用这些功能后， SGAgent 将会通过您提供的接口通知操作结果。所以在
-        您调用 SGAgent.onCreate 的时候必须提供一个 SGAgent.SGClient 接口的实现。你必须在这个接口的方法中处理 SGAgent
-        的通知。这个接口的定义如下（参见<a href=<%= "assets/html/" + lang + "/android/jdoc/com/sg/util/SGAgent.SGClient.html"%>> SGAgent.SGClient </a>）。
+        <h1>SGUtil 回調監聽</h1>
+        <p> SGAgent 的很多功能是異步實現的，在您調用這些功能後， SGAgent 將會通過您提供的介面通知操作結果。所以在
+        您調用 SGAgent.onCreate 的時候必須提供一個 SGAgent.SGClient 介面的實現。你必須在這個介面的方法中處理 SGAgent
+        的通知。這個介面的定義如下（參見<a href=<%= "assets/html/" + lang + "/android/jdoc/com/sg/util/SGAgent.SGClient.html"%>> SGAgent.SGClient </a>）。
 		</p>
 
 <pre>
@@ -253,5 +254,15 @@ public class MainActivity extends AppCompatActivity implements SGAgent.SGClient 
 </pre>
 
     </section>
+
+    <section id="repackage">
+
+        <h1>重新打包</h1>
+
+		<p>您接入 SGUtil 軟件包後，使用 Android Studio 開發環境可以生成 APK 檔案，並可以在 Android 設備上運行。但是這個 APK 中只有
+		SGUtil 內置的模擬渠道。要想真正地綁定某個具體渠道，請將 APK 寄給 SG Studios，SG Studios 會對您的應用做測試，並將打包了指定渠道後的新 APK 檔案寄回。
+		</p>
+
+	</section>
 
 </div>

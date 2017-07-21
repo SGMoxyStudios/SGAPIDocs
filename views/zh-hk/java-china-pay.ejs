@@ -1,53 +1,53 @@
-﻿<div class="left-side" id="myScrollspy">
+<div class="left-side" id="myScrollspy">
     <ul class="nav nav-pills">
-        <li><a href="#MemberSystem">支付系统</a></li>
+        <li><a href="#MemberSystem">支付系統</a></li>
     </ul>
 </div>
 <div class="right-side">
     <section id="MemberSystem">
-        <h1>支付系统</h1>
+        <h1>支付系統</h1>
         
-        <p>SGAgent 的支付系统提供了下列方法供应用使用。分别是</p>
+        <p>SGAgent 的支付系統提供了下列方法供應用使用。分別是</p>
 
-启动购买产品过程
+啓動購買產品過程
 <pre>boolean buyProduct(UProduct product)
 </pre>
 
-获取信息获取状态机状态
+獲取信息獲取狀態機狀態
 <pre>int getJobState()
 </pre>
 
-启动获取订单信息列表过程
+啓動獲取訂單信息列表過程
 <pre>boolean getOrderInfoList(String filter)
 </pre>
 
-启动获取支付结果的过程
+啓動獲取支付結果的過程
 <pre>boolean getOrderState(String orderID)
 </pre>
 
-获取产品购买状态机的状态
+獲取產品購買狀態機的狀態
 <pre>int getPayState()
 </pre>
 
-根据订单号查找所购买的产品
+根據訂單號查找所購買的產品
 <pre>UProduct getProductByOrderID(String orderID)
 </pre>
 
-启动获取产品列表过程
+啓動獲取產品列表過程
 <pre>boolean getProducts(String filter, boolean sorting)
 </pre>
 
-指定订单支付提交成功后自动查询订单支付结果所需要等待的时间。
+指定訂單支付提交成功後自動查詢訂單支付結果所需要等待的時間。
 <pre>void setOrderStateCheckingIntervals(int[] intervals)
 </pre>
 
-通知SGAgent通过onOrderInfoFound发送下一个产品信息
+通知SGAgent通過onOrderInfoFound發送下一個產品信息
 <pre>void wantOrderInfo()
 </pre>
 
-通知SGAgent通过onProductFound发送下一个产品信息        
+通知SGAgent通過onProductFound發送下一個產品信息        
 <pre>void wantProduct()
 </pre>
 
-<p>具体使用方法请参看 <a href=<%= "assets/html/" + lang + "/android/jdoc/com/sg/util/SGAgent.html"%>> SGAgent 文档</a>。</p>
+<p>具體使用方法請參看 <a href=<%= "assets/html/" + lang + "/android/jdoc/com/sg/util/SGAgent.html"%>> SGAgent 文檔</a>。</p>
 </div>
