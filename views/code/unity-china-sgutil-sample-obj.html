@@ -80,7 +80,7 @@
         }
     }
 
-    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">void</span> <span style="color: #0000FF">OnOrderState</span>(SGUOrderState order_state)
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">void</span> <span style="color: #0000FF">OnOrderStateChange</span>(SGUOrderState order_state)
     {
         <span style="color: #408080; font-style: italic">// order state change notification, should check order_state to judge whether unlock product</span>
     }
@@ -101,6 +101,11 @@
     <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">void</span> <span style="color: #0000FF">OnProductFound</span>(SGUProduct product)
     {
         <span style="color: #408080; font-style: italic">// found a product</span>
+    }
+
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">void</span> <span style="color: #0000FF">OnOrderInfoFound</span>(SGUOrder order)
+    {
+        <span style="color: #408080; font-style: italic">// found an order info</span>
     }
 
     <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">void</span> <span style="color: #0000FF">OnDebugInfo</span>(<span style="color: #B00040">string</span> info)

@@ -1,0 +1,348 @@
+<!-- HTML generated using hilite.me --><div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008000; font-weight: bold">package</span> com<span style="color: #666666">.</span><span style="color: #7D9029">sg</span><span style="color: #666666">.</span><span style="color: #7D9029">util</span><span style="color: #666666">;</span>
+
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">org.json.JSONObject</span><span style="color: #666666">;</span>
+
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">android.annotation.TargetApi</span><span style="color: #666666">;</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">android.content.Intent</span><span style="color: #666666">;</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">android.os.Bundle</span><span style="color: #666666">;</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">android.view.KeyEvent</span><span style="color: #666666">;</span>
+
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">com.unity3d.player.UnityPlayer</span><span style="color: #666666">;</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">com.unity3d.player.UnityPlayerActivity</span><span style="color: #666666">;</span>
+
+<span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">SGUtilUnityContext</span> <span style="color: #008000; font-weight: bold">extends</span> UnityPlayerActivity <span style="color: #008000; font-weight: bold">implements</span> SGAgent<span style="color: #666666">.</span><span style="color: #7D9029">SGClient</span> <span style="color: #666666">{</span>
+
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">final</span> <span style="color: #008000; font-weight: bold">static</span> String CALLBACK_GAMEOBJECT_NAME     <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;(sgutil_callback)&quot;</span><span style="color: #666666">;</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">final</span> <span style="color: #008000; font-weight: bold">static</span> String CALLBACK_INIT                <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;OnInit&quot;</span><span style="color: #666666">;</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">final</span> <span style="color: #008000; font-weight: bold">static</span> String CALLBACK_LOGIN               <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;OnLogin&quot;</span><span style="color: #666666">;</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">final</span> <span style="color: #008000; font-weight: bold">static</span> String CALLBACK_LOGOUT              <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;OnLogout&quot;</span><span style="color: #666666">;</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">final</span> <span style="color: #008000; font-weight: bold">static</span> String CALLBACK_PRODUCT_FOUND       <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;OnProductFound&quot;</span><span style="color: #666666">;</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">final</span> <span style="color: #008000; font-weight: bold">static</span> String CALLBACK_PAY                 <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;OnPay&quot;</span><span style="color: #666666">;</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">final</span> <span style="color: #008000; font-weight: bold">static</span> String CALLBACK_ORDERINFO_FOUND     <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;OnOrderInfoFound&quot;</span><span style="color: #666666">;</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">final</span> <span style="color: #008000; font-weight: bold">static</span> String CALLBACK_ORDERSTATE_CHANGE   <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;OnOrderStateChange&quot;</span><span style="color: #666666">;</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">final</span> <span style="color: #008000; font-weight: bold">static</span> String CALLBACK_DEBUGINFO           <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;OnDebugInfo&quot;</span><span style="color: #666666">;</span>
+
+    <span style="color: #008000; font-weight: bold">private</span> SGAgent agent<span style="color: #666666">;</span>
+    <span style="color: #008000; font-weight: bold">private</span> String gameServerClassName<span style="color: #666666">;</span>
+    <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">boolean</span> autoDeliverProduct<span style="color: #666666">;</span>
+
+    <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">boolean</span> initCalled<span style="color: #666666">;</span>
+    <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">boolean</span> agentInitialized<span style="color: #666666">;</span>
+    <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">int</span> agentInitializationResult<span style="color: #666666">;</span>
+    <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">boolean</span> initialized<span style="color: #666666">;</span>
+
+    <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">initUnityLib</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(</span>agentInitialized <span style="color: #666666">&amp;&amp;</span> initCalled<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(!</span>initialized<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                initialized <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">;</span>
+                <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(</span>gameServerClassName <span style="color: #666666">!=</span> <span style="color: #008000; font-weight: bold">null</span> <span style="color: #666666">&amp;&amp;</span> <span style="color: #666666">!</span>gameServerClassName<span style="color: #666666">.</span><span style="color: #7D9029">trim</span><span style="color: #666666">().</span><span style="color: #7D9029">isEmpty</span><span style="color: #666666">())</span> <span style="color: #666666">{</span>
+                    <span style="color: #008000; font-weight: bold">try</span> <span style="color: #666666">{</span>
+                        Class clazz <span style="color: #666666">=</span> Class<span style="color: #666666">.</span><span style="color: #7D9029">forName</span><span style="color: #666666">(</span>gameServerClassName<span style="color: #666666">);</span>
+                        SGGameServerInterface gsvr <span style="color: #666666">=</span> <span style="color: #666666">(</span>SGGameServerInterface<span style="color: #666666">)</span> clazz<span style="color: #666666">.</span><span style="color: #7D9029">newInstance</span><span style="color: #666666">();</span>
+                        agent<span style="color: #666666">.</span><span style="color: #7D9029">setGameServer</span><span style="color: #666666">(</span>gsvr<span style="color: #666666">);</span>
+                    <span style="color: #666666">}</span> <span style="color: #008000; font-weight: bold">catch</span> <span style="color: #666666">(</span>Exception e<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                        e<span style="color: #666666">.</span><span style="color: #7D9029">printStackTrace</span><span style="color: #666666">();</span>
+                    <span style="color: #666666">}</span>
+                <span style="color: #666666">}</span>
+                <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(!</span>autoDeliverProduct<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                    agent<span style="color: #666666">.</span><span style="color: #7D9029">setOrderStateCheckingIntervals</span><span style="color: #666666">(</span><span style="color: #008000; font-weight: bold">null</span><span style="color: #666666">);</span>
+                <span style="color: #666666">}</span>
+                sendCallback<span style="color: #666666">(</span>CALLBACK_INIT<span style="color: #666666">,</span> String<span style="color: #666666">.</span><span style="color: #7D9029">valueOf</span><span style="color: #666666">(</span>agentInitializationResult<span style="color: #666666">));</span>
+            <span style="color: #666666">}</span>
+        <span style="color: #666666">}</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #408080; font-style: italic">// called by SGUInterfaceAndroid.Init</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">init</span><span style="color: #666666">(</span>String gameServerClassName<span style="color: #666666">,</span> <span style="color: #B00040">boolean</span> autoDeliverProduct<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(!</span>initCalled<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            initCalled <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">;</span>
+            <span style="color: #008000; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #7D9029">gameServerClassName</span> <span style="color: #666666">=</span> gameServerClassName<span style="color: #666666">;</span>
+            <span style="color: #008000; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #7D9029">autoDeliverProduct</span> <span style="color: #666666">=</span> autoDeliverProduct<span style="color: #666666">;</span>
+            initUnityLib<span style="color: #666666">();</span>
+        <span style="color: #666666">}</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #408080; font-style: italic">// called by SGUInterfaceAndroid.Login</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">login</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(!</span>agent<span style="color: #666666">.</span><span style="color: #7D9029">login</span><span style="color: #666666">())</span> <span style="color: #666666">{</span>
+            JSONObject json <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> JSONObject<span style="color: #666666">();</span>
+            <span style="color: #008000; font-weight: bold">try</span> <span style="color: #666666">{</span>
+                json<span style="color: #666666">.</span><span style="color: #7D9029">put</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;Action&quot;</span><span style="color: #666666">,</span> SGAgent<span style="color: #666666">.</span><span style="color: #7D9029">OP_LOGIN</span><span style="color: #666666">);</span>
+                json<span style="color: #666666">.</span><span style="color: #7D9029">put</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;Reason&quot;</span><span style="color: #666666">,</span> SGAgent<span style="color: #666666">.</span><span style="color: #7D9029">STATE_CHANGE_REASON_OP_FAILURE</span><span style="color: #666666">);</span>
+            <span style="color: #666666">}</span> <span style="color: #008000; font-weight: bold">catch</span> <span style="color: #666666">(</span>Exception e<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                e<span style="color: #666666">.</span><span style="color: #7D9029">printStackTrace</span><span style="color: #666666">();</span>
+            <span style="color: #666666">}</span>
+            sendCallback<span style="color: #666666">(</span>CALLBACK_LOGIN<span style="color: #666666">,</span> json<span style="color: #666666">.</span><span style="color: #7D9029">toString</span><span style="color: #666666">());</span>
+        <span style="color: #666666">}</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #408080; font-style: italic">// called by SGUInterfaceAndroid.Logout</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">logout</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(!</span>agent<span style="color: #666666">.</span><span style="color: #7D9029">logout</span><span style="color: #666666">())</span> <span style="color: #666666">{</span>
+            sendCallback<span style="color: #666666">(</span>CALLBACK_LOGOUT<span style="color: #666666">,</span> String<span style="color: #666666">.</span><span style="color: #7D9029">valueOf</span><span style="color: #666666">(</span>SGAgent<span style="color: #666666">.</span><span style="color: #7D9029">STATE_CHANGE_REASON_OP_FAILURE</span><span style="color: #666666">));</span>
+        <span style="color: #666666">}</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #408080; font-style: italic">// called by SGUInterfaceAndroid.Exit</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">exit</span><span style="color: #666666">(</span><span style="color: #B00040">boolean</span> silent<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(</span>silent<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            finish<span style="color: #666666">();</span>
+        <span style="color: #666666">}</span> <span style="color: #008000; font-weight: bold">else</span> <span style="color: #666666">{</span>
+            agent<span style="color: #666666">.</span><span style="color: #7D9029">exit</span><span style="color: #666666">();</span>
+        <span style="color: #666666">}</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #408080; font-style: italic">// called by SGUInterfaceAndroid.GetProductList</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">getProductList</span><span style="color: #666666">(</span>String filter<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(!</span>agent<span style="color: #666666">.</span><span style="color: #7D9029">getProducts</span><span style="color: #666666">(</span>filter<span style="color: #666666">,</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">))</span> <span style="color: #666666">{</span>
+            sendCallback<span style="color: #666666">(</span>CALLBACK_PRODUCT_FOUND<span style="color: #666666">,</span> <span style="color: #BA2121">&quot;{\&quot;Magic\&quot;:\&quot;!\&quot;}&quot;</span><span style="color: #666666">);</span>
+        <span style="color: #666666">}</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #408080; font-style: italic">// called by SGUInterfaceAndroid.Buy</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">buyProduct</span><span style="color: #666666">(</span>String productID<span style="color: #666666">,</span> <span style="color: #B00040">int</span> num<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(!</span>agent<span style="color: #666666">.</span><span style="color: #7D9029">buyProduct</span><span style="color: #666666">(</span>productID<span style="color: #666666">,</span> num<span style="color: #666666">))</span> <span style="color: #666666">{</span>
+            sendCallback<span style="color: #666666">(</span>CALLBACK_PAY<span style="color: #666666">,</span> String<span style="color: #666666">.</span><span style="color: #7D9029">valueOf</span><span style="color: #666666">(</span>SGAgent<span style="color: #666666">.</span><span style="color: #7D9029">STATE_CHANGE_REASON_OP_FAILURE</span><span style="color: #666666">));</span>
+        <span style="color: #666666">}</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #408080; font-style: italic">// called by SGUInterfaceAndroid.GetOrderState</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">getOrderState</span><span style="color: #666666">(</span>String orderID<span style="color: #666666">){</span>
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(!</span>agent<span style="color: #666666">.</span><span style="color: #7D9029">getOrderState</span><span style="color: #666666">(</span>orderID<span style="color: #666666">))</span> <span style="color: #666666">{</span>
+            sendCallback<span style="color: #666666">(</span>CALLBACK_ORDERSTATE_CHANGE<span style="color: #666666">,</span> <span style="color: #BA2121">&quot;{\&quot;Magic\&quot;:\&quot;!\&quot;,\&quot;OrderID\&quot;:\&quot;&quot;</span> <span style="color: #666666">+</span> orderID <span style="color: #666666">+</span> <span style="color: #BA2121">&quot;\&quot;}&quot;</span><span style="color: #666666">);</span>
+        <span style="color: #666666">}</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #408080; font-style: italic">// called by SGUInterfaceAndroid.GetOrderInfoList</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">getOrderInfoList</span><span style="color: #666666">(</span>String filter<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(!</span>agent<span style="color: #666666">.</span><span style="color: #7D9029">getOrderInfoList</span><span style="color: #666666">(</span>filter<span style="color: #666666">))</span> <span style="color: #666666">{</span>
+            sendCallback<span style="color: #666666">(</span>CALLBACK_ORDERINFO_FOUND<span style="color: #666666">,</span> <span style="color: #BA2121">&quot;{\&quot;Magic\&quot;:\&quot;!\&quot;}&quot;</span><span style="color: #666666">);</span>
+        <span style="color: #666666">}</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #408080; font-style: italic">// send callback to SGUCallback</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">sendCallback</span><span style="color: #666666">(</span>String name<span style="color: #666666">,</span> String jsonParams<span style="color: #666666">){</span>
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(</span>jsonParams <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            jsonParams <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;{}&quot;</span><span style="color: #666666">;</span>
+        <span style="color: #666666">}</span>
+        UnityPlayer<span style="color: #666666">.</span><span style="color: #7D9029">UnitySendMessage</span><span style="color: #666666">(</span>CALLBACK_GAMEOBJECT_NAME<span style="color: #666666">,</span> name<span style="color: #666666">,</span> jsonParams<span style="color: #666666">);</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #008000; font-weight: bold">private</span> JSONObject <span style="color: #0000FF">makeProductJSON</span><span style="color: #666666">(</span>UProduct product<span style="color: #666666">)</span>
+    <span style="color: #666666">{</span>
+        JSONObject json <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> JSONObject<span style="color: #666666">();</span>
+        <span style="color: #008000; font-weight: bold">try</span> <span style="color: #666666">{</span>
+            json<span style="color: #666666">.</span><span style="color: #7D9029">put</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;Magic&quot;</span><span style="color: #666666">,</span> <span style="color: #BA2121">&quot;P&quot;</span><span style="color: #666666">);</span>
+            json<span style="color: #666666">.</span><span style="color: #7D9029">put</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;ProductID&quot;</span><span style="color: #666666">,</span> product<span style="color: #666666">.</span><span style="color: #7D9029">getProductID</span><span style="color: #666666">());</span>
+            json<span style="color: #666666">.</span><span style="color: #7D9029">put</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;ProductName&quot;</span><span style="color: #666666">,</span> product<span style="color: #666666">.</span><span style="color: #7D9029">getProductName</span><span style="color: #666666">());</span>
+            json<span style="color: #666666">.</span><span style="color: #7D9029">put</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;ProductDesc&quot;</span><span style="color: #666666">,</span> product<span style="color: #666666">.</span><span style="color: #7D9029">getProductDesc</span><span style="color: #666666">());</span>
+            json<span style="color: #666666">.</span><span style="color: #7D9029">put</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;Price&quot;</span><span style="color: #666666">,</span> product<span style="color: #666666">.</span><span style="color: #7D9029">getPrice</span><span style="color: #666666">());</span>
+            json<span style="color: #666666">.</span><span style="color: #7D9029">put</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;Coins&quot;</span><span style="color: #666666">,</span> product<span style="color: #666666">.</span><span style="color: #7D9029">getCoins</span><span style="color: #666666">());</span>
+            json<span style="color: #666666">.</span><span style="color: #7D9029">put</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;AppID&quot;</span><span style="color: #666666">,</span> product<span style="color: #666666">.</span><span style="color: #7D9029">getAppID</span><span style="color: #666666">());</span>
+            json<span style="color: #666666">.</span><span style="color: #7D9029">put</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;AppName&quot;</span><span style="color: #666666">,</span> product<span style="color: #666666">.</span><span style="color: #7D9029">getAppName</span><span style="color: #666666">());</span>
+            json<span style="color: #666666">.</span><span style="color: #7D9029">put</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;ServerID&quot;</span><span style="color: #666666">,</span> product<span style="color: #666666">.</span><span style="color: #7D9029">getServerID</span><span style="color: #666666">());</span>
+            json<span style="color: #666666">.</span><span style="color: #7D9029">put</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;ServerName&quot;</span><span style="color: #666666">,</span> product<span style="color: #666666">.</span><span style="color: #7D9029">getServerName</span><span style="color: #666666">());</span>
+            json<span style="color: #666666">.</span><span style="color: #7D9029">put</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;RoleID&quot;</span><span style="color: #666666">,</span> product<span style="color: #666666">.</span><span style="color: #7D9029">getRoleID</span><span style="color: #666666">());</span>
+            json<span style="color: #666666">.</span><span style="color: #7D9029">put</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;RoleName&quot;</span><span style="color: #666666">,</span> product<span style="color: #666666">.</span><span style="color: #7D9029">getRoleName</span><span style="color: #666666">());</span>
+            json<span style="color: #666666">.</span><span style="color: #7D9029">put</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;RoleLevel&quot;</span><span style="color: #666666">,</span> product<span style="color: #666666">.</span><span style="color: #7D9029">getRoleLevel</span><span style="color: #666666">());</span>
+        <span style="color: #666666">}</span> <span style="color: #008000; font-weight: bold">catch</span> <span style="color: #666666">(</span>Exception e <span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            e<span style="color: #666666">.</span><span style="color: #7D9029">printStackTrace</span><span style="color: #666666">();</span>
+        <span style="color: #666666">}</span>
+        <span style="color: #008000; font-weight: bold">return</span> json<span style="color: #666666">;</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #AA22FF">@Override</span>
+    <span style="color: #008000; font-weight: bold">protected</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onCreate</span><span style="color: #666666">(</span>Bundle savedInstanceState<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #008000; font-weight: bold">super</span><span style="color: #666666">.</span><span style="color: #7D9029">onCreate</span><span style="color: #666666">(</span>savedInstanceState<span style="color: #666666">);</span>
+        agent <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> SGAgent<span style="color: #666666">();</span>
+        agent<span style="color: #666666">.</span><span style="color: #7D9029">onCreate</span><span style="color: #666666">(</span><span style="color: #008000; font-weight: bold">this</span><span style="color: #666666">,</span> <span style="color: #008000; font-weight: bold">this</span><span style="color: #666666">);</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #AA22FF">@Override</span>
+    <span style="color: #008000; font-weight: bold">protected</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onStart</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+        <span style="color: #008000; font-weight: bold">super</span><span style="color: #666666">.</span><span style="color: #7D9029">onStart</span><span style="color: #666666">();</span>
+        agent<span style="color: #666666">.</span><span style="color: #7D9029">onStart</span><span style="color: #666666">();</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #AA22FF">@Override</span>
+    <span style="color: #008000; font-weight: bold">protected</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onRestart</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+        <span style="color: #008000; font-weight: bold">super</span><span style="color: #666666">.</span><span style="color: #7D9029">onRestart</span><span style="color: #666666">();</span>
+        agent<span style="color: #666666">.</span><span style="color: #7D9029">onRestart</span><span style="color: #666666">();</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #AA22FF">@Override</span>
+    <span style="color: #008000; font-weight: bold">protected</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onResume</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+        <span style="color: #008000; font-weight: bold">super</span><span style="color: #666666">.</span><span style="color: #7D9029">onResume</span><span style="color: #666666">();</span>
+        agent<span style="color: #666666">.</span><span style="color: #7D9029">onResume</span><span style="color: #666666">();</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #AA22FF">@Override</span>
+    <span style="color: #008000; font-weight: bold">protected</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onPause</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+        agent<span style="color: #666666">.</span><span style="color: #7D9029">onPause</span><span style="color: #666666">();</span>
+        <span style="color: #008000; font-weight: bold">super</span><span style="color: #666666">.</span><span style="color: #7D9029">onPause</span><span style="color: #666666">();</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #AA22FF">@Override</span>
+    <span style="color: #008000; font-weight: bold">protected</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onStop</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+        agent<span style="color: #666666">.</span><span style="color: #7D9029">onStop</span><span style="color: #666666">();</span>
+        <span style="color: #008000; font-weight: bold">super</span><span style="color: #666666">.</span><span style="color: #7D9029">onStop</span><span style="color: #666666">();</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #AA22FF">@Override</span>
+    <span style="color: #008000; font-weight: bold">protected</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onDestroy</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+        agent<span style="color: #666666">.</span><span style="color: #7D9029">onDestroy</span><span style="color: #666666">();</span>
+        <span style="color: #008000; font-weight: bold">super</span><span style="color: #666666">.</span><span style="color: #7D9029">onDestroy</span><span style="color: #666666">();</span>
+        System<span style="color: #666666">.</span><span style="color: #7D9029">exit</span><span style="color: #666666">(0);</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #AA22FF">@Override</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onNewIntent</span><span style="color: #666666">(</span>Intent newIntent<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        agent<span style="color: #666666">.</span><span style="color: #7D9029">onNewIntent</span><span style="color: #666666">(</span>newIntent<span style="color: #666666">);</span>
+        <span style="color: #008000; font-weight: bold">super</span><span style="color: #666666">.</span><span style="color: #7D9029">onNewIntent</span><span style="color: #666666">(</span>newIntent<span style="color: #666666">);</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #AA22FF">@Override</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">boolean</span> <span style="color: #0000FF">onKeyDown</span><span style="color: #666666">(</span><span style="color: #B00040">int</span> keyCode<span style="color: #666666">,</span> KeyEvent event<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(</span>agent<span style="color: #666666">.</span><span style="color: #7D9029">onKeyDown</span><span style="color: #666666">(</span>keyCode<span style="color: #666666">,</span> event<span style="color: #666666">))</span>
+            <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">;</span>
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">super</span><span style="color: #666666">.</span><span style="color: #7D9029">onKeyDown</span><span style="color: #666666">(</span>keyCode<span style="color: #666666">,</span> event<span style="color: #666666">);</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #AA22FF">@Override</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onBackPressed</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #AA22FF">@Override</span>
+    <span style="color: #008000; font-weight: bold">protected</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onActivityResult</span><span style="color: #666666">(</span><span style="color: #B00040">int</span> requestCode<span style="color: #666666">,</span> <span style="color: #B00040">int</span> resultCode<span style="color: #666666">,</span> Intent data<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        agent<span style="color: #666666">.</span><span style="color: #7D9029">onActivityResult</span><span style="color: #666666">(</span>requestCode<span style="color: #666666">,</span> resultCode<span style="color: #666666">,</span> data<span style="color: #666666">);</span>
+        <span style="color: #008000; font-weight: bold">super</span><span style="color: #666666">.</span><span style="color: #7D9029">onActivityResult</span><span style="color: #666666">(</span>requestCode<span style="color: #666666">,</span> resultCode<span style="color: #666666">,</span> data<span style="color: #666666">);</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #AA22FF">@TargetApi</span><span style="color: #666666">(23)</span>
+    <span style="color: #AA22FF">@Override</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onRequestPermissionsResult</span><span style="color: #666666">(</span><span style="color: #B00040">int</span> requestCode<span style="color: #666666">,</span> String<span style="color: #666666">[]</span> permissions<span style="color: #666666">,</span> <span style="color: #B00040">int</span><span style="color: #666666">[]</span> grantResults<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #008000; font-weight: bold">super</span><span style="color: #666666">.</span><span style="color: #7D9029">onRequestPermissionsResult</span><span style="color: #666666">(</span>requestCode<span style="color: #666666">,</span> permissions<span style="color: #666666">,</span> grantResults<span style="color: #666666">);</span>
+        agent<span style="color: #666666">.</span><span style="color: #7D9029">onRequestPermissionsResult</span><span style="color: #666666">(</span>requestCode<span style="color: #666666">,</span> permissions<span style="color: #666666">,</span> grantResults<span style="color: #666666">);</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #AA22FF">@Override</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">appendLog</span><span style="color: #666666">(</span>String text<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        sendCallback<span style="color: #666666">(</span>CALLBACK_DEBUGINFO<span style="color: #666666">,</span> text<span style="color: #666666">);</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #AA22FF">@Override</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">appendLog</span><span style="color: #666666">(</span>String text<span style="color: #666666">,</span> String postfix<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        appendLog<span style="color: #666666">(</span>text <span style="color: #666666">+</span> <span style="color: #666666">(</span>postfix <span style="color: #666666">!=</span> <span style="color: #008000; font-weight: bold">null</span> <span style="color: #666666">?</span> postfix <span style="color: #666666">:</span> <span style="color: #BA2121">&quot;&quot;</span><span style="color: #666666">));</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #AA22FF">@Override</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">boolean</span> <span style="color: #0000FF">onProductBegin</span><span style="color: #666666">(</span><span style="color: #B00040">int</span> num<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        sendCallback<span style="color: #666666">(</span>CALLBACK_PRODUCT_FOUND<span style="color: #666666">,</span> <span style="color: #BA2121">&quot;{\&quot;Magic\&quot;:\&quot;B\&quot;}&quot;</span><span style="color: #666666">);</span>
+        <span style="color: #408080; font-style: italic">// request for next product</span>
+        agent<span style="color: #666666">.</span><span style="color: #7D9029">wantProduct</span><span style="color: #666666">();</span>
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">false</span><span style="color: #666666">;</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #AA22FF">@Override</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onProductFound</span><span style="color: #666666">(</span>UProduct product<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(</span>product <span style="color: #666666">!=</span> <span style="color: #008000; font-weight: bold">null</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            JSONObject json <span style="color: #666666">=</span> makeProductJSON<span style="color: #666666">(</span>product<span style="color: #666666">);</span>
+            sendCallback<span style="color: #666666">(</span>CALLBACK_PRODUCT_FOUND<span style="color: #666666">,</span> json<span style="color: #666666">.</span><span style="color: #7D9029">toString</span><span style="color: #666666">());</span>
+            <span style="color: #408080; font-style: italic">// request for next product</span>
+            agent<span style="color: #666666">.</span><span style="color: #7D9029">wantProduct</span><span style="color: #666666">();</span>
+        <span style="color: #666666">}</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #AA22FF">@Override</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onProductEnd</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+        sendCallback<span style="color: #666666">(</span>CALLBACK_PRODUCT_FOUND<span style="color: #666666">,</span> <span style="color: #BA2121">&quot;{\&quot;Magic\&quot;:\&quot;E\&quot;}&quot;</span><span style="color: #666666">);</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #AA22FF">@Override</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">boolean</span> <span style="color: #0000FF">onOrderInfoBegin</span><span style="color: #666666">(</span><span style="color: #B00040">int</span> num<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        sendCallback<span style="color: #666666">(</span>CALLBACK_ORDERINFO_FOUND<span style="color: #666666">,</span> <span style="color: #BA2121">&quot;{\&quot;Magic\&quot;:\&quot;B\&quot;}&quot;</span><span style="color: #666666">);</span>
+        <span style="color: #408080; font-style: italic">// request for next order info</span>
+        agent<span style="color: #666666">.</span><span style="color: #7D9029">wantOrderInfo</span><span style="color: #666666">();</span>
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">false</span><span style="color: #666666">;</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #AA22FF">@Override</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onOrderInfoFound</span><span style="color: #666666">(</span>UOrder order<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(</span>order <span style="color: #666666">!=</span> <span style="color: #008000; font-weight: bold">null</span> <span style="color: #666666">&amp;&amp;</span> order<span style="color: #666666">.</span><span style="color: #7D9029">getProduct</span><span style="color: #666666">()</span> <span style="color: #666666">!=</span> <span style="color: #008000; font-weight: bold">null</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            JSONObject json <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> JSONObject<span style="color: #666666">();</span>
+            <span style="color: #008000; font-weight: bold">try</span> <span style="color: #666666">{</span>
+                json<span style="color: #666666">.</span><span style="color: #7D9029">put</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;Magic&quot;</span><span style="color: #666666">,</span> <span style="color: #BA2121">&quot;O&quot;</span><span style="color: #666666">);</span>
+                json<span style="color: #666666">.</span><span style="color: #7D9029">put</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;ProductID&quot;</span><span style="color: #666666">,</span> order<span style="color: #666666">.</span><span style="color: #7D9029">getProduct</span><span style="color: #666666">().</span><span style="color: #7D9029">getProductID</span><span style="color: #666666">());</span>
+                json<span style="color: #666666">.</span><span style="color: #7D9029">put</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;Num&quot;</span><span style="color: #666666">,</span> order<span style="color: #666666">.</span><span style="color: #7D9029">getPayParams</span><span style="color: #666666">().</span><span style="color: #7D9029">getBuyNum</span><span style="color: #666666">());</span>
+                json<span style="color: #666666">.</span><span style="color: #7D9029">put</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;OrderID&quot;</span><span style="color: #666666">,</span> order<span style="color: #666666">.</span><span style="color: #7D9029">getOrderTicket</span><span style="color: #666666">().</span><span style="color: #7D9029">getOrderID</span><span style="color: #666666">());</span>
+                json<span style="color: #666666">.</span><span style="color: #7D9029">put</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;State&quot;</span><span style="color: #666666">,</span> order<span style="color: #666666">.</span><span style="color: #7D9029">getState</span><span style="color: #666666">());</span>
+            <span style="color: #666666">}</span> <span style="color: #008000; font-weight: bold">catch</span><span style="color: #666666">(</span>Exception e<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                e<span style="color: #666666">.</span><span style="color: #7D9029">printStackTrace</span><span style="color: #666666">();</span>
+            <span style="color: #666666">}</span>
+            sendCallback<span style="color: #666666">(</span>CALLBACK_ORDERINFO_FOUND<span style="color: #666666">,</span> json<span style="color: #666666">.</span><span style="color: #7D9029">toString</span><span style="color: #666666">());</span>
+            <span style="color: #408080; font-style: italic">// request for next order info</span>
+            agent<span style="color: #666666">.</span><span style="color: #7D9029">wantOrderInfo</span><span style="color: #666666">();</span>
+        <span style="color: #666666">}</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #AA22FF">@Override</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onOrderInfoEnd</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+        sendCallback<span style="color: #666666">(</span>CALLBACK_ORDERINFO_FOUND<span style="color: #666666">,</span> <span style="color: #BA2121">&quot;{\&quot;Magic\&quot;:\&quot;E\&quot;}&quot;</span><span style="color: #666666">);</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #AA22FF">@Override</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onOrderStateChange</span><span style="color: #666666">(</span>String productID<span style="color: #666666">,</span> String orderID<span style="color: #666666">,</span> String state<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        JSONObject json <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> JSONObject<span style="color: #666666">();</span>
+        <span style="color: #008000; font-weight: bold">try</span> <span style="color: #666666">{</span>
+            json<span style="color: #666666">.</span><span style="color: #7D9029">put</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;Magic&quot;</span><span style="color: #666666">,</span> <span style="color: #BA2121">&quot;S&quot;</span><span style="color: #666666">);</span>
+            json<span style="color: #666666">.</span><span style="color: #7D9029">put</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;ProductID&quot;</span><span style="color: #666666">,</span> productID<span style="color: #666666">);</span>
+            json<span style="color: #666666">.</span><span style="color: #7D9029">put</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;OrderID&quot;</span><span style="color: #666666">,</span> orderID <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span> <span style="color: #666666">?</span> <span style="color: #BA2121">&quot;&quot;</span> <span style="color: #666666">:</span> orderID<span style="color: #666666">);</span>
+            json<span style="color: #666666">.</span><span style="color: #7D9029">put</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;State&quot;</span><span style="color: #666666">,</span> state<span style="color: #666666">);</span>
+        <span style="color: #666666">}</span> <span style="color: #008000; font-weight: bold">catch</span><span style="color: #666666">(</span>Exception e<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            e<span style="color: #666666">.</span><span style="color: #7D9029">printStackTrace</span><span style="color: #666666">();</span>
+        <span style="color: #666666">}</span>
+        sendCallback<span style="color: #666666">(</span>CALLBACK_ORDERSTATE_CHANGE<span style="color: #666666">,</span> json<span style="color: #666666">.</span><span style="color: #7D9029">toString</span><span style="color: #666666">());</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #AA22FF">@Override</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onStateChange</span><span style="color: #666666">(</span><span style="color: #B00040">int</span> type<span style="color: #666666">,</span> <span style="color: #B00040">int</span> orgState<span style="color: #666666">,</span> <span style="color: #B00040">int</span> newState<span style="color: #666666">,</span> <span style="color: #B00040">int</span> reason<span style="color: #666666">,</span> <span style="color: #B00040">int</span> op<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        appendLog<span style="color: #666666">(</span><span style="color: #BA2121">&quot;State change: &quot;</span> <span style="color: #666666">+</span> agent<span style="color: #666666">.</span><span style="color: #7D9029">getStateName</span><span style="color: #666666">(</span>type<span style="color: #666666">,</span> orgState<span style="color: #666666">)</span> <span style="color: #666666">+</span> <span style="color: #BA2121">&quot; -&gt; &quot;</span> <span style="color: #666666">+</span> agent<span style="color: #666666">.</span><span style="color: #7D9029">getStateName</span><span style="color: #666666">(</span>type<span style="color: #666666">,</span> newState<span style="color: #666666">)</span> <span style="color: #666666">+</span> <span style="color: #BA2121">&quot; # &quot;</span> <span style="color: #666666">+</span> agent<span style="color: #666666">.</span><span style="color: #7D9029">getStateChangeReasonName</span><span style="color: #666666">(</span>reason<span style="color: #666666">)</span> <span style="color: #666666">+</span> <span style="color: #BA2121">&quot;\n&quot;</span><span style="color: #666666">);</span>
+        <span style="color: #008000; font-weight: bold">switch</span> <span style="color: #666666">(</span>op<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            <span style="color: #008000; font-weight: bold">case</span> SGAgent<span style="color: #666666">.</span><span style="color: #7D9029">OP_INIT</span><span style="color: #666666">:</span>
+                agentInitialized <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">;</span>
+                agentInitializationResult <span style="color: #666666">=</span> reason<span style="color: #666666">;</span>
+                initUnityLib<span style="color: #666666">();</span>
+                <span style="color: #008000; font-weight: bold">break</span><span style="color: #666666">;</span>
+            <span style="color: #008000; font-weight: bold">case</span> SGAgent<span style="color: #666666">.</span><span style="color: #7D9029">OP_LOGIN</span><span style="color: #666666">:</span>
+            <span style="color: #008000; font-weight: bold">case</span> SGAgent<span style="color: #666666">.</span><span style="color: #7D9029">OP_AUTH</span><span style="color: #666666">:</span>
+            <span style="color: #008000; font-weight: bold">case</span> SGAgent<span style="color: #666666">.</span><span style="color: #7D9029">OP_LOGINGAME</span><span style="color: #666666">:</span>
+                JSONObject json <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> JSONObject<span style="color: #666666">();</span>
+                <span style="color: #008000; font-weight: bold">try</span> <span style="color: #666666">{</span>
+                    json<span style="color: #666666">.</span><span style="color: #7D9029">put</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;Action&quot;</span><span style="color: #666666">,</span> op<span style="color: #666666">);</span>
+                    json<span style="color: #666666">.</span><span style="color: #7D9029">put</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;Reason&quot;</span><span style="color: #666666">,</span> reason<span style="color: #666666">);</span>
+                <span style="color: #666666">}</span> <span style="color: #008000; font-weight: bold">catch</span> <span style="color: #666666">(</span>Exception e<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                    e<span style="color: #666666">.</span><span style="color: #7D9029">printStackTrace</span><span style="color: #666666">();</span>
+                <span style="color: #666666">}</span>
+                sendCallback<span style="color: #666666">(</span>CALLBACK_LOGIN<span style="color: #666666">,</span> json<span style="color: #666666">.</span><span style="color: #7D9029">toString</span><span style="color: #666666">());</span>
+                <span style="color: #008000; font-weight: bold">break</span><span style="color: #666666">;</span>
+            <span style="color: #008000; font-weight: bold">case</span> SGAgent<span style="color: #666666">.</span><span style="color: #7D9029">OP_LOGOUTGAME</span><span style="color: #666666">:</span>
+                <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(</span>reason <span style="color: #666666">==</span> SGAgent<span style="color: #666666">.</span><span style="color: #7D9029">STATE_CHANGE_REASON_OP_FAILURE</span><span style="color: #666666">)</span>
+                    sendCallback<span style="color: #666666">(</span>CALLBACK_LOGOUT<span style="color: #666666">,</span> String<span style="color: #666666">.</span><span style="color: #7D9029">valueOf</span><span style="color: #666666">(</span>reason<span style="color: #666666">));</span>
+                <span style="color: #008000; font-weight: bold">break</span><span style="color: #666666">;</span>
+            <span style="color: #008000; font-weight: bold">case</span> SGAgent<span style="color: #666666">.</span><span style="color: #7D9029">OP_LOGOUT</span><span style="color: #666666">:</span>
+                <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(</span>reason <span style="color: #666666">!=</span> SGAgent<span style="color: #666666">.</span><span style="color: #7D9029">STATE_CHANGE_REASON_OP</span><span style="color: #666666">)</span>
+                    sendCallback<span style="color: #666666">(</span>CALLBACK_LOGOUT<span style="color: #666666">,</span> String<span style="color: #666666">.</span><span style="color: #7D9029">valueOf</span><span style="color: #666666">(</span>SGAgent<span style="color: #666666">.</span><span style="color: #7D9029">STATE_CHANGE_REASON_OP_SUCCESS</span><span style="color: #666666">));</span>
+                <span style="color: #008000; font-weight: bold">break</span><span style="color: #666666">;</span>
+            <span style="color: #008000; font-weight: bold">case</span> SGAgent<span style="color: #666666">.</span><span style="color: #7D9029">OP_GETORDER</span><span style="color: #666666">:</span>
+                <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(</span>reason <span style="color: #666666">==</span> SGAgent<span style="color: #666666">.</span><span style="color: #7D9029">STATE_CHANGE_REASON_OP_FAILURE</span><span style="color: #666666">)</span>
+                    sendCallback<span style="color: #666666">(</span>CALLBACK_PAY<span style="color: #666666">,</span> String<span style="color: #666666">.</span><span style="color: #7D9029">valueOf</span><span style="color: #666666">(</span>reason<span style="color: #666666">));</span>
+                <span style="color: #008000; font-weight: bold">break</span><span style="color: #666666">;</span>
+            <span style="color: #008000; font-weight: bold">case</span> SGAgent<span style="color: #666666">.</span><span style="color: #7D9029">OP_PAY</span><span style="color: #666666">:</span>
+                <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(</span>reason <span style="color: #666666">!=</span> SGAgent<span style="color: #666666">.</span><span style="color: #7D9029">STATE_CHANGE_REASON_OP</span><span style="color: #666666">)</span>
+                    sendCallback<span style="color: #666666">(</span>CALLBACK_PAY<span style="color: #666666">,</span> String<span style="color: #666666">.</span><span style="color: #7D9029">valueOf</span><span style="color: #666666">(</span>reason<span style="color: #666666">));</span>
+                <span style="color: #008000; font-weight: bold">break</span><span style="color: #666666">;</span>
+        <span style="color: #666666">}</span>
+    <span style="color: #666666">}</span>
+
+<span style="color: #666666">}</span>
+</pre></div>

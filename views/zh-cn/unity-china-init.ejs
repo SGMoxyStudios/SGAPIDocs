@@ -11,6 +11,7 @@ pre > span { color:red; font-weight: bold }
         <li><a href="#content">SGUtil For Unity 包内容说明</a></li>
         <li><a href="#use">使用 SGUtil For Unity</a></li>
         <li><a href="#repackage">重新打包</a></li>
+        <li><a href="#customize">定制接口</a></li>
     </ul>
 
 </div>
@@ -192,6 +193,18 @@ public class SGUCallbackEntityObject : MonoBehaviour, SGUCallbackEntity {
 		SGUtil 内置的模拟渠道。要想真正地绑定某个具体渠道，请将 APK 寄给 SG Studios，SG Studios 会对您的应用做测试，并将打包了指定渠道后的新
 		APK 文件寄回。渠道相关的介绍参见 <a href=<%= "/java-china-init"%>> Android 集成指南 </a>。
 		</p>
+
+	</section>
+
+    <section id="customize">
+
+        <h1>定制接口</h1>
+
+		<p>下面我们列出了 SGUtil 与 Unity 的接口类以及演示用游服接口的源代码。您可以在此基础上进行修改定制。</p>
+
+        <%- include ../code/unity-china-sgutil-context.html -%>
+
+        <%- include ../code/unity-china-sgutil-gameserver.html -%>
 
 	</section>
 
