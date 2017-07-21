@@ -1,10 +1,17 @@
+<style type="text/css">
+pre > div { color:red; font-weight: bold }
+pre > span { color:red; font-weight: bold }
+</style>
+
 <div class="left-side" id="myScrollspy">
 
     <ul class="nav nav-pills">
         <li><a href="#summary">Unity 集成指南</a></li>
-        <li><a href="#environment">開發環境設定</a></li>
-        <li><a href="#content">SGSDK Package 內容</a></li>
-        <li><a href="#use">使用 Unity SGSDK</a></li>
+        <li><a href="#environment">开发环境设定</a></li>
+        <li><a href="#content">SGUtil For Unity 包内容说明</a></li>
+        <li><a href="#use">使用 SGUtil For Unity</a></li>
+        <li><a href="#repackage">重新打包</a></li>
+        <li><a href="#customize">定制接口</a></li>
     </ul>
 
 </div>
@@ -14,77 +21,190 @@
     <section id="summary">
         <h1>Unity 集成指南</h1>
         <p>
-            通過本文的介紹可以了解 Unity SDK 客戶端接入的整個流程。
-            在接入之前請仔細閱讀本文檔，以減少接入過程中遇到的問題。
+            本页总体介绍 SGUtil For Unity 的接入流程和使用中的注意点。在接入之前请仔细阅读本文档，以减少接入过程中遇到的问题。
         </p>
     </section>
 
     <section id="environment">
-        <h1>開發環境設定</h1>
-        <h3>1.下載 SGSDK Unity Package File</h3>
+        <h1>开发环境设定</h1>
+        <h3>1. 下载 SGUtil For Unity 包</h3>
         <ul>
-            <li><a href="/sdk/unity/SGSDK.unitypackage">SGSDK.unitypackage</a></li>
+            <li><a href="/sdk/unity/sgutil.unitypackage">sgutil.unitypackage</a></li>
         </ul>
         <br />
 
-        <h3>2.Import Custom Package</h3>
-        <p>導入 SGSDK.unitypackage 至 project 裡。</p>
-        <img src=<%= "assets/img/" + lang + "/unity01.png"%> class="img-responsive"/>
+        <h3>2. 导入 SGUtil For Unity 包</h3>
+        <p>选择“Assets”菜单 &rarr; “Import Package” &rarr; “Custom Package”，选择刚才下载的SGUtil For Unity 包。</p>
+        <img src=<%= "assets/img/" + "zh-cn" + "/unity_cn/sd_import_package.png"%> class="img-responsive"/>
         <br />
+
+        <p>Unity 会显示包中的文件列表。</p>
+        <img src=<%= "assets/img/" + "zh-cn" + "/unity_cn/sd_package_content.png"%> class="img-responsive"/>
+		<br/>
+
+		<p>点击“Import”导入。</p>
+
+        <h3>3. 示例程序</h3>
+		<p>下面是 SGUtil For Unity 包中的 SGUCallbackEntityObject.cs 的内容，供参考。</p>
+        <%- include ../code/unity-china-sgutil-sample-obj.html -%>
 
     </section>
 
     <section id="content">
-        <h1>SGSDK Package 內容</h1>
-        <img src=<%= "assets/img/" + lang + "/unity02.png"%> class="img-responsive"/>
-        <h3>1.Android</h3>
-        <ul>
-            <li>Plugins/Android/SGSDK.aar native android sdk</li>
-            <li>Plugins/Android/android-support-v4.jar 與 android 相依的 sdk。Project 中只需求保留一份最新版本，以免在產 apk 時發生載入衝突。</li>
-            <li>Plugins/Android/AndroidManifest.xml 與 project 的 AndroidManifest.xml 合併。</li>
-            <%- include ../code/unity-manifest.html -%>
-        </ul>
 
-        <br />
+        <h1>SGUtil For Unity 包内容说明</h1>
+        <h3>1. 目录结构</h3>
+		<p>SGUtil For Unity 包导入后的目录结构如下。</p>
 
-        <h3>2.iOS</h3>
-        <ul>
-            <li>Plugins/iOS/SGSDK.framework native iOS sdk</li>
-            <li>Plugins/iOS/SwiftObject.mm SwiftObject.swift iOS 與 Unity 溝通的中介檔。 </li>
-            <li>以下為 build iOS project 所需檔案。</li>
-            <li>Plugins/SGSDK/Editor/PostProcessor.cs</li>
-            <li>Plugins/SGSDK/UnitySwift-Bridging-Header.h</li>
-            <li>Plugins/SGSDK/Xcode/</li>
-        </ul>
+		<pre>
+Plugins\Android\AndroidManifest.xml
+	Android 应用的 Manifest 文件
+Plugins\Android\bin\SGUtil_Context.jar
+	SGUtil 与 Unity 的接口类
+Plugins\Android\libs\SGUtil.aar
+	SGUtil 软件包
+Plugins\Android\libs\SGUtil_GameServer.jar
+	模拟游服实现
+Plugins\Android\libs\android-support-v4.jar
+	Android 支付库第 4 版
+Plugins\Android\res\drawable-hdpi\sg_logo.png
+	SG Studios 的商标
+Plugins\Android\res\drawable-ldpi\sg_logo.png
+	SG Studios 的商标
+Plugins\Android\res\drawable-mdpi\sg_logo.png
+	SG Studios 的商标
+Plugins\Android\res\drawable-xhdpi\sg_logo.png
+	SG Studios 的商标
+Plugins\Android\res\drawable-xxhdpi\sg_logo.png
+	SG Studios 的商标
+Plugins\Android\res\drawable-xxxhdpi\sg_logo.png
+	SG Studios 的商标
+Plugins\Android\res\values\strings.xml
+	字符串资源
+Plugins\MiniJSON.cs
+	简易 Json 解析程序
 
-        <h3>3.Unity SDK</h3>
-        <ul>
-            <li>Plugins/SGSDK/Scripts Unity SGSDK</li>
-        </ul>
+Scripts\SDK\SGU.cs
+	提供 SGUtil 功能接口的封装
+Scripts\SDK\SGUCallback.cs
+	接收 SGUtil_Context 发起的回调，并把回调参数从 Json 转换成数据实例，然后转给回调实现
+Scripts\SDK\SGUCallbackEntity.cs
+	回调实现的接口定义
+Scripts\SDK\SGUInterface.cs
+	Unity 调用 SGUtil 功能的接口定义（抽象类）
+Scripts\SDK\SGUInterfaceAndroid.cs
+	Android 上的调用 SGUtil 功能的接口实现
+Scripts\SDK\SGUInterfaceDefault.cs
+	缺省的调用 SGUtil 功能的接口实现（未实现）
+Scripts\SDK\SGUInterfaceIOS.cs
+	iOS 上的调用 SGUtil 功能的接口实现（未实现）
+Scripts\SG\SGUCallbackEntityObject.cs
+	SGUtil 回调实现示例</pre>
 
     </section>
 
     <section id="use">
-        <h1>使用 Unity SGSDK</h1>
-        <h3>1.調用SGSDK</h3>
-        <ul>
-            <li>調用 singleton object <code>SGSDK.Instance</code> 各函式完成串接 SG 帳號，支付，統計系統。</li>
-            <li>建議在遊戲初始化時設置 SDK 監聽與初始函式。</li>
-            <%- include ../code/unity-init.html -%>
-        </ul>
 
-        <h3>2.SGSDK 使用範例</h3>
-        <ul>
-            <li>請參考 SGSDKSample/SGDemo</li>
-        </ul>
-        <br />
+        <h1>使用 SGUtil For Unity</h1>
+        <h3>1. AndroidManifest.xml 定制</h3>
+		<p>以下 AndroidManifest.xml 中蓝色部分以外可视需要修改。</p>
 
-        <h3>3.注意事項</h3>
-        <ul>
-            <li>接入 SGSDK 後只支援實機調用測試。</li>
-        </ul>
-        <br />
+		<pre>
+&lt;manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.sg.util.unitydemo"
+    android:versionCode="1"
+    android:versionName="1.0" &gt;
+
+    &lt;uses-sdk
+        android:minSdkVersion="18"
+        android:maxSdkVersion="25"
+        android:targetSdkVersion="23" /&gt;
+
+    &lt;uses-permission android:name="android.permission.INTERNET" /&gt;
+    &lt;uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /&gt;
+    &lt;uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /&gt;
+    &lt;uses-permission android:name="android.permission.WAKE_LOCK" /&gt;
+
+    &lt;application
+        android:allowBackup="true"
+        android:icon="@drawable/sg_logo"
+        android:label="@string/sgutil_unitydemo"
+        android:name="<span style="color:blue">com.sg.util.SGApplication</span>"&gt;
+        
+        &lt;activity
+            android:name="<span style="color:blue">com.sg.util.SGUtilUnityContext</span>"
+            android:label="@string/sgutil_unitydemo" 
+            android:screenOrientation="landscape"
+            android:launchMode="singleTask"
+            android:configChanges="orientation|keyboardHidden|screenSize"&gt;
+            
+            &lt;intent-filter&gt;
+                &lt;action android:name="android.intent.action.MAIN" /&gt;
+                &lt;category android:name="android.intent.category.LAUNCHER" /&gt;
+            &lt;/intent-filter&gt;            
+            
+        &lt;/activity&gt;
+    &lt;/application&gt;
+
+&lt;/manifest&gt;
+</pre>
+
+		<p>如果要针对 Android 6.0 以上版本使用动态权限申请，请自行扩展 SGUtilUnityContext.java，并重新生成 SGUtil_Context.jar。</p>
+
+        <h3>2. 使用 SGUtil For Unity 的要点</h3>
+
+        <p>上文讲到 SGU.cs 提供了 SGUtil 功能接口的封装，但是调用这些功能后会有回调把处理结果异步通知上来。
+		所以必须有一个对象来接收这些结果，以便做出适当的处理。而为了接收这些结果，我们就需要创建一个实现了
+		SGUCallbackEntity 接口对象，并在初始化时作为参数传给 SGU。这个对象必须在 Unity 应用启动时第一
+		时间得到运行，而且一直存在。
+		</p>
+
+        <p>我们以 SGUCallbackEntityObject 为例作简单的说明。</p>
+
+		<pre>
+public class SGUCallbackEntityObject : MonoBehaviour, SGUCallbackEntity {
+
+    void Start () {
+        SGU.initialize(this);	// SGU class initialization
+        // call Init interface
+        SGU.Init("com.sg.util.SGUtilUnityGameServer", false);
+    }
+</pre>
+
+        <p>SGUCallbackEntityObject 除了继承 MonoBahaviour 外，还继承了 SGUCallbackEntity，以便实现 SGUCallbackEntity 接口中的所有方法。它在
+		启动时首先调用 SGU.initialize 来对 SGU 类进行初始化，然后调用 SGU.Init 来为使用 SGUtil For Unity 进行初始化。</p>
+
+        <p>SGU.initialize 的参数是一个 SGUCallbackEntity 的实例，所以将 this 传过去。</p>
+
+        <p>SGU.Init 的第一个参数是一个游服接口对象，这里使用的 "com.sg.util.SGUtilUnityGameServer" 是一个演示实现。关于游服接口的细节请参看
+		<a href=<%= "assets/html/" + lang + "/android/jdoc/com/sg/util/SGGameServerInterface.html"%>> SGGameServerInterface </a>。SGU.Init
+		的第二个参数指定在用户购买某商品（道具）并且购买的 UI 操作成功后，是否自动查询订单的状态，并在支付成功的情况下把商品（道具）标记为
+		已发货。如果这个参数为 false，那么您需要在购买 UI 操作成功后通过用户的后续操作或其他手段在合适的时机发起查询。
+		</p>
 
     </section>
+
+    <section id="repackage">
+
+        <h1>重新打包</h1>
+
+		<p>您接入 SGUtil For Android 后，使用 Unity 开发环境可以打包出 APK 文件，并可以在 Android 设备上运行。但是这个 APK 中只有
+		SGUtil 内置的模拟渠道。要想真正地绑定某个具体渠道，请将 APK 寄给 SG Studios，SG Studios 会对您的应用做测试，并将打包了指定渠道后的新
+		APK 文件寄回。渠道相关的介绍参见 <a href=<%= "/java-china-init"%>> Android 集成指南 </a>。
+		</p>
+
+	</section>
+
+    <section id="customize">
+
+        <h1>定制接口</h1>
+
+		<p>下面我们列出了 SGUtil 与 Unity 的接口类以及演示用游服接口的源代码。您可以在此基础上进行修改定制。</p>
+
+        <%- include ../code/unity-china-sgutil-context.html -%>
+
+        <%- include ../code/unity-china-sgutil-gameserver.html -%>
+
+	</section>
 
 </div>

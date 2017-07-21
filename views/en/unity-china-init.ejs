@@ -1,10 +1,17 @@
+<style type="text/css">
+pre > div { color:red; font-weight: bold }
+pre > span { color:red; font-weight: bold }
+</style>
+
 <div class="left-side" id="myScrollspy">
 
     <ul class="nav nav-pills">
-        <li><a href="#summary">Unity 集成指南</a></li>
-        <li><a href="#environment">開發環境設定</a></li>
-        <li><a href="#content">SGSDK Package 內容</a></li>
-        <li><a href="#use">使用 Unity SGSDK</a></li>
+        <li><a href="#summary">Introduction</a></li>
+        <li><a href="#environment">Development Environment</a></li>
+        <li><a href="#content">SGUtil For Unity Package Content</a></li>
+        <li><a href="#use">Using SGUtil For Unity</a></li>
+        <li><a href="#repackage">Repackaging</a></li>
+        <li><a href="#customize">Cutomization</a></li>
     </ul>
 
 </div>
@@ -12,79 +19,195 @@
 <div class="right-side">
 
     <section id="summary">
-        <h1>Unity 集成指南</h1>
+        <h1>Introduction</h1>
         <p>
-            通過本文的介紹可以了解 Unity SDK 客戶端接入的整個流程。
-            在接入之前請仔細閱讀本文檔，以減少接入過程中遇到的問題。
+            This page gives you a brief introduction to the flow integrating and keypoints of using SGUtil For Unity. Please read this document
+			carefully to avoid mistakes and detours.
         </p>
     </section>
 
     <section id="environment">
-        <h1>開發環境設定</h1>
-        <h3>1.下載 SGSDK Unity Package File</h3>
+        <h1>Develop Environment</h1>
+        <h3>1. Download SGUtil For Unity Package</h3>
         <ul>
-            <li><a href="/sdk/unity/SGSDK.unitypackage">SGSDK.unitypackage</a></li>
+            <li><a href="/sdk/unity/sgutil.unitypackage">sgutil.unitypackage</a></li>
         </ul>
         <br />
 
-        <h3>2.Import Custom Package</h3>
-        <p>導入 SGSDK.unitypackage 至 project 裡。</p>
-        <img src=<%= "assets/img/" + lang + "/unity01.png"%> class="img-responsive"/>
+        <h3>2. Import SGUtil For Unity Package</h3>
+        <p>Select "Assets" menu &rarr; "Import Package" &rarr; "Custom Package", pick up the SGUtil For Unity package you downloaded.</p>
+        <img src=<%= "assets/img/" + "zh-cn" + "/unity_cn/sd_import_package.png"%> class="img-responsive"/>
         <br />
+
+        <p>Unity will show list of package files.</p>
+        <img src=<%= "assets/img/" + "zh-cn" + "/unity_cn/sd_package_content.png"%> class="img-responsive"/>
+		<br/>
+
+		<p>Click "Import" button to begin importing.</p>
+
+        <h3>3. Sample Programs</h3>
+		<p>Below is SGUCallbackEntityObject.cs in SGUtil For Unity package, for your reference only.</p>
+
+        <%- include ../code/unity-china-sgutil-sample-obj.html -%>
 
     </section>
 
     <section id="content">
-        <h1>SGSDK Package 內容</h1>
-        <img src=<%= "assets/img/" + lang + "/unity02.png"%> class="img-responsive"/>
-        <h3>1.Android</h3>
-        <ul>
-            <li>Plugins/Android/SGSDK.aar native android sdk</li>
-            <li>Plugins/Android/android-support-v4.jar 與 android 相依的 sdk。Project 中只需求保留一份最新版本，以免在產 apk 時發生載入衝突。</li>
-            <li>Plugins/Android/AndroidManifest.xml 與 project 的 AndroidManifest.xml 合併。</li>
-            <%- include ../code/unity-manifest.html -%>
-        </ul>
 
-        <br />
+        <h1>SGUtil For Unity Package Content</h1>
+        <h3>1. Directory Structure</h3>
+		<p>The directoy structure of SGUtil For Unity package is as follows.</p>
 
-        <h3>2.iOS</h3>
-        <ul>
-            <li>Plugins/iOS/SGSDK.framework native iOS sdk</li>
-            <li>Plugins/iOS/SwiftObject.mm SwiftObject.swift iOS 與 Unity 溝通的中介檔。 </li>
-            <li>以下為 build iOS project 所需檔案。</li>
-            <li>Plugins/SGSDK/Editor/PostProcessor.cs</li>
-            <li>Plugins/SGSDK/UnitySwift-Bridging-Header.h</li>
-            <li>Plugins/SGSDK/Xcode/</li>
-        </ul>
+		<pre>
+Plugins\Android\AndroidManifest.xml
+	Android project manifest file
+Plugins\Android\bin\SGUtil_Context.jar
+	Interface class between SGUtil (java) and Unity.
+Plugins\Android\libs\SGUtil.aar
+	SGUtil software package
+Plugins\Android\libs\SGUtil_GameServer.jar
+	Implementation of demo game server
+Plugins\Android\libs\android-support-v4.jar
+	Android support library version 4
+Plugins\Android\res\drawable-hdpi\sg_logo.png
+	SG Studios logo
+Plugins\Android\res\drawable-ldpi\sg_logo.png
+	SG Studios logo
+Plugins\Android\res\drawable-mdpi\sg_logo.png
+	SG Studios logo
+Plugins\Android\res\drawable-xhdpi\sg_logo.png
+	SG Studios logo
+Plugins\Android\res\drawable-xxhdpi\sg_logo.png
+	SG Studios logo
+Plugins\Android\res\drawable-xxxhdpi\sg_logo.png
+	SG Studios logo
+Plugins\Android\res\values\strings.xml
+	Text resources
+Plugins\MiniJSON.cs
+	Simple JSON parser
 
-        <h3>3.Unity SDK</h3>
-        <ul>
-            <li>Plugins/SGSDK/Scripts Unity SGSDK</li>
-        </ul>
+Scripts\SDK\SGU.cs
+	Interface APIs to call SGUtil functions
+Scripts\SDK\SGUCallback.cs
+	Callbacks to be called by SGUtil_Context. Convert JSON data to classes and dispatch to callback implementation (entity).
+Scripts\SDK\SGUCallbackEntity.cs
+	Callback interface definition
+Scripts\SDK\SGUInterface.cs
+	Abstract class to define interface APIs to call SGUtil functions
+Scripts\SDK\SGUInterfaceAndroid.cs
+	Interface API implementation for Android
+Scripts\SDK\SGUInterfaceDefault.cs
+	Default interface API implementation (not implemented)
+Scripts\SDK\SGUInterfaceIOS.cs
+	Interface API implementation for iOS (not implemented)
+Scripts\SG\SGUCallbackEntityObject.cs
+	Callback interface implementation demo</pre>
 
     </section>
 
     <section id="use">
-        <h1>使用 Unity SGSDK</h1>
-        <h3>1.調用SGSDK</h3>
-        <ul>
-            <li>調用 singleton object <code>SGSDK.Instance</code> 各函式完成串接 SG 帳號，支付，統計系統。</li>
-            <li>建議在遊戲初始化時設置 SDK 監聽與初始函式。</li>
-            <%- include ../code/unity-init.html -%>
-        </ul>
 
-        <h3>2.SGSDK 使用範例</h3>
-        <ul>
-            <li>請參考 SGSDKSample/SGDemo</li>
-        </ul>
-        <br />
+        <h1>Using SGUtil For Unity</h1>
+        <h3>1. Customize AndroidManifest.xml</h3>
+		<p>You may change AndroidManifest.xml except the blue part shown below.</p>
 
-        <h3>3.注意事項</h3>
-        <ul>
-            <li>接入 SGSDK 後只支援實機調用測試。</li>
-        </ul>
-        <br />
+		<pre>
+&lt;manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.sg.util.unitydemo"
+    android:versionCode="1"
+    android:versionName="1.0" &gt;
+
+    &lt;uses-sdk
+        android:minSdkVersion="18"
+        android:maxSdkVersion="25"
+        android:targetSdkVersion="23" /&gt;
+
+    &lt;uses-permission android:name="android.permission.INTERNET" /&gt;
+    &lt;uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /&gt;
+    &lt;uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /&gt;
+    &lt;uses-permission android:name="android.permission.WAKE_LOCK" /&gt;
+
+    &lt;application
+        android:allowBackup="true"
+        android:icon="@drawable/sg_logo"
+        android:label="@string/sgutil_unitydemo"
+        android:name="<span style="color:blue">com.sg.util.SGApplication</span>"&gt;
+        
+        &lt;activity
+            android:name="<span style="color:blue">com.sg.util.SGUtilUnityContext</span>"
+            android:label="@string/sgutil_unitydemo" 
+            android:screenOrientation="landscape"
+            android:launchMode="singleTask"
+            android:configChanges="orientation|keyboardHidden|screenSize"&gt;
+            
+            &lt;intent-filter&gt;
+                &lt;action android:name="android.intent.action.MAIN" /&gt;
+                &lt;category android:name="android.intent.category.LAUNCHER" /&gt;
+            &lt;/intent-filter&gt;            
+            
+        &lt;/activity&gt;
+    &lt;/application&gt;
+
+&lt;/manifest&gt;
+</pre>
+
+		<p>Please change/exten SGUtilUnityContext.java by yourselves if you need to request critical permission dynamically and re-generate SGUtil_Context.jar.</p>
+
+        <h3>2. Keypoints of Using SGUtil For Unity</h3>
+
+        <p>We above metioned SGU.cs provides interface APIs to encapsulate SGUtil functions. Calling these APIs results in asynchronous notifcations to be delivered
+        from SGUtil. Therefore there must be an object to receive and handle those notifications. We create a SGUCallbackEntity intance object and pass it as a parameter
+		to SGU.Init. This object must get run at the beginning of application run and be there all the time.</p>
+
+        <p>We take SGUCallbackEntityObject as an example to give a little explanation.</p>
+
+		<pre>
+public class SGUCallbackEntityObject : MonoBehaviour, SGUCallbackEntity {
+
+    void Start () {
+        SGU.initialize(this);	// SGU class initialization
+        // call Init interface
+        SGU.Init("com.sg.util.SGUtilUnityGameServer", false);
+    }
+</pre>
+
+        <p>Besides MonoBahaviour, SGUCallbackEntityObject extends SGUCallbackEntity interface，implemting methods defined by SGUCallbackEntity.
+		It calls SGU.initialize to initialize SGU at the very beginning, and then calls SGU.Init to initialize SGUtil For Unity.</p>
+
+        <p>The parameter of SGU.initialize is a SGUCallbackEntity instance, hence we pass 'this' as argument.</p>
+
+        <p>The first parameter of SGU.Init is an instance of game server interface. Here we use "com.sg.util.SGUtilUnityGameServer", which is a demo implementation.
+		For details of game server interface, please refer to 
+		<a href=<%= "assets/html/" + lang + "/android/jdoc/com/sg/util/SGGameServerInterface.html"%>> SGGameServerInterface </a>. The second parameter of SGU.Init
+		specifies whether SGUtil should automatically check order state and let game server mark it as delivered after user completes UI operation to buy a product.
+		If set it to false, you need to manually do the job by calling GetOrderState later.</p>
 
     </section>
+
+    <section id="repackage">
+
+        <h1>Repackaging</h1>
+
+		<p>After integrating SGUtil For Android, you may let Unity to generate an APK file and run it on Android devices. However, this APK
+		only contains an pre-embedded demo channel, which simply completes all functions with dummy data. In order to bind a real channel, please
+		send your APK to SG Studios, we will test your appliation and send back you a new APK with your perferred channel SDK re-packaged in.
+		For channel relevant description, please refer to <a href=<%= "/java-china-init"%>> Introduction to SGUtil integration</a>.
+		</p>
+
+	</section>
+
+    <section id="customize">
+
+        <h1>Customization</h1>
+
+		<p>The source files of SGUtilUnityContext.cs and SGUtilUnityGameServer.cs are listed below. You may make proper changes if you need.</p>
+
+        <%- include ../code/unity-china-sgutil-context.html -%>
+
+		<br/>
+
+        <%- include ../code/unity-china-sgutil-gameserver.html -%>
+
+	</section>
 
 </div>
