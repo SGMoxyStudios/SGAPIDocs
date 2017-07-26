@@ -1,10 +1,10 @@
 <div class="left-side" id="myScrollspy">
 
     <ul class="nav nav-pills">
-        <li><a href="#summary">Unity 集成指南</a></li>
-        <li><a href="#environment">開發環境設定</a></li>
-        <li><a href="#content">SGSDK Package 內容</a></li>
-        <li><a href="#use">使用 Unity SGSDK</a></li>
+        <li><a href="#summary">Unity Introduction</a></li>
+        <li><a href="#environment">Development Environment</a></li>
+        <li><a href="#content">SGSDK Package Content</a></li>
+        <li><a href="#use">Using Unity SGSDK</a></li>
     </ul>
 
 </div>
@@ -12,15 +12,14 @@
 <div class="right-side">
 
     <section id="summary">
-        <h1>Unity 集成指南</h1>
+        <h1>Unity Introduction</h1>
         <p>
-            通過本文的介紹可以了解 Unity SDK 客戶端接入的整個流程。
-            在接入之前請仔細閱讀本文檔，以減少接入過程中遇到的問題。
+            Knowing how to integrate Unity SDK by reading this document. It's important for you to read through and understand the document before starting development.
         </p>
     </section>
 
     <section id="environment">
-        <h1>開發環境設定</h1>
+        <h1>Development Environment</h1>
         <h3>1.下載 SGSDK Unity Package File</h3>
         <ul>
             <li><a href="/sdk/unity/SGSDK.unitypackage">SGSDK.unitypackage</a></li>
@@ -28,20 +27,20 @@
         <br />
 
         <h3>2.Import Custom Package</h3>
-        <p>導入 SGSDK.unitypackage 至 project 裡。</p>
+        <p>Import SGSDK.unitypackage to project.</p>
         <img src=<%= "assets/img/" + lang + "/unity01.png"%> class="img-responsive"/>
         <br />
 
     </section>
 
     <section id="content">
-        <h1>SGSDK Package 內容</h1>
+        <h1>SGSDK Package Content</h1>
         <img src=<%= "assets/img/" + lang + "/unity02.png"%> class="img-responsive"/>
         <h3>1.Android</h3>
         <ul>
-            <li>Plugins/Android/SGSDK.aar native android sdk</li>
-            <li>Plugins/Android/android-support-v4.jar 與 android 相依的 sdk。Project 中只需求保留一份最新版本，以免在產 apk 時發生載入衝突。</li>
-            <li>Plugins/Android/AndroidManifest.xml 與 project 的 AndroidManifest.xml 合併。</li>
+            <li>Plugins/Android/SGSDK.aar is native android sdk</li>
+            <li>Plugins/Android/android-support-v4.jar is dependency sdk of android. Keeping the newest one avoid making apk error.</li>
+            <li>Plugins/Android/AndroidManifest.xml is AndroidManifest.xml of sdk. Have to merge with project.</li>
             <%- include ../code/unity-manifest.html -%>
         </ul>
 
@@ -50,8 +49,8 @@
         <h3>2.iOS</h3>
         <ul>
             <li>Plugins/iOS/SGSDK.framework native iOS sdk</li>
-            <li>Plugins/iOS/SwiftObject.mm SwiftObject.swift iOS 與 Unity 溝通的中介檔。 </li>
-            <li>以下為 build iOS project 所需檔案。</li>
+            <li>Plugins/iOS/SwiftObject.mm SwiftObject.swift is intermediary file of iOS and Unity. </li>
+            <li>Below are files of build iOS project necessary.</li>
             <li>Plugins/SGSDK/Editor/PostProcessor.cs</li>
             <li>Plugins/SGSDK/UnitySwift-Bridging-Header.h</li>
             <li>Plugins/SGSDK/Xcode/</li>
@@ -65,23 +64,24 @@
     </section>
 
     <section id="use">
-        <h1>使用 Unity SGSDK</h1>
-        <h3>1.調用SGSDK</h3>
+        <h1>Using Unity SGSDK</h1>
+        <h3>1.Using SGSDK</h3>
         <ul>
-            <li>調用 singleton object <code>SGSDK.Instance</code> 各函式完成串接 SG 帳號，支付，統計系統。</li>
-            <li>建議在遊戲初始化時設置 SDK 監聽與初始函式。</li>
+            <li>Using singleton object <code>SGSDK.Instance</code> function to integrate SG member, payment and analytic system.</li>
+            <li>Recommended call SDK SetListener and Init at game initialization.</li>
             <%- include ../code/unity-init.html -%>
         </ul>
 
-        <h3>2.SGSDK 使用範例</h3>
+        <h3>2.SGSDK sample</h3>
         <ul>
-            <li>請參考 SGSDKSample/SGDemo</li>
+            <li>Please refer to SGSDKSample/SGDemo</li>
         </ul>
         <br />
 
-        <h3>3.注意事項</h3>
+        <h3>3.Hints</h3>
         <ul>
-            <li>接入 SGSDK 後只支援實機調用測試。</li>
+            <li>SGSDK only can test in device.</li>
+            <li> Unity 5.6.1 Android widget display can not show correctly. Recommended to use other versions or hide widget. </li>
         </ul>
         <br />
 
