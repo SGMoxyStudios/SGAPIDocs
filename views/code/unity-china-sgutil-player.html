@@ -1,0 +1,22 @@
+<!-- HTML generated using hilite.me --><div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008000; font-weight: bold">package</span> com<span style="color: #666666">.</span><span style="color: #7D9029">sg</span><span style="color: #666666">.</span><span style="color: #7D9029">util</span><span style="color: #666666">;</span>
+
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">android.view.SurfaceView</span><span style="color: #666666">;</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">android.view.View</span><span style="color: #666666">;</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">android.content.ContextWrapper</span><span style="color: #666666">;</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">com.unity3d.player.UnityPlayer</span><span style="color: #666666">;</span>
+
+<span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">SGUtilUnityPlayer</span> <span style="color: #008000; font-weight: bold">extends</span> UnityPlayer <span style="color: #666666">{</span>
+
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #0000FF">SGUtilUnityPlayer</span><span style="color: #666666">(</span>ContextWrapper contextwrapper<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #008000; font-weight: bold">super</span><span style="color: #666666">(</span>contextwrapper<span style="color: #666666">);</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">addView</span><span style="color: #666666">(</span>View child<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(</span>child <span style="color: #008000; font-weight: bold">instanceof</span> SurfaceView<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            <span style="color: #666666">((</span>SurfaceView<span style="color: #666666">)</span>child<span style="color: #666666">).</span><span style="color: #7D9029">setZOrderOnTop</span><span style="color: #666666">(</span><span style="color: #008000; font-weight: bold">false</span><span style="color: #666666">);</span>
+        <span style="color: #666666">}</span>
+        <span style="color: #008000; font-weight: bold">super</span><span style="color: #666666">.</span><span style="color: #7D9029">addView</span><span style="color: #666666">(</span>child<span style="color: #666666">);</span>
+    <span style="color: #666666">}</span>
+
+<span style="color: #666666">}</span>
+</pre></div>

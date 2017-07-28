@@ -4,8 +4,10 @@
 
 <span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">android.annotation.TargetApi</span><span style="color: #666666">;</span>
 <span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">android.content.Intent</span><span style="color: #666666">;</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">android.graphics.PixelFormat</span><span style="color: #666666">;</span>
 <span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">android.os.Bundle</span><span style="color: #666666">;</span>
 <span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">android.view.KeyEvent</span><span style="color: #666666">;</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">android.view.Window</span><span style="color: #666666">;</span>
 
 <span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">com.unity3d.player.UnityPlayer</span><span style="color: #666666">;</span>
 <span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">com.unity3d.player.UnityPlayerActivity</span><span style="color: #666666">;</span>
@@ -21,6 +23,8 @@
     <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">final</span> <span style="color: #008000; font-weight: bold">static</span> String CALLBACK_ORDERINFO_FOUND     <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;OnOrderInfoFound&quot;</span><span style="color: #666666">;</span>
     <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">final</span> <span style="color: #008000; font-weight: bold">static</span> String CALLBACK_ORDERSTATE_CHANGE   <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;OnOrderStateChange&quot;</span><span style="color: #666666">;</span>
     <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">final</span> <span style="color: #008000; font-weight: bold">static</span> String CALLBACK_DEBUGINFO           <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;OnDebugInfo&quot;</span><span style="color: #666666">;</span>
+
+    <span style="color: #008000; font-weight: bold">private</span> SGUtilUnityPlayer mUnityPlayer<span style="color: #666666">;</span>
 
     <span style="color: #008000; font-weight: bold">private</span> SGAgent agent<span style="color: #666666">;</span>
     <span style="color: #008000; font-weight: bold">private</span> String gameServerClassName<span style="color: #666666">;</span>
@@ -153,7 +157,12 @@
 
     <span style="color: #AA22FF">@Override</span>
     <span style="color: #008000; font-weight: bold">protected</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onCreate</span><span style="color: #666666">(</span>Bundle savedInstanceState<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        requestWindowFeature<span style="color: #666666">(</span>Window<span style="color: #666666">.</span><span style="color: #7D9029">FEATURE_NO_TITLE</span><span style="color: #666666">);</span>
         <span style="color: #008000; font-weight: bold">super</span><span style="color: #666666">.</span><span style="color: #7D9029">onCreate</span><span style="color: #666666">(</span>savedInstanceState<span style="color: #666666">);</span>
+        getWindow<span style="color: #666666">().</span><span style="color: #7D9029">setFormat</span><span style="color: #666666">(</span>PixelFormat<span style="color: #666666">.</span><span style="color: #7D9029">RGBX_8888</span><span style="color: #666666">);</span>
+        mUnityPlayer <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> SGUtilUnityPlayer<span style="color: #666666">(</span><span style="color: #008000; font-weight: bold">this</span><span style="color: #666666">);</span>
+        setContentView<span style="color: #666666">(</span>mUnityPlayer<span style="color: #666666">);</span>
+        mUnityPlayer<span style="color: #666666">.</span><span style="color: #7D9029">requestFocus</span><span style="color: #666666">();</span>
         agent <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> SGAgent<span style="color: #666666">();</span>
         agent<span style="color: #666666">.</span><span style="color: #7D9029">onCreate</span><span style="color: #666666">(</span><span style="color: #008000; font-weight: bold">this</span><span style="color: #666666">,</span> <span style="color: #008000; font-weight: bold">this</span><span style="color: #666666">);</span>
     <span style="color: #666666">}</span>
