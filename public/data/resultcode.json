@@ -84,6 +84,18 @@
     "class": ""
   },
   {
+    "api": "",
+    "code": 204,
+    "msg": "Login by Wechat error.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 205,
+    "msg": "Login by wechat.",
+    "class": ""
+  },
+  {
     "api": "signup",
     "code": 301,
     "msg": "ok",
@@ -135,6 +147,12 @@
     "api": "",
     "code": 309,
     "msg": "Account error.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 310,
+    "msg": "Send confirm code success.",
     "class": ""
   },
   {
