@@ -609,7 +609,7 @@
     "class": "active"
   },
   {
-    "api": "changelanguage",
+    "api": "change-language",
     "code": 1701,
     "msg": "ok",
     "class": "active"
