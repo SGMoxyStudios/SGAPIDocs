@@ -609,6 +609,12 @@
     "class": "active"
   },
   {
+    "api": "changelanguage",
+    "code": 1701,
+    "msg": "ok",
+    "class": "active"
+  },
+  {
     "api": "iOS SDK Error",
     "code": 8000,
     "msg": "Javascript call GetResult() error.",
