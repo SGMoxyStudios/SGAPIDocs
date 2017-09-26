@@ -1,0 +1,56 @@
+<!-- HTML generated using hilite.me --><div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #AA22FF">@UIApplicationMain</span>
+<span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">AppDelegate</span><span style="color: #666666">:</span> UIResponder<span style="color: #666666">,</span> UIApplicationDelegate<span style="color: #666666">,</span> WXApiDelegate <span style="color: #666666">{</span>
+
+    var <span style="color: #A0A000">window:</span> UIWindow<span style="color: #666666">?</span>
+    
+    <span style="color: #008000; font-weight: bold">public</span> func <span style="color: #0000FF">application</span><span style="color: #666666">(</span>_ <span style="color: #A0A000">application:</span> UIApplication<span style="color: #666666">,</span> open <span style="color: #A0A000">url:</span> URL<span style="color: #666666">,</span> <span style="color: #A0A000">sourceApplication:</span> String<span style="color: #666666">?,</span> <span style="color: #A0A000">annotation:</span> Any<span style="color: #666666">)</span> <span style="color: #666666">-&gt;</span> Bool <span style="color: #666666">{</span>
+        <span style="color: #008000; font-weight: bold">return</span> WXApi<span style="color: #666666">.</span><span style="color: #7D9029">handleOpen</span><span style="color: #666666">(</span>url<span style="color: #666666">,</span> <span style="color: #A0A000">delegate:</span> self<span style="color: #666666">)</span>
+    <span style="color: #666666">}</span>
+    
+    <span style="color: #008000; font-weight: bold">public</span> func <span style="color: #0000FF">application</span><span style="color: #666666">(</span>_ <span style="color: #A0A000">application:</span> UIApplication<span style="color: #666666">,</span> handleOpen <span style="color: #A0A000">url:</span> URL<span style="color: #666666">)</span> <span style="color: #666666">-&gt;</span> Bool <span style="color: #666666">{</span>
+        <span style="color: #008000; font-weight: bold">return</span> WXApi<span style="color: #666666">.</span><span style="color: #7D9029">handleOpen</span><span style="color: #666666">(</span>url<span style="color: #666666">,</span> <span style="color: #A0A000">delegate:</span> self<span style="color: #666666">)</span>
+    <span style="color: #666666">}</span>
+
+    func <span style="color: #0000FF">application</span><span style="color: #666666">(</span>_ <span style="color: #A0A000">application:</span> UIApplication<span style="color: #666666">,</span> didFinishLaunchingWithOptions <span style="color: #A0A000">launchOptions:</span> <span style="color: #666666">[</span><span style="color: #A0A000">UIApplicationLaunchOptionsKey:</span> Any<span style="color: #666666">]?)</span> <span style="color: #666666">-&gt;</span> Bool <span style="color: #666666">{</span>
+        
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">true</span>
+    <span style="color: #666666">}</span>
+
+    func <span style="color: #0000FF">onResp</span><span style="color: #666666">(</span>_ <span style="color: #A0A000">resp:</span> BaseResp<span style="color: #666666">!)</span> <span style="color: #666666">{</span>
+        <span style="color: #008000; font-weight: bold">if</span> let authresp <span style="color: #666666">=</span> resp as<span style="color: #666666">?</span> SendAuthResp <span style="color: #666666">{</span>
+            SGSDK<span style="color: #666666">.</span><span style="color: #7D9029">Instance</span><span style="color: #666666">.</span><span style="color: #7D9029">WXApiResp</span><span style="color: #666666">(</span><span style="color: #A0A000">errCode:</span> Int<span style="color: #666666">(</span>resp<span style="color: #666666">.</span><span style="color: #7D9029">errCode</span><span style="color: #666666">),</span> <span style="color: #A0A000">code:</span> authresp<span style="color: #666666">.</span><span style="color: #7D9029">code</span><span style="color: #666666">)</span>
+        <span style="color: #666666">}</span>
+    <span style="color: #666666">}</span>
+    
+    func <span style="color: #0000FF">onReq</span><span style="color: #666666">(</span>_ <span style="color: #A0A000">req:</span> BaseReq<span style="color: #666666">!)</span> <span style="color: #666666">{</span>
+        
+    <span style="color: #666666">}</span>
+<span style="color: #666666">}</span>
+</pre></td></tr></table></div>
