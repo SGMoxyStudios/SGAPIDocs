@@ -96,6 +96,36 @@
     "class": ""
   },
   {
+    "api": "",
+    "code": 210,
+    "msg": "WeChat auth ok.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 211,
+    "msg": "WeChat auth denied.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 212,
+    "msg": "WeChat user cancel.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 213,
+    "msg": "WeChat invalid code.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 214,
+    "msg": "WeChat get token ok.",
+    "class": ""
+  },
+  {
     "api": "signup",
     "code": 301,
     "msg": "ok",
