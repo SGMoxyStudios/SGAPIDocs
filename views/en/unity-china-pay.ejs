@@ -48,7 +48,7 @@
 
         <span class="badge badge-ttl">Parameters</span>
         <ul>
-            <li>product - Product information, see SGU.cs for its member definition. Refer to <a href=<%= "assets/html/" + lang + "/android/jdoc/com/sg/util/UProduct.html"%>> UProduct</a>.</li>
+            <li>product - Product information, see SGU.cs for its member definition. Refer to <a href=<%= "assets/html/" + lang + "/android/jdoc/sgutil/com/sg/util/UProduct.html"%>> UProduct</a>.</li>
         </ul>
 
         <span class="badge badge-ttl">Remark</span>
@@ -143,7 +143,7 @@
             <li>This callback is initiated after Buy or GetOrderState are called.</li>
 			<li>SGUOrderState's member 'OrderID' is null when member 'State' is "ordering"，it has a fulfilling value after 'State' becomes
 			"ordered". The caller should save the order ID for future state query and management.
-			<li>For values of SGUOrderState's member 'State', please refer to <a href=<%= "assets/html/" + lang + "/android/jdoc/com/sg/util/SGAgent.SGClient.html#onOrderStateChange-java.lang.String-java.lang.String-java.lang.String-"%>> SGAgent.SGClient.onOrderStateChange</a>.
+			<li>For values of SGUOrderState's member 'State', please refer to <a href=<%= "assets/html/" + lang + "/android/jdoc/sgutil/com/sg/util/SGAgent.SGClient.html#onOrderStateChange-java.lang.String-java.lang.String-java.lang.String-"%>> SGAgent.SGClient.onOrderStateChange</a>.
 			However, if 'State' is 'error', it means GetOrderState cannot be done at present.</li>
         </ul>
 

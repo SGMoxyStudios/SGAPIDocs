@@ -35,7 +35,7 @@ pre > span { color:red; font-weight: bold }
             的各種信息共享給 SG Studios。
         </p>
         <p>
-            本文介紹接入 SGUtil 的接入流程。詳細資料請看<a href=<%= "assets/html/" + lang + "/android/jdoc/index.html"%>> SGUtil 文檔。</a>
+            本文介紹接入 SGUtil 的接入流程。詳細資料請看<a href=<%= "assets/html/" + lang + "/android/jdoc/sgutil/index.html"%>> SGUtil 文檔。</a>
         </p>
     </section>
 
@@ -235,7 +235,7 @@ public class MainActivity extends AppCompatActivity implements SGAgent.SGClient 
         <h1>SGUtil 回調監聽</h1>
         <p> SGAgent 的很多功能是異步實現的，在您調用這些功能後， SGAgent 將會通過您提供的介面通知操作結果。所以在
         您調用 SGAgent.onCreate 的時候必須提供一個 SGAgent.SGClient 介面的實現。你必須在這個介面的方法中處理 SGAgent
-        的通知。這個介面的定義如下（參見<a href=<%= "assets/html/" + lang + "/android/jdoc/com/sg/util/SGAgent.SGClient.html"%>> SGAgent.SGClient </a>）。
+        的通知。這個介面的定義如下（參見<a href=<%= "assets/html/" + lang + "/android/jdoc/sgutil/com/sg/util/SGAgent.SGClient.html"%>> SGAgent.SGClient </a>）。
 		</p>
 
 <pre>

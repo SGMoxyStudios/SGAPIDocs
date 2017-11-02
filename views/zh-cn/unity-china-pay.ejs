@@ -48,7 +48,7 @@
 
         <span class="badge badge-ttl">参数</span>
         <ul>
-            <li>product - 产品信息，成员见 SGU.cs 中的类定义。参看<a href=<%= "assets/html/" + lang + "/android/jdoc/com/sg/util/UProduct.html"%>> UProduct</a>。</li>
+            <li>product - 产品信息，成员见 SGU.cs 中的类定义。参看<a href=<%= "assets/html/" + lang + "/android/jdoc/sgutil/com/sg/util/UProduct.html"%>> UProduct</a>。</li>
         </ul>
 
         <span class="badge badge-ttl">说明</span>
@@ -140,7 +140,7 @@
         <ul>
             <li>此回调在 Buy 和 GetOrderState 被调用后引发。</li>
 			<li>SGUOrderState 的成员 OrderID 在 成员 State 为 "ordering" 时为 null，在 State 为 "ordered" 时才有意义。此时调用者应保存此订单号，以备将来查询和管理。
-			<li>有关 SGUOrderState 的成员 State 的取值，请参看 <a href=<%= "assets/html/" + lang + "/android/jdoc/com/sg/util/SGAgent.SGClient.html#onOrderStateChange-java.lang.String-java.lang.String-java.lang.String-"%>> SGAgent.SGClient.onOrderStateChange</a>。
+			<li>有关 SGUOrderState 的成员 State 的取值，请参看 <a href=<%= "assets/html/" + lang + "/android/jdoc/sgutil/com/sg/util/SGAgent.SGClient.html#onOrderStateChange-java.lang.String-java.lang.String-java.lang.String-"%>> SGAgent.SGClient.onOrderStateChange</a>。
 			但是如果 State 为 “error”的话，则表明 GetOrderState 调用失败。</li>
         </ul>
 
