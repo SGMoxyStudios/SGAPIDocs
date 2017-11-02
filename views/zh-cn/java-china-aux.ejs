@@ -13,6 +13,14 @@
 <pre>SGGameServerInterface getGameServer()
 </pre>
 
+获取操作的名称
+<pre>String getOpName(int op)
+</pre>
+
+获取状态类型的名称
+<pre>String getStateTypeName(int type)
+</pre>
+
 获取状态变化原因的名称
 <pre>String getStateChangeReasonName(int reason)
 </pre>
@@ -23,6 +31,26 @@
 
 指定游服接口实现
 <pre>void setGameServer(SGGameServerInterface gs)
+</pre>
+
+远程日志
+<pre>boolean log(int action, String key, int value, String message)
+</pre>
+
+启动获取远程日志项值的过程
+<pre>boolean getLogValue(String key, int defaultValue)
+</pre>
+
+运行扩展命令
+<pre>String runExtMethod(String cmdLine)
+</pre>
+
+开始游戏
+<pre>boolean startGame()
+</pre>
+
+停止游戏
+<pre>boolean stopGame()
 </pre>
 
 <p>具体使用方法请参看 <a href=<%= "assets/html/" + lang + "/android/jdoc/sgutil/com/sg/util/SGAgent.html"%>> SGAgent 文档</a>。</p>

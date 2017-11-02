@@ -13,6 +13,14 @@
 <pre>SGGameServerInterface getGameServer()
 </pre>
 
+獲取操作的名稱
+<pre>String getOpName(int op)
+</pre>
+
+獲取狀態類型的名稱
+<pre>String getStateTypeName(int type)
+</pre>
+
 獲取狀態變化原因的名稱
 <pre>String getStateChangeReasonName(int reason)
 </pre>
@@ -23,6 +31,26 @@
 
 指定遊服介面實現
 <pre>void setGameServer(SGGameServerInterface gs)
+</pre>
+
+遠程日誌
+<pre>boolean log(int action, String key, int value, String message)
+</pre>
+
+啓動獲取遠程日誌項值的過程
+<pre>boolean getLogValue(String key, int defaultValue)
+</pre>
+
+運行擴展命令
+<pre>String runExtMethod(String cmdLine)
+</pre>
+
+開始遊戲
+<pre>boolean startGame()
+</pre>
+
+停止遊戲
+<pre>boolean stopGame()
 </pre>
 
 <p>具體使用方法請參看 <a href=<%= "assets/html/" + lang + "/android/jdoc/sgutil/com/sg/util/SGAgent.html"%>> SGAgent 文檔</a>。</p>

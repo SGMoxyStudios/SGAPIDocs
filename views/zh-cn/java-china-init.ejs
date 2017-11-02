@@ -141,7 +141,9 @@ repositories {
     <section id="init">
         <h1>SGUtil 初始化</h1>
         
-        <p>为了使用 SGUtil ，你必须首先创建一个 SGAgent 的实例。建议在 MainActivity 的 onCreate 方法中做这件事。</p>
+        <p>为了使用 SGUtil ，你必须首先创建一个 SGAgent 的实例。建议在 MainActivity 的 onCreate 方法中做这件事。
+        你也必须在 SGAgent 实例创建后设置你的游戏服务器接口实例，否则整个登入过程不会开始。
+        </p>
 <pre>
 public class MainActivity extends AppCompatActivity implements SGAgent.SGClient {
 
@@ -153,6 +155,8 @@ public class MainActivity extends AppCompatActivity implements SGAgent.SGClient 
         setContentView(R.layout.activity_main);
         <span>agent = new SGAgent();</span>
         ...
+        <span>agent.setGameServer(new YourGameServerImplementation());</span>
+        ...
     }
 </pre>
     </section>
@@ -163,7 +167,7 @@ public class MainActivity extends AppCompatActivity implements SGAgent.SGClient 
         
         <p>您在 MainActivity 中必须把 Android 系统对 MainActivity 的生命周期回调分发给 SGAgent。特别地，
         在 onCreate 方法中，您必须先准备好 UI ，因为 SGAgent 可能希望向UI上打印日志。如果您不希望这样，
-        就将下述的 appendLog 方法实现为空，这样的话您也可以在 SGAgent.onCreate 之后来做。</p>
+        就将下述的 appendLog 方法实现为空，这样的话您也可以在 SGAgent.onCreate 之后再准备 UI。</p>
 
 <pre>
     @Override
@@ -172,6 +176,7 @@ public class MainActivity extends AppCompatActivity implements SGAgent.SGClient 
         setContentView(R.layout.activity_main);
         agent = new SGAgent();
         <span>agent.onCreate(this, this);</span>
+        <span>agent.setGameServer(new YourGameServerImplementation());</span>
     }
 
     protected void onStart() {
@@ -249,7 +254,11 @@ public class MainActivity extends AppCompatActivity implements SGAgent.SGClient 
         boolean onOrderInfoBegin(int num);
         void onOrderInfoFound(UOrder order);
         void onOrderInfoEnd();
+        void onTreasureListFound(String[] treasures);
+        void onTreasureChange(String name, int count);
+        void onLogValue(String key, int value);
         void onStateChange(int type, int orgState, int newState, int reason, int op);
+        void onExtMethodNotification(String cookie, int code, String message);
     }
 </pre>
 
@@ -260,7 +269,7 @@ public class MainActivity extends AppCompatActivity implements SGAgent.SGClient 
         <h1>重新打包</h1>
 
 		<p>您接入 SGUtil 软件包后，使用 Android Studio 开发环境可以生成 APK 文件，并可以在 Android 设备上运行。但是这个 APK 中只有
-		SGUtil 内置的模拟渠道。要想真正地绑定某个具体渠道，请将 APK 寄给 SG Studios，SG Studios 会对您的应用做测试，并将打包了指定渠道后的新 APK 文件寄回。
+		SGUtil 内置的模拟渠道。要想真正地绑定某个具体渠道，请将 APK 上传到 SG Studios 的网站进行打包并下载最终 APK 文件。
 		</p>
 
 	</section>

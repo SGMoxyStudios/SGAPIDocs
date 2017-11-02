@@ -12,6 +12,14 @@
 Get current implementation of game server
 <pre>SGGameServerInterface getGameServer()
 </pre>
+        
+Get name of operation
+<pre>String getOpName(int op)
+</pre>
+
+Get name of state type
+<pre>String getStateTypeName(int type)
+</pre>
 
 Get name of specified state-change reason
 <pre>String getStateChangeReasonName(int reason)
@@ -25,5 +33,25 @@ Specify implementation of game server
 <pre>void setGameServer(SGGameServerInterface gs)
 </pre>
 
+Remote logging
+<pre>boolean log(int action, String key, int value, String message)
+</pre>
+
+Start process to retrieve value of remote log item
+<pre>boolean getLogValue(String key, int defaultValue)
+</pre>
+
+Run extended method
+<pre>String runExtMethod(String cmdLine)
+</pre>
+
+Start game
+<pre>boolean startGame()
+</pre>
+
+Stop game
+<pre>boolean stopGame()
+</pre>
+        
 <p>Please refer to <a href=<%= "assets/html/" + lang + "/android/jdoc/sgutil/com/sg/util/SGAgent.html"%>> SGAgent Document</a> for details.</p>
 </div>

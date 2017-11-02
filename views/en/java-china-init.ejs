@@ -11,6 +11,7 @@ pre > span { color:red; font-weight: bold }
         <li><a href="#init">Initialization</a></li>
         <li><a href="#lifecycle">SGUtil Lifecycle Events</a></li>
         <li><a href="#listener">SGUtil Callback Listener</a></li>
+        <li><a href="#repackage">Repackaging</a></li>
     </ul>
 
 </div>
@@ -145,7 +146,9 @@ repositories {
     <section id="init">
         <h1>Initialization</h1>
         
-        <p>You need to create an instance of SGAgent in order to use SGUtil. We suggest you do this in onCreate method of MainActivity.</p>
+        <p>You need to create an instance of SGAgent in order to use SGUtil. We suggest you do this in onCreate method of MainActivity.
+        You also need to set instance of your game server implementation after that, otherwise the whole login process does not start.
+        </p>
 <pre>
 public class MainActivity extends AppCompatActivity implements SGAgent.SGClient {
 
@@ -156,6 +159,8 @@ public class MainActivity extends AppCompatActivity implements SGAgent.SGClient 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         <span>agent = new SGAgent();</span>
+        ...
+        <span>agent.setGameServer(new YourGameServerImplemenation());</span>
         ...
     }
 </pre>
@@ -176,6 +181,7 @@ public class MainActivity extends AppCompatActivity implements SGAgent.SGClient 
         setContentView(R.layout.activity_main);
         agent = new SGAgent();
         <span>agent.onCreate(this, this);</span>
+        <span>agent.setGameServer(new YourGameServerImplementation());</span>
     }
 
     protected void onStart() {
@@ -254,10 +260,27 @@ public class MainActivity extends AppCompatActivity implements SGAgent.SGClient 
         boolean onOrderInfoBegin(int num);
         void onOrderInfoFound(UOrder order);
         void onOrderInfoEnd();
+        void onTreasureListFound(String[] treasures);
+        void onTreasureChange(String name, int count);
+        void onLogValue(String key, int value);
         void onStateChange(int type, int orgState, int newState, int reason, int op);
+        void onExtMethodNotification(String cookie, int code, String message);
     }
 </pre>
 
     </section>
+
+    <section id="repackage">
+            
+        <h1>Repackaging</h1>
+
+        <p>You can generate APK file with Android Studio after integrating with SGUtil library. You many
+        also test your app on Android devices. However, the APK, has only a demo channel SDK. To bind a
+        real channel SDK, please upload your APK to SG Studios website and download the final APK after
+        repackaging is finished.
+        </p>
+            
+    </section>
+            
 
 </div>
