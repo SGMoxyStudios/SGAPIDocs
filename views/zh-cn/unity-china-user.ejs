@@ -22,7 +22,7 @@
                 <span class="badge badge-ttl">说明</span>
                 <ul>
                     <li>调起渠道登入界面，并由此进入渠道登入二次确认，登入游服的整套流程。</li>
-                    <li>渠道登入、登入二次确认和游服登入这三个阶段的登入进展状态会通过回调 OnLogin 来通知。</li>
+                    <li>登入结果会通过回调 OnLogin 来通知。</li>
                 </ul>
             </div>
             <div class="col-sm-3">
@@ -39,20 +39,17 @@
         <div class="row">
             <div class="col-sm-9">
                 <span class="badge badge-ttl">方法</span>
-                <p><pre>void OnLogin(SGUOp action, SGUStateChangeReason reason)</pre></p>
+                <p><pre>void OnLogin(SGUResult resultCode)</pre></p>
 
                 <span class="badge badge-ttl">参数</span>
                 <ul>
-                    <li>action - OP_LOGIN（渠道登入）、OP_AUTH（登入认证）、OP_LOGINGAME（游服登入）之一</li>
-                    <li>reason - STATE_CHANGE_REASON_OP（操作正在进行）、STATE_CHANGE_REASON_OP_SUCCESS（操作成功）、STATE_CHANGE_REASON_OP_FAILURE（操作失败）、STATE_CHANGE_REASON_OP_CANCELED（操作取消）之一</li>
+                    <li>resultCode - 结果码</li>
                 </ul>
 
                 <span class="badge badge-ttl">说明</span>
                 <ul>
-                    <li>登入过程中的状态通过这个回调来通知调用者。</li>
-                    <li>需要结合 action 和 reason 来判断当前登入过程进行到了哪一步。</li>
-                    <li>任一阶段的失败或取消都意谓着登入未成功。</li>
-                    <li>只有最后一阶段的游服登入成功才表明整个登入流程完成，可以开放应用功能。</li>
+                    <li>登入流程任一阶段的失败或取消都意谓着登入未成功。</li>
+                    <li>只有最后一阶段的游服登入成功才表明整个登入流程完成。</li>
                 </ul>
             </div>
             <div class="col-sm-3">
@@ -75,7 +72,7 @@
                 <ul>
                     <li>开始游服登出和渠道登出流程。</li>
                     <li>游服登出后开始登出渠道，但是无论渠道登出成功与否都认为整个登出流程完成。</li>
-                    <li>游服登出、渠道登出的进展状态会通过回调 OnLogout 来通知。</li>
+                    <li>登出结果会通过回调 OnLogout 来通知。</li>
                 </ul>
             </div>
             <div class="col-sm-3">
@@ -92,11 +89,11 @@
         <div class="row">
             <div class="col-sm-9">
                 <span class="badge badge-ttl">方法</span>
-                <p><pre>void OnLogout(SGUStateChangeReason reason)</pre></p>
+                <p><pre>void OnLogout(SGUResult resultCode)</pre></p>
 
                 <span class="badge badge-ttl">参数</span>
                 <ul>
-                    <li>reason - STATE_CHANGE_REASON_OP_SUCCESS（登出成功）、STATE_CHANGE_REASON_OP_FAILURE（登出失败）之一</li>
+                    <li>resultCode - result code</li>
                 </ul>
 
                 <span class="badge badge-ttl">说明</span>

@@ -6,6 +6,8 @@
         <li><a href="#buy">購買產品</a></li>
         <li><a href="#getorderstate">查詢訂單</a></li>
         <li><a href="#getorderinfos">獲取訂單信息列表</a></li>
+        <li><a href="#gettreasures">獲取財寶列表</a></li>
+        <li><a href="#inctreasure">增加財寶數量</a></li>
     </ul>
 
 </div>
@@ -33,7 +35,7 @@
         <span class="badge badge-ttl">說明</span>
         <ul>
             <li>從遊服獲取應用的產品（道具）列表。</li>
-            <li>產品（道具）列表通過回調 OnProductFound 來通知給調用者。</li>
+            <li>產品（道具）列表通過回調 OnProduct 來通知給調用者。</li>
         </ul>
 
     </section>
@@ -43,17 +45,18 @@
 
         <span class="badge badge-ttl">方法</span>
         <p>
-            <pre>void OnProductFound(SGUProduct product)</pre>
+            <pre>void OnProduct(SGUResult resultCode, SGUProduct product)</pre>
         </p>
 
         <span class="badge badge-ttl">參數</span>
         <ul>
+            <li>resultCode - 結果碼</li>
             <li>product - 產品信息，成員見 SGU.cs 中的類定義。參看<a href=<%= "assets/html/" + lang + "/android/jdoc/sgutil/com/sg/util/UProduct.html"%>> UProduct</a>。</li>
         </ul>
 
         <span class="badge badge-ttl">說明</span>
         <ul>
-            <li>如果 product 爲 null 表明已沒有產品。</li>
+            <li>產品通知以 RESULT_ITEM_BEGIN 開始，隨後是 RESULT_ITEM，最後是 RESULT_ITEM_END。</li>
         </ul>
 
     </section>
@@ -86,17 +89,17 @@
 
         <span class="badge badge-ttl">方法</span>
         <p>
-            <pre>void OnPay(SGUStateChangeReason reason)</pre>
+            <pre>void OnPay(SGUResult resultCode)</pre>
         </p>
 
         <span class="badge badge-ttl">參數</span>
         <ul>
-            <li>reason - STATE_CHANGE_REASON_OP_SUCCESS（操作成功）、STATE_CHANGE_REASON_OP_FAILURE（操作失敗）、STATE_CHANGE_REASON_OP_CANCELED（操作取消）之一</li>
+            <li>resultCode - 結果碼</li>
         </ul>
 
         <span class="badge badge-ttl">說明</span>
         <ul>
-            <li>如果 reason 爲 STATE_CHANGE_REASON_OP_SUCCESS，表明用戶已經確認支付所需金額，並且渠道已經受理此訂單。之後調用者可以調用 GetOrderState 來確認支付是否最終成功。</li>
+            <li>如果 resultCode 爲 RESULT_OK，表明用戶已經確認支付所需金額，並且渠道已經受理此訂單。之後調用者可以調用 GetOrderState 來確認支付是否最終成功。</li>
         </ul>
 
     </section>
@@ -128,11 +131,12 @@
 
         <span class="badge badge-ttl">方法</span>
         <p>
-            <pre>void OnOrderStateChange(SGUOrderState order_state)</pre>
+            <pre>void OnOrderStateChange(SGUResult resultCode, SGUOrderState order_state)</pre>
         </p>
 
         <span class="badge badge-ttl">參數</span>
         <ul>
+            <li>resultCode - 結果碼</li>
             <li>order_state - 訂單狀態</li>
         </ul>
 
@@ -162,7 +166,7 @@
         <span class="badge badge-ttl">說明</span>
         <ul>
             <li>從遊服獲取該用戶購買過的產品訂單。</li>
-            <li>訂單信息列表通過回調 OnOrderInfoFound 來通知給調用者。</li>
+            <li>訂單信息列表通過回調 OnOrderInfo 來通知給調用者。</li>
         </ul>
 
     </section>
@@ -172,17 +176,101 @@
 
         <span class="badge badge-ttl">方法</span>
         <p>
-            <pre>void OnOrderInfoFound(SGUOrder order)</pre>
+            <pre>void OnOrderInfo(SGUResult resultCode, SGUOrder order)</pre>
         </p>
 
         <span class="badge badge-ttl">參數</span>
         <ul>
+            <li>resultCode - 結果碼</li>
             <li>order - 訂單信息，成員見 SGU.cs 中的類定義。</li>
         </ul>
 
         <span class="badge badge-ttl">說明</span>
         <ul>
-            <li>如果 order 爲 null 表明已沒有產品。</li>
+            <li>訂單信息通知以 RESULT_ITEM_BEGIN 開始，隨後是 RESULT_ITEM，最後是 RESULT_ITEM_END。</li>
+        </ul>
+
+    </section>
+
+    <section id="gettreasures">
+        <h1>獲取財寶列表</h1>
+
+        <span class="badge badge-ttl">方法</span>
+        <p>
+            <pre>void GetTreasureList(string filter)</pre>
+        </p>
+
+        <span class="badge badge-ttl">參數</span>
+        <ul>
+            <li>filter - 傳給遊服介面方法 getTreasures 的參數，用來告知服獲對列表進行過濾或其他控制。</li>
+        </ul>
+
+        <span class="badge badge-ttl">說明</span>
+        <ul>
+            <li>從遊服獲取該用戶擁有的財寶及其數量。</li>
+            <li>財寶信息列表通過回調 OnTreasureList 來通知給調用者。</li>
+        </ul>
+
+    </section>
+
+    <section id="gettreasurescallback">
+        <h1>獲取財寶列表回調</h1>
+
+        <span class="badge badge-ttl">方法</span>
+        <p>
+            <pre>void OnTreasureList(SGUResult resultCode, SGUTreasure treasure)</pre>
+        </p>
+
+        <span class="badge badge-ttl">參數</span>
+        <ul>
+            <li>resultCode - 結果碼</li>
+            <li>treaure - 財寶信息，成員見 SGU.cs 中的類定義。</li>
+        </ul>
+
+        <span class="badge badge-ttl">說明</span>
+        <ul>
+            <li>財寶信息通知以 RESULT_ITEM_BEGIN 開始，隨後是 RESULT_ITEM，最後是 RESULT_ITEM_END。</li>
+        </ul>
+
+    </section>
+
+    <section id="inctreasure">
+        <h1>增加財寶數量</h1>
+
+        <span class="badge badge-ttl">方法</span>
+        <p>
+            <pre>void IncTreasure(string name, int value)</pre>
+        </p>
+
+        <span class="badge badge-ttl">參數</span>
+        <ul>
+            <li>name - 財寶名</li>
+            <li>value - 增加的量</li>
+        </ul>
+
+        <span class="badge badge-ttl">說明</span>
+        <ul>
+            <li>增加後的數量通過回調 OnTreasure 來通知給調用者。</li>
+        </ul>
+
+    </section>
+
+    <section id="inctreasurecallback">
+        <h1>增加財寶數量回調</h1>
+
+        <span class="badge badge-ttl">方法</span>
+        <p>
+            <pre>void OnTreasure(SGUResult resultCode, SGUTreasure treasure)</pre>
+        </p>
+
+        <span class="badge badge-ttl">參數</span>
+        <ul>
+            <li>resultCode - 結果碼</li>
+            <li>treaure - 增量後的財寶信息，成員見 SGU.cs 中的類定義。</li>
+        </ul>
+
+        <span class="badge badge-ttl">說明</span>
+        <ul>
         </ul>
 
     </section>

@@ -45,11 +45,6 @@ pre > span { color:red; font-weight: bold }
 
 		<p>Click "Import" button to begin importing.</p>
 
-        <h3>3. Sample Programs</h3>
-		<p>Below is SGUCallbackEntityObject.cs in SGUtil For Unity package, for your reference only.</p>
-
-        <%- include ../code/unity-china-sgutil-sample-obj.html -%>
-
     </section>
 
     <section id="content">
@@ -134,7 +129,7 @@ Scripts\SG\SGUCallbackEntityObject.cs
         android:name="<span style="color:blue">com.sg.util.SGApplication</span>"&gt;
         
         &lt;activity
-            android:name="<span style="color:blue">com.sg.util.SGUtilUnityContext</span>"
+            android:name="<span style="color:blue">com.sg.util.SGUtilUnityActivity</span>"
             android:label="@string/sgutil_unitydemo" 
             android:screenOrientation="landscape"
             android:launchMode="singleTask"
@@ -151,7 +146,7 @@ Scripts\SG\SGUCallbackEntityObject.cs
 &lt;/manifest&gt;
 </pre>
 
-		<p>Please change/exten SGUtilUnityContext.java by yourselves if you need to request critical permission dynamically and re-generate SGUtil_Context.jar.</p>
+		<p>Please change/extend SGUtilUnityActivity.java by yourselves if you need to request critical permission dynamically and re-generate SGUtil_Context.jar.</p>
 
         <h3>2. Keypoints of Using SGUtil For Unity</h3>
 
@@ -174,13 +169,38 @@ public class SGUCallbackEntityObject : MonoBehaviour, SGUCallbackEntity {
         <p>Besides MonoBahaviour, SGUCallbackEntityObject extends SGUCallbackEntity interface，implemting methods defined by SGUCallbackEntity.
 		It calls SGU.initialize to initialize SGU at the very beginning, and then calls SGU.Init to initialize SGUtil For Unity.</p>
 
-        <p>The parameter of SGU.initialize is a SGUCallbackEntity instance, hence we pass 'this' as argument.</p>
-
+        <p>The parameter of SGU.initialize is a SGUCallbackEntity instance, hence we pass 'this' as argument. Most callbacks
+		has the first parameter of type SGUResult, which is a enumeration defined as below. Please refer to the
+		comment for their meanings.</p>
+		<pre>
+public enum SGUResult
+{
+    RESULT_OK,          // operation succeeded
+    RESULT_NO_NEED,     // operation already done before
+    RESULT_FAIL,        // operation failed
+    RESULT_CANCELLED,   // operation cancelled
+    RESULT_ASYNC,       // operation is aynchronous, there might be other callbacks later
+    RESULT_ITEM_BEGIN,  // beginning of data items
+    RESULT_ITEM,        // data item
+    RESULT_ITEM_END,    // end of data items
+    RESULT_ALL
+}
+        </pre>
+        <p>As all API calls are performed asynchronously, one API call may result in multiple callback notifications.
+           If the first notification is RESULT_ASYNC, there will be more notifications for operation result and data items.
+           All data items are notified with RESULT_ITEM. There may be a RESULT_ITEM_BEGIN before, and a RESULT_ITEM_END
+           after data items if a API returns multiple items.
+            </p>
+    
         <p>The first parameter of SGU.Init is an instance of game server interface. Here we use "com.sg.util.SGUtilUnityGameServer", which is a demo implementation.
 		For details of game server interface, please refer to 
 		<a href=<%= "assets/html/" + lang + "/android/jdoc/sgutil/com/sg/util/SGGameServerInterface.html"%>> SGGameServerInterface </a>. The second parameter of SGU.Init
 		specifies whether SGUtil should automatically check order state and let game server mark it as delivered after user completes UI operation to buy a product.
 		If set it to false, you need to manually do the job by calling GetOrderState later.</p>
+
+		<p>Below is SGUCallbackEntityObject.cs in SGUtil For Unity package, wchich is a dummy implementation of SGUCallbackEntity.
+        It is shown here for your reference only.</p>
+		<%- include ../code/unity-china-sgutil-sample-obj.html -%>
 
     </section>
 
@@ -190,8 +210,7 @@ public class SGUCallbackEntityObject : MonoBehaviour, SGUCallbackEntity {
 
 		<p>After integrating SGUtil For Android, you may let Unity to generate an APK file and run it on Android devices. However, this APK
 		only contains an pre-embedded demo channel, which simply completes all functions with dummy data. In order to bind a real channel, please
-		send your APK to SG Studios, we will test your appliation and send back you a new APK with your perferred channel SDK re-packaged in.
-		For channel relevant description, please refer to <a href=<%= "/java-china-init"%>> Introduction to SGUtil integration</a>.
+		upload your APK to SG Studios website and download the final APK after repackaging is finished.
 		</p>
 
 	</section>
@@ -200,13 +219,16 @@ public class SGUCallbackEntityObject : MonoBehaviour, SGUCallbackEntity {
 
         <h1>Customization</h1>
 
-		<p>The source files of SGUtilUnityContext.cs and SGUtilUnityGameServer.cs are listed below. You may make proper changes if you need.</p>
+		<p>The source files of interfaces between SGUtil and Unity are listed below. You may make proper changes if you need.</p>
 
+        com.sg.util.SGUtilUnityActivity.java
         <%- include ../code/unity-china-sgutil-context.html -%>
-		<br/>
-        <%- include ../code/unity-china-sgutil-player.html -%>
-		<br/>
+        <br/>
+        com.sg.util.SGUtilUnityGameServer.java
         <%- include ../code/unity-china-sgutil-gameserver.html -%>
+        <br/>
+        com.sg.util.SGGameServerDemo.java
+        <%- include ../code/unity-china-sgutil-gameserver-demo.html -%>
 
 	</section>
 

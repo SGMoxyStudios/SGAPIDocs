@@ -22,7 +22,7 @@
                 <span class="badge badge-ttl">Remark</span>
                 <ul>
                     <li>Starts up channel login screen, followed by channel login confirmation and game server login.</li>
-                    <li>The progress of channel login, channel login confirmation and game server login is notified via OnLogin.</li>
+                    <li>The login result is notified via OnLogin.</li>
                 </ul>
             </div>
             <div class="col-sm-3">
@@ -39,20 +39,17 @@
         <div class="row">
             <div class="col-sm-9">
                 <span class="badge badge-ttl">Method</span>
-                <p><pre>void OnLogin(SGUOp action, SGUStateChangeReason reason)</pre></p>
+                <p><pre>void OnLogin(SGUResult resultCode)</pre></p>
 
                 <span class="badge badge-ttl">Parameters</span>
                 <ul>
-                    <li>action - one of OP_LOGIN（channel login）, OP_AUTH（channel login confirmation）, OP_LOGINGAME（game server login）</li>
-                    <li>reason - one of STATE_CHANGE_REASON_OP（operation ongoing）、STATE_CHANGE_REASON_OP_SUCCESS（operation succeeded）、STATE_CHANGE_REASON_OP_FAILURE（operation failed）、STATE_CHANGE_REASON_OP_CANCELED（operation cancelled）</li>
+                    <li>resultCode - result code</li>
                 </ul>
 
                 <span class="badge badge-ttl">Remark</span>
                 <ul>
-                    <li>The progress of login is notified to caller via this callback.</li>
-                    <li>It's necessary to check both 'action' and 'reason' to judge how far the login flow goes.</li>
                     <li>Failure or cancellation at any stage indicates the failure of whole login flow.</li>
-                    <li>Only success of game server login indicates the success of whole login flow, in which case you may unlock appliation functions.</li>
+                    <li>Only success of game server login indicates the success of whole login flow.</li>
                 </ul>
             </div>
             <div class="col-sm-3">
@@ -75,7 +72,7 @@
                 <ul>
                     <li>Start game server logout, followed by channel logout.</li>
                     <li>As long as game server logout succeeded, the whole logout flow is considered as finished regardless of the result of channel logout.</li>
-                    <li>The progress of logout is notified via OnLogout.</li>
+                    <li>The logout result is notified via OnLogout.</li>
                 </ul>
             </div>
             <div class="col-sm-3">
@@ -92,11 +89,11 @@
         <div class="row">
             <div class="col-sm-9">
                 <span class="badge badge-ttl">Method</span>
-                <p><pre>void OnLogout(SGUStateChangeReason reason)</pre></p>
+                <p><pre>void OnLogout(SGUResult result)</pre></p>
 
                 <span class="badge badge-ttl">Parameters</span>
                 <ul>
-                    <li>reason - one of STATE_CHANGE_REASON_OP_SUCCESS（logout success）、STATE_CHANGE_REASON_OP_FAILURE（logout failure）</li>
+                    <li>result - result code</li>
                 </ul>
 
                 <span class="badge badge-ttl">Remark</span>

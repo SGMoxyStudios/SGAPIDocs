@@ -44,10 +44,6 @@ pre > span { color:red; font-weight: bold }
 
 		<p>點擊“Import”導入。</p>
 
-        <h3>3. 示例程式</h3>
-		<p>下面是 SGUtil For Unity 包中的 SGUCallbackEntityObject.cs 的內容，供參考。</p>
-        <%- include ../code/unity-china-sgutil-sample-obj.html -%>
-
     </section>
 
     <section id="content">
@@ -132,7 +128,7 @@ Scripts\SG\SGUCallbackEntityObject.cs
         android:name="<span style="color:blue">com.sg.util.SGApplication</span>"&gt;
         
         &lt;activity
-            android:name="<span style="color:blue">com.sg.util.SGUtilUnityContext</span>"
+            android:name="<span style="color:blue">com.sg.util.SGUtilUnityActivity</span>"
             android:label="@string/sgutil_unitydemo" 
             android:screenOrientation="landscape"
             android:launchMode="singleTask"
@@ -149,7 +145,7 @@ Scripts\SG\SGUCallbackEntityObject.cs
 &lt;/manifest&gt;
 </pre>
 
-		<p>如果要針對 Android 6.0 以上版本使用動態權限申請，請自行擴展 SGUtilUnityContext.java，並重新生成 SGUtil_Context.jar。</p>
+		<p>如果要針對 Android 6.0 以上版本使用動態權限申請，請自行擴展 SGUtilUnityActivity.java，並重新生成 SGUtil_Context.jar。</p>
 
         <h3>2. 使用 SGUtil For Unity 的要點</h3>
 
@@ -174,13 +170,35 @@ public class SGUCallbackEntityObject : MonoBehaviour, SGUCallbackEntity {
         <p>SGUCallbackEntityObject 除了繼承 MonoBahaviour 外，還繼承了 SGUCallbackEntity，以便實現 SGUCallbackEntity 介面中的所有方法。它在
 		啓動時首先調用 SGU.initialize 來對 SGU 類進行初始化，然後調用 SGU.Init 來爲使用 SGUtil For Unity 進行初始化。</p>
 
-        <p>SGU.initialize 的參數是一個 SGUCallbackEntity 的實例，所以將 this 傳過去。</p>
-
+        <p>SGU.initialize 的參數是一個 SGUCallbackEntity 的實例，所以將 this 傳過去。SGUCallbackEntity 中多數回調的第一個參數是
+        SGUResult 類型，它是如下定義的枚舉類型，意義見其中的註釋。</p>
+		<pre>
+public enum SGUResult
+{
+    RESULT_OK,          // 操作成功
+    RESULT_NO_NEED,     // 操作已經做過
+    RESULT_FAIL,        // 操作失敗
+    RESULT_CANCELLED,   // 操作被取消
+    RESULT_ASYNC,       // 異步操作，此後還會有其他回調產生
+    RESULT_ITEM_BEGIN,  // 數據項開始
+    RESULT_ITEM,        // 數據項
+    RESULT_ITEM_END,    // 數據項結束
+    RESULT_ALL
+}
+        </pre>
+        <p>因爲所有的 API 調用都是異步完成的，因此一次 API 調用可能導致多次回調通知。如果調用後的第一次通知是
+            RESULT_ASYNC，則表明會有後續的結果和(或)數據通知。如果有數據通知，都會是 RESULT_ITEM。如果 API 返回
+            多個數據項，則在 RESULT_ITEM 之前會有 RESULT_ITEM_BEGIN，之後會有 RESULT_ITEM_END。
+        </p>
+            
         <p>SGU.Init 的第一個參數是一個遊服介面對象，這裏使用的 "com.sg.util.SGUtilUnityGameServer" 是一個演示實現。關於遊服介面的細節請參看
 		<a href=<%= "assets/html/" + lang + "/android/jdoc/sgutil/com/sg/util/SGGameServerInterface.html"%>> SGGameServerInterface </a>。SGU.Init
 		的第二個參數指定在用戶購買某商品（道具）並且購買的 UI 操作成功後，是否自動查詢訂單的狀態，並在支付成功的情況下把商品（道具）標記爲
 		已發貨。如果這個參數爲 false，那麼您需要在購買 UI 操作成功後通過用戶的後續操作或其他手段在合適的時機發起查詢。
 		</p>
+
+		<p>下面是 SGUtil For Unity 包中的 dummy 實現 SGUCallbackEntityObject.cs 的內容，供參考。</p>
+        <%- include ../code/unity-china-sgutil-sample-obj.html -%>
 
     </section>
 
@@ -188,9 +206,9 @@ public class SGUCallbackEntityObject : MonoBehaviour, SGUCallbackEntity {
 
         <h1>重新打包</h1>
 
-		<p>您接入 SGUtil For Android 後，使用 Unity 開發環境可以打包出 APK 檔案，並可以在 Android 設備上運行。但是這個 APK 中只有
-		SGUtil 內置的模擬渠道。要想真正地綁定某個具體渠道，請將 APK 寄給 SG Studios，SG Studios 會對您的應用做測試，並將打包了指定渠道後的新
-		APK 檔案寄回。渠道相關的介紹參見 <a href=<%= "/java-china-init"%>> Android 集成指南 </a>。
+		<p>您接入 SGUtil 軟件包後，使用 Android Studio 開發環境可以生成 APK 檔案，並可以在 Android 設備上運行。但是這個 APK 中只有
+        SGUtil 內置的模擬渠道。要想真正地綁定某個具體渠道，請將 APK 上傳到 SG Studios 的網站進行打包並下載最終 APK 檔案。
+        渠道相關的介紹參見 <a href=<%= "/java-china-init"%>> Android 集成指南 </a>。
 		</p>
 
 	</section>
@@ -201,11 +219,14 @@ public class SGUCallbackEntityObject : MonoBehaviour, SGUCallbackEntity {
 
 		<p>下面我們列出了 SGUtil 與 Unity 的介面類以及演示用遊服介面的源代碼。您可以在此基礎上進行修改定製。</p>
 
+        com.sg.util.SGUtilUnityActivity.java
         <%- include ../code/unity-china-sgutil-context.html -%>
-		<br/>
-        <%- include ../code/unity-china-sgutil-player.html -%>
-		<br/>
+        <br/>
+        com.sg.util.SGUtilUnityGameServer.java
         <%- include ../code/unity-china-sgutil-gameserver.html -%>
+        <br/>
+        com.sg.util.SGGameServerDemo.java
+        <%- include ../code/unity-china-sgutil-gameserver-demo.html -%>
 
 	</section>
 
