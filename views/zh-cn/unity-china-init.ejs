@@ -194,7 +194,8 @@ public enum SGUResult
         <p>SGU.Init 的第一个参数是一个游服接口对象，这里使用的 "com.sg.util.SGUtilUnityGameServer" 是一个演示实现。关于游服接口的细节请参看
 		<a href=<%= "assets/html/" + lang + "/android/jdoc/sgutil/com/sg/util/SGGameServerInterface.html"%>> SGGameServerInterface </a>。SGU.Init
 		的第二个参数指定在用户购买某商品（道具）并且购买的 UI 操作成功后，是否自动查询订单的状态，并在支付成功的情况下把商品（道具）标记为
-		已发货。如果这个参数为 false，那么您需要在购买 UI 操作成功后通过用户的后续操作或其他手段在合适的时机发起查询。
+        已发货。如果这个参数为 false，那么您需要在购买 UI 操作成功后通过用户的后续操作或其他手段在合适的时机发起查询。
+        在自动查询期间不能执行其他功能，如果不希望有这种限制，请将其设置为false并手动调用GetOrderState来查询。
 		</p>
 
 		<p>下面是 SGUtil For Unity 包中的 dummy 实现 SGUCallbackEntityObject.cs 的内容，供参考。</p>

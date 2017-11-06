@@ -3,6 +3,12 @@
     <ul class="nav nav-pills">
         <li><a href="#summary">輔助系統</a></li>
         <li><a href="#init">初始化</a></li>
+        <li><a href="#startgame">開始遊戲</a></li>
+        <li><a href="#stopgame">結束遊戲</a></li>
+        <li><a href="#log">遠程日誌</a></li>
+        <li><a href="#getlogvalue">獲取遠程日誌鍵值</a></li>
+        <li><a href="#getextmethodlist">獲取擴展方法列表</a></li>
+        <li><a href="#runextmethod">運行擴展方法</a></li>
     </ul>
 
 </div>
@@ -26,7 +32,8 @@
 		            <li>gameServerClassName - 遊服介面對象，需要CP根據自己的業務來實現。關於遊服介面的細節請參看
 					<a href=<%= "assets/html/" + lang + "/android/jdoc/sgutil/com/sg/util/SGGameServerInterface.html"%>> SGGameServerInterface </a>。</li>
                     <li>autoDeliverProduct - 指定在用戶購買某商品（道具）並且購買的 UI 操作成功後，是否自動查詢訂單的狀態，並在支付成功的情況下把商品（道具）標記爲
-		已發貨。如果這個參數爲 false，那麼您需要在購買 UI 操作成功後通過用戶的後續操作或其他手段在合適的時機發起查詢。</li>
+                    已發貨。如果這個參數爲 false，那麼您需要在購買 UI 操作成功後通過用戶的後續操作或其他手段在合適的時機發起查詢。
+                    在自動查詢期間不能執行其他功能，如果不希望有這種限制，請將其設置爲false並手動調用GetOrderState來查詢。</li>
 				</ul>
 
                 <span class="badge badge-ttl">說明</span>
@@ -50,11 +57,11 @@
         <div class="row">
             <div class="col-sm-9">
                 <span class="badge badge-ttl">方法</span>
-                <p><pre>void OnInit(SGUStateChangeReason reason)</pre></p>
+                <p><pre>void OnInit(SGUResult resultCode)</pre></p>
 
                 <span class="badge badge-ttl">參數</span>
                 <ul>
-                    <li>reason - STATE_CHANGE_REASON_OP_SUCCESS（操作成功）、STATE_CHANGE_REASON_OP_FAILURE（操作失敗）之一</li>
+                    <li>resultCode - 結果碼</li>
                 </ul>
 
                 <span class="badge badge-ttl">說明</span>
@@ -71,4 +78,334 @@
         </div>
     </section>
 
+    <section id="startgame">
+        <h1>開始遊戲</h1>
+        <div class="row">
+            <div class="col-sm-9">
+                <span class="badge badge-ttl">方法</span>
+                <p><pre>void StartGame()</pre></p>
+
+        		<span class="badge badge-ttl">參數</span>
+        		<ul>
+				</ul>
+
+                <span class="badge badge-ttl">說明</span>
+                <ul>
+                    <li>此API異步調用遊服介面的startGame()。</li>
+                    <li>結果通過回調 OnStartGame 來通知給調用者。</li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <!--<span class="badge badge-ttl">WebView 頁面</span>
+                <a href="<%= " assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
+                <img src="<%= " assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
+                </a>-->
+            </div>
+        </div>
+    </section>
+
+    <section id="StartGameCallback">
+        <h1>開始遊戲結果回調</h1>
+        <div class="row">
+            <div class="col-sm-9">
+                <span class="badge badge-ttl">方法</span>
+                <p><pre>void OnStartGame(SGUResult resultCode)</pre></p>
+
+                <span class="badge badge-ttl">參數</span>
+                <ul>
+                    <li>resultCode - 結果碼</li>
+                </ul>
+
+                <span class="badge badge-ttl">說明</span>
+                <ul>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <!--<span class="badge badge-ttl">WebView 頁面</span>
+                <a href="<%= " assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
+                <img src="<%= " assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
+                </a>-->
+            </div>
+        </div>
+    </section>
+    
+    <section id="stopgame">
+        <h1>結束遊戲</h1>
+        <div class="row">
+            <div class="col-sm-9">
+                <span class="badge badge-ttl">方法</span>
+                <p><pre>void StopGame()</pre></p>
+
+        		<span class="badge badge-ttl">參數</span>
+        		<ul>
+				</ul>
+
+                <span class="badge badge-ttl">說明</span>
+                <ul>
+                    <li>此API異步調用遊服介面的stopGame()。</li>
+                    <li>結果通過回調 OnStopGame 來通知給調用者。</li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <!--<span class="badge badge-ttl">WebView 頁面</span>
+                <a href="<%= " assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
+                <img src="<%= " assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
+                </a>-->
+            </div>
+        </div>
+    </section>
+
+    <section id="StopGameCallback">
+        <h1>結束遊戲結果回調</h1>
+        <div class="row">
+            <div class="col-sm-9">
+                <span class="badge badge-ttl">方法</span>
+                <p><pre>void OnStopGame(SGUResult resultCode)</pre></p>
+
+                <span class="badge badge-ttl">參數</span>
+                <ul>
+                    <li>resultCode - 結果碼</li>
+                </ul>
+
+                <span class="badge badge-ttl">說明</span>
+                <ul>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <!--<span class="badge badge-ttl">WebView 頁面</span>
+                <a href="<%= " assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
+                <img src="<%= " assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
+                </a>-->
+            </div>
+        </div>
+    </section>
+
+    <section id="log">
+        <h1>遠程日誌</h1>
+        <div class="row">
+            <div class="col-sm-9">
+                <span class="badge badge-ttl">方法</span>
+                <p><pre>void Log(int action, string key, int value, string message)</pre></p>
+
+        		<span class="badge badge-ttl">參數</span>
+        		<ul>
+                    <li>action - 動作碼。參看<a href=<%= "assets/html/" + lang + "/android/jdoc/sgutil/com/sg/util/SGGameServerInterface.html#log-char-java.lang.String-int-java.lang.String-boolean-"%>> SGGameServerInterface.log </a>。</li>
+                    <li>key - 該日誌對應的鍵名，null表示沒有鍵名</li>
+                    <li>value - 該日誌對應的鍵值</li>
+                    <li>message - 日誌內容</li>
+				</ul>
+
+                <span class="badge badge-ttl">說明</span>
+                <ul>
+                    <li>此API異步調用遊服介面的log()。</li>
+                    <li>具體效果取決於遊服和遊服介面的實現。</li>
+                    <li>結果通過回調 OnRemoteLog 來通知給調用者。</li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <!--<span class="badge badge-ttl">WebView 頁面</span>
+                <a href="<%= " assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
+                <img src="<%= " assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
+                </a>-->
+            </div>
+        </div>
+    </section>
+
+    <section id="LogCallback">
+        <h1>遠程日誌結果回調</h1>
+        <div class="row">
+            <div class="col-sm-9">
+                <span class="badge badge-ttl">方法</span>
+                <p><pre>void OnRemoteLog(SGUResult resultCode)</pre></p>
+
+                <span class="badge badge-ttl">參數</span>
+                <ul>
+                    <li>resultCode - 結果碼</li>
+                </ul>
+
+                <span class="badge badge-ttl">說明</span>
+                <ul>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <!--<span class="badge badge-ttl">WebView 頁面</span>
+                <a href="<%= " assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
+                <img src="<%= " assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
+                </a>-->
+            </div>
+        </div>
+    </section>
+
+    <section id="getlogvalue">
+            <h1>獲取遠程日誌鍵值</h1>
+            <div class="row">
+                <div class="col-sm-9">
+                    <span class="badge badge-ttl">方法</span>
+                    <p><pre>void GetLogValue(string key, int default_value)</pre></p>
+    
+                    <span class="badge badge-ttl">參數</span>
+                    <ul>
+                        <li>key - 鍵名</li>
+                        <li>default_value - 未發現或出錯時返回該值</li>
+                    </ul>
+    
+                    <span class="badge badge-ttl">說明</span>
+                    <ul>
+                        <li>此API異步調用遊服介面的getLogValue()。</li>
+                        <li>具體效果取決於遊服和遊服介面的實現。</li>
+                        <li>結果通過回調 OnRemoteLogValue 來通知給調用者。</li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <!--<span class="badge badge-ttl">WebView 頁面</span>
+                    <a href="<%= " assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
+                    <img src="<%= " assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
+                    </a>-->
+                </div>
+            </div>
+        </section>
+    
+        <section id="GetLogValueCallback">
+            <h1>獲取遠程日誌鍵值結果回調</h1>
+            <div class="row">
+                <div class="col-sm-9">
+                    <span class="badge badge-ttl">方法</span>
+                    <p><pre>void OnRemoteLogValue(SGUResult resultCode, string key, int value)</pre></p>
+    
+                    <span class="badge badge-ttl">參數</span>
+                    <ul>
+                        <li>resultCode - 結果碼</li>
+                        <li>name - 鍵名</li>
+                        <li>value - 值</li>
+                    </ul>
+    
+                    <span class="badge badge-ttl">說明</span>
+                    <ul>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <!--<span class="badge badge-ttl">WebView 頁面</span>
+                    <a href="<%= " assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
+                    <img src="<%= " assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
+                    </a>-->
+                </div>
+            </div>
+        </section>
+
+        <section id="getextmethodlist">
+                <h1>獲取擴展方法列表</h1>
+                <div class="row">
+                    <div class="col-sm-9">
+                        <span class="badge badge-ttl">方法</span>
+                        <p><pre>void GetExtMethodList()</pre></p>
+        
+                        <span class="badge badge-ttl">參數</span>
+                        <ul>
+                        </ul>
+        
+                        <span class="badge badge-ttl">說明</span>
+                        <ul>
+                            <li>此API返回渠道SDK的擴展方法列表。因爲各個渠道的實現不同，方法列表也不同。但方法getChannelName是統一實現的，可以
+                                用來根據具體渠道做不同的處理。
+                            </li>
+                            <li>結果通過回調 OnExtMethodList 來通知給調用者。</li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-3">
+                        <!--<span class="badge badge-ttl">WebView 頁面</span>
+                        <a href="<%= " assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
+                        <img src="<%= " assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
+                        </a>-->
+                    </div>
+                </div>
+            </section>
+        
+        <section id="GetExtMethodListCallback">
+            <h1>獲取擴展方法列表結果回調</h1>
+            <div class="row">
+                <div class="col-sm-9">
+                    <span class="badge badge-ttl">方法</span>
+                    <p><pre>void OnExtMethodList(SGUResult resultCode, SGUExtMethod em)</pre></p>
+    
+                    <span class="badge badge-ttl">參數</span>
+                    <ul>
+                        <li>resultCode - 結果碼</li>
+                        <li>em - 擴展方法信息</li>
+                    </ul>
+    
+                    <span class="badge badge-ttl">說明</span>
+                    <ul>
+                        <li>擴展方法信息通知以 RESULT_ITEM_BEGIN 開始，隨後是 RESULT_ITEM，最後是 RESULT_ITEM_END。</li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <!--<span class="badge badge-ttl">WebView 頁面</span>
+                    <a href="<%= " assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
+                    <img src="<%= " assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
+                    </a>-->
+                </div>
+            </div>
+        </section>
+
+        <section id="runextmethod">
+                <h1>運行擴展方法</h1>
+                <div class="row">
+                    <div class="col-sm-9">
+                        <span class="badge badge-ttl">方法</span>
+                        <p><pre>void RunExtMethod(string cookie, string name, string cmd_line_args)</pre></p>
+        
+                        <span class="badge badge-ttl">參數</span>
+                        <ul>
+                            <li>cookie - 運行成功後原樣返回的字串，用於跟蹤異步方法。對於同步方法必須設爲null。</li>
+                            <li>name - 方法的名字</li>
+                            <li>cmd_line_args - 方法的命令行。方法的所有參數都是字符串，必須用空格連接。如果參數內部
+                                有空格，則必須用引號(")括起來。
+                            </li>
+                        </ul>
+        
+                        <span class="badge badge-ttl">說明</span>
+                        <ul>
+                            <li>參看<a href=<%= "assets/html/" + lang + "/android/jdoc/sgutil/com/sg/util/SGAgent.html#runExtMethod-java.lang.String-"%>> SGAgent.runExtMethod </a>。</li></li>
+                            <li>結果通過回調 OnExtMethod 來通知給調用者。</li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-3">
+                        <!--<span class="badge badge-ttl">WebView 頁面</span>
+                        <a href="<%= " assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
+                        <img src="<%= " assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
+                        </a>-->
+                    </div>
+                </div>
+            </section>
+        
+        <section id="RunExtMethodCallback">
+            <h1>運行擴展方法結果回調</h1>
+            <div class="row">
+                <div class="col-sm-9">
+                    <span class="badge badge-ttl">方法</span>
+                    <p><pre>void OnExtMethod(SGUResult resultCode, SGUExtMethodResult result)</pre></p>
+    
+                    <span class="badge badge-ttl">參數</span>
+                    <ul>
+                        <li>resultCode - 結果碼</li>
+                        <li>result - 結果</li>
+                    </ul>
+    
+                    <span class="badge badge-ttl">說明</span>
+                    <ul>
+                        <li>如果運行失敗，則resultCode爲RESULT_FAIL。如果成功，則resultCode是RESULT_OK（同步）或
+                            RESULT_ASYNC（異步），此時result.Return包含方法的返回類型和返迴文本。在RESULT_ASYNC的
+                            情況下，將通過RESULT_ITEM在result.Result進一步返回最終執行結果。
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <!--<span class="badge badge-ttl">WebView 頁面</span>
+                    <a href="<%= " assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
+                    <img src="<%= " assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
+                    </a>-->
+                </div>
+            </div>
+        </section>
+        
 </div>

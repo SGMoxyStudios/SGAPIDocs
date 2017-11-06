@@ -3,6 +3,12 @@
     <ul class="nav nav-pills">
         <li><a href="#summary">Auxiliary System</a></li>
         <li><a href="#init">Initialization</a></li>
+        <li><a href="#startgame">Start Game</a></li>
+        <li><a href="#stopgame">Stop Game</a></li>
+        <li><a href="#log">Remote Logging</a></li>
+        <li><a href="#getlogvalue">Get Value of Remote Log</a></li>
+        <li><a href="#getextmethodlist">Get List of Extended Methods</a></li>
+        <li><a href="#runextmethod">Run Extended Method</a></li>
     </ul>
 
 </div>
@@ -26,7 +32,9 @@
 		            <li>gameServerClassName - Instance of game server interface, need to be implemented by CP. For details of game server interface, please refer to
 					<a href=<%= "assets/html/" + lang + "/android/jdoc/sgutil/com/sg/util/SGGameServerInterface.html"%>> SGGameServerInterface </a>.</li>
                     <li>autoDeliverProduct - specify whether SGUtil should automatically check order state and let game server mark it as delivered after user
-					completes UI operation to buy a product. If set it to false, you need to manually do the job by calling GetOrderState later.</li>
+                    completes UI operation to buy a product. If set it to false, you need to manually do the job by calling GetOrderState later.
+                    Other function cannot be executed during the automatic checking period. If you think it a problem, please set it to false and
+                    call GetOrderState to check order state by yourself.</li>
 				</ul>
 
                 <span class="badge badge-ttl">Remark</span>
@@ -50,14 +58,14 @@
         <div class="row">
             <div class="col-sm-9">
                 <span class="badge badge-ttl">Method</span>
-                <p><pre>void OnInit(SGUStateChangeReason reason)</pre></p>
+                <p><pre>void OnInit(SGUResult resultCode)</pre></p>
 
                 <span class="badge badge-ttl">Parameters</span>
                 <ul>
-                    <li>reason - one of STATE_CHANGE_REASON_OP_SUCCESS（succeeded）、STATE_CHANGE_REASON_OP_FAILURE（failed）</li>
+                    <li>resultCode - result code</li>
                 </ul>
 
-                <span class="badge badge-ttl">说明</span>
+                <span class="badge badge-ttl">Remark</span>
                 <ul>
                     <li>You must not do any subsequent calls neither should you call Init again if the initialization failed.</li>
                 </ul>
@@ -71,4 +79,336 @@
         </div>
     </section>
 
+    <section id="startgame">
+        <h1>Start Game</h1>
+        <div class="row">
+            <div class="col-sm-9">
+                <span class="badge badge-ttl">Method</span>
+                <p><pre>void StartGame()</pre></p>
+
+        		<span class="badge badge-ttl">Parameters</span>
+        		<ul>
+				</ul>
+
+                <span class="badge badge-ttl">Remark</span>
+                <ul>
+                    <li>This API calls startGame() of game server interface asynchronously.</li>
+                    <li>The result is notified to caller via OnStartGame.</li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <!--<span class="badge badge-ttl">WebView 頁面</span>
+                <a href="<%= " assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
+                <img src="<%= " assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
+                </a>-->
+            </div>
+        </div>
+    </section>
+
+    <section id="StartGameCallback">
+        <h1>Start Game Callback</h1>
+        <div class="row">
+            <div class="col-sm-9">
+                <span class="badge badge-ttl">Method</span>
+                <p><pre>void OnStartGame(SGUResult resultCode)</pre></p>
+
+                <span class="badge badge-ttl">Parameters</span>
+                <ul>
+                    <li>resultCode - result code</li>
+                </ul>
+
+                <span class="badge badge-ttl">Remark</span>
+                <ul>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <!--<span class="badge badge-ttl">WebView 頁面</span>
+                <a href="<%= " assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
+                <img src="<%= " assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
+                </a>-->
+            </div>
+        </div>
+    </section>
+    
+    <section id="stopgame">
+        <h1>Stop Game</h1>
+        <div class="row">
+            <div class="col-sm-9">
+                <span class="badge badge-ttl">Method</span>
+                <p><pre>void StopGame()</pre></p>
+
+        		<span class="badge badge-ttl">Parameters</span>
+        		<ul>
+				</ul>
+
+                <span class="badge badge-ttl">Remark</span>
+                <ul>
+                    <li>This API calls stopGame() of game server interface asynchronously.</li>
+                    <li>The result is notified to caller via OnStopGame.</li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <!--<span class="badge badge-ttl">WebView 頁面</span>
+                <a href="<%= " assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
+                <img src="<%= " assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
+                </a>-->
+            </div>
+        </div>
+    </section>
+
+    <section id="StopGameCallback">
+        <h1>Stop Game Callback</h1>
+        <div class="row">
+            <div class="col-sm-9">
+                <span class="badge badge-ttl">Method</span>
+                <p><pre>void OnStopGame(SGUResult resultCode)</pre></p>
+
+                <span class="badge badge-ttl">Parameters</span>
+                <ul>
+                    <li>resultCode - result code</li>
+                </ul>
+
+                <span class="badge badge-ttl">Remark</span>
+                <ul>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <!--<span class="badge badge-ttl">WebView 頁面</span>
+                <a href="<%= " assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
+                <img src="<%= " assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
+                </a>-->
+            </div>
+        </div>
+    </section>
+
+    <section id="log">
+        <h1>Remote Logging</h1>
+        <div class="row">
+            <div class="col-sm-9">
+                <span class="badge badge-ttl">Method</span>
+                <p><pre>void Log(int action, string key, int value, string message)</pre></p>
+
+        		<span class="badge badge-ttl">Parameters</span>
+        		<ul>
+                    <li>action - action code. Refer to <a href=<%= "assets/html/" + lang + "/android/jdoc/sgutil/com/sg/util/SGGameServerInterface.html#log-char-java.lang.String-int-java.lang.String-boolean-"%>> SGGameServerInterface.log </a>。</li>
+                    <li>key - the key of log, null indicates no key</li>
+                    <li>value - the value of key</li>
+                    <li>message - log message</li>
+				</ul>
+
+                <span class="badge badge-ttl">Remark</span>
+                <ul>
+                    <li>This API calls log() of game server interface asynchronously.</li>
+                    <li>The actual effect depends on implementation of game server and game server interface.</li>
+                    <li>The result is notified to caller via OnRemoteLog.</li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <!--<span class="badge badge-ttl">WebView 頁面</span>
+                <a href="<%= " assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
+                <img src="<%= " assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
+                </a>-->
+            </div>
+        </div>
+    </section>
+
+    <section id="LogCallback">
+        <h1>Remote Logging Callback</h1>
+        <div class="row">
+            <div class="col-sm-9">
+                <span class="badge badge-ttl">Method</span>
+                <p><pre>void OnRemoteLog(SGUResult resultCode)</pre></p>
+
+                <span class="badge badge-ttl">Parameters</span>
+                <ul>
+                    <li>resultCode - result code</li>
+                </ul>
+
+                <span class="badge badge-ttl">Remark</span>
+                <ul>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <!--<span class="badge badge-ttl">WebView 頁面</span>
+                <a href="<%= " assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
+                <img src="<%= " assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
+                </a>-->
+            </div>
+        </div>
+    </section>
+
+    <section id="getlogvalue">
+            <h1>Get Value of Remote Log</h1>
+            <div class="row">
+                <div class="col-sm-9">
+                    <span class="badge badge-ttl">Method</span>
+                    <p><pre>void GetLogValue(string key, int default_value)</pre></p>
+    
+                    <span class="badge badge-ttl">Parameters</span>
+                    <ul>
+                        <li>key - key name</li>
+                        <li>default_value - default value to be returned in case of failure or not found</li>
+                    </ul>
+    
+                    <span class="badge badge-ttl">Remark</span>
+                    <ul>
+                        <li>This API call getLogValue() of game server interface asynchronously.</li>
+                        <li>The actual effect depends on implementation of game server and game server interface.</li>
+                        <li>The result is notified to caller via OnRemoteLogValue.</li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <!--<span class="badge badge-ttl">WebView 頁面</span>
+                    <a href="<%= " assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
+                    <img src="<%= " assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
+                    </a>-->
+                </div>
+            </div>
+        </section>
+    
+        <section id="GetLogValueCallback">
+            <h1>Get Value of Remote Log Callback</h1>
+            <div class="row">
+                <div class="col-sm-9">
+                    <span class="badge badge-ttl">Method</span>
+                    <p><pre>void OnRemoteLogValue(SGUResult resultCode, string key, int value)</pre></p>
+    
+                    <span class="badge badge-ttl">Parameters</span>
+                    <ul>
+                        <li>resultCode - result code</li>
+                        <li>name - key name</li>
+                        <li>value - value</li>
+                    </ul>
+    
+                    <span class="badge badge-ttl">Remark</span>
+                    <ul>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <!--<span class="badge badge-ttl">WebView 頁面</span>
+                    <a href="<%= " assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
+                    <img src="<%= " assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
+                    </a>-->
+                </div>
+            </div>
+        </section>
+
+        <section id="getextmethodlist">
+                <h1>Get List of Extended Methods</h1>
+                <div class="row">
+                    <div class="col-sm-9">
+                        <span class="badge badge-ttl">Method</span>
+                        <p><pre>void GetExtMethodList()</pre></p>
+        
+                        <span class="badge badge-ttl">Parameters</span>
+                        <ul>
+                        </ul>
+        
+                        <span class="badge badge-ttl">Remark</span>
+                        <ul>
+                            <li>This API returns a list of extended methods supported by integrated channel.
+                                Channels may have different extended methods from each other, but method 'getChannelName' is
+                                always available. You may call it to get the channel name and do appropriate things.
+                            </li>
+                            <li>The result is notified to caller via OnExtMethodList.</li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-3">
+                        <!--<span class="badge badge-ttl">WebView 頁面</span>
+                        <a href="<%= " assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
+                        <img src="<%= " assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
+                        </a>-->
+                    </div>
+                </div>
+            </section>
+        
+        <section id="GetExtMethodListCallback">
+            <h1>Get List of Extended Methods Callback</h1>
+            <div class="row">
+                <div class="col-sm-9">
+                    <span class="badge badge-ttl">Method</span>
+                    <p><pre>void OnExtMethodList(SGUResult resultCode, SGUExtMethod em)</pre></p>
+    
+                    <span class="badge badge-ttl">Parameters</span>
+                    <ul>
+                        <li>resultCode - result code</li>
+                        <li>em - information of extended method</li>
+                    </ul>
+    
+                    <span class="badge badge-ttl">Remark</span>
+                    <ul>
+                        <li>Notification of extended method information begins with RESULT_ITEM_BEGIN, followed by RESULT_ITEM, and ends with RESULT_ITEM_END.</li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <!--<span class="badge badge-ttl">WebView 頁面</span>
+                    <a href="<%= " assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
+                    <img src="<%= " assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
+                    </a>-->
+                </div>
+            </div>
+        </section>
+
+        <section id="runextmethod">
+                <h1>Run Extended Method</h1>
+                <div class="row">
+                    <div class="col-sm-9">
+                        <span class="badge badge-ttl">Method</span>
+                        <p><pre>void RunExtMethod(string cookie, string name, string cmd_line_args)</pre></p>
+        
+                        <span class="badge badge-ttl">Parameters</span>
+                        <ul>
+                            <li>cookie - returned as is in case of success, for tracking asynchronous methods. Should be null for synchronous methods.</li>
+                            <li>name - name of method</li>
+                            <li>cmd_line_args - command line to be passed to method. All arguments must be strings, 
+                                and should be concatenated with spaces. A parameter should be embraced with quotation mark (")
+                                if it contains spaces within itself.
+                            </li>
+                        </ul>
+        
+                        <span class="badge badge-ttl">Remark</span>
+                        <ul>
+                            <li>The result is notified to caller via OnExtMethod.</li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-3">
+                        <!--<span class="badge badge-ttl">WebView 頁面</span>
+                        <a href="<%= " assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
+                        <img src="<%= " assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
+                        </a>-->
+                    </div>
+                </div>
+            </section>
+        
+        <section id="RunExtMethodCallback">
+            <h1>Run Extended Method Callback</h1>
+            <div class="row">
+                <div class="col-sm-9">
+                    <span class="badge badge-ttl">Method</span>
+                    <p><pre>void OnExtMethod(SGUResult resultCode, SGUExtMethodResult result)</pre></p>
+    
+                    <span class="badge badge-ttl">Parameters</span>
+                    <ul>
+                        <li>resultCode - result code</li>
+                        <li>result - result</li>
+                    </ul>
+    
+                    <span class="badge badge-ttl">Remark</span>
+                    <ul>
+                        <li>resultCode is RESULT_FAIL if this API fails. In case of success, resultCode is RESULT_OK (sync) or
+                            RESULT_ASYNC (async), in both cases result.Return contains return type and returned text of the API.
+                            In addition, if resultCode is RESULT_ASYNC, there will be a RESULT_ITEM notification with execution
+                            result in result.Result.
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <!--<span class="badge badge-ttl">WebView 頁面</span>
+                    <a href="<%= " assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
+                    <img src="<%= " assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
+                    </a>-->
+                </div>
+            </div>
+        </section>
+        
 </div>

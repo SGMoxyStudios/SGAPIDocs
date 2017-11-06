@@ -196,7 +196,10 @@ public enum SGUResult
 		For details of game server interface, please refer to 
 		<a href=<%= "assets/html/" + lang + "/android/jdoc/sgutil/com/sg/util/SGGameServerInterface.html"%>> SGGameServerInterface </a>. The second parameter of SGU.Init
 		specifies whether SGUtil should automatically check order state and let game server mark it as delivered after user completes UI operation to buy a product.
-		If set it to false, you need to manually do the job by calling GetOrderState later.</p>
+        If set it to false, you need to manually do the job by calling GetOrderState later.
+        Other function cannot be executed during the automatic checking period. If you think it a problem, please set it to false and
+        call GetOrderState to check order state by yourself.
+        </p>
 
 		<p>Below is SGUCallbackEntityObject.cs in SGUtil For Unity package, wchich is a dummy implementation of SGUCallbackEntity.
         It is shown here for your reference only.</p>
