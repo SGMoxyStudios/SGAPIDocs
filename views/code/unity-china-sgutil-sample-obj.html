@@ -1,5 +1,4 @@
-<!-- HTML generated using hilite.me -->
-<div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008000; font-weight: bold">using</span> <span style="color: #0000FF; font-weight: bold">UnityEngine</span>;
+<!-- HTML generated using hilite.me --><div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008000; font-weight: bold">using</span> <span style="color: #0000FF; font-weight: bold">UnityEngine</span>;
 <span style="color: #008000; font-weight: bold">using</span> <span style="color: #0000FF; font-weight: bold">System.Collections</span>;
 <span style="color: #008000; font-weight: bold">using</span> <span style="color: #0000FF; font-weight: bold">System.Collections.Generic</span>;
 <span style="color: #008000; font-weight: bold">using</span> <span style="color: #0000FF; font-weight: bold">UnityEngine.UI</span>;
@@ -7,7 +6,7 @@
 <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">SGUCallbackEntityObject</span> : MonoBehaviour, SGUCallbackEntity {
 
     <span style="color: #008000; font-weight: bold">void</span> <span style="color: #0000FF">Start</span> () {
-        SGU.initialize(<span style="color: #008000; font-weight: bold">this</span>);	<span style="color: #408080; font-style: italic">// SGU class initialization</span>
+        SGU.initialize(<span style="color: #008000; font-weight: bold">this</span>);   <span style="color: #408080; font-style: italic">// SGU class initialization</span>
         <span style="color: #408080; font-style: italic">// call Init interface</span>
         SGU.Init(<span style="color: #BA2121">&quot;com.sg.util.SGUtilUnityGameServer&quot;</span>, <span style="color: #008000; font-weight: bold">false</span>);
     }
@@ -36,7 +35,7 @@
         <span style="color: #408080; font-style: italic">// result of initialization, proceed if resultCode == RESULT_OK, otherwise, have to exit</span>
     }
 
-    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">void</span> <span style="color: #0000FF">OnLogin</span>(SGUResult resultCode)
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">void</span> <span style="color: #0000FF">OnLogin</span>(SGUResult resultCode, <span style="color: #B00040">string</span> recover_token)
     {
         <span style="color: #408080; font-style: italic">// result of login</span>
     }
@@ -76,7 +75,7 @@
         <span style="color: #408080; font-style: italic">// result of Log</span>
     }
 
-    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">void</span> <span style="color: #0000FF">OnRemoteLogValue</span>(SGUResult resultCode, <span style="color: #B00040">string</span> name, <span style="color: #B00040">int</span> <span style="color: #008000; font-weight: bold">value</span>)
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">void</span> <span style="color: #0000FF">OnRemoteLogValue</span>(SGUResult resultCode, <span style="color: #B00040">string</span> key, <span style="color: #B00040">int</span> <span style="color: #008000; font-weight: bold">value</span>)
     {
         <span style="color: #408080; font-style: italic">// result of GetLogValue</span>
     }

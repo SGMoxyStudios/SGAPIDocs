@@ -2,6 +2,7 @@
     <ul class="nav nav-pills">
         <li><a href="#MemberSystem">用戶系統</a></li>
         <li><a href="#Login">登入</a></li>
+        <li><a href="#Recover">恢復</a></li>
         <li><a href="#Logout">登出</a></li>
         <li><a href="#Exit">退出</a></li>
     </ul>
@@ -34,16 +35,45 @@
         </div>
     </section>
 
+    <section id="Recover">
+        <h1>恢復</h1>
+        <div class="row">
+            <div class="col-sm-9">
+                <span class="badge badge-ttl">方法</span>
+                <p><pre>void Recover(string recover_token)</pre></p>
+
+                <span class="badge badge-ttl">參數</span>
+                <ul>
+                    <li>recover_token - 恢複用的令牌</li>
+                </ul>
+
+                <span class="badge badge-ttl">說明</span>
+                <ul>
+                    <li>在登出後快速恢復渠道會話。</li>
+                    <li>遊服登入正常進行，不可恢復。</li>
+                    <li>恢復結果會通過回調 OnLogin 來通知。</li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <!--<span class="badge badge-ttl">WebView 頁面</span>
+                <a href="<%= " assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
+                <img src="<%= " assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
+                </a>-->
+            </div>
+        </div>
+    </section>
+
     <section id="LoginCallback">
         <h1>登入回調</h1>
         <div class="row">
             <div class="col-sm-9">
                 <span class="badge badge-ttl">方法</span>
-                <p><pre>void OnLogin(SGUResult resultCode)</pre></p>
+                <p><pre>void OnLogin(SGUResult resultCode, string recover_token)</pre></p>
 
                 <span class="badge badge-ttl">參數</span>
                 <ul>
                     <li>resultCode - 結果碼</li>
+                    <li>recover_token - 用於在登出後快速恢復會話的令牌</li>
                 </ul>
 
                 <span class="badge badge-ttl">說明</span>

@@ -9,6 +9,7 @@
         <li><a href="#getlogvalue">获取远程日志键值</a></li>
         <li><a href="#getextmethodlist">获取扩展方法列表</a></li>
         <li><a href="#runextmethod">运行扩展方法</a></li>
+        <li><a href="#setsystemproperty">设置系统属性</a></li>
     </ul>
 
 </div>
@@ -408,4 +409,32 @@
             </div>
         </section>
         
+        <section id="setsystemproperty">
+            <h1>设置系统属性</h1>
+            <div class="row">
+                <div class="col-sm-9">
+                    <span class="badge badge-ttl">方法</span>
+                    <p><pre>void SetSystemProperty(string name, string value)</pre></p>
+    
+                    <span class="badge badge-ttl">参数</span>
+                    <ul>
+                        <li>name - 属性名</li>
+                        <li>value - 属性值</li>
+                    </ul>
+    
+                    <span class="badge badge-ttl">说明</span>
+                    <ul>
+                        <li>此方法没有回调通知。</li>
+                        <li>细节请参看Java的System.setProperty。</li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <!--<span class="badge badge-ttl">WebView 頁面</span>
+                    <a href="<%= " assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
+                    <img src="<%= " assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
+                    </a>-->
+                </div>
+            </div>
+        </section>
+
 </div>
