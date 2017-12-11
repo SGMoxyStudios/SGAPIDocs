@@ -564,9 +564,9 @@
     <span style="color: #666666">}</span>
 
     <span style="color: #AA22FF">@Override</span>
-    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onLogValue</span><span style="color: #666666">(</span>String key<span style="color: #666666">,</span> <span style="color: #B00040">int</span> value<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onLogValue</span><span style="color: #666666">(</span>String key<span style="color: #666666">,</span> <span style="color: #B00040">int</span> value<span style="color: #666666">,</span> String msg<span style="color: #666666">)</span> <span style="color: #666666">{</span>
         <span style="color: #408080; font-style: italic">// got the value of log item &#39;key&#39;</span>
-        onLog<span style="color: #666666">(</span><span style="color: #BA2121">&quot;log: &quot;</span> <span style="color: #666666">+</span> key <span style="color: #666666">+</span> <span style="color: #BA2121">&quot; &quot;</span> <span style="color: #666666">+</span> value<span style="color: #666666">);</span>
+        onLog<span style="color: #666666">(</span><span style="color: #BA2121">&quot;log: &quot;</span> <span style="color: #666666">+</span> key <span style="color: #666666">+</span> <span style="color: #BA2121">&quot; &quot;</span> <span style="color: #666666">+</span> value <span style="color: #666666">+</span> <span style="color: #BA2121">&quot; &quot;</span> <span style="color: #666666">+</span> msg<span style="color: #666666">);</span>
     <span style="color: #666666">}</span>
 
     <span style="color: #AA22FF">@Override</span>

@@ -472,10 +472,11 @@
     <span style="color: #666666">}</span>
 
     <span style="color: #AA22FF">@Override</span>
-    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onLogValue</span><span style="color: #666666">(</span>String key<span style="color: #666666">,</span> <span style="color: #B00040">int</span> value<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">onLogValue</span><span style="color: #666666">(</span>String key<span style="color: #666666">,</span> <span style="color: #B00040">int</span> value<span style="color: #666666">,</span> String msg<span style="color: #666666">)</span> <span style="color: #666666">{</span>
         JSONObject jo <span style="color: #666666">=</span> SGJsonUtil<span style="color: #666666">.</span><span style="color: #7D9029">createJSONObject</span><span style="color: #666666">();</span>
         SGJsonUtil<span style="color: #666666">.</span><span style="color: #7D9029">putJSONObjectString</span><span style="color: #666666">(</span>jo<span style="color: #666666">,</span> <span style="color: #BA2121">&quot;Key&quot;</span><span style="color: #666666">,</span> key<span style="color: #666666">);</span>
         SGJsonUtil<span style="color: #666666">.</span><span style="color: #7D9029">putJSONObjectInt</span><span style="color: #666666">(</span>jo<span style="color: #666666">,</span> <span style="color: #BA2121">&quot;Value&quot;</span><span style="color: #666666">,</span> value<span style="color: #666666">);</span>
+        SGJsonUtil<span style="color: #666666">.</span><span style="color: #7D9029">putJSONObjectString</span><span style="color: #666666">(</span>jo<span style="color: #666666">,</span> <span style="color: #BA2121">&quot;Msg&quot;</span><span style="color: #666666">,</span> msg<span style="color: #666666">);</span>
         sendCallback<span style="color: #666666">(</span>CALLBACK_REMOTE_LOG_VALUE<span style="color: #666666">,</span> RESULT_ITEM<span style="color: #666666">,</span> jo<span style="color: #666666">);</span>
     <span style="color: #666666">}</span>
 
