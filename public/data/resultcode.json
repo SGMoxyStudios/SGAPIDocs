@@ -651,6 +651,42 @@
     "class": "active"
   },
   {
+    "api": "my-account",
+    "code": 1802,
+    "msg": "Post data error.",
+    "class": ""
+  },
+  {
+    "api": "my-account",
+    "code": 1803,
+    "msg": "Password error.",
+    "class": ""
+  },
+  {
+    "api": "my-account",
+    "code": 1804,
+    "msg": "Account binding error.",
+    "class": ""
+  },
+  {
+    "api": "my-account",
+    "code": 1805,
+    "msg": "No confirm code.",
+    "class": ""
+  },
+  {
+    "api": "my-account",
+    "code": 1806,
+    "msg": "Confirm code expired.",
+    "class": ""
+  },
+  {
+    "api": "my-account",
+    "code": 1807,
+    "msg": "Confirm code error.",
+    "class": ""
+  },
+  {
     "api": "iOS SDK Error",
     "code": 8000,
     "msg": "Javascript call GetResult() error.",
