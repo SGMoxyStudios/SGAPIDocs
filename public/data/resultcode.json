@@ -645,6 +645,12 @@
     "class": "active"
   },
   {
+    "api": "my-account",
+    "code": 1801,
+    "msg": "ok",
+    "class": "active"
+  },
+  {
     "api": "iOS SDK Error",
     "code": 8000,
     "msg": "Javascript call GetResult() error.",
