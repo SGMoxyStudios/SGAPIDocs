@@ -1,10 +1,21 @@
 <div class="left-side" id="myScrollspy">
 
     <ul class="nav nav-pills">
-        <li><a href="#summary">Unity Introduction</a></li>
-        <li><a href="#environment">Development Environment</a></li>
-        <li><a href="#content">SGSDK Package Content</a></li>
-        <li><a href="#use">Using Unity SGSDK</a></li>
+        <li>
+            <a href="#summary">Unity Introduction</a>
+        </li>
+        <li>
+            <a href="#environment">Development Environment</a>
+        </li>
+        <li>
+            <a href="#content">SGSDK Package Content</a>
+        </li>
+        <li>
+            <a href="#use">Using Unity SGSDK</a>
+        </li>
+        <li>
+            <a href="#fbsdk">Install Facebook iOS SDK</a>
+        </li>
     </ul>
 
 </div>
@@ -14,7 +25,8 @@
     <section id="summary">
         <h1>Unity Introduction</h1>
         <p>
-            Knowing how to integrate Unity SDK by reading this document. It's important for you to read through and understand the document before starting development.
+            Knowing how to integrate Unity SDK by reading this document. It's important for you to read through and understand the document
+            before starting development.
         </p>
     </section>
 
@@ -22,24 +34,28 @@
         <h1>Development Environment</h1>
         <h3>1.下載 SGSDK Unity Package File</h3>
         <ul>
-            <li><a href="/sdk/unity/SGSDK.unitypackage">SGSDK.unitypackage</a></li>
+            <li>
+                <a href="/sdk/unity/SGSDK.unitypackage">SGSDK.unitypackage</a>
+            </li>
         </ul>
         <br />
 
         <h3>2.Import Custom Package</h3>
         <p>Import SGSDK.unitypackage to project.</p>
-        <img src=<%= "assets/img/" + lang + "/unity01.png"%> class="img-responsive"/>
+        <img src=<%="assets/img/" + lang + "/unity01.png"%> class="img-responsive"/>
         <br />
 
     </section>
 
     <section id="content">
         <h1>SGSDK Package Content</h1>
-        <img src=<%= "assets/img/" + lang + "/unity02.png"%> class="img-responsive"/>
+        <img src=<%="assets/img/" + lang + "/unity02.png"%> class="img-responsive"/>
         <h3>1.Android</h3>
         <ul>
             <li>Plugins/Android/SGSDK.aar is native android sdk</li>
-            <li>Plugins/Android/android-support-v4.jar is dependency sdk of android. Keeping the newest one avoid making apk error.</li>
+            <li>Plugins/Android/android-support-v4.jar is dependency sdk of android. Keeping the newest one avoid making apk
+                error.
+            </li>
             <li>Plugins/Android/AndroidManifest.xml is AndroidManifest.xml of sdk. Have to merge with project.</li>
             <%- include ../code/unity-manifest.html -%>
         </ul>
@@ -67,7 +83,8 @@
         <h1>Using Unity SGSDK</h1>
         <h3>1.Using SGSDK</h3>
         <ul>
-            <li>Using singleton object <code>SGSDK.Instance</code> function to integrate SG member, payment and analytic system.</li>
+            <li>Using singleton object
+                <code>SGSDK.Instance</code> function to integrate SG member, payment and analytic system.</li>
             <li>Recommended call SDK SetListener and Init at game initialization.</li>
             <%- include ../code/unity-init.html -%>
         </ul>
@@ -81,8 +98,26 @@
         <h3>3.Hints</h3>
         <ul>
             <li>SGSDK only can test in device.</li>
-            <li> Unity 5.6.1 Android widget display can not show correctly. Recommended to use other versions or hide widget. </li>
+            <li> Unity 5.6.1 Android widget display can not show correctly. Recommended to use other versions or hide widget.
+            </li>
         </ul>
+        <br />
+
+    </section>
+
+    <section id="fbsdk">
+        <h1>Install Facebook iOS SDK</h1>
+        <h3>1.Download Facebook iOS SDK</h3>
+        <ul>
+            <li>
+                <a href="https://developers.facebook.com/docs/ios/getting-started">Facebook iOS SDK</a>
+            </li>
+        </ul>
+        <br />
+
+        <h3>2.Unzip</h3>
+        <p>Unzip the archive to
+            <code>~/Documents/FacebookSDK</code>。</p>
         <br />
 
     </section>
