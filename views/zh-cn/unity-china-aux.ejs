@@ -354,11 +354,10 @@
                 <div class="row">
                     <div class="col-sm-9">
                         <span class="badge badge-ttl">方法</span>
-                        <p><pre>void RunExtMethod(string cookie, string name, string cmd_line_args)</pre></p>
+                        <p><pre>void RunExtMethod(string name, string cmd_line_args)</pre></p>
         
                         <span class="badge badge-ttl">参数</span>
                         <ul>
-                            <li>cookie - 运行成功后原样返回的字串，用于跟踪异步方法。对于同步方法必须设为null。</li>
                             <li>name - 方法的名字</li>
                             <li>cmd_line_args - 方法的命令行。方法的所有参数都是字符串，必须用空格连接。如果参数内部
                                 有空格，则必须用引号(")括起来。
