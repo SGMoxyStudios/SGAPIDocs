@@ -295,49 +295,21 @@
         </section>
 
         <section id="getextmethodlist">
-                <h1>获取扩展方法列表</h1>
-                <div class="row">
-                    <div class="col-sm-9">
-                        <span class="badge badge-ttl">方法</span>
-                        <p><pre>void GetExtMethodList()</pre></p>
-        
-                        <span class="badge badge-ttl">参数</span>
-                        <ul>
-                        </ul>
-        
-                        <span class="badge badge-ttl">说明</span>
-                        <ul>
-                            <li>此API返回渠道SDK的扩展方法列表。因为各个渠道的实现不同，方法列表也不同。但方法getChannelName是统一实现的，可以
-                                用来根据具体渠道做不同的处理。
-                            </li>
-                            <li>结果通过回调 OnExtMethodList 来通知给调用者。</li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-3">
-                        <!--<span class="badge badge-ttl">WebView 頁面</span>
-                        <a href="<%= " assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
-                        <img src="<%= " assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
-                        </a>-->
-                    </div>
-                </div>
-            </section>
-        
-        <section id="GetExtMethodListCallback">
-            <h1>获取扩展方法列表结果回调</h1>
+            <h1>获取扩展方法列表</h1>
             <div class="row">
                 <div class="col-sm-9">
                     <span class="badge badge-ttl">方法</span>
-                    <p><pre>void OnExtMethodList(SGUResult resultCode, SGUExtMethod em)</pre></p>
+                    <p><pre>List&lt;SGUExtMethod&gt; GetExtMethodList()</pre></p>
     
                     <span class="badge badge-ttl">参数</span>
                     <ul>
-                        <li>resultCode - 结果码</li>
-                        <li>em - 扩展方法信息</li>
                     </ul>
     
                     <span class="badge badge-ttl">说明</span>
                     <ul>
-                        <li>扩展方法信息通知以 RESULT_ITEM_BEGIN 开始，随后是 RESULT_ITEM，最后是 RESULT_ITEM_END。</li>
+                        <li>此API返回渠道SDK的扩展方法列表。因为各个渠道的实现不同，方法列表也不同。但方法getChannelName是统一实现的，可以
+                            用来根据具体渠道做不同的处理。
+                        </li>
                     </ul>
                 </div>
                 <div class="col-sm-3">
@@ -348,13 +320,13 @@
                 </div>
             </div>
         </section>
-
+        
         <section id="runextmethod">
                 <h1>运行扩展方法</h1>
                 <div class="row">
                     <div class="col-sm-9">
                         <span class="badge badge-ttl">方法</span>
-                        <p><pre>void RunExtMethod(string name, string cmd_line_args)</pre></p>
+                        <p><pre>SGUExtMethodReturn RunExtMethod(string name, string cmd_line_args)</pre></p>
         
                         <span class="badge badge-ttl">参数</span>
                         <ul>
@@ -367,7 +339,7 @@
                         <span class="badge badge-ttl">说明</span>
                         <ul>
                             <li>参看<a href=<%= "assets/html/" + lang + "/android/jdoc/sgutil/com/sg/util/SGAgent.html#runExtMethod-java.lang.String-"%>> SGAgent.runExtMethod </a>。</li></li>
-                            <li>结果通过回调 OnExtMethod 来通知给调用者。</li>
+                            <li>API调用结果将通过返回值来通知调用者。如果是异步方法，则后续处理的结果将通过回调 OnExtMethod 来通知给调用者。</li>
                         </ul>
                     </div>
                     <div class="col-sm-3">
@@ -394,9 +366,8 @@
     
                     <span class="badge badge-ttl">说明</span>
                     <ul>
-                        <li>如果运行失败，则resultCode为RESULT_FAIL。如果成功，则resultCode是RESULT_OK（同步）或
-                            RESULT_ASYNC（异步），此时result.Return包含方法的返回类型和返回文本。在RESULT_ASYNC的
-                            情况下，将通过RESULT_ITEM在result.Result进一步返回最终执行结果。
+                        <li>異步擴展方法的真正處理結果將通過此回調通知。此時resultCode為RESULT_ITEM，
+                            詳細結果信息保存在result中。
                         </li>
                     </ul>
                 </div>

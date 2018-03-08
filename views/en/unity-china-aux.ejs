@@ -296,50 +296,22 @@
         </section>
 
         <section id="getextmethodlist">
-                <h1>Get List of Extended Methods</h1>
-                <div class="row">
-                    <div class="col-sm-9">
-                        <span class="badge badge-ttl">Method</span>
-                        <p><pre>void GetExtMethodList()</pre></p>
-        
-                        <span class="badge badge-ttl">Parameters</span>
-                        <ul>
-                        </ul>
-        
-                        <span class="badge badge-ttl">Remark</span>
-                        <ul>
-                            <li>This API returns a list of extended methods supported by integrated channel.
-                                Channels may have different extended methods from each other, but method 'getChannelName' is
-                                always available. You may call it to get the channel name and do appropriate things.
-                            </li>
-                            <li>The result is notified to caller via OnExtMethodList.</li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-3">
-                        <!--<span class="badge badge-ttl">WebView 頁面</span>
-                        <a href="<%= " assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
-                        <img src="<%= " assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
-                        </a>-->
-                    </div>
-                </div>
-            </section>
-        
-        <section id="GetExtMethodListCallback">
-            <h1>Get List of Extended Methods Callback</h1>
+            <h1>Get List of Extended Methods</h1>
             <div class="row">
                 <div class="col-sm-9">
                     <span class="badge badge-ttl">Method</span>
-                    <p><pre>void OnExtMethodList(SGUResult resultCode, SGUExtMethod em)</pre></p>
+                    <p><pre>List&lt;SGUExtMethod&gt; GetExtMethodList()</pre></p>
     
                     <span class="badge badge-ttl">Parameters</span>
                     <ul>
-                        <li>resultCode - result code</li>
-                        <li>em - information of extended method</li>
                     </ul>
     
                     <span class="badge badge-ttl">Remark</span>
                     <ul>
-                        <li>Notification of extended method information begins with RESULT_ITEM_BEGIN, followed by RESULT_ITEM, and ends with RESULT_ITEM_END.</li>
+                        <li>This API returns a list of extended methods supported by integrated channel.
+                            Channels may have different extended methods from each other, but method 'getChannelName' is
+                            always available. You may call it to get the channel name and do appropriate things.
+                        </li>
                     </ul>
                 </div>
                 <div class="col-sm-3">
@@ -350,36 +322,37 @@
                 </div>
             </div>
         </section>
-
+        
         <section id="runextmethod">
-                <h1>Run Extended Method</h1>
-                <div class="row">
-                    <div class="col-sm-9">
-                        <span class="badge badge-ttl">Method</span>
-                        <p><pre>void RunExtMethod(string name, string cmd_line_args)</pre></p>
-        
-                        <span class="badge badge-ttl">Parameters</span>
-                        <ul>
-                            <li>name - name of method</li>
-                            <li>cmd_line_args - command line to be passed to method. All arguments must be strings, 
-                                and should be concatenated with spaces. A parameter should be embraced with quotation mark (")
-                                if it contains spaces within itself.
-                            </li>
-                        </ul>
-        
-                        <span class="badge badge-ttl">Remark</span>
-                        <ul>
-                            <li>The result is notified to caller via OnExtMethod.</li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-3">
-                        <!--<span class="badge badge-ttl">WebView 頁面</span>
-                        <a href="<%= " assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
-                        <img src="<%= " assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
-                        </a>-->
-                    </div>
+            <h1>Run Extended Method</h1>
+            <div class="row">
+                <div class="col-sm-9">
+                    <span class="badge badge-ttl">Method</span>
+                    <p><pre>SGUExtMethodReturn RunExtMethod(string name, string cmd_line_args)</pre></p>
+    
+                    <span class="badge badge-ttl">Parameters</span>
+                    <ul>
+                        <li>name - name of method</li>
+                        <li>cmd_line_args - command line to be passed to method. All arguments must be strings, 
+                            and should be concatenated with spaces. A parameter should be embraced with quotation mark (")
+                            if it contains spaces within itself.
+                        </li>
+                    </ul>
+    
+                    <span class="badge badge-ttl">Remark</span>
+                    <ul>
+                        <li>Refer to <a href=<%= "assets/html/" + lang + "/android/jdoc/sgutil/com/sg/util/SGAgent.html#runExtMethod-java.lang.String-"%>> SGAgent.runExtMethod </a>。</li></li>
+                        <li>The result of API call is returned in SGUExtMethodReturn. If it's an asynchronous method, consequent result is notified to caller via OnExtMethod.</li>
+                    </ul>
                 </div>
-            </section>
+                <div class="col-sm-3">
+                    <!--<span class="badge badge-ttl">WebView 頁面</span>
+                    <a href="<%= " assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
+                    <img src="<%= " assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
+                    </a>-->
+                </div>
+            </div>
+        </section>
         
         <section id="RunExtMethodCallback">
             <h1>Run Extended Method Callback</h1>
@@ -396,10 +369,8 @@
     
                     <span class="badge badge-ttl">Remark</span>
                     <ul>
-                        <li>resultCode is RESULT_FAIL if this API fails. In case of success, resultCode is RESULT_OK (sync) or
-                            RESULT_ASYNC (async), in both cases result.Return contains return type and returned text of the API.
-                            In addition, if resultCode is RESULT_ASYNC, there will be a RESULT_ITEM notification with execution
-                            result in result.Result.
+                        <li>Result of aynchronous processing is notified to caller via this callback. 'resultCode' is set to RESULT_ITEM and
+                            detailed information is stored in 'result'.
                         </li>
                     </ul>
                 </div>

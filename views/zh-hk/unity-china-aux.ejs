@@ -295,49 +295,21 @@
         </section>
 
         <section id="getextmethodlist">
-                <h1>獲取擴展方法列表</h1>
-                <div class="row">
-                    <div class="col-sm-9">
-                        <span class="badge badge-ttl">方法</span>
-                        <p><pre>void GetExtMethodList()</pre></p>
-        
-                        <span class="badge badge-ttl">參數</span>
-                        <ul>
-                        </ul>
-        
-                        <span class="badge badge-ttl">說明</span>
-                        <ul>
-                            <li>此API返回渠道SDK的擴展方法列表。因爲各個渠道的實現不同，方法列表也不同。但方法getChannelName是統一實現的，可以
-                                用來根據具體渠道做不同的處理。
-                            </li>
-                            <li>結果通過回調 OnExtMethodList 來通知給調用者。</li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-3">
-                        <!--<span class="badge badge-ttl">WebView 頁面</span>
-                        <a href="<%= " assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
-                        <img src="<%= " assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
-                        </a>-->
-                    </div>
-                </div>
-            </section>
-        
-        <section id="GetExtMethodListCallback">
-            <h1>獲取擴展方法列表結果回調</h1>
+            <h1>獲取擴展方法列表</h1>
             <div class="row">
                 <div class="col-sm-9">
                     <span class="badge badge-ttl">方法</span>
-                    <p><pre>void OnExtMethodList(SGUResult resultCode, SGUExtMethod em)</pre></p>
+                    <p><pre>List&lt;SGUExtMethod&gt; GetExtMethodList()</pre></p>
     
                     <span class="badge badge-ttl">參數</span>
                     <ul>
-                        <li>resultCode - 結果碼</li>
-                        <li>em - 擴展方法信息</li>
                     </ul>
     
                     <span class="badge badge-ttl">說明</span>
                     <ul>
-                        <li>擴展方法信息通知以 RESULT_ITEM_BEGIN 開始，隨後是 RESULT_ITEM，最後是 RESULT_ITEM_END。</li>
+                        <li>此API返回渠道SDK的擴展方法列表。因爲各個渠道的實現不同，方法列表也不同。但方法getChannelName是統一實現的，可以
+                            用來根據具體渠道做不同的處理。
+                        </li>
                     </ul>
                 </div>
                 <div class="col-sm-3">
@@ -348,13 +320,13 @@
                 </div>
             </div>
         </section>
-
+        
         <section id="runextmethod">
                 <h1>運行擴展方法</h1>
                 <div class="row">
                     <div class="col-sm-9">
                         <span class="badge badge-ttl">方法</span>
-                        <p><pre>void RunExtMethod(string name, string cmd_line_args)</pre></p>
+                        <p><pre>SGUExtMethodReturn RunExtMethod(string name, string cmd_line_args)</pre></p>
         
                         <span class="badge badge-ttl">參數</span>
                         <ul>
@@ -367,7 +339,7 @@
                         <span class="badge badge-ttl">說明</span>
                         <ul>
                             <li>參看<a href=<%= "assets/html/" + lang + "/android/jdoc/sgutil/com/sg/util/SGAgent.html#runExtMethod-java.lang.String-"%>> SGAgent.runExtMethod </a>。</li></li>
-                            <li>結果通過回調 OnExtMethod 來通知給調用者。</li>
+                            <li>API調用結果將通過返回值來通知調用者。如果是異步方法，則後續處理的結果將通過回調 OnExtMethod 來通知給調用者。</li>
                         </ul>
                     </div>
                     <div class="col-sm-3">
