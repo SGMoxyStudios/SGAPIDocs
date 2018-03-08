@@ -23,11 +23,46 @@
     "sdk": "SG_ZhiMiao",
     "key": "zhimiao"
   },
-
   {
     "id": 5,
     "name": "智冠",
     "sdk": "SG_ZhiGuan",
     "key": "zhiguan"
+  },
+  {
+    "id": 6,
+    "name": "百度",
+    "sdk": "SG_BaiDu",
+    "key": "baidu"
+  },
+  {
+    "id": 7,
+    "name": "步步高",
+    "sdk": "SG_VIVO",
+    "key": "vivo"
+  },
+  {
+    "id": 8,
+    "name": "華為",
+    "sdk": "SG_HuaWei",
+    "key": "huawei"
+  },
+  {
+    "id": 9,
+    "name": "小米",
+    "sdk": "SG_XiaoMi",
+    "key": "xiaomi"
+  },
+  {
+    "id": 10,
+    "name": "百事通",
+    "sdk": "SG_BestTV",
+    "key": "bestv"
+  },
+  {
+    "id": 11,
+    "name": "海信",
+    "sdk": "SG_HisenseTV",
+    "key": "hisensetv"
   }
 ]
