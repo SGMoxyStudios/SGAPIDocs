@@ -126,6 +126,12 @@
     "class": ""
   },
   {
+    "api": "",
+    "code": 215,
+    "msg": "WeChat get user's info ok.",
+    "class": ""
+  },
+  {
     "api": "signup",
     "code": 301,
     "msg": "ok",
