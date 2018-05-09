@@ -64,5 +64,17 @@
     "name": "海信",
     "sdk": "SG_HisenseTV",
     "key": "hisensetv"
+  },
+  {
+    "id": 12,
+    "name": "腾讯",
+    "sdk": "SG_OpenQQ",
+    "key": "openqq"
+  },
+  {
+    "id": 13,
+    "name": "奇虎360",
+    "sdk": "SG_Qihoo360",
+    "key": "qihoo360"
   }
 ]

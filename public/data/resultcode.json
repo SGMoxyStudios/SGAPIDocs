@@ -192,6 +192,24 @@
     "class": ""
   },
   {
+    "api": "confirm-code",
+    "code": 401,
+    "msg": "ok",
+    "class": "active"
+  },
+  {
+    "api": "",
+    "code": 402,
+    "msg": "This phone number has already been registered.",
+    "class": ""
+  },
+  {
+    "api": "forgot-password",
+    "code": 501,
+    "msg": "ok",
+    "class": "active"
+  },
+  {
     "api": "change-password",
     "code": 601,
     "msg": "ok",
@@ -657,37 +675,37 @@
     "class": "active"
   },
   {
-    "api": "my-account",
+    "api": "",
     "code": 1802,
     "msg": "Post data error.",
     "class": ""
   },
   {
-    "api": "my-account",
+    "api": "",
     "code": 1803,
     "msg": "Password error.",
     "class": ""
   },
   {
-    "api": "my-account",
+    "api": "",
     "code": 1804,
     "msg": "Account binding error.",
     "class": ""
   },
   {
-    "api": "my-account",
+    "api": "",
     "code": 1805,
     "msg": "No confirm code.",
     "class": ""
   },
   {
-    "api": "my-account",
+    "api": "",
     "code": 1806,
     "msg": "Confirm code expired.",
     "class": ""
   },
   {
-    "api": "my-account",
+    "api": "",
     "code": 1807,
     "msg": "Confirm code error.",
     "class": ""
@@ -741,7 +759,7 @@
     "class": ""
   },
   {
-    "api": "",
+    "api": "Unity Plugin Error",
     "code": 9930,
     "msg": "Unity SDK call error.",
     "class": "active"
