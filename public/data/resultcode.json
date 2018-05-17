@@ -711,6 +711,66 @@
     "class": ""
   },
   {
+    "api": "log-screen",
+    "code": 1901,
+    "msg": "ok",
+    "class": "active"
+  },
+  {
+    "api": "",
+    "code": 1902,
+    "msg": "Post data error.",
+    "class": ""
+  },
+  {
+    "api": "log-event",
+    "code": 2001,
+    "msg": "ok",
+    "class": "active"
+  },
+  {
+    "api": "",
+    "code": 2002,
+    "msg": "Post data error.",
+    "class": ""
+  },
+  {
+    "api": "sgeye-log-event",
+    "code": 2101,
+    "msg": "ok",
+    "class": "active"
+  },
+  {
+    "api": "",
+    "code": 2102,
+    "msg": "Post data error.",
+    "class": ""
+  },
+  {
+    "api": "feedback",
+    "code": 2201,
+    "msg": "ok",
+    "class": "active"
+  },
+  {
+    "api": "",
+    "code": 2202,
+    "msg": "Please login first.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 2203,
+    "msg": "Post data error.",
+    "class": ""
+  },
+  {
+    "api": "parental-lock",
+    "code": 2401,
+    "msg": "ok",
+    "class": "active"
+  },
+  {
     "api": "iOS SDK Error",
     "code": 8000,
     "msg": "Javascript call GetResult() error.",

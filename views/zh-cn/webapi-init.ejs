@@ -34,7 +34,7 @@
         <p>調用其他 SG API 之前需要先調用 <code>init</code>，通過驗證進行初始化。</p>
 
         <span class="badge badge-ttl">範例</span>
-        <pre>https://gameapi.smartgamesltd.com/init?gamekey=my_gamekey&appsecret=my_appsecret&channel=my_channel</pre>
+        <pre>https://gameapi.smartgamesltd.com/init?gamekey=my_gamekey&appsecret=my_appsecret&channel=my_channel&version=sgsdk_version&versionname=app_version_name&versioncode=app_version_code&deviceid=my_device_id&useweb=true</pre>
 
         <span class="badge badge-ttl">參數</span>
         <table class="table table-striped">
@@ -71,6 +71,53 @@
                 </td>
                 <td>
                     發佈遊戲的 <a href="/channel">渠道代碼</a> 。
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    version
+                </td>
+                <td>
+                    SGSDK Version ，現為 <code>1002</code> 。
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    versionname
+                </td>
+                <td>
+                    Build app 時的 version name。
+                    Android 為 versionName。
+                    iOS 為 Version。
+                    Unity 為 Version。
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    versioncode
+                </td>
+                <td>
+                    Build app 時的 version code。
+                    Android 為 versionCode。
+                    iOS 為 Build。
+                    Unity 為 Bundle Version Code。
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    deviceid
+                </td>
+                <td>
+                    裝置 device id。
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    useweb
+                </td>
+                <td>
+                    useweb=true 使用瀏覽器或 web view 元件登入。
+                    useweb=false 使用android sdk 或 ios sdk 登入。
                 </td>
             </tr>
 
@@ -192,6 +239,16 @@
                         <td>SG 會員 ID。</td>
                     </tr>
                     <tr>
+                        <td>WeChatID</td>
+                        <td>string</td>
+                        <td>透過 WeChat 登入的 WeChat user id。</td>
+                    </tr>
+                    <tr>
+                        <td>FBID</td>
+                        <td>string</td>
+                        <td>透過 Facebook 登入的 Facebook user id。</td>
+                    </tr>
+                    <tr>
                         <td>Token</td>
                         <td>string</td>
                         <td>登入後取得的 token，7天有效期限。</td>
@@ -215,6 +272,13 @@
                         <td>Channel</td>
                         <td>string</td>
                         <td>發佈遊戲的 <a href="/channel">渠道代碼</a> 。</td>
+                    </tr>
+                    <tr>
+                        <td>Area</td>
+                        <td>string</td>
+                        <td>
+                            創帳號時填寫的手機區碼。
+                        </td>
                     </tr>
                     <tr>
                         <td>Phone</td>

@@ -36,7 +36,7 @@
         </p>
 
         <span class="badge badge-ttl">Example</span>
-        <pre>https://gameapi.smartgamesltd.com/init?gamekey=my_gamekey&appsecret=my_appsecret&channel=my_channel</pre>
+        <pre>https://gameapi.smartgamesltd.com/init?gamekey=my_gamekey&appsecret=my_appsecret&channel=my_channel&version=sgsdk_version&versionname=app_version_name&versioncode=app_version_code&deviceid=my_device_id&useweb=true</pre>
 
         <span class="badge badge-ttl">Parameters</span>
         <table class="table table-striped">
@@ -66,6 +66,53 @@
                     </td>
                     <td>
                         The channel of your App. (<a href="/channel">Please refer to Channel List table</a>)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        version
+                    </td>
+                    <td>
+                        SGSDK Version is <code>1002</code> now.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        versionname
+                    </td>
+                    <td>
+                        Version name when building app.
+                        Android is versionName.
+                        iOS is Version.
+                        Unity is Version.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        versioncode
+                    </td>
+                    <td>
+                        Version code when building app.
+                        Android is versionCode.
+                        iOS is Build.
+                        Unity is Bundle Version Code.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        deviceid
+                    </td>
+                    <td>
+                        ID of device.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        useweb
+                    </td>
+                    <td>
+                        useweb=true Login by using browser or web view for.
+                        useweb=false Login by using android sdk or ios sdk.
                     </td>
                 </tr>
 
@@ -204,6 +251,16 @@
                         <td>string</td>
                         <td>SG member ID.</td>
                     </tr>
+		    <tr>
+                        <td>WeChatID</td>
+                        <td>string</td>
+                        <td>Get it when login by WeChat.</td>
+                    </tr>
+                    <tr>
+                        <td>FBID</td>
+                        <td>string</td>
+                        <td>Get it when login by Facebook.</td>
+                    </tr>
                     <tr>
                         <td>Token</td>
                         <td>string</td>
@@ -228,6 +285,13 @@
                         <td>Channel</td>
                         <td>string</td>
                         <td>App release <a href="/channel">channel</a>.</td>
+                    </tr>
+		    <tr>
+                        <td>Area</td>
+                        <td>string</td>
+                        <td>
+                            Country code of phone number.
+                        </td>
                     </tr>
                     <tr>
                         <td>Phone</td>
