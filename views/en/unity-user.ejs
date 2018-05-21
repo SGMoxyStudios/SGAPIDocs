@@ -31,7 +31,7 @@
                 <p><pre>void Signup()</pre></p>
 
                 <span class="badge badge-ttl">Description</span>
-                <ul><li>After signing up, system logs user in automatically. Then close WebView.</li></ul>
+                <ul><li>After signing up, system logs user in automatically. Then close UI.</li></ul>
 
                 <span class="badge badge-ttl">Response</span>
                 <ul>
@@ -43,9 +43,9 @@
                 </ul>
             </div>
             <div class="col-sm-3">
-                <span class="badge badge-ttl">WebView UI</span>
-                <a href="<%= " assets/img/" + lang + "/pic08.png" %>" data-toggle="lightbox">
-                <img src="<%= " assets/img/" + lang + "/pic08.png" %>" class="img-responsive"/>
+                <span class="badge badge-ttl">Native UI</span>
+                <a href="<%= " assets/img/" + lang + "/swiftpic11.png" %>" data-toggle="lightbox">
+                <img src="<%= " assets/img/" + lang + "/swiftpic11.png" %>" class="img-responsive"/>
                 </a>
             </div>
         </div>
@@ -60,7 +60,7 @@
 
                 <span class="badge badge-ttl">Description</span>
                 <ul>
-                    <li>After successful login, close WebView.</li>
+                    <li>After successful login, close UI.</li>
                     <li>After successful login, <a href="#FloatingButton">widget button</a> is shown.</li>
                 </ul>
 
@@ -74,9 +74,14 @@
                 </ul>
             </div>
             <div class="col-sm-3">
-                <span class="badge badge-ttl">WebView UI</span>
-                <a href="<%= " assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
-                <img src="<%= " assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
+                <span class="badge badge-ttl">Native UI</span>
+                <a href="<%= " assets/img/" + lang + "/swiftpic12.png" %>" data-toggle="lightbox">
+                <img src="<%= " assets/img/" + lang + "/swiftpic12.png" %>" class="img-responsive"/>
+                </a>
+
+                <span class="badge badge-ttl">Native UI</span>
+                <a href="<%= " assets/img/" + lang + "/swiftpic13.png" %>" data-toggle="lightbox">
+                    <img src="<%= " assets/img/" + lang + "/swiftpic13.png" %>" class="img-responsive"/>
                 </a>
             </div>
         </div>
@@ -102,9 +107,9 @@
                 </ul>
             </div>
             <div class="col-sm-3">
-                <span class="badge badge-ttl">WebView UI</span>
-                <a href="<%= " assets/img/" + lang + "/pic09.png" %>" data-toggle="lightbox">
-                <img src="<%= " assets/img/" + lang + "/pic09.png" %>" class="img-responsive"/>
+                <span class="badge badge-ttl">Native UI</span>
+                <a href="<%= " assets/img/" + lang + "/swiftpic14.png" %>" data-toggle="lightbox">
+                <img src="<%= " assets/img/" + lang + "/swiftpic14.png" %>" class="img-responsive"/>
                 </a>
             </div>
         </div>
@@ -130,9 +135,9 @@
                 </ul>
             </div>
             <div class="col-sm-3">
-                <span class="badge badge-ttl">WebView UI</span>
-                <a href="<%= " assets/img/" + lang + "/pic10.png" %>" data-toggle="lightbox">
-                <img src="<%= " assets/img/" + lang + "/pic10.png" %>" class="img-responsive"/>
+                <span class="badge badge-ttl">Native UI</span>
+                <a href="<%= " assets/img/" + lang + "/swiftpic15.png" %>" data-toggle="lightbox">
+                <img src="<%= " assets/img/" + lang + "/swiftpic15.png" %>" class="img-responsive"/>
                 </a>
             </div>
         </div>
@@ -143,178 +148,98 @@
         <div class="row">
             <div class="col-sm-9">
                 <span class="badge badge-ttl">Function</span>
-                <p><pre>void ParentalLock()</pre></p>
+                <p><pre>UIParentalLock.Visible = true;</pre></p>
 
                 <span class="badge badge-ttl">Description</span>
                 <ul>
                     <li>You can use parental lock utility view before important actions.</li>
-                    <li>After successfully enter the code, it redirects to [My Account] page.</li>
-                    <li>If the user haven't created any kid (family member), , it redirects to [My Kid] page. </li>
+                    <li>Enter right code SDK will open Parent Center.</li>
+                </ul>
+
+                <span class="badge badge-ttl">UI Setting</span>
+                <ul>
+                    <li>Muti-language game have to call <code>SGTextConst.Language</code> before open UI. Default language is follow mobile device language setting. </li>
+                    <li>Setting callback for change child's data <code>SGNetwork.OnKidChange</code>.</li>
+                    <li>China version SDK have to call <code>SGNetwork.Get.IsChinaVersion = SGSDK.Instance.IsChinaVersion;</code></li>
                 </ul>
             </div>
             <div class="col-sm-3">
-                <span class="badge badge-ttl">WebView UI</span>
-                <a href="<%= " assets/img/" + lang + "/pic11.png" %>" data-toggle="lightbox">
-                <img src="<%= " assets/img/" + lang + "/pic11.png" %>" class="img-responsive"/>
+                <span class="badge badge-ttl">Unity UI</span>
+                <a href="<%= " assets/img/" + lang + "/unity_parentallock.png" %>" data-toggle="lightbox">
+                    <img src="<%= " assets/img/" + lang + "/unity_parentallock.png" %>" class="img-responsive"/>
                 </a>
             </div>
         </div>
     </section>
 
     <section id="MyKid">
-        <h1>My Kid</h1>
+        <h1>Parent Center</h1>
         <div class="row">
             <div class="col-sm-9">
                 <span class="badge badge-ttl">Function</span>
-                <p><pre>void MyKid()</pre></p>
+                <p><pre>UIUserCenter.Visible = true;</pre></p>
 
                 <span class="badge badge-ttl">Description</span>
                 <ul>
-                    <li>Launch [My Kid] WebView.</li>
+                    <li>Open Unity UI of Parent Center</li>
                 </ul>
 
-                <span class="badge badge-ttl">Response</span>
+                <span class="badge badge-ttl">Feature Explain</span>
                 <ul>
-                    <li>
-                        Please refer to 【<a href="/swift-init#listener">SDK Callback Listener</a>】
-                        and 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
-                    </li>
-                    <li>Listener result data: <a href="/webapi-init#SGMember">SGMember</a>.</li>
+                    <li>1.Screen Time：Allow parents to set the time for games to prevent children play game too long.</li>
+                    <li>2.My Account：Account connects to phone number, WeChat and Facebook. Set child information for playing. Change password and log out.</li>
+                    <li>3.News：Show game event content.</li>
+                    <li>4.Help：Help users to play games and collect user feedback.</li>
+                    <li>5.About Us：Official information.</li>
                 </ul>
             </div>
             <div class="col-sm-3">
-                <span class="badge badge-ttl">WebView UI</span>
-                <a href="<%= " assets/img/" + lang + "/pic12.png" %>" data-toggle="lightbox">
-                <img src="<%= " assets/img/" + lang + "/pic12.png" %>" class="img-responsive"/>
+                <span class="badge badge-ttl">Time Control UI</span>
+                <a href="<%= " assets/img/" + lang + "/unity_timecontrol.png" %>" data-toggle="lightbox">
+                    <img src="<%= " assets/img/" + lang + "/unity_timecontrol.png" %>" class="img-responsive"/>
+                </a>
+
+                <span class="badge badge-ttl">Alarm Setting UI</span>
+                <a href="<%= " assets/img/" + lang + "/unity_rest.png" %>" data-toggle="lightbox">
+                    <img src="<%= " assets/img/" + lang + "/unity_rest.png" %>" class="img-responsive"/>
+                </a>
+
+                <span class="badge badge-ttl">Account Info UI</span>
+                <a href="<%= " assets/img/" + lang + "/unity_account.png" %>" data-toggle="lightbox">
+                    <img src="<%= " assets/img/" + lang + "/unity_account.png" %>" class="img-responsive"/>
+                </a>
+
+                <span class="badge badge-ttl">Child's Info UI</span>
+                <a href="<%= " assets/img/" + lang + "/unity_kid.png" %>" data-toggle="lightbox">
+                    <img src="<%= " assets/img/" + lang + "/unity_kid.png" %>" class="img-responsive"/>
+                </a>
+
+                <span class="badge badge-ttl">News UI</span>
+                <a href="<%= " assets/img/" + lang + "/unity_news.png" %>" data-toggle="lightbox">
+                    <img src="<%= " assets/img/" + lang + "/unity_news.png" %>" class="img-responsive"/>
+                </a>
+
+                <span class="badge badge-ttl">Common Problem UI</span>
+                <a href="<%= " assets/img/" + lang + "/unity_question.png" %>" data-toggle="lightbox">
+                    <img src="<%= " assets/img/" + lang + "/unity_question.png" %>" class="img-responsive"/>
+                </a>
+
+                <span class="badge badge-ttl">Feedback UI</span>
+                <a href="<%= " assets/img/" + lang + "/unity_feedback.png" %>" data-toggle="lightbox">
+                    <img src="<%= " assets/img/" + lang + "/unity_feedback.png" %>" class="img-responsive"/>
+                </a>
+
+                <span class="badge badge-ttl">Contact Info UI</span>
+                <a href="<%= " assets/img/" + lang + "/unity_contact.png" %>" data-toggle="lightbox">
+                    <img src="<%= " assets/img/" + lang + "/unity_contact.png" %>" class="img-responsive"/>
+                </a>
+
+                <span class="badge badge-ttl">Abount Üoo UI</span>
+                <a href="<%= " assets/img/" + lang + "/unity_aboutuoo.png" %>" data-toggle="lightbox">
+                    <img src="<%= " assets/img/" + lang + "/unity_aboutuoo.png" %>" class="img-responsive"/>
                 </a>
             </div>
         </div>
-    </section>
-
-    <section id="SelectKid">
-        <h1>Select Kid</h1>
-        <div class="row">
-            <div class="col-sm-9">
-                <span class="badge badge-ttl">Function</span>
-                <p><pre>void SelectKid()</pre></p>
-
-                <span class="badge badge-ttl">Description</span>
-                <ul>
-                    <li>Launch [Select Kid] view.</li>
-                    <li>
-                        The flow is used to select a kid to play.
-                        After selection, you can use <a href="#GetKidIndex">GetKidIndex()</a> and <a href="#GetKidFace">GetKidFace()</a> to get selected kid index and face icon number.
-                    </li>
-                </ul>
-
-                <span class="badge badge-ttl">Response</span>
-                <ul>
-                    <li>
-                        Please refer to 【<a href="/java-init#listener">SDK Callback Listener</a>】
-                        and 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
-                    </li>
-                    <li>Listener result data: None. </li>
-                </ul>
-            </div>
-            <div class="col-sm-3">
-                <span class="badge badge-ttl">WebView UI</span>
-                <a href="<%= " assets/img/" + lang + "/pic14.png" %>" data-toggle="lightbox">
-                <img src="<%= " assets/img/" + lang + "/pic14.png" %>" class="img-responsive"/>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section id="MyAccount">
-        <h1>My Account</h1>
-        <div class="row">
-            <div class="col-sm-9">
-                <span class="badge badge-ttl">Function</span>
-                <p><pre>void MyAccount()</pre></p>
-
-                <span class="badge badge-ttl">Description</span>
-                <ul>
-                    <li>The flow is the entry page for managing kids (family members).</li>
-                </ul>
-            </div>
-            <div class="col-sm-3">
-                <span class="badge badge-ttl">WebView UI</span>
-                <a href="<%= " assets/img/" + lang + "/pic13.png" %>" data-toggle="lightbox">
-                <img src="<%= " assets/img/" + lang + "/pic13.png" %>" class="img-responsive"/>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section id="VerifySession">
-        <h1>Verify Session</h1>
-        <span class="badge badge-ttl">Function</span>
-        <p><pre>void VerifySession(String gameKey, String sessionId, String openId, Stirng sign)</pre></p>
-
-        <span class="badge badge-ttl">Description</span>
-        <ul>
-            <li>erify if current session ID is valid.</li>
-        </ul>
-
-        <span class="badge badge-ttl">Parameter</span>
-        <table class="table table-striped">
-            <tr>
-                <th>Parameter</th>
-                <th>Description</th>
-            </tr>
-            <tr>
-                <td>gameKey</td>
-                <td>Game key</td>
-            </tr>
-            <tr>
-                <td>openId</td>
-                <td>You can obtain it through <a href="#GetOpenID">OpenID</a> after login.</td>
-            </tr>
-            <tr>
-                <td>sessionId</td>
-                <td>You can obtain it through <a href="#GetSessionID">SessionID</a> after login.</td>
-            </tr>
-            <tr>
-                <td>sign</td>
-                <td>Signature generated from above three parameters.<br />
-                    Please refer to <a href="/server-sign#section2">signature algorithm</a>.
-                </td>
-            </tr>
-        </table>
-
-        <span class="badge badge-ttl">Response</span>
-        <p>
-            <ul>
-            <li>
-                Please refer to 【<a href="/java-init#listener">SDK Callback Listener</a>】
-                and 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
-            </li>
-            <li>Listener result data: None. </li>
-            </ul>
-        </p>
-    </section>
-
-    <section id="LoginByToken">
-        <h1>Login by Token</h1>
-        <span class="badge badge-ttl">Function</span>
-        <p><pre>void LoginByToken(String token)</pre></p>
-
-        <span class="badge badge-ttl">Description</span>
-        <ul><li>Login into the system by previously saved token.</li></ul>
-
-        <span class="badge badge-ttl">參數</span>
-        <ul>
-            <li>token: Token used for login.</li>
-        </ul>
-
-        <span class="badge badge-ttl">Response</span>
-        <ul>
-            <li>
-                Please refer to 【<a href="/swift-init#listener">SDK Callback Listener</a>】
-                and 【<a href="/webapi-init#section5">Response Code Definition</a>】for more detail.
-            </li>
-            <li>Listener result data: <a href="/webapi-init#SGMember">SGMember</a>.</li>
-        </ul>
     </section>
 
     <section id="OtherFunction">

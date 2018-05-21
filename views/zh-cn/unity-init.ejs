@@ -41,14 +41,14 @@
 
         <h3>2.Import Custom Package</h3>
         <p>導入 SGSDK.unitypackage 至 project 裡。</p>
-        <img src=<%="assets/img/" + lang + "/unity01.png"%> class="img-responsive"/>
+        <img src=<%="assets/img/unity01.png"%> class="img-responsive"/>
         <br />
 
     </section>
 
     <section id="content">
         <h1>SGSDK Package 內容</h1>
-        <img src=<%="assets/img/" + lang + "/unity02.png"%> class="img-responsive"/>
+        <img src=<%="assets/img/unity02.png"%> class="img-responsive"/>
         <h3>1.Android</h3>
         <ul>
             <li>Plugins/Android/SGSDK.aar native android sdk</li>
@@ -85,20 +85,27 @@
             <li>建議在遊戲初始化時設置 SDK 監聽與初始函式。</li>
             <%- include ../code/unity-init.html -%>
         </ul>
+        <br/>
 
-        <h3>2.SGSDK 使用範例</h3>
+        <h3>2.SGSDK 客製化設定</h3>
         <ul>
-            <li>請參考 SGSDKSample/SGDemo</li>
+            <li>SGSDK.Instance.ChangeLanguage(string lang); //Only support "zh-tw", "zh-hk", "zh-cn", "en"</li>
+            <li>SGSDK.Instance.AutoShowWidget(bool flag); //預設為true，設定為false登入後widget將不顯示。開發者可客製介面開啟用戶介面。</li>
+            <li>SGSDK.Instance.IsChinaVersion = true; //預設為false，設定為true之後會隱藏Facebook相關功能，手機區碼也只會有+86</li>
         </ul>
-        <br />
+        <br/>
 
         <h3>3.注意事項</h3>
         <ul>
             <li>接入 SGSDK 後只支援實機調用測試。</li>
-            <li>Unity 5.6.1 Android widget 顯示範圍異常，建議使用其他版本或隱藏 widget。</li>
         </ul>
         <br />
 
+        <h3>４.SGSDK 使用範例</h3>
+        <ul>
+            <li>請參考 SGSDKSample/SGDemo</li>
+        </ul>
+        <br />
     </section>
 
     <section id="fbsdk">
