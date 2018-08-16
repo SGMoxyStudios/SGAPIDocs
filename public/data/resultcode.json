@@ -132,6 +132,36 @@
     "class": ""
   },
   {
+    "api": "",
+    "code": 251,
+    "msg": "Login OpenID bad.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 252,
+    "msg": "Not install SG plugin.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 253,
+    "msg": "SG plugin error.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 254,
+    "msg": "Not install WeChat.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 255,
+    "msg": "Login sequence ended.",
+    "class": ""
+  },
+  {
     "api": "signup",
     "code": 301,
     "msg": "ok",
@@ -588,8 +618,6 @@
     "msg": "Android SDK payment channel error. ",
     "class": ""
   },
-
-
   {
     "api": "getorder",
     "code": 1201,
@@ -805,6 +833,36 @@
     "code": 9900,
     "msg": "Get manifest meta data Error.",
     "class": "active"
+  },
+  {
+    "api": "",
+    "code": 9901,
+    "msg": "Anroid SDK init Error.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 9904,
+    "msg": "Outside web start error.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 9905,
+    "msg": "Web activity start error.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 9906,
+    "msg": "Web view create error.",
+    "class": ""
+  },
+  {
+    "api": "",
+    "code": 9907,
+    "msg": "Page load error.",
+    "class": ""
   },
   {
     "api": "",
