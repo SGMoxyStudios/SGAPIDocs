@@ -474,6 +474,12 @@
     "class": ""
   },
   {
+    "api": "",
+    "code": 1128,
+    "msg": "SG plugin is installing.",
+    "class": ""
+  },
+  {
     "api": "ios in-app purchase",
     "code": 1130,
     "msg": "IAP not init yet.",
