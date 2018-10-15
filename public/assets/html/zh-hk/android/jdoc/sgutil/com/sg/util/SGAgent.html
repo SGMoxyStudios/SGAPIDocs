@@ -173,7 +173,7 @@ extends Object</pre>
      <tr><td>JOBSTATE_GETTINGPRODUCTS</td><td>JOBSTATE_IDLE</td><td>OP_GETPRODUCTS</td><td>获取产品列表（无论）成功与失败 </td></tr>
      <tr><td>JOBSTATE_IDLE</td><td>JOBSTATE_GETTINGORDERINFOLIST</td><td>OP_GETORDERINFOLIST</td><td>获取订单信息列表：  <a href="../../../com/sg/util/SGAgent.html#getOrderInfoList-java.lang.String-">agent.getOrderInfoList()</a></td></tr>
      <tr><td>JOBSTATE_GETTINGORDERINFOLIST</td><td>JOBSTATE_IDLE</td><td>OP_GETORDERINFOLIST</td><td>获取订单信息列表（无论）成功与失败 </td></tr>
-     <tr><td>JOBSTATE_IDLE</td><td>JOBSTATE_GETTINGTREASURELIST</td><td>OP_GETTREASURELIST</td><td>获取财宝列表：  <a href="../../../com/sg/util/SGAgent.html#getTreasureList--">agent.getTreasureList()</a></td></tr>
+     <tr><td>JOBSTATE_IDLE</td><td>JOBSTATE_GETTINGTREASURELIST</td><td>OP_GETTREASURELIST</td><td>获取财宝列表：  <a href="../../../com/sg/util/SGAgent.html#getTreasureList-java.lang.String-">agent.getTreasureList()</a></td></tr>
      <tr><td>JOBSTATE_GETTINGTREASURELIST</td><td>JOBSTATE_IDLE</td><td>OP_GETTREASURELIST</td><td>获取财宝列表（无论）成功与失败 </td></tr>
      <tr><td>JOBSTATE_IDLE</td><td>JOBSTATE_INCINGTREASURE</td><td>OP_INCTREASURE</td><td>增加财宝数量：  <a href="../../../com/sg/util/SGAgent.html#incTreasure-java.lang.String-int-">agent.incTreasure()</a></td></tr>
      <tr><td>JOBSTATE_INCINGTREASURE</td><td>JOBSTATE_IDLE</td><td>OP_INCTREASURE</td><td>增加财宝数量（无论）成功与失败 </td></tr>
@@ -930,7 +930,7 @@ extends Object</pre>
 </tr>
 <tr id="i27" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/sg/util/SGAgent.html#getTreasureList--">getTreasureList</a></span>()</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/sg/util/SGAgent.html#getTreasureList-java.lang.String-">getTreasureList</a></span>(String&nbsp;filter)</code>
 <div class="block">启动获取财宝列表过程。</div>
 </td>
 </tr>
@@ -972,7 +972,9 @@ extends Object</pre>
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/sg/util/SGAgent.html#notifyFuncRequestResult-java.lang.String-java.lang.String-java.lang.String-">notifyFuncRequestResult</a></span>(String&nbsp;func,
                        String&nbsp;id,
-                       String&nbsp;result)</code>&nbsp;</td>
+                       String&nbsp;result)</code>
+<div class="block">通知功能请求的执行结果。</div>
+</td>
 </tr>
 <tr id="i34" class="altColor">
 <td class="colFirst"><code>void</code></td>
@@ -2718,15 +2720,17 @@ extends Object</pre>
 </dl>
 </li>
 </ul>
-<a name="getTreasureList--">
+<a name="getTreasureList-java.lang.String-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getTreasureList</h4>
-<pre>public&nbsp;boolean&nbsp;getTreasureList()</pre>
+<pre>public&nbsp;boolean&nbsp;getTreasureList(String&nbsp;filter)</pre>
 <div class="block">启动获取财宝列表过程。如果此方法返回真，财宝列表将被通过SGClient.onTreasureListFound异步通知。</div>
 <dl>
+<dt><span class="paramLabel">参数:</span></dt>
+<dd><code>filter</code> - 过虑字符串</dd>
 <dt><span class="returnLabel">返回:</span></dt>
 <dd>成功启动返回真，否则返回假。失败的原因是状态不对。</dd>
 </dl>
@@ -2820,6 +2824,13 @@ extends Object</pre>
 <pre>public&nbsp;void&nbsp;notifyFuncRequestResult(String&nbsp;func,
                                     String&nbsp;id,
                                     String&nbsp;result)</pre>
+<div class="block">通知功能请求的执行结果。参见<a href="../../../com/sg/util/SGAgent.SGClient.html#onFuncRequest-java.lang.String-java.lang.String-java.lang.String-">SGClient.onFuncRequest </a>。</div>
+<dl>
+<dt><span class="paramLabel">参数:</span></dt>
+<dd><code>func</code> - 功能名</dd>
+<dd><code>id</code> - 系列号</dd>
+<dd><code>result</code> - 结果。"succeeded"、"failed"、"cancelled"之一。</dd>
+</dl>
 </li>
 </ul>
 <a name="onActivityResult-int-int-Intent-">

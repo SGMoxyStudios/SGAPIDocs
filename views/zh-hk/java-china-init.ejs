@@ -257,8 +257,10 @@ public class MainActivity extends AppCompatActivity implements SGAgent.SGClient 
         void onTreasureListFound(String[] treasures);
         void onTreasureChange(String name, int count);
         void onLogValue(String key, int value);
-        void onStateChange(int type, int orgState, int newState, int reason, int op);
+        void onStateChange(int type, int orgState, int newState, int reason, int op, String arg);
         void onExtMethodNotification(String cookie, int code, String message);
+        void onExitCancelled();
+        void onFuncRequest(String func, String id, String arg);
     }
 </pre>
 

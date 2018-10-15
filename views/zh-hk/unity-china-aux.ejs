@@ -366,9 +366,8 @@
     
                     <span class="badge badge-ttl">說明</span>
                     <ul>
-                        <li>如果運行失敗，則resultCode爲RESULT_FAIL。如果成功，則resultCode是RESULT_OK（同步）或
-                            RESULT_ASYNC（異步），此時result.Return包含方法的返回類型和返迴文本。在RESULT_ASYNC的
-                            情況下，將通過RESULT_ITEM在result.Result進一步返回最終執行結果。
+                        <li>異步擴展方法的真正處理結果將通過此回調通知。此時resultCode為RESULT_ITEM，
+                            詳細結果信息保存在result中。
                         </li>
                     </ul>
                 </div>
