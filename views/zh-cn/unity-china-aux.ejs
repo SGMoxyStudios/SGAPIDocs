@@ -9,7 +9,8 @@
         <li><a href="#getlogvalue">获取远程日志键值</a></li>
         <li><a href="#getextmethodlist">获取扩展方法列表</a></li>
         <li><a href="#runextmethod">运行扩展方法</a></li>
-        <li><a href="#setsystemproperty">设置系统属性</a></li>
+        <li><a href="#sharescreen">截屏分享</a></li>
+        <li><a href="#onfuncrequest">底层向应用发出的功能请求</a></li>
     </ul>
 
 </div>
@@ -26,11 +27,14 @@
         <div class="row">
             <div class="col-sm-9">
                 <span class="badge badge-ttl">方法</span>
-                <p><pre>void Init(string gameServerClassName, bool autoDeliverProduct)</pre></p>
+                <p><pre>void Init(string params, bool autoDeliverProduct)</pre></p>
 
         		<span class="badge badge-ttl">参数</span>
         		<ul>
-		            <li>gameServerClassName - 游服接口对象，需要CP根据自己的业务来实现。关于游服接口的细节请参看
+		            <li>params - 初始化参数字符串。必须是用'&'连接的“name=value”系列，其中必须包含
+                        gameServerClass和location。gameServerClass为游服类的路径，而location目前必须为"beijing"。
+                        CP可根据自己的业务来追加其他参数。这些参数会被转换成Map<String, String>的形式并你传递给游服类的
+                        init方法。关于游服接口的细节请参看
 					<a href=<%= "assets/html/" + lang + "/android/jdoc/sgutil/com/sg/util/SGGameServerInterface.html"%>> SGGameServerInterface </a>。</li>
                     <li>autoDeliverProduct - 指定在用户购买某商品（道具）并且购买的 UI 操作成功后，是否自动查询订单的状态，并在支付成功的情况下把商品（道具）标记为
                     已发货。如果这个参数为 false，那么您需要在购买 UI 操作成功后通过用户的后续操作或其他手段在合适的时机发起查询。
@@ -379,24 +383,25 @@
                 </div>
             </div>
         </section>
-        
-        <section id="setsystemproperty">
-            <h1>设置系统属性</h1>
+
+        <section id="sharescreen">
+            <h1>截屏分享</h1>
             <div class="row">
                 <div class="col-sm-9">
                     <span class="badge badge-ttl">方法</span>
-                    <p><pre>void SetSystemProperty(string name, string value)</pre></p>
+                    <p><pre>void ShareScreen(string filepath, string title, string content)</pre></p>
     
                     <span class="badge badge-ttl">参数</span>
                     <ul>
-                        <li>name - 属性名</li>
-                        <li>value - 属性值</li>
+                        <li>filepath - 截屏图像文件绝对路径</li>
+                        <li>title - 标题</li>
+                        <li>content - 内容</li>
                     </ul>
     
                     <span class="badge badge-ttl">说明</span>
                     <ul>
-                        <li>此方法没有回调通知。</li>
-                        <li>细节请参看Java的System.setProperty。</li>
+                        <li>此API异步调用渠道的分享接口来实现图片分享。</li>
+                        <li>结果通过回调 OnShareScreen 来通知给调用者。</li>
                     </ul>
                 </div>
                 <div class="col-sm-3">
@@ -407,5 +412,90 @@
                 </div>
             </div>
         </section>
+    
+        <section id="ShareScreenCallback">
+            <h1>截屏分享结果回调</h1>
+            <div class="row">
+                <div class="col-sm-9">
+                    <span class="badge badge-ttl">方法</span>
+                    <p><pre>void OnScreenShare(SGUResult resultCode, string path)</pre></p>
+    
+                    <span class="badge badge-ttl">参数</span>
+                    <ul>
+                        <li>resultCode - 结果码</li>
+                        <li>path - 被分享的图像文件的路径</li>
+                    </ul>
+    
+                    <span class="badge badge-ttl">说明</span>
+                    <ul>
+                        <li>应用可用这里的path参数来删除临时创建的图像文件。</li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <!--<span class="badge badge-ttl">WebView 頁面</span>
+                    <a href="<%= " assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
+                    <img src="<%= " assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
+                    </a>-->
+                </div>
+            </div>
+        </section>
+
+        <section id="onfuncrequest">
+            <h1>底层向应用发出的功能请求</h1>
+            <div class="row">
+                <div class="col-sm-9">
+                    <span class="badge badge-ttl">方法</span>
+                    <p><pre>void OnFuncRequest(SGUResult resultCode, string func, string id, string arg)</pre></p>
+    
+                    <span class="badge badge-ttl">参数</span>
+                    <ul>
+                        <li>resultCode - RESULT_FUNC_REQUEST</li>
+                        <li>func - 功能名（"screenshot"、"logout"之一）</li>
+                        <li>id - 功能ID，用于区分并发请求</li>
+                        <li>arg - 请求参数，对于"screenshot"，为希望将图像保存至的文件路径</li>
+                    </ul>
+    
+                    <span class="badge badge-ttl">说明</span>
+                    <ul>
+                        <li>不同于其他的回调在应用调用某API后由底层向上返回结果，此回调由底层在需要时首先向应用发起。</li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <!--<span class="badge badge-ttl">WebView 頁面</span>
+                    <a href="<%= " assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
+                    <img src="<%= " assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
+                    </a>-->
+                </div>
+            </div>
+        </section>
+
+        <section id="notifyfuncrequestresult">
+            <h1>请求功能完成通知</h1>
+            <div class="row">
+                <div class="col-sm-9">
+                    <span class="badge badge-ttl">方法</span>
+                    <p><pre>void NotifyFuncRequestResult(string func, string id, string result)</pre></p>
+    
+                    <span class="badge badge-ttl">参数</span>
+                    <ul>
+                        <li>func - 请求的功能名</li>
+                        <li>id - 请求的功能id</li>
+                        <li>result - 请求完成的结果（"succeeded"、"failed"、"cancelled"之一）</li>
+                    </ul>
+    
+                    <span class="badge badge-ttl">说明</span>
+                    <ul>
+                        <li>此API系在收到底层的功能请求并执行后告知底层请求执行的结果。</li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <!--<span class="badge badge-ttl">WebView 頁面</span>
+                    <a href="<%= " assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
+                    <img src="<%= " assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
+                    </a>-->
+                </div>
+            </div>
+        </section>
+
 
 </div>

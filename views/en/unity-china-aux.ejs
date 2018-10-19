@@ -9,7 +9,8 @@
         <li><a href="#getlogvalue">Get Value of Remote Log</a></li>
         <li><a href="#getextmethodlist">Get List of Extended Methods</a></li>
         <li><a href="#runextmethod">Run Extended Method</a></li>
-        <li><a href="#setsystemproperty">Set System Property</a></li>
+        <li><a href="#sharescreen">Share Screen</a></li>
+        <li><a href="#onfuncrequest">Function Request From Low Level</a></li>
     </ul>
 
 </div>
@@ -26,11 +27,14 @@
         <div class="row">
             <div class="col-sm-9">
                 <span class="badge badge-ttl">Method</span>
-                <p><pre>void Init(string gameServerClassName, bool autoDeliverProduct)</pre></p>
+                <p><pre>void Init(string params, bool autoDeliverProduct)</pre></p>
 
         		<span class="badge badge-ttl">Parameters</span>
         		<ul>
-		            <li>gameServerClassName - Instance of game server interface, need to be implemented by CP. For details of game server interface, please refer to
+		            <li>params - parameter string. It must be "name=value" series joined by '&', within which there must be "gameServerClass" and "location".
+                        "gameServerClass" is the class path of game server interface implementation, while "location" must be "beijing" at present.
+                        CP may add other parameters in accordance with its business necessity. These parameters are converted to Map<String, String> and
+                        passed to method "init" of game server class. For details of game server interface, please refer to
 					<a href=<%= "assets/html/" + lang + "/android/jdoc/sgutil/com/sg/util/SGGameServerInterface.html"%>> SGGameServerInterface </a>.</li>
                     <li>autoDeliverProduct - specify whether SGUtil should automatically check order state and let game server mark it as delivered after user
                     completes UI operation to buy a product. If set it to false, you need to manually do the job by calling GetOrderState later.
@@ -400,6 +404,119 @@
                     <ul>
                         <li>The method does not response with callback.</li>
                         <li>Please refer to Java's System.setProperty for details.</li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <!--<span class="badge badge-ttl">WebView 頁面</span>
+                    <a href="<%= " assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
+                    <img src="<%= " assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
+                    </a>-->
+                </div>
+            </div>
+        </section>
+
+        <section id="sharescreen">
+            <h1>Share Screen</h1>
+            <div class="row">
+                <div class="col-sm-9">
+                    <span class="badge badge-ttl">Method</span>
+                    <p><pre>void ShareScreen(string filepath, string title, string content)</pre></p>
+    
+                    <span class="badge badge-ttl">Parameters</span>
+                    <ul>
+                        <li>filepath - absolute path of screenshot image file</li>
+                        <li>title - title</li>
+                        <li>content - content</li>
+                    </ul>
+    
+                    <span class="badge badge-ttl">Remark</span>
+                    <ul>
+                        <li>This API invokes channel SDK interface to share screenshot.</li>
+                        <li>The result is notified to caller via OnShareScreen.</li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <!--<span class="badge badge-ttl">WebView 頁面</span>
+                    <a href="<%= " assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
+                    <img src="<%= " assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
+                    </a>-->
+                </div>
+            </div>
+        </section>
+    
+        <section id="ShareScreenCallback">
+            <h1>Share Screen Callback</h1>
+            <div class="row">
+                <div class="col-sm-9">
+                    <span class="badge badge-ttl">Method</span>
+                    <p><pre>void OnScreenShare(SGUResult resultCode, string path)</pre></p>
+    
+                    <span class="badge badge-ttl">Parameters</span>
+                    <ul>
+                        <li>resultCode - result code</li>
+                        <li>path - path of image file to be shared</li>
+                    </ul>
+    
+                    <span class="badge badge-ttl">Remark</span>
+                    <ul>
+                        <li>Application may use the parameter 'path' to delete temporarily-created image file.</li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <!--<span class="badge badge-ttl">WebView 頁面</span>
+                    <a href="<%= " assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
+                    <img src="<%= " assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
+                    </a>-->
+                </div>
+            </div>
+        </section>
+
+        <section id="onfuncrequest">
+            <h1>Function Request From Low Level</h1>
+            <div class="row">
+                <div class="col-sm-9">
+                    <span class="badge badge-ttl">Method</span>
+                    <p><pre>void OnFuncRequest(SGUResult resultCode, string func, string id, string arg)</pre></p>
+    
+                    <span class="badge badge-ttl">Parameters</span>
+                    <ul>
+                        <li>resultCode - always be RESULT_FUNC_REQUEST</li>
+                        <li>func - function name (one of "screenshot" and "logout"）</li>
+                        <li>id - function id, used to distinguish multiple requests</li>
+                        <li>arg - request parameters, for "screenshot", it is the path to which image file should be saved</li>
+                    </ul>
+    
+                    <span class="badge badge-ttl">Remark</span>
+                    <ul>
+                        <li>Different from other callbacks that get invoked after application calls certain APIs, this callback is initiated by low level modules to application at first.</li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <!--<span class="badge badge-ttl">WebView 頁面</span>
+                    <a href="<%= " assets/img/" + lang + "/pic07.png" %>" data-toggle="lightbox">
+                    <img src="<%= " assets/img/" + lang + "/pic07.png" %>" class="img-responsive"/>
+                    </a>-->
+                </div>
+            </div>
+        </section>
+
+        <section id="notifyfuncrequestresult">
+            <h1>Notify Low Level Result Of Function Request</h1>
+            <div class="row">
+                <div class="col-sm-9">
+                    <span class="badge badge-ttl">Method</span>
+                    <p><pre>void NotifyFuncRequestResult(string func, string id, string result)</pre></p>
+    
+                    <span class="badge badge-ttl">Parameters</span>
+                    <ul>
+                        <li>func - function name</li>
+                        <li>id - function id</li>
+                        <li>result - result of function request (one of "succeeded", "failed" and "cancelled")</li>
+                    </ul>
+    
+                    <span class="badge badge-ttl">Remark</span>
+                    <ul>
+                        <li>This API is used to notify the result of function request to low level modules.</li>
                     </ul>
                 </div>
                 <div class="col-sm-3">

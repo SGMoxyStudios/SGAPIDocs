@@ -161,7 +161,7 @@ public class SGUCallbackEntityObject : MonoBehaviour, SGUCallbackEntity {
     void Start () {
         SGU.initialize(this);	// SGU class initialization
         // call Init interface
-        SGU.Init("com.sg.util.SGUtilUnityGameServer", false);
+        SGU.Init("gameServerClass=com.sg.util.SGUtilUnityGameServer&game=Peep&location=beijing&widget=hidden", false);
     }
 </pre>
 
@@ -181,6 +181,7 @@ public enum SGUResult
     RESULT_ITEM_BEGIN,  // 數據項開始
     RESULT_ITEM,        // 數據項
     RESULT_ITEM_END,    // 數據項結束
+	RESULT_FUNC_REQUEST,// 底層嚮應用發出的功能請求（截屏、登出等）
     RESULT_ALL
 }
         </pre>
@@ -189,7 +190,7 @@ public enum SGUResult
             多個數據項，則在 RESULT_ITEM 之前會有 RESULT_ITEM_BEGIN，之後會有 RESULT_ITEM_END。
         </p>
             
-        <p>SGU.Init 的第一個參數是一個遊服介面對象，這裏使用的 "com.sg.util.SGUtilUnityGameServer" 是一個演示實現。關於遊服介面的細節請參看
+        <p>SGU.Init 的第一個參數中必須用gameServerClass指定一個遊服介面類路徑，而location目前必須爲"beijing"。其他參數可根據遊服類的實現自定，這裏使用的是一個演示實現。關於遊服介面的細節請參看
 		<a href=<%= "assets/html/" + lang + "/android/jdoc/sgutil/com/sg/util/SGGameServerInterface.html"%>> SGGameServerInterface </a>。SGU.Init
 		的第二個參數指定在用戶購買某商品（道具）並且購買的 UI 操作成功後，是否自動查詢訂單的狀態，並在支付成功的情況下把商品（道具）標記爲
         已發貨。如果這個參數爲 false，那麼您需要在購買 UI 操作成功後通過用戶的後續操作或其他手段在合適的時機發起查詢。

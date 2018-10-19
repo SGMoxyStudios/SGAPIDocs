@@ -160,7 +160,7 @@ public class SGUCallbackEntityObject : MonoBehaviour, SGUCallbackEntity {
     void Start () {
         SGU.initialize(this);	// SGU class initialization
         // call Init interface
-        SGU.Init("com.sg.util.SGUtilUnityGameServer", false);
+        SGU.Init("gameServerClass=com.sg.util.SGUtilUnityGameServer&game=Peep&location=beijing&widget=hidden", false);
     }
 </pre>
 
@@ -181,6 +181,7 @@ public enum SGUResult
     RESULT_ITEM_BEGIN,  // beginning of data items
     RESULT_ITEM,        // data item
     RESULT_ITEM_END,    // end of data items
+	RESULT_FUNC_REQUEST,// function request sent to application from low level (screenshot, logout, etc.)
     RESULT_ALL
 }
         </pre>
@@ -190,7 +191,7 @@ public enum SGUResult
            after data items if a API returns multiple items.
             </p>
     
-        <p>The first parameter of SGU.Init is an instance of game server interface. Here we use "com.sg.util.SGUtilUnityGameServer", which is a demo implementation.
+        <p>The first parameter of SGU.Init must contain game server class path specified by "gameServerClass", and location set to "beijing" at present. The other parameters may be specified according to implementation of game server class. Here we only show a string for demo.
 		For details of game server interface, please refer to 
 		<a href=<%= "assets/html/" + lang + "/android/jdoc/sgutil/com/sg/util/SGGameServerInterface.html"%>> SGGameServerInterface </a>. The second parameter of SGU.Init
 		specifies whether SGUtil should automatically check order state and let game server mark it as delivered after user completes UI operation to buy a product.

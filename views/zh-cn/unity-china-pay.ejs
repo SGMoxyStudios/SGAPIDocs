@@ -5,9 +5,7 @@
         <li><a href="#getproducts">获取产品列表</a></li>
         <li><a href="#buy">购买产品</a></li>
         <li><a href="#getorderstate">查询订单</a></li>
-        <li><a href="#getorderinfos">获取订单信息列表</a></li>
         <li><a href="#gettreasures">获取财宝列表</a></li>
-        <li><a href="#inctreasure">增加财宝数量</a></li>
     </ul>
 
 </div>
@@ -150,48 +148,6 @@
 
     </section>
 
-    <section id="getorderinfos">
-        <h1>获取订单信息列表</h1>
-
-        <span class="badge badge-ttl">方法</span>
-        <p>
-            <pre>void GetOrderInfoList(string filter)</pre>
-        </p>
-
-        <span class="badge badge-ttl">参数</span>
-        <ul>
-            <li>filter - 传给游服接口方法 getOrderInfoList 的参数，用来告知服获对列表进行过滤或其他控制。</li>
-        </ul>
-
-        <span class="badge badge-ttl">说明</span>
-        <ul>
-            <li>从游服获取该用户购买过的产品订单。</li>
-            <li>订单信息列表通过回调 OnOrderInfo 来通知给调用者。</li>
-        </ul>
-
-    </section>
-
-    <section id="getporderinfoscallback">
-        <h1>获取订单信息列表回调</h1>
-
-        <span class="badge badge-ttl">方法</span>
-        <p>
-            <pre>void OnOrderInfo(SGUResult resultCode, SGUOrder order)</pre>
-        </p>
-
-        <span class="badge badge-ttl">参数</span>
-        <ul>
-            <li>resultCode - 结果码</li>
-            <li>order - 订单信息，成员见 SGU.cs 中的类定义。</li>
-        </ul>
-
-        <span class="badge badge-ttl">说明</span>
-        <ul>
-            <li>订单信息通知以 RESULT_ITEM_BEGIN 开始，随后是 RESULT_ITEM，最后是 RESULT_ITEM_END。</li>
-        </ul>
-
-    </section>
-
     <section id="gettreasures">
         <h1>获取财宝列表</h1>
 
@@ -230,47 +186,6 @@
         <span class="badge badge-ttl">说明</span>
         <ul>
             <li>财宝信息通知以 RESULT_ITEM_BEGIN 开始，随后是 RESULT_ITEM，最后是 RESULT_ITEM_END。</li>
-        </ul>
-
-    </section>
-
-    <section id="inctreasure">
-        <h1>增加财宝数量</h1>
-
-        <span class="badge badge-ttl">方法</span>
-        <p>
-            <pre>void IncTreasure(string name, int value)</pre>
-        </p>
-
-        <span class="badge badge-ttl">参数</span>
-        <ul>
-            <li>name - 财宝名</li>
-            <li>value - 增加的量</li>
-        </ul>
-
-        <span class="badge badge-ttl">说明</span>
-        <ul>
-            <li>增加后的数量通过回调 OnTreasure 来通知给调用者。</li>
-        </ul>
-
-    </section>
-
-    <section id="inctreasurecallback">
-        <h1>增加财宝数量回调</h1>
-
-        <span class="badge badge-ttl">方法</span>
-        <p>
-            <pre>void OnTreasure(SGUResult resultCode, SGUTreasure treasure)</pre>
-        </p>
-
-        <span class="badge badge-ttl">参数</span>
-        <ul>
-            <li>resultCode - 结果码</li>
-            <li>treaure - 增量后的财宝信息，成员见 SGU.cs 中的类定义。</li>
-        </ul>
-
-        <span class="badge badge-ttl">说明</span>
-        <ul>
         </ul>
 
     </section>

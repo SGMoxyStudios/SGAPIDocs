@@ -5,9 +5,7 @@
         <li><a href="#getproducts">Get Product List</a></li>
         <li><a href="#buy">Buy Product</a></li>
         <li><a href="#getorderstate">Get Order State</a></li>
-        <li><a href="#getorderinfos">Get Order Info List</a></li>
         <li><a href="#gettreasures">Get Treasure List</a></li>
-        <li><a href="#inctreasure">Increase Treasure Value</a></li>
     </ul>
 
 </div>
@@ -153,48 +151,6 @@
 
     </section>
 
-    <section id="getorderinfos">
-        <h1>Get Order Info List</h1>
-
-        <span class="badge badge-ttl">Method</span>
-        <p>
-            <pre>void GetOrderInfoList(string filter)</pre>
-        </p>
-
-        <span class="badge badge-ttl">Parameters</span>
-        <ul>
-            <li>filter - the string parmater to be passed to getOrderInfoList method of game server, used by game server to filter/control results.</li>
-        </ul>
-
-        <span class="badge badge-ttl">Remark</span>
-        <ul>
-            <li>Retrieve a list of orders the user owns from game server.</li>
-            <li>Order info list is notified to caller via OnOrderInfo.</li>
-        </ul>
-
-    </section>
-
-    <section id="getporderinfoscallback">
-        <h1>Get Order Info List Callback</h1>
-
-        <span class="badge badge-ttl">Method</span>
-        <p>
-            <pre>void OnOrderInfo(SGUResult resultCode, SGUOrder order)</pre>
-        </p>
-
-        <span class="badge badge-ttl">Parameters</span>
-        <ul>
-            <li>resultCode - result code</li>
-            <li>order - Order information, see SGU.cs for member definition.</li>
-        </ul>
-
-        <span class="badge badge-ttl">Remark</span>
-        <ul>
-            <li>Order info notification begins with RESULT_ITEM_BEGIN, followed by RESULT_ITEM, and ends with RESULT_ITEM_END.</li>
-        </ul>
-
-    </section>
-
     <section id="gettreasures">
         <h1>Get Treasure List</h1>
 
@@ -233,47 +189,6 @@
         <span class="badge badge-ttl">Remark</span>
         <ul>
             <li>Treasure data notification begins with RESULT_ITEM_BEGIN, followed by RESULT_ITEM, and ends with RESULT_ITEM_END.</li>
-        </ul>
-
-    </section>
-
-    <section id="inctreasure">
-        <h1>Increase Treasure Value</h1>
-
-        <span class="badge badge-ttl">Method</span>
-        <p>
-            <pre>void IncTreasure(string name, int value)</pre>
-        </p>
-
-        <span class="badge badge-ttl">Parameters</span>
-        <ul>
-            <li>name - treasure name</li>
-            <li>value - value to increase</li>
-        </ul>
-
-        <span class="badge badge-ttl">Remark</span>
-        <ul>
-            <li>The new value after increment is notified via OnTreasure.</li>
-        </ul>
-
-    </section>
-
-    <section id="inctreasurecallback">
-        <h1>Increate Treasure Value Callback</h1>
-
-        <span class="badge badge-ttl">Method</span>
-        <p>
-            <pre>void OnTreasure(SGUResult resultCode, SGUTreasure treasure)</pre>
-        </p>
-
-        <span class="badge badge-ttl">Parameters</span>
-        <ul>
-            <li>resultCode - result code</li>
-            <li>treaure - new treasure data, see SGU.cs for its member definition.</li>
-        </ul>
-
-        <span class="badge badge-ttl">Remark</span>
-        <ul>
         </ul>
 
     </section>

@@ -1,74 +1,79 @@
-<!-- HTML generated using hilite.me --><div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008000; font-weight: bold">package</span> com<span style="color: #666666">.</span><span style="color: #7D9029">sg</span><span style="color: #666666">.</span><span style="color: #7D9029">util</span><span style="color: #666666">;</span>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">package</span> com<span style="color: #333333">.</span><span style="color: #0000CC">sg</span><span style="color: #333333">.</span><span style="color: #0000CC">util</span><span style="color: #333333">;</span>
 
-<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">java.util.List</span><span style="color: #666666">;</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">java.util.List</span><span style="color: #333333">;</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">java.util.Map</span><span style="color: #333333">;</span>
 
-<span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">SGUtilUnityGameServer</span> <span style="color: #008000; font-weight: bold">implements</span> SGGameServerInterface <span style="color: #666666">{</span>
+<span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">SGUtilUnityGameServer</span> <span style="color: #008800; font-weight: bold">implements</span> SGGameServerInterface <span style="color: #333333">{</span>
 
-    <span style="color: #008000; font-weight: bold">private</span> SGGameServerDemo mDemoServer<span style="color: #666666">;</span>
+    <span style="color: #008800; font-weight: bold">private</span> SGGameServerDemo mDemoServer<span style="color: #333333">;</span>
 
-    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #0000FF">SGUtilUnityGameServer</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
-        mDemoServer <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> SGGameServerDemo<span style="color: #666666">();</span>
-    <span style="color: #666666">}</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #0066BB; font-weight: bold">SGUtilUnityGameServer</span><span style="color: #333333">()</span> <span style="color: #333333">{</span>
+        mDemoServer <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> SGGameServerDemo<span style="color: #333333">();</span>
+    <span style="color: #333333">}</span>
 
-    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">init</span><span style="color: #666666">(</span>SGAgent agent<span style="color: #666666">)</span> <span style="color: #666666">{</span>
-        mDemoServer<span style="color: #666666">.</span><span style="color: #7D9029">init</span><span style="color: #666666">(</span>agent<span style="color: #666666">);</span>
-    <span style="color: #666666">}</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">init</span><span style="color: #333333">(</span>SGAgent agent<span style="color: #333333">,</span> Map<span style="color: #333333">&lt;</span>String<span style="color: #333333">,</span> String<span style="color: #333333">&gt;</span> params<span style="color: #333333">,</span> String cookie<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+        mDemoServer<span style="color: #333333">.</span><span style="color: #0000CC">init</span><span style="color: #333333">(</span>agent<span style="color: #333333">,</span> params<span style="color: #333333">,</span> cookie<span style="color: #333333">);</span>
+    <span style="color: #333333">}</span>
 
-    <span style="color: #008000; font-weight: bold">public</span> UAccount <span style="color: #0000FF">login</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
-        <span style="color: #008000; font-weight: bold">return</span> mDemoServer<span style="color: #666666">.</span><span style="color: #7D9029">login</span><span style="color: #666666">();</span>
-    <span style="color: #666666">}</span>
+    <span style="color: #008800; font-weight: bold">public</span> UAccount <span style="color: #0066BB; font-weight: bold">login</span><span style="color: #333333">()</span> <span style="color: #333333">{</span>
+        <span style="color: #008800; font-weight: bold">return</span> mDemoServer<span style="color: #333333">.</span><span style="color: #0000CC">login</span><span style="color: #333333">();</span>
+    <span style="color: #333333">}</span>
 
-    <span style="color: #008000; font-weight: bold">public</span> List<span style="color: #666666">&lt;</span>UProduct<span style="color: #666666">&gt;</span> <span style="color: #0000FF">getProductList</span><span style="color: #666666">(</span>String filter<span style="color: #666666">)</span> <span style="color: #666666">{</span>
-        <span style="color: #008000; font-weight: bold">return</span> mDemoServer<span style="color: #666666">.</span><span style="color: #7D9029">getProductList</span><span style="color: #666666">(</span>filter<span style="color: #666666">);</span>
-    <span style="color: #666666">}</span>
+    <span style="color: #008800; font-weight: bold">public</span> String <span style="color: #0066BB; font-weight: bold">getPlayerDetails</span><span style="color: #333333">()</span> <span style="color: #333333">{</span>
+        <span style="color: #008800; font-weight: bold">return</span> mDemoServer<span style="color: #333333">.</span><span style="color: #0000CC">getPlayerDetails</span><span style="color: #333333">();</span>
+    <span style="color: #333333">}</span>
 
-    <span style="color: #008000; font-weight: bold">public</span> UOrderTicket <span style="color: #0000FF">getOrder</span><span style="color: #666666">(</span>UProduct product<span style="color: #666666">,</span> UPayParams pp<span style="color: #666666">)</span> <span style="color: #666666">{</span>
-        <span style="color: #008000; font-weight: bold">return</span> mDemoServer<span style="color: #666666">.</span><span style="color: #7D9029">getOrder</span><span style="color: #666666">(</span>product<span style="color: #666666">,</span> pp<span style="color: #666666">);</span>
-    <span style="color: #666666">}</span>
+    <span style="color: #008800; font-weight: bold">public</span> List<span style="color: #333333">&lt;</span>UProduct<span style="color: #333333">&gt;</span> <span style="color: #0066BB; font-weight: bold">getProductList</span><span style="color: #333333">(</span>String filter<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+        <span style="color: #008800; font-weight: bold">return</span> mDemoServer<span style="color: #333333">.</span><span style="color: #0000CC">getProductList</span><span style="color: #333333">(</span>filter<span style="color: #333333">);</span>
+    <span style="color: #333333">}</span>
 
-    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">notifyOrderAccepted</span><span style="color: #666666">(</span>String orderID<span style="color: #666666">)</span> <span style="color: #666666">{</span>
-        mDemoServer<span style="color: #666666">.</span><span style="color: #7D9029">notifyOrderAccepted</span><span style="color: #666666">(</span>orderID<span style="color: #666666">);</span>
-    <span style="color: #666666">}</span>
+    <span style="color: #008800; font-weight: bold">public</span> UOrderTicket <span style="color: #0066BB; font-weight: bold">getOrder</span><span style="color: #333333">(</span>UProduct product<span style="color: #333333">,</span> UPayParams pp<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+        <span style="color: #008800; font-weight: bold">return</span> mDemoServer<span style="color: #333333">.</span><span style="color: #0000CC">getOrder</span><span style="color: #333333">(</span>product<span style="color: #333333">,</span> pp<span style="color: #333333">);</span>
+    <span style="color: #333333">}</span>
 
-    <span style="color: #008000; font-weight: bold">public</span> String <span style="color: #0000FF">getOrderState</span><span style="color: #666666">(</span>String orderID<span style="color: #666666">)</span> <span style="color: #666666">{</span>
-        <span style="color: #008000; font-weight: bold">return</span> mDemoServer<span style="color: #666666">.</span><span style="color: #7D9029">getOrderState</span><span style="color: #666666">(</span>orderID<span style="color: #666666">);</span>
-    <span style="color: #666666">}</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">notifyOrderAccepted</span><span style="color: #333333">(</span>String orderID<span style="color: #333333">,</span> String productID<span style="color: #333333">,</span> <span style="color: #333399; font-weight: bold">int</span> buyNum<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+        mDemoServer<span style="color: #333333">.</span><span style="color: #0000CC">notifyOrderAccepted</span><span style="color: #333333">(</span>orderID<span style="color: #333333">,</span> productID<span style="color: #333333">,</span> buyNum<span style="color: #333333">);</span>
+    <span style="color: #333333">}</span>
 
-    <span style="color: #008000; font-weight: bold">public</span> String <span style="color: #0000FF">deliverOrder</span><span style="color: #666666">(</span>String orderID<span style="color: #666666">,</span> String treasure<span style="color: #666666">)</span> <span style="color: #666666">{</span>
-        <span style="color: #008000; font-weight: bold">return</span> mDemoServer<span style="color: #666666">.</span><span style="color: #7D9029">deliverOrder</span><span style="color: #666666">(</span>orderID<span style="color: #666666">,</span> treasure<span style="color: #666666">);</span>
-    <span style="color: #666666">}</span>
+    <span style="color: #008800; font-weight: bold">public</span> String <span style="color: #0066BB; font-weight: bold">getOrderState</span><span style="color: #333333">(</span>String orderID<span style="color: #333333">,</span> String productID<span style="color: #333333">,</span> <span style="color: #333399; font-weight: bold">int</span> buyNum<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+        <span style="color: #008800; font-weight: bold">return</span> mDemoServer<span style="color: #333333">.</span><span style="color: #0000CC">getOrderState</span><span style="color: #333333">(</span>orderID<span style="color: #333333">,</span> productID<span style="color: #333333">,</span> buyNum<span style="color: #333333">);</span>
+    <span style="color: #333333">}</span>
 
-    <span style="color: #008000; font-weight: bold">public</span> List<span style="color: #666666">&lt;</span>UOrder<span style="color: #666666">&gt;</span> <span style="color: #0000FF">getOrderInfoList</span><span style="color: #666666">(</span>String filter<span style="color: #666666">)</span> <span style="color: #666666">{</span>
-        <span style="color: #008000; font-weight: bold">return</span> mDemoServer<span style="color: #666666">.</span><span style="color: #7D9029">getOrderInfoList</span><span style="color: #666666">(</span>filter<span style="color: #666666">);</span>
-    <span style="color: #666666">}</span>
+    <span style="color: #008800; font-weight: bold">public</span> String <span style="color: #0066BB; font-weight: bold">deliverOrder</span><span style="color: #333333">(</span>String orderID<span style="color: #333333">,</span> String productID<span style="color: #333333">,</span> <span style="color: #333399; font-weight: bold">int</span> buyNum<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+        <span style="color: #008800; font-weight: bold">return</span> mDemoServer<span style="color: #333333">.</span><span style="color: #0000CC">deliverOrder</span><span style="color: #333333">(</span>orderID<span style="color: #333333">,</span> productID<span style="color: #333333">,</span> buyNum<span style="color: #333333">);</span>
+    <span style="color: #333333">}</span>
 
-    <span style="color: #008000; font-weight: bold">public</span> String <span style="color: #0000FF">logout</span><span style="color: #666666">(</span>UAccount account<span style="color: #666666">)</span> <span style="color: #666666">{</span>
-        <span style="color: #008000; font-weight: bold">return</span> mDemoServer<span style="color: #666666">.</span><span style="color: #7D9029">logout</span><span style="color: #666666">(</span>account<span style="color: #666666">);</span>
-    <span style="color: #666666">}</span>
+    <span style="color: #008800; font-weight: bold">public</span> List<span style="color: #333333">&lt;</span>UOrder<span style="color: #333333">&gt;</span> <span style="color: #0066BB; font-weight: bold">getOrderInfoList</span><span style="color: #333333">(</span>String filter<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+        <span style="color: #008800; font-weight: bold">return</span> mDemoServer<span style="color: #333333">.</span><span style="color: #0000CC">getOrderInfoList</span><span style="color: #333333">(</span>filter<span style="color: #333333">);</span>
+    <span style="color: #333333">}</span>
 
-    <span style="color: #008000; font-weight: bold">public</span> String<span style="color: #666666">[]</span> <span style="color: #0000FF">getTreasureList</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
-        <span style="color: #008000; font-weight: bold">return</span> mDemoServer<span style="color: #666666">.</span><span style="color: #7D9029">getTreasureList</span><span style="color: #666666">();</span>
-    <span style="color: #666666">}</span>
+    <span style="color: #008800; font-weight: bold">public</span> String <span style="color: #0066BB; font-weight: bold">logout</span><span style="color: #333333">(</span>UAccount account<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+        <span style="color: #008800; font-weight: bold">return</span> mDemoServer<span style="color: #333333">.</span><span style="color: #0000CC">logout</span><span style="color: #333333">(</span>account<span style="color: #333333">);</span>
+    <span style="color: #333333">}</span>
 
-    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">int</span> <span style="color: #0000FF">incTreasure</span><span style="color: #666666">(</span>String name<span style="color: #666666">,</span> <span style="color: #B00040">int</span> count<span style="color: #666666">)</span> <span style="color: #666666">{</span>
-        <span style="color: #008000; font-weight: bold">return</span> mDemoServer<span style="color: #666666">.</span><span style="color: #7D9029">incTreasure</span><span style="color: #666666">(</span>name<span style="color: #666666">,</span> count<span style="color: #666666">);</span>
-    <span style="color: #666666">}</span>
+    <span style="color: #008800; font-weight: bold">public</span> String<span style="color: #333333">[]</span> <span style="color: #0066BB; font-weight: bold">getTreasureList</span><span style="color: #333333">(</span>String filter<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+        <span style="color: #008800; font-weight: bold">return</span> mDemoServer<span style="color: #333333">.</span><span style="color: #0000CC">getTreasureList</span><span style="color: #333333">(</span>filter<span style="color: #333333">);</span>
+    <span style="color: #333333">}</span>
 
-    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">boolean</span> <span style="color: #0000FF">startGame</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
-        <span style="color: #008000; font-weight: bold">return</span> mDemoServer<span style="color: #666666">.</span><span style="color: #7D9029">startGame</span><span style="color: #666666">();</span>
-    <span style="color: #666666">}</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">incTreasure</span><span style="color: #333333">(</span>String name<span style="color: #333333">,</span> <span style="color: #333399; font-weight: bold">int</span> count<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+        <span style="color: #008800; font-weight: bold">return</span> mDemoServer<span style="color: #333333">.</span><span style="color: #0000CC">incTreasure</span><span style="color: #333333">(</span>name<span style="color: #333333">,</span> count<span style="color: #333333">);</span>
+    <span style="color: #333333">}</span>
 
-    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">boolean</span> <span style="color: #0000FF">stopGame</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
-        <span style="color: #008000; font-weight: bold">return</span> mDemoServer<span style="color: #666666">.</span><span style="color: #7D9029">stopGame</span><span style="color: #666666">();</span>
-    <span style="color: #666666">}</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">boolean</span> <span style="color: #0066BB; font-weight: bold">startGame</span><span style="color: #333333">()</span> <span style="color: #333333">{</span>
+        <span style="color: #008800; font-weight: bold">return</span> mDemoServer<span style="color: #333333">.</span><span style="color: #0000CC">startGame</span><span style="color: #333333">();</span>
+    <span style="color: #333333">}</span>
 
-    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">boolean</span> <span style="color: #0000FF">log</span><span style="color: #666666">(</span><span style="color: #B00040">char</span> action<span style="color: #666666">,</span> String key<span style="color: #666666">,</span> <span style="color: #B00040">int</span> value<span style="color: #666666">,</span> String message<span style="color: #666666">,</span> <span style="color: #B00040">boolean</span> waitForResp<span style="color: #666666">)</span> <span style="color: #666666">{</span>
-        <span style="color: #008000; font-weight: bold">return</span> mDemoServer<span style="color: #666666">.</span><span style="color: #7D9029">log</span><span style="color: #666666">(</span>action<span style="color: #666666">,</span> key<span style="color: #666666">,</span> value<span style="color: #666666">,</span> message<span style="color: #666666">,</span> waitForResp<span style="color: #666666">);</span>
-    <span style="color: #666666">}</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">boolean</span> <span style="color: #0066BB; font-weight: bold">stopGame</span><span style="color: #333333">()</span> <span style="color: #333333">{</span>
+        <span style="color: #008800; font-weight: bold">return</span> mDemoServer<span style="color: #333333">.</span><span style="color: #0000CC">stopGame</span><span style="color: #333333">();</span>
+    <span style="color: #333333">}</span>
 
-    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">int</span> <span style="color: #0000FF">getLogValue</span><span style="color: #666666">(</span>String key<span style="color: #666666">,</span> <span style="color: #B00040">int</span> defaultValue<span style="color: #666666">)</span> <span style="color: #666666">{</span>
-        <span style="color: #008000; font-weight: bold">return</span> mDemoServer<span style="color: #666666">.</span><span style="color: #7D9029">getLogValue</span><span style="color: #666666">(</span>key<span style="color: #666666">,</span> defaultValue<span style="color: #666666">);</span>
-    <span style="color: #666666">}</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">boolean</span> <span style="color: #0066BB; font-weight: bold">log</span><span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">char</span> action<span style="color: #333333">,</span> String key<span style="color: #333333">,</span> <span style="color: #333399; font-weight: bold">int</span> value<span style="color: #333333">,</span> String message<span style="color: #333333">,</span> <span style="color: #333399; font-weight: bold">boolean</span> waitForResp<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+        <span style="color: #008800; font-weight: bold">return</span> mDemoServer<span style="color: #333333">.</span><span style="color: #0000CC">log</span><span style="color: #333333">(</span>action<span style="color: #333333">,</span> key<span style="color: #333333">,</span> value<span style="color: #333333">,</span> message<span style="color: #333333">,</span> waitForResp<span style="color: #333333">);</span>
+    <span style="color: #333333">}</span>
 
-<span style="color: #666666">}</span>
+    <span style="color: #008800; font-weight: bold">public</span> String <span style="color: #0066BB; font-weight: bold">getLogValue</span><span style="color: #333333">(</span>String key<span style="color: #333333">,</span> <span style="color: #333399; font-weight: bold">int</span> defaultValue<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+        <span style="color: #008800; font-weight: bold">return</span> mDemoServer<span style="color: #333333">.</span><span style="color: #0000CC">getLogValue</span><span style="color: #333333">(</span>key<span style="color: #333333">,</span> defaultValue<span style="color: #333333">);</span>
+    <span style="color: #333333">}</span>
+
+<span style="color: #333333">}</span>
 </pre></div>
